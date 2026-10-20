@@ -1,0 +1,10 @@
+{
+  "name": "on-thi-nha-kho-du-lieu",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Web ôn thi trắc nghiệm môn Nhà kho dữ liệu và tích hợp",
+  "scripts": {
+    "build": "node tools/merge_questions.js",
+    "start": "node tools/server.js"
+  }
+}
