@@ -1,7 +1,5 @@
 # Ôn thi Nhà Kho Dữ Liệu & Tích Hợp
 
-Web ôn thi trắc nghiệm cho môn Nhà kho dữ liệu và tích hợp (UEL, TS. Nguyễn Thôn Dã). Đây là trang tĩnh thuần HTML/CSS/JS nên deploy thẳng lên GitHub Pages, không cần cài gì.
-
 ## Có gì trong web
 
 - **1433 câu hỏi** chia theo 9 chương lý thuyết và 1 phần thực hành (BigQuery, dbt, Medallion).
