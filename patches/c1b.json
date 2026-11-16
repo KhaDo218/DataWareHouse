@@ -1,0 +1,527 @@
+{
+ "chunk": "c1b",
+ "items": [
+  {
+   "id": "c1-q99",
+   "explanation": "Data Fabric kết nối mọi nguồn dữ liệu rời rạc thành một thể thống nhất (\"tấm vải dữ liệu\").\n• Mục tiêu cuối cùng là xóa bỏ hoàn toàn các Data Silos trong doanh nghiệp\n• Không bắt dữ liệu quay về On-Premise, không tăng bản sao, không chỉ phục vụ OLTP"
+  },
+  {
+   "id": "c1-q100",
+   "explanation": "Abstraction Layer che giấu sự phức tạp của hạ tầng bên dưới để người dùng cuối chỉ làm việc qua một cổng truy cập thống nhất.\n• Nhờ đó người dùng không phải học chi tiết hạ tầng, cũng không bị tăng thêm độ phức tạp",
+   "options": [
+    "Bắt người dùng cuối tự cấu hình chi tiết hạ tầng",
+    "Tăng thêm độ phức tạp mà người dùng cuối phải xử lý",
+    "Chỉ cho phép truy cập dữ liệu On-Premise, không hỗ trợ Cloud",
+    "Che giấu sự phức tạp của hạ tầng với người dùng cuối"
+   ]
+  },
+  {
+   "id": "c1-q101",
+   "explanation": "Data Catalog là thư viện chứa thông tin và vị trí của mọi nguồn dữ liệu trong công ty.\n• Cung cấp dữ liệu dạng API là Data API Layer; chạy Federated Query là Data Virtualization Engine; mã hóa khi truyền là In-Transit"
+  },
+  {
+   "id": "c1-q102",
+   "explanation": "Data Virtualization Engine là công cụ cho phép chạy truy vấn liên kết (Federated Query) trên nhiều nguồn dữ liệu mà không cần sao chép chúng.\n• Gán nhãn PII thuộc về Metadata; nén dữ liệu thuộc tối ưu chi phí lưu trữ",
+   "options": [
+    "Xóa các bản sao dữ liệu trùng lặp để tiết kiệm chi phí lưu trữ",
+    "Tự động gán nhãn và phân loại dữ liệu nhạy cảm PII",
+    "Chạy truy vấn liên kết trên nhiều nguồn dữ liệu",
+    "Nén dữ liệu trước khi lưu để giảm chi phí lưu trữ"
+   ]
+  },
+  {
+   "id": "c1-q103",
+   "explanation": "Active Metadata nghĩa là Metadata không còn là thông tin tĩnh mà là thực thể có khả năng hành động: tự khám phá, tự áp chính sách, tự vẽ lineage.\n• Nhập tay, cập nhật mỗi năm một lần hay chỉ lưu thông tin kỹ thuật đều là metadata tĩnh"
+  },
+  {
+   "id": "c1-q104",
+   "explanation": "Knowledge Graph dựng bản đồ quan hệ ngữ nghĩa giữa các thực thể kinh doanh để hệ thống hiểu ngữ cảnh dữ liệu.\n• Vẽ biểu đồ doanh thu, lưu dữ liệu thô hay nén dữ liệu là việc khác, không thuộc Knowledge Graph",
+   "options": [
+    "Vẽ bản đồ quan hệ ngữ nghĩa giữa các thực thể kinh doanh",
+    "Vẽ biểu đồ doanh thu hằng quý cho phòng kinh doanh",
+    "Lưu trữ dữ liệu thô dạng file trong Metadata Lake",
+    "Nén dữ liệu Metadata trước khi ghi xuống lưu trữ"
+   ]
+  },
+  {
+   "id": "c1-q105",
+   "explanation": "Lineage tự động vẽ bản đồ đường đi của dữ liệu từ nguồn đến báo cáo, giúp truy vết khi số liệu sai.\n• Mã hóa, xóa dữ liệu cũ hay tạo bản sao thử nghiệm không phải chức năng của Lineage",
+   "options": [
+    "Mã hóa dữ liệu ngay khi ghi xuống lưu trữ",
+    "Vẽ bản đồ đường đi của dữ liệu từ nguồn đến báo cáo",
+    "Tự động xóa dữ liệu cũ sau một khoảng thời gian",
+    "Tạo bản sao dữ liệu cho môi trường thử nghiệm"
+   ]
+  },
+  {
+   "id": "c1-q106",
+   "explanation": "Gán nhãn thông minh tự động phân loại dữ liệu nhạy cảm (PII) dựa trên nội dung, nhờ đó áp đúng chính sách bảo mật.\n• Đặt tên theo bảng chữ cái, sắp xếp file hay xóa cột không sử dụng đều không liên quan",
+   "options": [
+    "Đặt tên bảng và cột theo thứ tự bảng chữ cái",
+    "Sắp xếp các file theo dung lượng lưu trữ tăng dần",
+    "Tự động phân loại dữ liệu nhạy cảm (PII) theo nội dung",
+    "Xóa các cột không dùng để giảm dung lượng bảng"
+   ]
+  },
+  {
+   "id": "c1-q107",
+   "explanation": "Thách thức khi triển khai Data Fabric:\n• Độ phức tạp: cần chuyên môn cao để thiết lập lớp Metadata\n• Hiệu năng: truy vấn ảo hóa có thể chậm hơn dữ liệu đã nạp sẵn\n• Phụ thuộc lớn vào chất lượng Metadata\n• Chi phí công cụ rất đắt, hoàn toàn không miễn phí"
+  },
+  {
+   "id": "c1-q108",
+   "explanation": "Data Mesh chuyển sang mô hình phi tập trung: phân chia trách nhiệm theo miền nghiệp vụ, chuyển quyền quyết định từ IT sang đơn vị kinh doanh.\n• Không tập trung hóa về IT, không xóa bỏ phòng ban, không giới hạn ở dữ liệu có cấu trúc"
+  },
+  {
+   "id": "c1-q109",
+   "explanation": "Domain Ownership: các đơn vị nghiệp vụ sở hữu và vận hành dữ liệu của chính mình, tự chịu trách nhiệm về chất lượng dữ liệu.\n• IT trung tâm hay nhà cung cấp Cloud không đứng ra sở hữu dữ liệu doanh nghiệp",
+   "options": [
+    "Đội IT trung tâm sở hữu và vận hành toàn bộ dữ liệu",
+    "Không đơn vị nào chịu trách nhiệm về chất lượng dữ liệu",
+    "Chỉ nhà cung cấp Cloud sở hữu dữ liệu doanh nghiệp",
+    "Các đơn vị nghiệp vụ sở hữu và vận hành dữ liệu của mình"
+   ]
+  },
+  {
+   "id": "c1-q110",
+   "explanation": "Data as a Product: dữ liệu được cung cấp cho người dùng khác như một sản phẩm thương mại, có cam kết chất lượng và dễ tích hợp.\n• Không phải chỉ dùng nội bộ một phòng ban, cũng không phải bán ra thị trường",
+   "options": [
+    "Dữ liệu được cung cấp cho người dùng khác như một sản phẩm",
+    "Dữ liệu chỉ dùng nội bộ trong một phòng ban duy nhất",
+    "Dữ liệu không cần cam kết chất lượng hay SLA rõ ràng",
+    "Dữ liệu được bán ra thị trường bên ngoài doanh nghiệp"
+   ]
+  },
+  {
+   "id": "c1-q111",
+   "explanation": "Federated Governance: quản trị chung bằng các tiêu chuẩn kết nối và bảo mật thống nhất, mỗi miền tự vận hành nhưng tuân thủ chuẩn chung.\n• Không phải mỗi miền đặt chuẩn riêng, cũng không phải IT trung tâm kiểm soát mọi quyết định"
+  },
+  {
+   "id": "c1-q112",
+   "explanation": "Self-serve Platform: IT xây dựng nền tảng dùng chung để các miền tự triển khai sản phẩm dữ liệu, không phải tự dựng hạ tầng riêng từ đầu.\n• Vẫn cần đội nền tảng, nhưng người dùng không phải tự viết mã hạ tầng"
+  },
+  {
+   "id": "c1-q113",
+   "explanation": "Dữ liệu như một sản phẩm cần:\n• Discoverable: tìm thấy qua công cụ tìm kiếm\n• Trustworthy: sạch, cập nhật đúng hạn, chính xác cao\n• Interoperable: dùng định dạng chuẩn để dễ tích hợp\n• Bị khóa cứng là trái với Evolvable (đổi phiên bản không phá hệ thống cũ)"
+  },
+  {
+   "id": "c1-q114",
+   "explanation": "Thách thức của Data Mesh:\n• Đơn vị kinh doanh thường thiếu kỹ năng Data Engineering\n• Trùng lặp nỗ lực khi các miền xây dựng lại thứ giống nhau\n• Xung đột khi hai miền định nghĩa cùng chỉ số khác nhau\n• Vẫn cần đội Platform giỏi hỗ trợ các miền tự phục vụ"
+  },
+  {
+   "id": "c1-q115",
+   "explanation": "Lakehouse lưu trên Object Storage giá rẻ thay vì đĩa cứng Warehouse đắt tiền nên chi phí lưu trữ giảm mạnh.\n• Không có chuyện không lưu dữ liệu, nén về 0 byte hay chỉ giữ trong RAM",
+   "options": [
+    "Dùng Object Storage giá rẻ thay vì đĩa cứng đắt tiền",
+    "Không lưu trữ dữ liệu thường xuyên trên đĩa cứng",
+    "Nén toàn bộ dữ liệu xuống còn rất ít dung lượng",
+    "Chỉ lưu dữ liệu trên bộ nhớ RAM của cụm tính toán"
+   ]
+  },
+  {
+   "id": "c1-q116",
+   "explanation": "Lakehouse là một hệ thống duy nhất phục vụ cả BI, Data Science và Machine Learning.\n• Vì hợp nhất lưu trữ nên nhiều loại tác vụ dùng chung một nguồn dữ liệu, không chỉ BI hay chỉ ML",
+   "options": [
+    "Chỉ phục vụ báo cáo BI, không huấn luyện mô hình",
+    "Chỉ phục vụ Machine Learning, không có báo cáo BI",
+    "Một hệ thống duy nhất cho BI, Data Science và ML",
+    "Chỉ xử lý giao dịch OLTP, không phân tích lịch sử"
+   ]
+  },
+  {
+   "id": "c1-q117",
+   "explanation": "Slide nêu các engine tính toán hiện đại (Spark, Photon) cho tốc độ tương đương SQL.\n• MySQL/PostgreSQL là RDBMS OLTP; Hadoop MapReduce là thế hệ cũ; Excel/Access không phải engine Lakehouse"
+  },
+  {
+   "id": "c1-q118",
+   "explanation": "Delta Lake nổi bật với Time Travel và ACID cho dữ liệu trên Lake, tức giao dịch tin cậy ngay trên Object Storage.\n• Nó vẫn hỗ trợ giao dịch và không chỉ dùng cho OLTP hay dữ liệu phi cấu trúc"
+  },
+  {
+   "id": "c1-q119",
+   "explanation": "Apache Hudi được tối ưu cho nạp dữ liệu Streaming và Upsert liên tục.\n• Đọc dữ liệu tĩnh, vẽ báo cáo hay mã hóa dữ liệu nhạy cảm không phải bài toán Hudi nhắm tới",
+   "options": [
+    "Chỉ đọc dữ liệu tĩnh một lần duy nhất",
+    "Nạp dữ liệu Streaming và Upsert liên tục",
+    "Tạo báo cáo BI và biểu đồ tổng hợp",
+    "Mã hóa dữ liệu nhạy cảm khi lưu trữ"
+   ]
+  },
+  {
+   "id": "c1-q120",
+   "explanation": "Schema Evolution tự động điều chỉnh cấu trúc bảng khi nguồn thay đổi mà không cần nạp lại dữ liệu.\n• Không phải xóa dữ liệu khi đổi cấu trúc, cũng không phải cố định schema vĩnh viễn",
+   "options": [
+    "Xóa toàn bộ dữ liệu khi đổi cấu trúc",
+    "Chỉ cho phép một cấu trúc cố định vĩnh viễn",
+    "Tự động điều chỉnh cấu trúc bảng, không cần nạp lại",
+    "Không cho phép thay đổi cấu trúc bảng"
+   ]
+  },
+  {
+   "id": "c1-q121",
+   "explanation": "Bronze lưu dữ liệu thô, giữ nguyên định dạng từ nguồn để có thể chạy lại toàn bộ quy trình.\n• Làm sạch và chuẩn hóa là tầng Silver; tổng hợp cho báo cáo là tầng Gold"
+  },
+  {
+   "id": "c1-q122",
+   "explanation": "Gold chứa dữ liệu tổng hợp (Aggregated), sẵn sàng cho báo cáo kinh doanh và AI.\n• Dữ liệu thô là Bronze; dữ liệu đã làm sạch là Silver; dữ liệu lỗi hay dữ liệu tạm không phải một tầng của Medallion",
+   "options": [
+    "Dữ liệu tổng hợp, sẵn sàng cho báo cáo và AI",
+    "Dữ liệu thô chưa qua xử lý, giữ nguyên từ nguồn",
+    "Dữ liệu lỗi cần loại bỏ trước khi phân tích",
+    "Dữ liệu tạm thời trong quá trình nạp dữ liệu"
+   ]
+  },
+  {
+   "id": "c1-q123",
+   "explanation": "Medallion có luồng dữ liệu một chiều: Bronze (thô) → Silver (làm sạch) → Gold (tổng hợp).\n• Đảo thứ tự hoặc nhảy cóc Bronze → Gold đều sai vì bỏ qua bước kiểm soát chất lượng ở Silver",
+   "options": [
+    "Gold (tổng hợp) → Silver (làm sạch) → Bronze (thô)",
+    "Silver (làm sạch) → Bronze (thô) → Gold (tổng hợp)",
+    "Bronze (thô) → Silver (làm sạch) → Gold (tổng hợp)",
+    "Bronze (thô) → Gold (tổng hợp) → Silver (làm sạch)"
+   ]
+  },
+  {
+   "id": "c1-q124",
+   "explanation": "Data Lakehouse tập trung vào Hiệu năng và Hợp nhất hạ tầng kỹ thuật.\n• Kết nối và ảo hóa là mục tiêu của Data Fabric; con người và tổ chức là của Data Mesh"
+  },
+  {
+   "id": "c1-q125",
+   "explanation": "Data Mesh tập trung vào Con người và Tổ chức (quy trình vận hành), được dẫn dắt bởi các phòng ban thông qua sự tự chủ.\n• Ảo hóa bằng Metadata là Fabric; tối ưu lưu trữ và tính toán là Lakehouse"
+  },
+  {
+   "id": "c1-q126",
+   "explanation": "Tiêu chí cho lãnh đạo IS:\n• Tổ chức nhỏ chọn Lakehouse, tổ chức lớn cân nhắc Mesh\n• Ưu tiên hiệu năng chọn Lakehouse, ưu tiên kết nối chọn Fabric\n• Fabric mạnh nhất trong gắn kết hệ thống rời rạc\n• Chi phí quản lý thấp nhất là Lakehouse, không phải Mesh"
+  },
+  {
+   "id": "c1-q127",
+   "explanation": "Object Storage không phân cấp thư mục: dữ liệu nằm trong không gian phẳng (flat namespace) và mỗi object định danh bằng Key duy nhất.\n• Cây thư mục nhiều tầng là đặc trưng của lưu trữ truyền thống"
+  },
+  {
+   "id": "c1-q128",
+   "explanation": "S3 Select lọc dữ liệu ngay tại tầng lưu trữ nên chỉ phần dữ liệu cần thiết được trả về, giúp tăng tốc độ.\n• Sao chép vùng, mã hóa khi truyền hay tạo bản sao không tốn dung lượng là tính năng khác của S3"
+  },
+  {
+   "id": "c1-q129",
+   "explanation": "Bảo mật Object Storage gồm:\n• Mã hóa At-Rest khi ghi đĩa và In-Transit bằng TLS\n• IAM Policies và Bucket Policies kiểm soát quyền\n• Object Lock ngăn xóa/sửa trong thời gian quy định\n• Công khai dữ liệu cho mọi người là lỗ hổng, không phải biện pháp"
+  },
+  {
+   "id": "c1-q130",
+   "explanation": "Predicate Pushdown chỉ đưa những cột và dòng cần thiết từ ổ cứng về CPU, nhờ đó giảm lượng dữ liệu truyền qua mạng.\n• Nén trước khi truyền hay tắt kết nối khi rảnh không phải cơ chế này"
+  },
+  {
+   "id": "b-c1-q1",
+   "explanation": "RDBMS là hệ quản trị CSDL quan hệ, thiết kế để xử lý giao dịch đơn lẻ có cấu trúc chặt chẽ (OLTP). OLAP, Data Lake và huấn luyện ML là đặc trưng của các thế hệ kiến trúc sau."
+  },
+  {
+   "id": "b-c1-q2",
+   "explanation": "Mốc thời gian: 1980s – RDBMS (OLTP); 1990s – Data Warehouse (OLAP); 2010s – Data Lake; 2020s – Lakehouse; hiện nay – AI-Native."
+  },
+  {
+   "id": "b-c1-q3",
+   "explanation": "Iceberg và Delta Lake là các Open Table Formats trở thành tiêu chuẩn kết nối trong kiến trúc AI-Native. Parquet/ORC là định dạng nén; JSON/VARIANT là kiểu dữ liệu; Cypher/RPC là ngôn ngữ/giao thức truy vấn."
+  },
+  {
+   "id": "b-c1-q4",
+   "explanation": "Scale-out = mở rộng theo chiều ngang (thêm máy chủ); Scale-up = nâng cấp một máy chủ. RDBMS truyền thống khó và tốn kém khi Scale-out.",
+   "options": [
+    "Cả hai đều là nâng cấp một máy chủ, chỉ khác về tốc độ",
+    "Scale-out là nâng cấp một máy chủ duy nhất; Scale-up là thêm nhiều máy chủ",
+    "Scale-out là mở rộng ngang (thêm máy chủ); Scale-up là nâng cấp một máy chủ",
+    "Cả hai đều là thêm nhiều máy chủ, chỉ khác về chi phí"
+   ]
+  },
+  {
+   "id": "b-c1-q5",
+   "explanation": "Schema-on-write yêu cầu định nghĩa schema nghiêm ngặt TRƯỚC khi nạp dữ liệu, khiến việc thay đổi chậm. Ngược lại Schema-on-read (định nghĩa lúc truy vấn) là đặc trưng của kiến trúc hiện đại."
+  },
+  {
+   "id": "b-c1-q6",
+   "explanation": "Ràng buộc Compute–Storage nghĩa là CPU và đĩa gắn chặt → không thể nâng CPU mà không tăng đĩa. Việc tách rời chúng độc lập là mô hình mới (Decoupled). Data Silo và chi phí bản quyền là hạn chế khác.",
+   "options": [
+    "Dữ liệu bị phân mảnh thành nhiều kho rời rạc khó tích hợp",
+    "CPU và đĩa đặt độc lập nên mở rộng riêng rất linh hoạt",
+    "Chi phí bản quyền phần mềm RDBMS quá cao so với Cloud",
+    "Không thể nâng CPU mà không tăng luôn dung lượng đĩa"
+   ]
+  },
+  {
+   "id": "b-c1-q7",
+   "explanation": "Native Vector = lưu trữ/truy vấn trực tiếp Vector Embeddings cho LLMs. Các đặc điểm khác lần lượt là Quản trị Metadata tự động, Feature Store, và Kiến trúc Serverless."
+  },
+  {
+   "id": "b-c1-q8",
+   "explanation": "Elasticity = tăng/giảm tài nguyên tính toán nhanh theo nhu cầu. Các khái niệm dễ lẫn: Zero Management (giảm cấu hình/bảo trì), Pay-as-you-go (trả theo mức dùng), High Concurrency (nhiều người dùng đồng thời)."
+  },
+  {
+   "id": "b-c1-q9",
+   "explanation": "Loại bỏ CAPEX = không cần đầu tư lớn ban đầu vào phần cứng. Cập nhật liên tục, tối ưu truy vấn tự động và phục hồi thảm họa (DR) là các lợi thế khác."
+  },
+  {
+   "id": "b-c1-q11",
+   "explanation": "Google BigQuery = Serverless + AI/ML của Google. Azure Synapse hợp nhất SQL/Spark; MotherDuck là Lakehouse 'nhẹ' dựa trên DuckDB."
+  },
+  {
+   "id": "b-c1-q12",
+   "explanation": "Auto-suspend = tắt cụm tính toán khi không có truy vấn. Phân tầng lưu trữ (Archive), Caching, và Budget Alerts là các kỹ thuật kiểm soát chi phí khác."
+  },
+  {
+   "id": "b-c1-q13",
+   "explanation": "Data Fabric dùng Virtualization + Zero-copy: truy cập tại nguồn, không sao chép. Gom vào một nền tảng là Lakehouse; phân quyền theo domain là Data Mesh; Bronze/Silver/Gold là Medallion.",
+   "options": [
+    "Truy cập dữ liệu ngay tại nguồn theo cơ chế Zero-copy",
+    "Gom toàn bộ dữ liệu vào một nền tảng lưu trữ hợp nhất",
+    "Chia dữ liệu thành ba tầng Bronze–Silver–Gold",
+    "Phân quyền sở hữu dữ liệu về từng domain nghiệp vụ"
+   ]
+  },
+  {
+   "id": "b-c1-q14",
+   "explanation": "Data Fabric nạp dữ liệu qua hai kênh: Ingest real time (thời gian thực) và Ingest batch (theo lô), trước khi Store → Transform → Model → Visualize."
+  },
+  {
+   "id": "b-c1-q15",
+   "explanation": "Data Mesh: 'Data as a Product', SLA từng domain, Federated Governance. Bronze/Silver/Gold là Lakehouse; Data Catalog + Virtualization là Data Fabric."
+  },
+  {
+   "id": "b-c1-q16",
+   "explanation": "Data Fabric phù hợp khi dữ liệu phân tán rộng, khó di chuyển vì pháp lý, cần tích hợp Legacy + Cloud qua lớp Metadata ảo. Đơn giản hóa/Greenfield → Lakehouse; tự chủ theo phòng ban → Data Mesh.",
+   "options": [
+    "Khi tổ chức quá lớn, muốn thúc đẩy văn hóa tự chủ dữ liệu tại mọi đơn vị kinh doanh",
+    "Khi doanh nghiệp quy mô trung bình muốn đơn giản hóa hệ thống và ưu tiên AI/ML trên một Cloud",
+    "Khi dữ liệu phân tán rộng, không thể di chuyển do pháp lý và cần tích hợp Legacy với Cloud",
+    "Khi cần hiệu năng SQL cao và tính ACID cho dự án mới hoàn toàn (Greenfield)"
+   ]
+  },
+  {
+   "id": "b-c1-q17",
+   "explanation": "Theo bảng quyết định cho lãnh đạo IS: Lakehouse thường có chi phí quản lý thấp nhất; Mesh dẫn đầu về tốc độ đổi mới; Fabric mạnh về kết nối đa nguồn."
+  },
+  {
+   "id": "b-c1-q18",
+   "explanation": "Object Storage quản lý dữ liệu dưới dạng object trong flat namespace, mỗi object có Key duy nhất, thay vì cấu trúc thư mục phân cấp truyền thống."
+  },
+  {
+   "id": "b-c1-q19",
+   "explanation": "S3: tính năng S3 Select (lọc tại tầng lưu trữ). ADLS Gen2: tích hợp sâu Azure Active Directory + cấu trúc thư mục phân cấp thông minh. Cả hai đều hỗ trợ Spark, dbt và Global Reach.",
+   "options": [
+    "S3 có S3 Select lọc dữ liệu tại tầng lưu trữ; ADLS Gen2 tích hợp sâu Azure AD",
+    "S3 lưu theo thư mục phân cấp; ADLS Gen2 lưu theo không gian phẳng tuyệt đối",
+    "S3 không hỗ trợ Global Reach; ADLS Gen2 sao chép tự động sang vùng khác",
+    "S3 chỉ hỗ trợ Spark; ADLS Gen2 chỉ hỗ trợ dbt mà không chạy được Spark"
+   ]
+  },
+  {
+   "id": "b-c1-q20",
+   "explanation": "Archive/Glacier: phí cực rẻ, lấy ra chậm, cho dữ liệu lưu lâu dài. Hot = truy cập hàng ngày (phí cao); Cool = ít dùng (phí thấp hơn). Intelligent Tiering là cơ chế tự động di chuyển giữa các tầng."
+  },
+  {
+   "id": "b-c1-q21",
+   "explanation": "Intelligent Tiering dùng AI theo dõi thói quen truy cập để di chuyển tối ưu. Lifecycle Policies mới là chuyển tầng sau thời gian cố định."
+  },
+  {
+   "id": "b-c1-q22",
+   "explanation": "Object Lock ngăn xóa/sửa trong thời gian quy định (đi kèm Versioning). Logging&Monitoring ghi truy cập; IAM Policies kiểm soát quyền; TLS bảo vệ In-Transit."
+  },
+  {
+   "id": "b-c1-q23",
+   "explanation": "Decoupled: Compute và Storage đặt độc lập, nối qua mạng tốc độ cao, mở rộng riêng biệt. Gắn chặt trên cùng máy chủ là mô hình cũ (Coupled)."
+  },
+  {
+   "id": "b-c1-q24",
+   "explanation": "Predicate Pushdown chỉ kéo cột/dòng cần thiết từ ổ cứng về CPU → giảm tải mạng. Đây là kỹ thuật tối ưu quan trọng trong kiến trúc tách rời.",
+   "options": [
+    "Đưa toàn bộ bảng dữ liệu về CPU rồi mới lọc",
+    "Sao chép dữ liệu ra nhiều vùng địa lý trước khi truy vấn",
+    "Đẩy toàn bộ tính toán xuống tầng lưu trữ",
+    "Chỉ đưa cột và dòng cần thiết từ ổ cứng về CPU để giảm tải mạng"
+   ]
+  },
+  {
+   "id": "b-c1-q25",
+   "explanation": "Snowflake: Centralized Storage + Multi-cluster Compute (nhiều Virtual Warehouses độc lập) → truy vấn phòng này không làm chậm phòng khác, không tranh chấp tài nguyên.",
+   "options": [
+    "Sao chép toàn bộ dữ liệu sang mỗi phòng ban để tránh tranh chấp",
+    "Centralized Storage nhưng tạo nhiều Virtual Warehouses độc lập",
+    "Chỉ cho phép một cụm tính toán truy cập dữ liệu tại một thời điểm",
+    "Gộp CPU và ổ cứng vào một cụm duy nhất để tối ưu độ trễ"
+   ]
+  },
+  {
+   "id": "b-c1-q26",
+   "explanation": "Zero-copy Cloning tạo bản sao logic cho thử nghiệm KHÔNG tốn thêm dung lượng đĩa; Data Sharing chia sẻ bằng cấp quyền truy cập Storage, không sao chép."
+  },
+  {
+   "id": "bs-c1-1",
+   "explanation": "Hot = truy cập hằng ngày, phí lưu trữ cao. Cool = ít dùng, phí thấp. Archive/Glacier = lưu lâu dài (pháp lý), cực rẻ nhưng lấy ra lâu."
+  },
+  {
+   "id": "bs-c1-2",
+   "explanation": "Lifecycle Policies chuyển dữ liệu theo QUY TẮC THỜI GIAN. Theo dõi thói quen truy cập bằng AI là Intelligent Tiering; chống xóa/sửa là Object Lock; lưu bản sao là Versioning."
+  },
+  {
+   "id": "bs-c1-3",
+   "explanation": "Bucket Policies áp quyền ở cấp cả container. Quyền theo danh tính người dùng là IAM Policies; mã hóa khi ghi đĩa là At-Rest; ghi nhận truy cập là Logging & Monitoring."
+  },
+  {
+   "id": "bs-c1-4",
+   "explanation": "Slide liệt kê: mã hóa At-Rest, In-Transit (TLS), IAM Policies, Bucket Policies, Versioning, Object Lock, Logging & Monitoring. Auto-suspend là chiến lược quản lý chi phí."
+  },
+  {
+   "id": "bs-c1-5",
+   "explanation": "Mã hóa In-Transit dùng giao thức TLS để bảo vệ dữ liệu khi di chuyển qua mạng.\n• FTP truyền dữ liệu không mã hóa; SHA-256 là hàm băm chứ không phải giao thức truyền; RPC là giao thức gọi hàm từ xa"
+  },
+  {
+   "id": "bs-c1-6",
+   "explanation": "ADLS Gen2 = 'phân cấp thông minh': Object Storage + cấu trúc thư mục, tích hợp sâu với Azure Active Directory. S3 Select là tính năng của Amazon S3."
+  },
+  {
+   "id": "bs-c1-7",
+   "explanation": "Slide: 'ADLS Security: Tích hợp cực sâu với Azure Active Directory để quản lý quyền chi tiết'."
+  },
+  {
+   "id": "bs-c1-8",
+   "explanation": "Slide: 'Sự lựa chọn thường phụ thuộc vào hệ sinh thái đám mây chính mà doanh nghiệp đang dùng'."
+  },
+  {
+   "id": "bs-c1-9",
+   "explanation": "Ephemeral compute: máy ảo chỉ bật lên cho một tác vụ, xong thì tự hủy — dữ liệu vẫn an toàn ở tầng lưu trữ trung tâm.",
+   "options": [
+    "Cụm máy chủ chạy liên tục 24/7 để giữ dữ liệu",
+    "Bộ nhớ đệm (Cache) của CPU khi tính toán",
+    "Tầng lưu trữ trung tâm dạng Parquet/Iceberg",
+    "Máy ảo bật lên chỉ để chạy một tác vụ rồi tự hủy"
+   ]
+  },
+  {
+   "id": "bs-c1-10",
+   "explanation": "Tầng lưu trữ trung tâm của mô hình tách rời thường là S3/ADLS/GCS với Parquet/Iceberg; Compute truy cập qua mạng tốc độ cao (100Gbps+)."
+  },
+  {
+   "id": "bs-c1-11",
+   "explanation": "Decoupled cho phép mở rộng độc lập, linh hoạt, tối ưu chi phí, tính sẵn sàng cao. Nâng cấp CPU kèm ổ cứng là nhược điểm của mô hình cũ (Coupled)."
+  },
+  {
+   "id": "bs-c1-12",
+   "explanation": "Multi-cluster Compute: nhiều Virtual Warehouse độc lập → không tranh chấp tài nguyên (truy vấn của kế toán không làm chậm báo cáo của CEO).",
+   "options": [
+    "Gộp mọi truy vấn vào một cụm duy nhất để tiết kiệm chi phí",
+    "Nhân bản dữ liệu sang nhiều vùng địa lý để giảm độ trễ",
+    "Nhiều Virtual Warehouses độc lập, không tranh chấp tài nguyên",
+    "Nén dữ liệu thành nhiều cụm Parquet để giảm dung lượng"
+   ]
+  },
+  {
+   "id": "bs-c1-13",
+   "explanation": "Global Services Layer là lớp điều phối chung giữa Compute và Storage; Centralized Storage mới là kho chứa duy nhất.",
+   "options": [
+    "Cụm máy ảo riêng dành cho phòng ban tài chính",
+    "Lớp quản trị chung điều phối kết nối Compute và Storage",
+    "Công cụ chia sẻ dữ liệu an toàn với đối tác",
+    "Kho chứa dữ liệu duy nhất trên Cloud Storage"
+   ]
+  },
+  {
+   "id": "bs-c1-14",
+   "explanation": "Slide: 'Khả năng Scaling tức thì: Nâng cấp từ size Small lên size 4XL chỉ trong vòng 1 giây'."
+  },
+  {
+   "id": "bs-c1-15",
+   "explanation": "Data Sharing của Snowflake: cấp quyền truy cập trực tiếp vào Storage, không sinh bản sao."
+  },
+  {
+   "id": "bs-c1-16",
+   "explanation": "Lợi ích: CAPEX→OPEX, đáp ứng đột biến, Sandbox không rủi ro, thuê GPU riêng, đơn giản hóa hạ tầng... Việc xếp hàng chờ tài nguyên là vấn đề được loại bỏ."
+  },
+  {
+   "id": "bs-c1-17",
+   "explanation": "Lakehouse hợp nhất lưu trữ nên không còn các bản sao lệch nhau giữa Lake và Warehouse → một nguồn sự thật duy nhất."
+  },
+  {
+   "id": "bs-c1-18",
+   "explanation": "Hội tụ: SSOT, giảm chi phí vận hành, tối ưu nhân sự, sẵn sàng cho AI, tương thích SQL, hiệu năng cao, xử lý hàng Petabyte."
+  },
+  {
+   "id": "bs-c1-19",
+   "explanation": "Iceberg: hiệu năng cao, schema linh hoạt. Hudi: Streaming + Upsert liên tục. Delta Lake: Time Travel + ACID."
+  },
+  {
+   "id": "bs-c1-20",
+   "explanation": "Concurrent Writes = ghi đồng thời an toàn. Truy vấn quá khứ là Time Travel; tự điều chỉnh cấu trúc là Schema Evolution."
+  },
+  {
+   "id": "bs-c1-21",
+   "explanation": "Slide: 'Tái sử dụng cao: Tầng Silver phục vụ cho Data Science, tầng Gold phục vụ cho BI'."
+  },
+  {
+   "id": "bs-c1-22",
+   "explanation": "Luồng một chiều Bronze → Silver → Gold; không ghi ngược về Bronze (Bronze giữ dữ liệu thô bất biến)."
+  },
+  {
+   "id": "bs-c1-23",
+   "explanation": "Đây đều là tiêu chí 'Khi nào nên chọn Lakehouse': Greenfield, ưu tiên AI/ML, cần ACID, hiệu năng SQL, dữ liệu chưa bị phân tán quá nặng."
+  },
+  {
+   "id": "bs-c1-24",
+   "explanation": "Fabric phù hợp khi dữ liệu phân tán và không thể di chuyển (pháp lý), cần tích hợp Legacy + Cloud qua lớp Metadata ảo (Virtualization, Zero-copy)."
+  },
+  {
+   "id": "bs-c1-25",
+   "explanation": "Mesh: tổ chức quá lớn, thúc đẩy tự chủ tại đơn vị kinh doanh, ưu tiên tốc độ ra mắt sản phẩm dữ liệu của các bộ phận."
+  },
+  {
+   "id": "bs-c1-26",
+   "explanation": "Tiêu chí quy mô: tổ chức nhỏ chọn Lakehouse, tổ chức lớn cân nhắc Mesh. Lakehouse thường có chi phí quản lý thấp nhất; Fabric mạnh nhất về gắn kết hệ thống rời rạc."
+  },
+  {
+   "id": "bs-c1-27",
+   "explanation": "Fabric = tiếp cận IT (ảo hóa); Mesh = tiếp cận Kinh doanh (tự chủ); Lakehouse = tiếp cận Hạ tầng."
+  },
+  {
+   "id": "bs-c1-28",
+   "explanation": "Slide: 'Sự giao thoa: Một doanh nghiệp có thể dùng Lakehouse làm nền tảng cho Data Mesh'."
+  },
+  {
+   "id": "bs-c1-29",
+   "explanation": "Ưu điểm: linh hoạt, tốc độ, quản trị tập trung. Ngược lại, truy vấn ảo hóa CÓ THỂ CHẬM hơn dữ liệu nạp sẵn — đó là một thách thức."
+  },
+  {
+   "id": "bs-c1-30",
+   "explanation": "Data API Layer = dữ liệu dưới dạng API chuẩn hóa. Massive Metadata Lake lưu Metadata; Augmented Data Integration dùng AI ánh xạ; Data Virtualization Engine chạy Federated Query."
+  },
+  {
+   "id": "bs-c1-31",
+   "explanation": "Augmented Data Integration = AI hỗ trợ mapping/tích hợp. Data Catalog là thư viện vị trí nguồn dữ liệu."
+  },
+  {
+   "id": "bs-c1-32",
+   "explanation": "Auto-discovery nhận diện bảng mới + quan hệ. Áp quy tắc bảo mật theo loại dữ liệu là 'Chính sách động'; vẽ đường đi dữ liệu là Lineage."
+  },
+  {
+   "id": "bs-c1-33",
+   "explanation": "Discoverability = tìm kiếm qua Catalog chung. SLA là Trustworthiness; kết nối liên miền là Interoperability."
+  },
+  {
+   "id": "bs-c1-34",
+   "explanation": "Evolvable = nâng phiên bản không phá hệ thống cũ. Self-contained = đủ thông tin; Interoperable = định dạng chuẩn; Secure = phân quyền theo vai trò."
+  },
+  {
+   "id": "bs-c1-35",
+   "explanation": "Lineage chi phí giúp biết bộ phận nào tiêu tốn tài nguyên nhiều nhất để kiểm soát ngân sách.",
+   "options": [
+    "Xác định bộ phận nào đang tiêu thụ nhiều tài nguyên nhất",
+    "Truy vết nguồn gốc dữ liệu từ nguồn đến báo cáo",
+    "Đưa dữ liệu cũ vào Archive tier giá rẻ",
+    "Cảnh báo khi dữ liệu nạp trễ hạn"
+   ]
+  },
+  {
+   "id": "bs-c1-36",
+   "explanation": "Phân tầng lưu trữ là đưa dữ liệu cũ vào vùng lưu trữ giá rẻ (Archive tier).\n• Tắt cụm tính toán khi rảnh là Auto-suspend; nén Parquet/ORC là tối ưu dữ liệu nạp; chọn size máy ảo là chọn kích cỡ Cluster",
+   "options": [
+    "Tắt cụm tính toán khi không có truy vấn nào",
+    "Dùng định dạng nén Parquet/ORC để giảm phí",
+    "Đưa dữ liệu cũ vào vùng lưu trữ giá rẻ (Archive tier)",
+    "Chọn size máy ảo phù hợp với tác vụ"
+   ]
+  }
+ ]
+}

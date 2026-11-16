@@ -1,0 +1,50 @@
+{
+ "chunk": "c1c-fix",
+ "items": [
+  {
+   "id": "c1-q30",
+   "options": [
+    "Chỉ mã hóa dữ liệu khi truyền qua mạng nội bộ",
+    "Tường lửa và VPN bảo vệ toàn bộ tầng lưu trữ",
+    "Mã hóa tự động cả dữ liệu tĩnh lẫn dữ liệu đang di chuyển",
+    "Bắt buộc người dùng đổi mật khẩu định kỳ hằng tuần"
+   ]
+  },
+  {
+   "id": "c1-q40",
+   "options": [
+    "Chia sẻ dữ liệu an toàn giữa các đối tác liên doanh",
+    "Quản trị metadata của toàn bộ kho dữ liệu bằng AI",
+    "Truy vấn cực nhanh cho phân tích dữ liệu thời gian thực",
+    "Lưu trữ dữ liệu phi cấu trúc với chi phí rất thấp"
+   ]
+  },
+  {
+   "id": "c1-q79",
+   "options": [
+    "Chỉ mã hóa dữ liệu khi truyền qua mạng nội bộ",
+    "Mã hóa tự động cả dữ liệu tĩnh lẫn dữ liệu đang di chuyển",
+    "Chỉ mã hóa dữ liệu khi đã lưu xuống ổ đĩa vật lý",
+    "Không mã hóa để giữ nguyên tốc độ truy vấn tối đa"
+   ]
+  },
+  {
+   "id": "c1-q82",
+   "options": [
+    "Khởi tạo kho dữ liệu quy mô lớn trong vài phút thay vì vài tháng",
+    "Không cần cấu hình bất kỳ lớp bảo mật nào khi triển khai",
+    "Tự động sinh toàn bộ báo cáo quản trị cho người dùng cuối",
+    "Loại bỏ hoàn toàn yêu cầu về đường truyền Internet của doanh nghiệp"
+   ]
+  },
+  {
+   "id": "c2-q27",
+   "options": [
+    "Sắp xếp dữ liệu trong các Micro-partition theo một hoặc nhiều cột khóa",
+    "Gom nhiều máy chủ vật lý độc lập thành một cụm tính toán song song",
+    "Nhân bản toàn bộ dữ liệu sang nhiều vùng địa lý để giảm độ trễ",
+    "Chia người dùng thành các nhóm phân quyền theo phòng ban nghiệp vụ"
+   ]
+  }
+ ]
+}

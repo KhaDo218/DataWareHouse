@@ -1,0 +1,489 @@
+{
+ "chunk": "c9a",
+ "items": [
+  {
+   "id": "c9-q1",
+   "explanation": "Polyglot Persistence là áp dụng đồng thời nhiều công nghệ lưu trữ (SQL, NoSQL) trong cùng một kiến trúc để xử lý các dạng dữ liệu khác nhau.\n• Không phải dịch ngôn ngữ, sao lưu nhiều định dạng hay ép mọi dữ liệu về mô hình quan hệ",
+   "options": [
+    "Việc dịch dữ liệu sang nhiều ngôn ngữ tự nhiên khác nhau trước khi đưa vào lưu trữ",
+    "Việc áp dụng đồng thời nhiều công nghệ cơ sở dữ liệu khác nhau (SQL, NoSQL) trong một kiến trúc hệ thống",
+    "Việc sao lưu một cơ sở dữ liệu duy nhất ra nhiều định dạng tệp khác nhau để dự phòng",
+    "Việc bắt buộc mọi dữ liệu phải được chuẩn hóa về một mô hình quan hệ duy nhất"
+   ]
+  },
+  {
+   "id": "c9-q2",
+   "explanation": "Triết lý One size does not fit all: không có một cơ sở dữ liệu duy nhất nào tối ưu cho mọi loại tác vụ, nên mỗi phân nhiệm phải chọn công nghệ phù hợp riêng."
+  },
+  {
+   "id": "c9-q3",
+   "explanation": "RDBMS (SQL) đảm nhận dữ liệu giao dịch cốt lõi đòi hỏi tính toàn vẹn tuyệt đối (ACID).\n• Session và caching là việc của Key-Value Store; hồ sơ cấu trúc linh hoạt thuộc Document Store"
+  },
+  {
+   "id": "c9-q4",
+   "explanation": "Document Store lưu các hồ sơ thực thể có cấu trúc thay đổi liên tục (Schema-less).\n• Giao dịch ACID thuộc RDBMS; caching/session thuộc Key-Value Store; chỉ mục vector thuộc Vector Database"
+  },
+  {
+   "id": "c9-q5",
+   "explanation": "Key-Value Store phục vụ truy xuất tốc độ cao cho tầng bộ nhớ đệm (Caching) và phiên làm việc (Session).\n• Giao dịch tài chính cần ACID thuộc RDBMS; phân tích OLAP đa chiều thuộc kho dữ liệu"
+  },
+  {
+   "id": "c9-q6",
+   "explanation": "Schema-less nghĩa là cấu trúc hồ sơ có thể thay đổi linh hoạt, không bị ràng buộc bởi lược đồ cứng như bảng quan hệ.\n• Dữ liệu vẫn truy vấn được bình thường, không phải chỉ gồm cặp khóa-giá trị"
+  },
+  {
+   "id": "c9-q7",
+   "explanation": "Ba phân nhiệm đúng theo slide:\n• RDBMS giữ giao dịch cốt lõi cần ACID\n• Document Store giữ hồ sơ có cấu trúc thay đổi liên tục\n• Key-Value Store phục vụ caching và session\n• Blockchain không đảm nhận việc lưu phiên làm việc"
+  },
+  {
+   "id": "c9-q8",
+   "explanation": "Chuyển tiền cần toàn vẹn tuyệt đối nên phải dùng RDBMS (SQL) với giao dịch ACID.\n• Key-Value nhanh nhưng thiếu ACID; Document Store linh hoạt lược đồ; Vector Database dùng cho tìm kiếm ngữ nghĩa"
+  },
+  {
+   "id": "c9-q9",
+   "explanation": "Session đăng nhập và cache trang chủ cần truy xuất cực nhanh nên chọn Key-Value Store cho tầng caching/session.\n• RDBMS chậm hơn với tác vụ này; Document Store và Graph Database phục vụ mục đích khác"
+  },
+  {
+   "id": "c9-q10",
+   "explanation": "Mỗi ngành hàng có tập thuộc tính khác nhau và thay đổi liên tục nên Document Store với Schema-less là lựa chọn phù hợp.\n• RDBMS phải ALTER bảng liên tục; Key-Value Store không hợp dữ liệu cấu trúc phức tạp"
+  },
+  {
+   "id": "c9-q11",
+   "explanation": "Phân nhiệm hợp lý:\n• RDBMS cho đơn hàng và thanh toán cần ACID\n• Document Store cho danh mục sản phẩm nhiều thuộc tính động\n• Key-Value Store cho session và cache\n• Lịch sử giao dịch tài chính phải dùng RDBMS",
+   "options": [
+    "Dùng RDBMS cho dữ liệu đơn hàng và thanh toán cần ACID",
+    "Dùng Key-Value Store để lưu lịch sử giao dịch tài chính cần toàn vẹn",
+    "Dùng Document Store cho danh mục sản phẩm có thuộc tính thay đổi",
+    "Dùng Key-Value Store cho session và cache tốc độ cao"
+   ]
+  },
+  {
+   "id": "c9-q12",
+   "explanation": "Cô lập tầng lưu trữ sau các dịch vụ độc lập, giao tiếp qua API là để tránh sự phụ thuộc lẫn nhau giữa các thành phần.\n• Không liên quan tăng dung lượng, dùng chung một cơ sở dữ liệu hay bỏ bảo mật"
+  },
+  {
+   "id": "c9-q13",
+   "explanation": "Slide chốt: chấp nhận Eventual Consistency ở các tầng NoSQL vệ tinh để đổi lấy tốc độ và tính sẵn sàng, nhưng đảm bảo Strong Consistency tại kho trung tâm.\n• Đặt ngược vai trò hai tầng là sai",
+   "options": [
+    "Strong Consistency ở mọi tầng, kể cả các NoSQL vệ tinh, để tối đa tốc độ truy vấn",
+    "Eventual Consistency tại kho trung tâm, Strong Consistency ở các tầng NoSQL vệ tinh",
+    "Chấp nhận Eventual Consistency ở tầng NoSQL vệ tinh nhưng đảm bảo Strong Consistency tại kho trung tâm",
+    "Loại bỏ hoàn toàn tính nhất quán để tăng tính sẵn sàng ở mọi tầng của hệ thống"
+   ]
+  },
+  {
+   "id": "c9-q14",
+   "explanation": "Đánh đổi Eventual Consistency ở tầng NoSQL vệ tinh để lấy tốc độ và tính sẵn sàng của hệ thống.\n• Tính toàn vẹn tuyệt đối và khả năng mã hóa mạnh hơn không phải lợi ích của việc nới lỏng nhất quán",
+   "options": [
+    "Tính toàn vẹn giao dịch tuyệt đối",
+    "Tốc độ xử lý nhanh hơn",
+    "Khả năng mã hóa dữ liệu mạnh hơn",
+    "Tính sẵn sàng của hệ thống"
+   ]
+  },
+  {
+   "id": "c9-q15",
+   "explanation": "Hybrid Schema Mapping dùng Data Pipelines trích xuất và làm phẳng các trường động từ NoSQL thành dạng Tables cho OLAP.\n• Không phải mã hóa lược đồ, chuyển bảng quan hệ sang JSON hay tự xóa trường",
+   "options": [
+    "Dùng Data Pipelines trích xuất và làm phẳng các trường động từ NoSQL thành Tables cho OLAP",
+    "Kỹ thuật mã hóa lược đồ dữ liệu trước khi truyền qua mạng giữa các hệ thống",
+    "Việc chuyển toàn bộ bảng quan hệ sang định dạng JSON để lưu vào Document Store",
+    "Cơ chế tự động xóa các trường dữ liệu không dùng đến trong kho phân tích"
+   ]
+  },
+  {
+   "id": "c9-q16",
+   "explanation": "Ba nguyên lý tích hợp Polyglot vào kho:\n• Microservices Storage: cô lập tầng lưu trữ sau dịch vụ, giao tiếp qua API\n• CAP Theorem: cân bằng Eventual và Strong Consistency\n• Hybrid Schema Mapping: làm phẳng trường động thành Tables\n• Full Table Scan không thuộc nhóm này"
+  },
+  {
+   "id": "c9-q17",
+   "explanation": "Trong demo NKDL_TH_9.1, SQLite in-memory là nguồn dữ liệu quan hệ chứa các đơn hàng (orders) mang tính giao dịch.\n• Các phương án còn lại là vai trò của Vector Database, blockchain và công cụ đồ thị",
+   "options": [
+    "Kho lưu trữ vector embeddings cho tìm kiếm ngữ nghĩa",
+    "Sổ cái blockchain dùng để lưu audit log giao dịch",
+    "Nguồn dữ liệu quan hệ chứa các đơn hàng (orders) mang tính giao dịch",
+    "Công cụ trực quan hóa đồ thị tri thức thành hình ảnh"
+   ]
+  },
+  {
+   "id": "c9-q18",
+   "explanation": "Phần NoSQL dạng document lưu các thuộc tính động (attributes) của thực thể với cấu trúc linh hoạt.\n• Số dư ví, chỉ mục HNSW hay nhật ký ACID không phải nội dung của phần document này",
+   "options": [
+    "Số dư ví điện tử được ghi nhận trực tiếp trên blockchain",
+    "Các thuộc tính động (attributes) của thực thể với cấu trúc linh hoạt",
+    "Chỉ mục HNSW phục vụ tìm kiếm vector tương đồng ngữ nghĩa",
+    "Nhật ký giao dịch tài chính đòi hỏi ràng buộc ACID nghiêm ngặt"
+   ]
+  },
+  {
+   "id": "c9-q19",
+   "explanation": "Dữ liệu quan hệ từ SQLite và dữ liệu document NoSQL được merge lại thành một DataFrame thống nhất để phân tích.\n• Không ghi lên blockchain, không chuyển sang Neo4j, cũng không xóa nguồn sau khi trích xuất",
+   "options": [
+    "Ghi cả hai nguồn dữ liệu lên blockchain rồi đọc lại để hợp nhất",
+    "Chuyển toàn bộ đơn hàng sang định dạng đồ thị của Neo4j để nối",
+    "Kết hợp (merge) dữ liệu quan hệ từ SQLite với document NoSQL thành một DataFrame",
+    "Xóa dữ liệu NoSQL sau khi đã trích xuất xong sang kho dữ liệu"
+   ]
+  },
+  {
+   "id": "c9-q20",
+   "explanation": "Knowledge Graph dùng Nodes để biểu diễn các thực thể (Entities) trong hệ thống thông tin.\n• Mối quan hệ là Edges; Cypher là ngôn ngữ truy vấn; bảng quan hệ thuộc mô hình RDBMS",
+   "options": [
+    "Các thực thể (Entities) trong hệ thống thông tin",
+    "Các mối quan hệ giữa các thực thể trong đồ thị",
+    "Các câu lệnh truy vấn Cypher dùng trong Neo4j",
+    "Các bảng quan hệ trong kho dữ liệu trung tâm"
+   ]
+  },
+  {
+   "id": "c9-q21",
+   "explanation": "Edges biểu diễn các mối quan hệ (Relationships) giữa các thực thể.\n• Thực thể là Nodes; chỉ mục vector và block thuộc chủ đề Vector Database và Blockchain",
+   "options": [
+    "Các thực thể rời rạc được biểu diễn trong đồ thị",
+    "Các chỉ mục vector phục vụ tìm kiếm tương đồng",
+    "Các mối quan hệ (Relationships) giữa các thực thể",
+    "Các khối (Blocks) trong mạng lưới blockchain"
+   ]
+  },
+  {
+   "id": "c9-q22",
+   "explanation": "Relationship-First: mối quan hệ được lưu trực tiếp như một thực thể hạng nhất, thay vì phải tính online qua lệnh JOIN.\n• Vẫn lưu cả thực thể, và quan hệ không phải sinh tạm khi chạy báo cáo",
+   "options": [
+    "Chỉ lưu mối quan hệ giữa các thực thể, không lưu bản thân thực thể",
+    "Mối quan hệ được lưu trực tiếp như một thực thể hạng nhất, không tính online bằng JOIN",
+    "Mối quan hệ chỉ được sinh ra tạm thời mỗi khi chạy báo cáo phân tích",
+    "Ưu tiên quan hệ khóa ngoại trong mô hình quan hệ truyền thống"
+   ]
+  },
+  {
+   "id": "c9-q23",
+   "explanation": "Vì quan hệ đã lưu sẵn nên không phải tính lại lúc truy vấn, nhờ đó duyệt vết quan hệ phức tạp hiệu quả hơn JOIN online.\n• Graph không giảm dung lượng, không bỏ chỉ mục, cũng không ép lược đồ cố định",
+   "options": [
+    "Giảm dung lượng lưu trữ xuống mức tối thiểu tuyệt đối",
+    "Bắt buộc dữ liệu phải có lược đồ cố định trước khi nạp",
+    "Loại bỏ hoàn toàn nhu cầu đánh chỉ mục trên dữ liệu đồ thị",
+    "Không phải tính lại quan hệ lúc truy vấn nên duyệt vết quan hệ phức tạp hiệu quả"
+   ]
+  },
+  {
+   "id": "c9-q24",
+   "explanation": "Sức mạnh hệ thống của Knowledge Graph giúp máy tính hiểu ngữ cảnh (Contextual Logic) và duyệt vết quan hệ phức tạp xuyên suốt các phòng ban.\n• Không phải băm SHA-256, nén vector hay thay thế kho dữ liệu trung tâm",
+   "options": [
+    "Hiểu ngữ cảnh hệ thống (Contextual Logic) và duyệt vết quan hệ xuyên phòng ban",
+    "Tự động mã hóa toàn bộ dữ liệu bằng SHA-256 trước khi lưu trữ",
+    "Nén toàn bộ dữ liệu vector nhiều chiều vào bộ nhớ RAM",
+    "Thay thế hoàn toàn kho dữ liệu trung tâm của doanh nghiệp"
+   ]
+  },
+  {
+   "id": "c9-q25",
+   "explanation": "Entity Disambiguation nhận diện và hợp nhất các thực thể thực tế bị trùng lặp hoặc viết sai định dạng trên các hệ thống nguồn khác nhau.\n• Không phải phân mảnh, mã hóa tên hay xóa thực thể cô lập",
+   "options": [
+    "Phân mảnh một thực thể thành nhiều bản ghi để tăng tốc truy vấn",
+    "Mã hóa tên thực thể để bảo mật thông tin định danh",
+    "Nhận diện và hợp nhất các thực thể bị trùng lặp hoặc sai định dạng giữa các nguồn",
+    "Xóa các thực thể không có mối quan hệ nào trong đồ thị"
+   ]
+  },
+  {
+   "id": "c9-q26",
+   "explanation": "Semantic Labeling áp dụng các mô hình Ontology để định nghĩa mối quan hệ, ví dụ Customer -[WORKS_AT]-> Organization.\n• Không phải gán nhãn thủ công từng dòng, băm tên node hay đánh số thứ tự node",
+   "options": [
+    "Gán nhãn thủ công cho từng dòng dữ liệu trong bảng fact của kho",
+    "Áp dụng Ontology định nghĩa quan hệ, ví dụ Customer -[WORKS_AT]-> Organization",
+    "Dùng thuật toán băm để sinh ra nhãn duy nhất cho mỗi node",
+    "Đánh số thứ tự các node theo thời gian tạo trong đồ thị tri thức"
+   ]
+  },
+  {
+   "id": "c9-q27",
+   "explanation": "WORKS_AT là nhãn của mối quan hệ (Edge) nối Customer với Organization, được định nghĩa qua Ontology.\n• Không phải node, không phải thuộc tính của node, cũng không phải tên cơ sở dữ liệu đồ thị",
+   "options": [
+    "Một node biểu diễn thực thể khách hàng trong đồ thị",
+    "Một thuộc tính của node Organization trong đồ thị",
+    "Tên của cơ sở dữ liệu đồ thị đang được truy vấn",
+    "Nhãn của mối quan hệ (Edge) được định nghĩa qua Ontology"
+   ]
+  },
+  {
+   "id": "c9-q28",
+   "explanation": "Graph Traversal N-cấp tìm các mối liên kết ngầm, phục vụ phát hiện gian lận tài chính và phát hiện đứt gãy chuỗi cung ứng.\n• Phân giải thực thể trùng lặp hay gán nhãn ngữ nghĩa là kỹ thuật khác, không thuộc bài toán duyệt N-cấp"
+  },
+  {
+   "id": "c9-q29",
+   "explanation": "Ba kỹ thuật của Knowledge Graph theo slide: Entity Disambiguation, Semantic Labeling và Graph Traversal N-cấp.\n• Predicate Pushdown là kỹ thuật tối ưu truy vấn của Federated Querying"
+  },
+  {
+   "id": "c9-q30",
+   "explanation": "Tiền luân chuyển qua nhiều tài khoản trung gian là bài toán duyệt sâu N-cấp: Graph Traversal (N-degree) tìm ra chuỗi liên kết ngầm.\n• Quantization, Hybrid Schema Mapping và Automated Failover không giải bài toán này"
+  },
+  {
+   "id": "c9-q31",
+   "explanation": "Hai bản ghi Nguyen Van A ở CRM và A. Nguyen ở ERP là cùng một người, đúng định nghĩa Entity Disambiguation: nhận diện và hợp nhất thực thể trùng lặp, sai định dạng giữa các nguồn.",
+   "options": [
+    "Semantic Labeling (gán nhãn ngữ nghĩa)",
+    "Entity Disambiguation (phân giải thực thể)",
+    "Graph Traversal N-cấp (duyệt đồ thị nhiều cấp)",
+    "Semantic Search (tìm kiếm theo ngữ nghĩa)"
+   ]
+  },
+  {
+   "id": "c9-q32",
+   "explanation": "BFS duyệt theo từng cấp độ, mở rộng theo chiều ngang và dùng Queue (FIFO).\n• Đi sâu theo một nhánh đến khi cụt đường mới quay lui là đặc điểm của DFS, không phải BFS",
+   "options": [
+    "Duyệt theo từng cấp độ (Level by level)",
+    "Mở rộng theo chiều ngang ra các đỉnh kề",
+    "Đi sâu theo một nhánh đến khi cụt đường mới quay lui",
+    "Sử dụng cấu trúc dữ liệu Queue (FIFO)"
+   ]
+  },
+  {
+   "id": "c9-q33",
+   "explanation": "BFS dùng Queue (hàng đợi) hoạt động theo FIFO để lấy đỉnh vào trước ra trước.\n• Stack LIFO dành cho DFS; cây nhị phân và bảng băm không phải cấu trúc BFS dùng",
+   "options": [
+    "Stack hoạt động theo cơ chế LIFO",
+    "Cây nhị phân tìm kiếm cân bằng",
+    "Queue (hàng đợi) hoạt động theo FIFO",
+    "Bảng băm (Hash Table) tra cứu theo khóa"
+   ]
+  },
+  {
+   "id": "c9-q34",
+   "explanation": "DFS dùng Stack (LIFO) hoặc cài đặt bằng Đệ quy để đi sâu rồi quay lui.\n• Queue FIFO là của BFS; Merkle Tree và Voronoi cells thuộc chủ đề Blockchain và Vector Indexing",
+   "options": [
+    "Queue (FIFO) hoặc danh sách liên kết vòng",
+    "Stack (LIFO) hoặc cài đặt bằng Đệ quy",
+    "Merkle Tree hoặc hàm băm SHA-256",
+    "Voronoi cells hoặc phân cụm không gian"
+   ]
+  },
+  {
+   "id": "c9-q35",
+   "explanation": "DFS đi sâu theo một nhánh đến khi cụt đường mới quay lui, cài đặt bằng Stack (LIFO) hoặc Đệ quy.\n• Mở rộng đều theo từng cấp độ quanh đỉnh gốc là đặc điểm của BFS"
+  },
+  {
+   "id": "c9-q36",
+   "explanation": "Đưa A vào hàng đợi, lấy A nạp B, D, G; lấy B nạp E, F; lấy D và G (F, E đã thăm nên bỏ qua); lấy E, F nạp C; lấy C thì hàng đợi rỗng. Output: A, B, D, G, E, F, C."
+  },
+  {
+   "id": "c9-q37",
+   "explanation": "Lấy A ra khỏi hàng đợi thì đưa các đỉnh kề của A là B, D, G vào hàng đợi.\n• E, F là đỉnh kề của B; C là đỉnh kề của E và F nên chưa được nạp ở bước này"
+  },
+  {
+   "id": "c9-q38",
+   "explanation": "Khi lấy B ra, thuật toán đưa hai đỉnh kề của B là E và F vào hàng đợi.\n• D, G đã được nạp từ bước duyệt A nên không nạp lại; C chưa kề B"
+  },
+  {
+   "id": "c9-q39",
+   "explanation": "Khi lấy D ra, đỉnh kề F của D đã được thăm (đã nạp vào hàng đợi ở bước duyệt B) nên bị bỏ qua.\n• F có kề với D và hàng đợi không đầy, nên không phải vì hai lý do đó",
+   "options": [
+    "Vì F không kề với D trong đồ thị đang xét của bài toán",
+    "Vì hàng đợi đã đầy nên không thể thêm đỉnh nào nữa",
+    "Vì F đã được thăm (đã được đưa vào hàng đợi trước đó khi duyệt B)",
+    "Vì F là đỉnh cuối cùng còn lại của đồ thị cần duyệt"
+   ]
+  },
+  {
+   "id": "c9-q40",
+   "explanation": "Thăm A, B rồi E (theo bảng chữ cái); từ E tới G, G cụt nên pop về E, E cụt nên pop về B; B còn F nên thăm F rồi C, sau đó D; pop dần F, B, A. Output: A, B, E, G, F, C, D."
+  },
+  {
+   "id": "c9-q41",
+   "explanation": "Từ B có hai hướng E và F, thuật toán chọn E trước theo quy ước duyệt thứ tự bảng chữ cái.\n• Không dựa vào số đỉnh kề, khoảng cách tới đích hay việc F đã được thăm",
+   "options": [
+    "Quy ước duyệt theo thứ tự bảng chữ cái",
+    "Vì E có nhiều đỉnh kề hơn F trong đồ thị",
+    "Vì E nằm gần đỉnh đích hơn so với F",
+    "Vì F đã được thăm trước đó trong ngăn xếp"
+   ]
+  },
+  {
+   "id": "c9-q42",
+   "explanation": "G không còn đỉnh kề chưa thăm nên bị rút khỏi ngăn xếp (Pop) và thuật toán quay lui về E, chưa kết thúc cả quá trình.\n• Hàng đợi là của BFS; DFS không nạp lại G"
+  },
+  {
+   "id": "c9-q43",
+   "explanation": "BFS phù hợp tìm thực thể liên quan gần nhất, gợi ý sản phẩm dựa trên sản phẩm đã mua và tìm đường đi ngắn nhất giữa hai thực thể.\n• Duyệt ontology tìm khái niệm con là ứng dụng của DFS"
+  },
+  {
+   "id": "c9-q44",
+   "explanation": "DFS phù hợp xây dựng cây phân cấp taxonomy, khai phá chuỗi liên kết dài và thu thập trọn một nhánh chủ đề trước khi sang nhánh khác.\n• Đề xuất kết nối qua quan hệ gần là ứng dụng của BFS"
+  },
+  {
+   "id": "c9-q45",
+   "explanation": "Cần mở rộng dần theo từng cấp độ quan hệ (bạn của bạn) nên BFS là lựa chọn đúng.\n• DFS đi sâu một nhánh; Quantization và Hash Join không phải thuật toán duyệt đồ thị",
+   "options": [
+    "DFS vì đi sâu vào một nhánh quan hệ cho đến tận cùng",
+    "Quantization vì nén được dữ liệu vector xuống bộ nhớ RAM",
+    "BFS vì mở rộng theo chiều ngang, khám phá lân cận theo từng cấp độ",
+    "Hash Join vì băm được cả hai bảng trước khi thực hiện nối"
+   ]
+  },
+  {
+   "id": "c9-q46",
+   "explanation": "Cần đi hết một nhánh chủ đề rồi mới chuyển sang nhánh khác nên dùng DFS.\n• BFS duyệt theo từng cấp độ; IVF là kỹ thuật chỉ mục vector, không duyệt ontology",
+   "options": [
+    "BFS vì duyệt theo từng cấp độ quanh đỉnh gốc",
+    "IVF vì phân cụm không gian tìm kiếm vector",
+    "BFS vì tìm được đường đi ngắn nhất giữa hai đỉnh",
+    "DFS vì đi sâu theo nhánh đến tận cùng trước khi quay lui"
+   ]
+  },
+  {
+   "id": "c9-q47",
+   "explanation": "BFS duyệt theo từng cấp độ nên gặp đích ở khoảng cách ngắn nhất trước, phù hợp tìm đường đi ngắn nhất.\n• DFS có thể lao vào nhánh sâu và không đảm bảo ngắn nhất"
+  },
+  {
+   "id": "c9-q48",
+   "explanation": "BFS: lấy A nạp B, C; lấy B nạp D, E; lấy C nạp F; lấy D nạp G; lấy E, F, G. Output: A, B, C, D, E, F, G."
+  },
+  {
+   "id": "c9-q49",
+   "explanation": "DFS: A sang B sang D sang G, cụt thì quay lui về B thăm E; hết nhánh B quay về A thăm C rồi F. Output: A, B, D, G, E, C, F."
+  },
+  {
+   "id": "c9-q50",
+   "explanation": "BFS: lấy A nạp C, D; lấy C nạp B; lấy D nạp E; lấy B nạp F; lấy E và F. Output: A, C, D, B, E, F."
+  },
+  {
+   "id": "c9-q51",
+   "explanation": "DFS: A sang C sang B sang F, cụt thì quay lui về A và đi nhánh còn lại D rồi E. Output: A, C, B, F, D, E."
+  },
+  {
+   "id": "c9-q52",
+   "explanation": "DFS: A sang B sang D sang E; E cụt nên lần lượt pop E, D, B rồi quay về A thăm C (D đã thăm). Output: A, B, D, E, C."
+  },
+  {
+   "id": "c9-q53",
+   "explanation": "BFS: lấy A nạp D, E; lấy D nạp B; lấy E nạp C; lấy B nạp F; lấy C và F. Output: A, D, E, B, C, F."
+  },
+  {
+   "id": "c9-q54",
+   "explanation": "DFS: A sang B sang E, cụt thì quay về A thăm C sang F, rồi thăm D sang G. Output: A, B, E, C, F, D, G."
+  },
+  {
+   "id": "c9-q55",
+   "explanation": "BFS: lấy A nạp B, F; lấy B nạp C, D; lấy F nạp G; lấy C; lấy D nạp E; lấy G rồi lấy E. Output: A, B, F, C, D, G, E."
+  },
+  {
+   "id": "c9-q56",
+   "explanation": "Demo Neo4j dùng Cypher, ví dụ lệnh MATCH để truy vấn đồ thị.\n• SQL là của RDBMS, SPARQL dành cho RDF, còn MongoDB Query Language là của Document Store",
+   "options": [
+    "SQL chuẩn ANSI dùng cho cơ sở dữ liệu quan hệ",
+    "Cypher, ngôn ngữ truy vấn của đồ thị Neo4j",
+    "SPARQL, ngôn ngữ truy vấn dữ liệu dạng RDF",
+    "MongoDB Query Language cho Document Store"
+   ]
+  },
+  {
+   "id": "c9-q57",
+   "explanation": "Truy vấn MATCH trong demo WikiUser đi theo mối quan hệ VOTED_FOR (bầu chọn cho) giữa các node.\n• WORKS_AT, PURCHASED và TRANSFERRED_TO là các quan hệ thuộc ví dụ khác",
+   "options": [
+    "VOTED_FOR (bầu chọn cho người dùng khác)",
+    "WORKS_AT (làm việc tại một tổ chức)",
+    "PURCHASED (đã mua một sản phẩm nào đó)",
+    "TRANSFERRED_TO (chuyển tiền cho tài khoản)"
+   ]
+  },
+  {
+   "id": "c9-q58",
+   "explanation": "Đồ thị WikiUser trong demo Neo4j có 7115 nodes và 103689 relationships.\n• Các phương án còn lại đảo ngược hai con số hoặc dùng số khác của bộ dữ liệu"
+  },
+  {
+   "id": "c9-q59",
+   "explanation": "Truy vấn đếm số phiếu bầu rồi sắp xếp giảm dần bằng ORDER BY ... DESC để lấy người nhận nhiều phiếu nhất.\n• Sắp xếp tăng dần (ASC) sẽ trả về người ít phiếu nhất; nhóm theo ngày tạo tài khoản không liên quan",
+   "options": [
+    "Lọc bỏ các node không có phiếu bầu rồi dừng lại",
+    "Đếm phiếu bầu rồi nhóm kết quả theo ngày tạo tài khoản",
+    "Đếm phiếu bầu rồi sắp xếp tăng dần bằng ORDER BY ASC",
+    "Sắp xếp kết quả giảm dần bằng ORDER BY ... DESC"
+   ]
+  },
+  {
+   "id": "c9-q60",
+   "explanation": "Vector Embeddings được tạo bằng cách chuyển dữ liệu phi cấu trúc thành các chuỗi số thực nhờ mô hình AI (Deep Learning).\n• Không phải băm SHA-256, mã hóa hex hay chuẩn hóa về bảng quan hệ",
+   "options": [
+    "Băm dữ liệu bằng hàm SHA-256 thành chuỗi ký tự duy nhất",
+    "Mã hóa dữ liệu thành chuỗi hex rồi ghi lên blockchain",
+    "Chuẩn hóa dữ liệu phi cấu trúc về dạng bảng quan hệ",
+    "Chuyển dữ liệu phi cấu trúc thành chuỗi số thực bằng mô hình Deep Learning"
+   ]
+  },
+  {
+   "id": "c9-q61",
+   "explanation": "Theo slide, vector embeddings thường có số chiều rất lớn, khoảng 768 đến 1536 chiều.\n• Con số 2-3 chiều, 10-100 chiều hay trên 1 triệu chiều đều không đúng như slide nêu"
+  },
+  {
+   "id": "c9-q62",
+   "explanation": "Không gian vector nhiều chiều có số chiều rất lớn (768 đến 1536) và các thực thể tương đồng về ý nghĩa nằm gần nhau.\n• Vector không chỉ chứa 0 và 1, cũng không bắt buộc lưu trên blockchain",
+   "options": [
+    "Mỗi vector chỉ chứa các giá trị 0 và 1",
+    "Các vector thường có số chiều rất lớn, khoảng 768 đến 1536",
+    "Các thực thể tương đồng nhau sẽ nằm gần nhau trong không gian",
+    "Các vector bắt buộc phải lưu trên blockchain"
+   ]
+  },
+  {
+   "id": "c9-q63",
+   "explanation": "Dữ liệu vector thay tìm kiếm từ khóa thô bằng tìm kiếm ý nghĩa ngữ nghĩa (Semantic Search).\n• Các phương án còn lại đảo ngược chiều thay thế hoặc nhầm sang Cypher, bảng băm",
+   "options": [
+    "Thay tìm kiếm ngữ nghĩa bằng tìm kiếm từ khóa thô (Keyword Matching)",
+    "Thay truy vấn SQL bằng truy vấn Cypher trên cơ sở dữ liệu đồ thị",
+    "Thay chỉ mục B-Tree bằng bảng băm tra cứu theo khóa chính",
+    "Thay tìm kiếm từ khóa thô bằng tìm kiếm ý nghĩa ngữ nghĩa (Semantic Search)"
+   ]
+  },
+  {
+   "id": "c9-q64",
+   "explanation": "Curse of Dimensionality: quét khoảng cách toán học trên hàng triệu vector có số chiều cao gây quá tải CPU.\n• Không phải mất minh bạch, đẩy vector ra xa nhau hay tự giảm số chiều",
+   "options": [
+    "Dữ liệu vector bị mất tính minh bạch khi lưu trữ",
+    "Các vector tương đồng bị đẩy ra xa nhau trong không gian",
+    "Số chiều của vector tự động giảm dần theo thời gian",
+    "Quét khoảng cách toán học trên hàng triệu vector số chiều cao gây quá tải CPU"
+   ]
+  },
+  {
+   "id": "c9-q65",
+   "explanation": "ANN là viết tắt của Approximate Nearest Neighbor (láng giềng gần nhất xấp xỉ), nhóm giải pháp lập chỉ mục cho dữ liệu vector.\n• Artificial Neural Network là mạng nơ-ron, không phải kỹ thuật chỉ mục này"
+  },
+  {
+   "id": "c9-q66",
+   "explanation": "HNSW xây dựng cấu trúc đồ thị phân cấp mạng lưới để nhảy vùng tìm láng giềng gần nhất với tốc độ mili-giây.\n• Voronoi cells là IVF; nén vector là Quantization; quét tuần tự là brute-force",
+   "options": [
+    "Phân cụm không gian vector thành các phân vùng Voronoi cells",
+    "Nén kích thước lưu trữ của vector để đưa toàn bộ chỉ mục vào RAM",
+    "Xây dựng đồ thị phân cấp để nhảy vùng tìm láng giềng gần nhất với tốc độ mili-giây",
+    "Quét tuần tự toàn bộ vector để đảm bảo độ chính xác tuyệt đối"
+   ]
+  },
+  {
+   "id": "c9-q67",
+   "explanation": "IVF phân cụm không gian vector thành các phân vùng (Voronoi cells) để thu hẹp phạm vi tìm kiếm.\n• Đồ thị phân cấp là HNSW; băm SHA-256 và sao chép dự phòng không liên quan",
+   "options": [
+    "Xây dựng đồ thị phân cấp nhiều tầng để nhảy vùng",
+    "Phân cụm không gian vector thành các phân vùng (Voronoi cells)",
+    "Băm mỗi vector thành một chuỗi SHA-256 duy nhất",
+    "Sao chép chỉ mục sang vùng máy chủ dự phòng"
+   ]
+  },
+  {
+   "id": "c9-q68",
+   "explanation": "Quantization (ví dụ Product Quantization - PQ) nén kích thước lưu trữ của vector để đưa toàn bộ chỉ mục vào bộ nhớ RAM.\n• Không tăng số chiều, không đưa dữ liệu on-chain, không đẩy điều kiện WHERE"
+  },
+  {
+   "id": "c9-q69",
+   "explanation": "Ba kỹ thuật ANN theo slide: HNSW, IVF và Quantization.\n• B-Tree Index là chỉ mục truyền thống cho dữ liệu có cấu trúc, không thuộc nhóm Approximate Nearest Neighbor"
+  },
+  {
+   "id": "c9-q70",
+   "explanation": "HNSW dựng đồ thị phân cấp cho phép nhảy vùng tìm kiếm với tốc độ mili-giây, đúng yêu cầu trả kết quả trực tuyến.\n• Brute-force quét toàn bộ nên chậm; chỉ mục bitmap và IVF không phải lựa chọn tối ưu nhất ở đây",
+   "options": [
+    "Quét tuần tự toàn bộ vector (brute-force) để chính xác tuyệt đối",
+    "Chỉ mục bitmap trên các trường phân loại của bảng",
+    "IVF vì luôn nhanh hơn mọi kỹ thuật chỉ mục khác",
+    "HNSW vì đồ thị phân cấp cho phép nhảy vùng tìm kiếm với tốc độ mili-giây"
+   ]
+  }
+ ]
+}

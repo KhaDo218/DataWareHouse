@@ -1,0 +1,549 @@
+{
+ "chunk": "c2b",
+ "items": [
+  {
+   "id": "c2-q77",
+   "explanation": "Bronze là Raw Layer nên giữ dữ liệu thô (JSON, Parquet) với Schema-on-read, duy trì Immutability để Reprocess, và lưu kèm Ingestion_Timestamp cùng mã định danh hệ thống nguồn.\n• Star Schema là cách tổ chức của tầng Gold, không phải Bronze"
+  },
+  {
+   "id": "c2-q78",
+   "explanation": "Incremental Load chỉ nạp phần dữ liệu mới hoặc thay đổi nên giảm tải cho hệ thống nguồn và tối ưu hóa băng thông.\n• Tính KPI là việc của tầng Gold; loại bản ghi lỗi là Data Quality Gate ở Silver",
+   "options": [
+    "Tự động tính toán và tổng hợp sẵn các KPI quản trị",
+    "Giảm tải cho hệ thống nguồn và tối ưu hóa băng thông",
+    "Loại bỏ các bản ghi không hợp lệ ngay khi nạp dữ liệu",
+    "Chuyển đổi dữ liệu nguồn về Star Schema cho BI"
+   ]
+  },
+  {
+   "id": "c2-q79",
+   "explanation": "Bronze đóng vai trò Data Lake, nơi Data Scientist khám phá và nghiên cứu trên dữ liệu thô.\n• Báo cáo BI và định nghĩa chỉ số thuộc Gold; triển khai mô hình AI vào sản xuất là việc của nền tảng vận hành"
+  },
+  {
+   "id": "c2-q80",
+   "explanation": "Silver làm sạch dữ liệu, xử lý Imputation giá trị thiếu và chuẩn hóa kiểu dữ liệu; dữ liệu vẫn ở mức Atomic nhưng đã có cấu trúc, đáng tin cậy.\n• KPI và Data Mart thuộc Gold, dữ liệu thô nguyên vẹn thuộc Bronze",
+   "options": [
+    "Lưu trữ dữ liệu thô nguyên vẹn ngay từ hệ thống nguồn",
+    "Tính toán KPI và xây dựng các Data Marts cho BI",
+    "Cung cấp giao diện chat và hỏi đáp với dữ liệu",
+    "Làm sạch dữ liệu, xử lý Imputation và chuẩn hóa kiểu dữ liệu"
+   ]
+  },
+  {
+   "id": "c2-q81",
+   "explanation": "Data Quality Gate lọc và loại bỏ các bản ghi không hợp lệ ngay tại Silver, trước khi dữ liệu đi sâu vào hệ thống.\n• Sinh khóa thay thế là việc thiết kế Dimension; nén dữ liệu là câu chuyện lưu trữ",
+   "options": [
+    "Loại bỏ các bản ghi không hợp lệ trước khi đi sâu vào hệ thống",
+    "Mã hóa toàn bộ dữ liệu nhạy cảm ở cấp cột",
+    "Tự động sinh khóa thay thế cho các bảng chiều",
+    "Nén dữ liệu để giảm chi phí lưu trữ trên cloud"
+   ]
+  },
+  {
+   "id": "c2-q82",
+   "explanation": "Silver vẫn giữ mức độ Atomic (chi tiết gốc) nhưng đã được cấu trúc rõ ràng, làm sạch và đáng tin cậy.\n• Tổng hợp theo chiều phân tích và KPI cuối cùng là đặc trưng của tầng Gold"
+  },
+  {
+   "id": "c2-q83",
+   "explanation": "Silver làm sạch, Join các nguồn thành bảng thực thể chủ chốt, là nguồn chính cho Feature Extraction, và dùng Delta Lake/Iceberg để đảm bảo ACID.\n• KPI tổng hợp theo chiều là đặc trưng của Gold, không phải Silver"
+  },
+  {
+   "id": "c2-q84",
+   "explanation": "Gold tổ chức dữ liệu theo Star Schema hoặc Wide Tables để tối ưu hiệu năng truy vấn.\n• Snowflake 3NF và Key-value store không phải mô hình phân tích mà tầng Gold dùng"
+  },
+  {
+   "id": "c2-q85",
+   "explanation": "Gold chứa Metrics/KPIs đã tính toán tổng hợp, chỉ giữ dữ liệu đã qua phê duyệt nghiệp vụ, và là tầng tiếp xúc trực tiếp với BI cùng ứng dụng ra quyết định thời gian thực.\n• Dữ liệu thô để Reprocess nằm ở Bronze"
+  },
+  {
+   "id": "c2-q86",
+   "explanation": "Data Marts được thiết kế riêng biệt cho từng bộ phận chuyên môn nên tăng tốc độ phản hồi cho người dùng cuối.\n• Lưu dữ liệu thô là Bronze; ACID là vai trò của Delta Lake/Iceberg ở Silver",
+   "options": [
+    "Lưu trữ dữ liệu thô nhận từ API và ERP",
+    "Đảm bảo tính toàn vẹn ACID khi biến đổi dữ liệu",
+    "Kiểm soát chất lượng các bản ghi đầu vào",
+    "Thiết kế riêng biệt cho từng bộ phận chuyên môn"
+   ]
+  },
+  {
+   "id": "c2-q87",
+   "explanation": "Theo slide, Gold tích hợp trực tiếp các kết quả dự báo từ AI (ví dụ điểm xác suất rời bỏ khách hàng) vào các bảng chiều Gold.\n• Nhờ vậy BI và ứng dụng dùng được ngay, không phải để kết quả ngoài kho dữ liệu"
+  },
+  {
+   "id": "c2-q88",
+   "explanation": "Semantic Layer là lớp trung gian trừu tượng hóa sự phức tạp của cấu trúc dữ liệu vật lý, giúp người dùng kinh doanh không phải hiểu bảng và cột kỹ thuật.\n• Nó không lưu trữ vật lý, không phải công cụ ETL hay hệ sao lưu",
+   "options": [
+    "Là nơi lưu trữ vật lý toàn bộ dữ liệu thô của doanh nghiệp",
+    "Lớp trung gian trừu tượng hóa cấu trúc dữ liệu vật lý",
+    "Là công cụ ETL dùng để nạp dữ liệu từ hệ thống nguồn",
+    "Là hệ thống sao lưu và phục hồi dữ liệu định kỳ"
+   ]
+  },
+  {
+   "id": "c2-q89",
+   "explanation": "Semantic Layer cung cấp Context (định nghĩa bảng, cột, quan hệ) để GenAI truy vấn dữ liệu chính xác qua ngôn ngữ tự nhiên.\n• Nó không cấp GPU, không huấn luyện thay mô hình và không sinh dữ liệu giả",
+   "options": [
+    "Cung cấp GPU và hạ tầng để huấn luyện mô hình",
+    "Thay thế hoàn toàn quá trình huấn luyện mô hình AI",
+    "Cung cấp Context để GenAI truy vấn dữ liệu chính xác",
+    "Tự động sinh dữ liệu giả lập để huấn luyện mô hình"
+   ]
+  },
+  {
+   "id": "c2-q90",
+   "explanation": "Semantic Layer định nghĩa quan hệ giữa các bảng một cách tập trung để tránh Join sai, quản trị Row/Column-level security đồng nhất, và chuyển tên kỹ thuật thành thuật ngữ nghiệp vụ.\n• Nó không thay thế tầng lưu trữ vật lý"
+  },
+  {
+   "id": "c2-q91",
+   "explanation": "Silo logic là mỗi công cụ BI lại tính chỉ số theo một cách khác nhau; Semantic Layer định nghĩa tập trung nên giảm thiểu tình trạng này.\n• Micro-partition, On-premise hay hệ quản trị riêng của từng phòng ban là vấn đề khác"
+  },
+  {
+   "id": "c2-q92",
+   "explanation": "Headless BI định nghĩa công thức của mọi chỉ số kinh doanh tại một nơi duy nhất, công cụ BI chỉ hiển thị lại kết quả.\n• Vì vậy không còn cảnh mỗi công cụ tự định nghĩa công thức riêng"
+  },
+  {
+   "id": "c2-q93",
+   "explanation": "Lineage cho phép truy ngược một chỉ số từ báo cáo cuối cùng về tận các bảng dữ liệu gốc để kiểm chứng số liệu.\n• Tái huấn luyện AI, mã hóa chỉ số hay tăng tốc nạp Bronze là việc khác",
+   "options": [
+    "Tự động tái huấn luyện mô hình AI khi hiệu năng giảm",
+    "Truy ngược chỉ số từ báo cáo về các bảng dữ liệu gốc",
+    "Mã hóa các chỉ số nhạy cảm trước khi chia sẻ",
+    "Tăng tốc độ nạp dữ liệu thô vào tầng Bronze"
+   ]
+  },
+  {
+   "id": "c2-q94",
+   "explanation": "Metric Catalog quản lý vòng đời chỉ số (khởi tạo, kiểm thử, xác thực), cho tra cứu định nghĩa ngay trên giao diện phân tích, và giảm tải cho Data Engineer nhờ tái sử dụng.\n• Nó không buộc mỗi công cụ phải định nghĩa lại công thức"
+  },
+  {
+   "id": "c2-q95",
+   "explanation": "Vì công thức chỉ số nằm ở một nơi duy nhất, PowerBI, Tableau hay Streamlit đều cho ra cùng một con số.\n• Metric Catalog không hề ép doanh nghiệp chỉ dùng một công cụ BI duy nhất"
+  },
+  {
+   "id": "c2-q96",
+   "explanation": "RAG lấy đúng ngữ cảnh số liệu từ Semantic Layer rồi mới sinh câu trả lời nên AI không bị \"ảo tưởng\" (hallucination).\n• Nó không tăng tốc huấn luyện, không nén micro-partition, không sinh dữ liệu giả",
+   "options": [
+    "Tăng tốc độ huấn luyện các mô hình deep learning",
+    "Tự động nén dữ liệu bên trong các micro-partition",
+    "Sinh dữ liệu giả lập để kiểm thử toàn hệ thống",
+    "Trả lời câu hỏi về số liệu mà không bị \"ảo tưởng\" (hallucination)"
+   ]
+  },
+  {
+   "id": "c2-q97",
+   "explanation": "Metadata ngữ nghĩa của Semantic Layer (tên bảng/cột, quan hệ, định nghĩa chỉ số) là cơ sở để dịch yêu cầu ngôn ngữ tự nhiên thành SQL chính xác.\n• Tốc độ cụm tính toán hay số micro-partition không quyết định việc này"
+  },
+  {
+   "id": "c2-q98",
+   "explanation": "Semantic Layer được ví là \"Bản đồ tri thức\" cho AI Agents vì nó mô tả cấu trúc và ý nghĩa dữ liệu doanh nghiệp.\n• Bronze chỉ là dữ liệu thô; Bridge Table và Clustering Key là kỹ thuật mô hình hóa/lưu trữ"
+  },
+  {
+   "id": "c2-q99",
+   "explanation": "Tương lai Semantic Layer kết hợp AI Agents: tự đề xuất chỉ số theo hành vi truy vấn, đảm bảo AI tuân thủ quy tắc quản trị - bảo mật tập trung, và tạo trải nghiệm Chat-with-your-data.\n• AI không bao giờ được bỏ qua quy tắc bảo mật"
+  },
+  {
+   "id": "c2-q100",
+   "explanation": "VARIANT lưu toàn bộ tài liệu bán cấu trúc (JSON/Parquet) trong một cột duy nhất với hiệu năng cao, nên không phải tách thành nhiều bảng quan hệ trước khi nạp.\n• Nó không chỉ lưu số nguyên hay ảnh/video"
+  },
+  {
+   "id": "c2-q101",
+   "explanation": "Schema Drift là cấu trúc dữ liệu nguồn thay đổi không cố định, khiến việc duy trì bảng quan hệ truyền thống trở nên khó khăn.\n• Mất dữ liệu khi di chuyển tầng, chồng lấn micro-partition hay mô hình suy giảm là hiện tượng khác",
+   "options": [
+    "Dữ liệu bị mất khi di chuyển giữa các tầng",
+    "Sự chồng lấn giữa các micro-partition",
+    "Việc mô hình AI suy giảm hiệu năng theo thời gian",
+    "Cấu trúc dữ liệu nguồn thay đổi không cố định theo thời gian"
+   ]
+  },
+  {
+   "id": "c2-q102",
+   "explanation": "Dữ liệu bán cấu trúc (Web logs, IoT) ở dạng JSON/Parquet, chứa nested arrays và cặp key-value linh hoạt; ép Schema-on-write ngay khi nạp thường tốn kém và dễ gián đoạn luồng dữ liệu.\n• Vì vậy nó không có lược đồ cố định định nghĩa trước"
+  },
+  {
+   "id": "c2-q103",
+   "explanation": "Nhờ cơ chế tối ưu hóa bộ nhớ cột (columnar) áp dụng cho cả dữ liệu bên trong VARIANT, truy vấn nhanh tương đương dữ liệu có cấu trúc.\n• Không cần sao chép bảng tạm, khóa bảng toàn cục hay lưu dạng chuỗi thuần"
+  },
+  {
+   "id": "c2-q104",
+   "explanation": "Flattening chuyển các mảng lồng nhau thành các dòng dữ liệu riêng biệt để phân tích được bằng SQL.\n• Nó không nén, không mã hóa và cũng không xóa các trường lồng nhau",
+   "options": [
+    "Nén toàn bộ tài liệu JSON thành một dòng duy nhất",
+    "Chuyển các mảng lồng nhau thành các dòng riêng biệt",
+    "Mã hóa các trường dữ liệu nhạy cảm trong JSON",
+    "Xóa các trường dữ liệu lồng nhau để đơn giản hóa"
+   ]
+  },
+  {
+   "id": "c2-q105",
+   "explanation": "Truy vấn VARIANT dùng toán tử chuyên dụng để vào trường lồng, Join trực tiếp với dữ liệu quan hệ trong cùng câu SQL, và tự nhận diện kiểu dữ liệu để tối ưu quét theo Metadata.\n• Không cần hoàn tất toàn bộ ETL trước khi truy vấn"
+  },
+  {
+   "id": "c2-q106",
+   "explanation": "Định nghĩa cấu trúc được đưa xuống giai đoạn truy vấn (Schema-on-read) nên giảm hẳn công sức chuẩn bị dữ liệu (ETL).\n• Nó không xóa bản ghi lỗi, không đổi sang CSV và càng không bỏ nhu cầu lưu trữ"
+  },
+  {
+   "id": "c2-q107",
+   "explanation": "Khi một trường trong cột VARIANT được truy vấn thường xuyên, nên trích xuất nó thành một cột vật lý riêng để tận dụng chỉ mục và tăng tốc phản hồi.\n• Trường ít dùng thì để nguyên trong VARIANT",
+   "options": [
+    "Khi trường đó không bao giờ được truy vấn",
+    "Khi trường đó chứa dữ liệu trùng lặp",
+    "Khi dung lượng lưu trữ của bảng sắp hết",
+    "Khi trường đó được truy vấn thường xuyên"
+   ]
+  },
+  {
+   "id": "c2-q108",
+   "explanation": "Virtual Views cung cấp giao diện bảng quan hệ cho người dùng mà không cần thay đổi lưu trữ gốc.\n• Nó không sao chép vật lý, không mã hóa dữ liệu và không làm tăng dung lượng lưu trữ",
+   "options": [
+    "Cung cấp giao diện bảng quan hệ mà không đổi lưu trữ gốc",
+    "Sao chép vật lý toàn bộ dữ liệu sang một bảng mới",
+    "Mã hóa dữ liệu để bảo mật trước khi chia sẻ",
+    "Tăng dung lượng lưu trữ khả dụng cho hệ thống"
+   ]
+  },
+  {
+   "id": "c2-q109",
+   "explanation": "Cần cân bằng giữa tính linh hoạt của VARIANT và hiệu năng của các cột cố định: trường hay dùng thì materialize, phần biến động để trong VARIANT.\n• Dùng VARIANT cho mọi cột hay ép hết về chuỗi đều phản tác dụng"
+  },
+  {
+   "id": "c2-q110",
+   "explanation": "BI tập trung tóm tắt xu hướng; AI yêu cầu dữ liệu ở mức chi tiết nhất (Granularity) để học đặc trưng.\n• Nói BI cần chi tiết còn AI chỉ cần tổng hợp là ngược lại",
+   "options": [
+    "BI cần dữ liệu chi tiết, AI chỉ cần dữ liệu tổng hợp",
+    "BI và AI đều chỉ cần dữ liệu tổng hợp theo tháng",
+    "BI tóm tắt xu hướng, AI cần dữ liệu ở mức chi tiết nhất",
+    "BI cần dữ liệu thời gian thực, AI chỉ cần dữ liệu tĩnh"
+   ]
+  },
+  {
+   "id": "c2-q111",
+   "explanation": "AI cần dữ liệu chi tiết nhất nên chuyển từ Star Schema sang Wide Tables để giảm thiểu chi phí phép Join khi huấn luyện mô hình.\n• Snowflake, Bridge Table hay Key-value store không phải đích chuyển đổi này",
+   "options": [
+    "Snowflake Schema với nhiều tầng chuẩn hóa",
+    "Bridge Tables cho quan hệ nhiều-nhiều",
+    "Key-value store tối ưu truy vấn theo khóa",
+    "Wide Tables để giảm chi phí Join khi huấn luyện"
+   ]
+  },
+  {
+   "id": "c2-q112",
+   "explanation": "Schema cho AI nên ưu tiên Time-series để học chuỗi hành vi, lưu đủ cả mẫu tích cực và tiêu cực, và hỗ trợ chia ngẫu nhiên Train/Validation/Test.\n• Chỉ lưu dữ liệu tổng hợp theo tháng sẽ mất đặc trưng chi tiết"
+  },
+  {
+   "id": "c2-q113",
+   "explanation": "Schema phải linh hoạt để bổ sung đặc trưng mới mà không làm gián đoạn hệ thống đang huấn luyện và dự báo.\n• Nó không nhằm giảm người dùng, chặn Data Scientist hay tự xóa đặc trưng cũ",
+   "options": [
+    "Dễ bổ sung đặc trưng mới mà không gián đoạn hệ thống",
+    "Giảm số lượng người dùng truy cập đồng thời",
+    "Ngăn Data Scientist truy cập dữ liệu chi tiết",
+    "Tự động xóa các đặc trưng cũ mỗi tuần"
+   ]
+  },
+  {
+   "id": "c2-q114",
+   "explanation": "Feature Engineering ngay tại Lakehouse bằng SQL chuẩn gồm Normalization, Encoding và Discretization.\n• Re-clustering là kỹ thuật tối ưu lưu trữ, không phải phép biến đổi đặc trưng"
+  },
+  {
+   "id": "c2-q115",
+   "explanation": "Window Functions tính các đặc trưng động theo các cửa sổ thời gian (ví dụ tần suất mua 90 ngày) ngay trong SQL, rất hiệu quả.\n• Phân quyền, nén dữ liệu hay chuyển JSON sang bảng quan hệ là việc khác",
+   "options": [
+    "Phân quyền truy cập theo từng dòng dữ liệu",
+    "Tính đặc trưng động theo các cửa sổ thời gian",
+    "Nén dữ liệu bên trong các micro-partition",
+    "Chuyển đổi JSON thành các bảng quan hệ"
+   ]
+  },
+  {
+   "id": "c2-q116",
+   "explanation": "Làm Feature Engineering tại chỗ giữ logic đặc trưng đồng nhất giữa lúc học và lúc dự báo, giảm chi phí di chuyển dữ liệu lớn sang Python, và tận dụng tính toán song song của Lakehouse.\n• Tầng Gold vẫn cần để lưu đặc trưng tổng hợp và KPI"
+  },
+  {
+   "id": "c2-q117",
+   "explanation": "Point-in-time Correctness đảm bảo AI chỉ dùng dữ liệu đã \"biết\" tại thời điểm dự báo trong quá khứ, tránh Data Leakage.\n• Schema Drift là cấu trúc nguồn thay đổi; Data Skew là lệch phân bố; Silo logic là mỗi công cụ tính một kiểu",
+   "options": [
+    "Data Skew",
+    "Schema Drift",
+    "Data Leakage",
+    "Silo logic"
+   ]
+  },
+  {
+   "id": "c2-q118",
+   "explanation": "Time Travel hoặc SCD Type 2 tái hiện chính xác trạng thái dữ liệu tại một mốc lịch sử, phục vụ Point-in-time Correctness.\n• Flattening/Materialization xử lý VARIANT; Data Pruning/Re-clustering tối ưu truy vấn",
+   "options": [
+    "Flattening hoặc Materialization trên cột VARIANT",
+    "Junk Dimension hoặc Degenerate Dimension",
+    "Data Pruning hoặc Re-clustering trên bảng lớn",
+    "Time Travel hoặc SCD Type 2 lưu vết lịch sử"
+   ]
+  },
+  {
+   "id": "c2-q119",
+   "explanation": "Feature Store quản lý phiên bản và chia sẻ đặc trưng giữa các đội AI, đảm bảo công thức lúc huấn luyện giống lúc dự báo, và là thành phần cốt lõi để đưa mô hình ra thực tế.\n• Nó không thay thế Semantic Layer"
+  },
+  {
+   "id": "c2-q120",
+   "explanation": "Theo dõi Data Drift để phát hiện dữ liệu thay đổi theo thời gian, nhờ đó kịp thời tái huấn luyện mô hình khi hiệu năng giảm.\n• Nó không nhằm giảm chi phí Bronze, tăng tốc ingestion hay đổi dữ liệu sang VARIANT"
+  },
+  {
+   "id": "b-c2-q1",
+   "explanation": "Kimball lấy người dùng nghiệp vụ làm trung tâm (User-centric). Trong kỷ nguyên Cloud, triết lý giữ nguyên nhưng thích nghi với lưu trữ gần như vô hạn."
+  },
+  {
+   "id": "b-c2-q2",
+   "explanation": "Vì Cloud có lưu trữ gần như vô hạn, trọng tâm chuyển từ tối ưu KHÔNG GIAN lưu trữ (giới hạn phần cứng cũ) sang tối ưu HIỆU SUẤT truy vấn."
+  },
+  {
+   "id": "b-c2-q3",
+   "explanation": "Thứ tự 4 bước: (1) Chọn Business Process, (2) Xác định Grain, (3) Xác định Dimensions, (4) Xác định Facts."
+  },
+  {
+   "id": "b-c2-q4",
+   "explanation": "Conformed Dimensions (chiều dùng chung, thống nhất giữa nhiều bảng Fact) đảm bảo Single Version of Truth — một nguồn số liệu duy nhất, thống nhất.",
+   "options": [
+    "Tính nhất quán của Conformed Dimensions dùng chung",
+    "Sử dụng Natural Keys thay cho Surrogate Keys",
+    "Lưu trữ mỗi bảng Fact ở một domain riêng biệt",
+    "Việc chuẩn hóa toàn bộ dữ liệu về dạng 3NF"
+   ]
+  },
+  {
+   "id": "b-c2-q5",
+   "explanation": "Denormalization tận dụng Columnar scanning, giảm Join → tăng tốc BI/Data Mining. Đánh đổi là phải quản lý chặt tính nhất quán khi có trùng lặp thông tin."
+  },
+  {
+   "id": "b-c2-q6",
+   "explanation": "Micro-partitioning tự động chia bảng thành các phân vùng nhỏ (50MB–500MB đã nén), tổ chức Columnar, không cần người dùng phân vùng thủ công.",
+   "options": [
+    "Cơ chế nén dữ liệu về một tập tin duy nhất để giảm chi phí",
+    "Kỹ thuật phân vùng thủ công do người dùng định nghĩa trước khi nạp",
+    "Kỹ thuật sắp xếp dữ liệu theo dòng thay vì theo cột",
+    "Cơ chế tự động chia bảng thành nhiều tập tin nhỏ (50MB–500MB nén)"
+   ]
+  },
+  {
+   "id": "b-c2-q7",
+   "explanation": "Metadata Min/Max cho phép Data Pruning: dựa trên điều kiện lọc SQL, bỏ qua các phân vùng chắc chắn không chứa dữ liệu cần → giảm khối lượng đọc."
+  },
+  {
+   "id": "b-c2-q8",
+   "explanation": "Clustering Depth đo mức chồng lấn giữa các Micro-partition. Càng THẤP → hiệu suất truy vấn (khả năng Pruning) càng CAO.",
+   "options": [
+    "Đo dung lượng mỗi phân vùng; càng lớn càng tốt",
+    "Đo mức chồng lấn giữa các Micro-partition; càng thấp càng tốt",
+    "Đo số lần Re-clustering đã thực hiện; càng nhiều càng tốt",
+    "Đo số lượng cột khóa clustering; càng cao càng tốt"
+   ]
+  },
+  {
+   "id": "b-c2-q10",
+   "explanation": "Periodic Snapshot: ảnh chụp tại thời điểm cố định (số dư cuối ngày), không đổi quá khứ. Accumulating Snapshot: theo dõi quy trình nhiều bước (đơn hàng từ đặt→giao), mỗi dòng cập nhật các mốc thời gian, tính Lead time.",
+   "options": [
+    "Periodic dùng cho dữ liệu số; Accumulating dùng cho dữ liệu văn bản",
+    "Periodic chụp ảnh tại mốc cố định; Accumulating cập nhật mốc quy trình",
+    "Periodic theo dõi tiến độ quy trình; Accumulating lưu ảnh chụp cố định",
+    "Cả hai đều ghi từng giao dịch riêng lẻ ở mức Atomic của sự kiện"
+   ]
+  },
+  {
+   "id": "b-c2-q11",
+   "explanation": "Nguyên tắc: mọi Fact trong bảng phải cùng một mức chi tiết (Grain). Grain càng thấp thì phân tích càng rộng nhưng bảng càng lớn."
+  },
+  {
+   "id": "b-c2-q13",
+   "explanation": "Bridge Table ánh xạ quan hệ nhiều-nhiều (M-M) giữa các nhóm thực thể không liên kết trực tiếp; rủi ro là bùng nổ dữ liệu (data explosion).",
+   "options": [
+    "Ghi đè trực tiếp dữ liệu cũ; cần thận trọng vì mất toàn bộ lịch sử thay đổi",
+    "Lưu sự kiện không có số liệu; cần thận trọng vì thiếu chỉ số phân tích",
+    "Che dấu dữ liệu nhạy cảm trước người dùng; cần thận trọng vì làm chậm truy vấn",
+    "Giải quyết quan hệ nhiều-nhiều (M-M) giữa các nhóm thực thể, dễ gây bùng nổ dữ liệu"
+   ]
+  },
+  {
+   "id": "b-c2-q15",
+   "explanation": "SCD Type 2 dùng Start_Date/End_Date/Is_Current để lưu vết lịch sử (Point-in-time). Ghi đè là Type 1; hai cột cũ/mới là Type 3; tách Current/History là Type 4.",
+   "options": [
+    "Dùng Start_Date, End_Date, Is_Current để lưu vết lịch sử",
+    "Cập nhật trực tiếp và ghi đè lên dữ liệu cũ",
+    "Tách riêng Current Table và History Table",
+    "Lưu giá trị cũ và giá trị mới ở hai cột riêng"
+   ]
+  },
+  {
+   "id": "b-c2-q16",
+   "explanation": "Type 1 ghi đè trực tiếp dữ liệu cũ, phù hợp khi không cần lưu lịch sử. Type 2/6 dùng khi cần lưu vết; Type 4 khi muốn bảng chính gọn nhẹ."
+  },
+  {
+   "id": "b-c2-q17",
+   "explanation": "Junk Dimension gom các flag/mã trạng thái rời rạc vào một bảng → giảm Join. Degenerate = khóa nghiệp vụ trong Fact; Mini-dimension = tách thuộc tính đổi nhanh; Role-playing = một chiều nhiều vai trò."
+  },
+  {
+   "id": "b-c2-q18",
+   "explanation": "Bronze = Raw Layer: nhận dữ liệu gốc không biến đổi, giữ định dạng thô (JSON/Parquet), Immutability để có thể Reprocess. Chuẩn hóa/làm sạch là Silver; tổng hợp KPI là Gold.",
+   "options": [
+    "Dữ liệu đã tổng hợp, tổ chức theo Star Schema, sẵn sàng cho BI",
+    "Chỉ chứa các chỉ số KPI đã qua phê duyệt nghiệp vụ",
+    "Tiếp nhận dữ liệu gốc từ nguồn, giữ nguyên định dạng thô",
+    "Dữ liệu đã được chuẩn hóa, làm sạch, loại bỏ bản ghi rác"
+   ]
+  },
+  {
+   "id": "b-c2-q19",
+   "explanation": "Tầng Silver dùng Delta Lake hoặc Iceberg để đảm bảo ACID trong quá trình biến đổi; đây là nguồn chính cho Feature Extraction phục vụ AI."
+  },
+  {
+   "id": "b-c2-q20",
+   "explanation": "Tầng Gold tổ chức theo Star Schema/Wide Tables, chứa Metrics/KPIs đã tổng hợp và đã qua phê duyệt nghiệp vụ; là tầng tiếp xúc trực tiếp với BI.",
+   "options": [
+    "Log-based CDC để đồng bộ dữ liệu thời gian thực",
+    "JSON thô ở tầng Bronze để hỗ trợ Schema-on-read",
+    "Chuẩn hóa 3NF để tránh trùng lặp dữ liệu",
+    "Star Schema hoặc Wide Tables chứa KPI tổng hợp"
+   ]
+  },
+  {
+   "id": "b-c2-q21",
+   "explanation": "Semantic Layer là lớp trung gian trừu tượng hóa cấu trúc vật lý, chuyển tên kỹ thuật thành thuật ngữ nghiệp vụ, hỗ trợ GenAI và kiểm soát bảo mật Row/Column-level thống nhất.",
+   "options": [
+    "Chia dữ liệu thành ba tầng Bronze–Silver–Gold",
+    "Nén dữ liệu thành các Micro-partition",
+    "Tự động phát hiện Schema Drift ở dữ liệu nguồn",
+    "Trừu tượng hóa cấu trúc vật lý thành thuật ngữ nghiệp vụ"
+   ]
+  },
+  {
+   "id": "b-c2-q22",
+   "explanation": "Metric Catalog (Headless BI) định nghĩa công thức chỉ số tại một nơi → nhất quán đa nền tảng (PowerBI/Tableau/Streamlit), hỗ trợ Lineage và tái sử dụng.",
+   "options": [
+    "Định nghĩa công thức của mọi chỉ số tại một nơi duy nhất",
+    "Lưu trữ toàn bộ dữ liệu thô chưa qua xử lý",
+    "Chia dữ liệu thành các tập Train/Validation/Test",
+    "Tự động sắp xếp lại dữ liệu khi Clustering Depth tăng"
+   ]
+  },
+  {
+   "id": "b-c2-q23",
+   "explanation": "VARIANT lưu toàn bộ tài liệu bán cấu trúc (JSON/Parquet, Web logs, IoT) trong một cột duy nhất với hiệu năng cao, tránh Schema-on-write cứng nhắc.",
+   "options": [
+    "Dữ liệu quan hệ đã chuẩn hóa về dạng 3NF",
+    "Dữ liệu số nguyên để tối ưu nén khóa chính",
+    "Dữ liệu bán cấu trúc như JSON/Parquet (Web logs, IoT)",
+    "Dữ liệu ảnh và video nhị phân dung lượng lớn"
+   ]
+  },
+  {
+   "id": "b-c2-q24",
+   "explanation": "Flattening chuyển các mảng lồng nhau thành các dòng riêng biệt để phân tích; kèm toán tử truy cập trường lồng và Join hỗn hợp giữa dữ liệu bán cấu trúc và quan hệ.",
+   "options": [
+    "Nén toàn bộ tài liệu VARIANT thành một chuỗi byte",
+    "Xóa bỏ các trường lồng nhau để đơn giản hóa",
+    "Ép buộc cấu trúc dữ liệu ngay khi nạp (Schema-on-write)",
+    "Chuyển các mảng lồng nhau thành các dòng riêng biệt"
+   ]
+  },
+  {
+   "id": "b-c2-q25",
+   "explanation": "Materialization trích xuất trường hay truy vấn thành cột vật lý (tận dụng chỉ mục), có thể kèm Virtual Views; cân bằng giữa linh hoạt của VARIANT và hiệu năng cột cố định.",
+   "options": [
+    "Ép mọi truy vấn phải quét toàn bộ VARIANT",
+    "Trích xuất trường đó thành một cột vật lý riêng",
+    "Chuyển toàn bộ bảng sang tầng Bronze",
+    "Xóa trường đó khỏi cột VARIANT để giảm dung lượng"
+   ]
+  },
+  {
+   "id": "b-c2-q26",
+   "explanation": "AI cần Granularity (dữ liệu chi tiết nhất) để học đặc trưng → dùng Wide Tables giảm Join, ưu tiên Time-series, lưu đủ mẫu tích cực/tiêu cực, hỗ trợ chia Train/Validation/Test.",
+   "options": [
+    "Tăng cường chuẩn hóa 3NF để giảm trùng lặp",
+    "Loại bỏ hoàn toàn dữ liệu Time-series",
+    "Chỉ giữ lại dữ liệu tổng hợp cấp cao, bỏ dữ liệu chi tiết",
+    "Chuyển từ Star Schema sang Wide Tables để giảm Join"
+   ]
+  },
+  {
+   "id": "b-c2-q27",
+   "explanation": "Point-in-time Correctness: chỉ dùng dữ liệu đã biết tại thời điểm dự báo lịch sử, tránh Data Leakage. Thực hiện bằng Time Travel hoặc SCD Type 2, quản lý qua Feature Store.",
+   "options": [
+    "Mọi đặc trưng phải được tính bằng SQL chuẩn",
+    "Chỉ dùng dữ liệu đã biết tại thời điểm dự báo trong quá khứ",
+    "Dữ liệu phải được cập nhật đúng hạn theo SLA",
+    "AI phải dùng toàn bộ dữ liệu mới nhất tại thời điểm huấn luyện"
+   ]
+  },
+  {
+   "id": "bs-c2-1",
+   "explanation": "Dimension nên dùng thuộc tính diễn giải rõ nghĩa (verbose), tránh mã khó hiểu với người dùng nghiệp vụ.",
+   "options": [
+    "Thuộc tính số dùng để tính tổng",
+    "Thuộc tính lưu dạng mã ngắn để tiết kiệm dung lượng",
+    "Thuộc tính chỉ dùng cho kỹ sư dữ liệu",
+    "Thuộc tính mô tả rõ nghĩa cho người dùng cuối"
+   ]
+  },
+  {
+   "id": "bs-c2-2",
+   "explanation": "Slide: Semantic Layer 'cho phép quản trị quyền truy cập ở Row-level security và Column-level security một cách đồng nhất'.",
+   "options": [
+    "Chỉ ở cấp độ Database và Schema",
+    "Row-level security và Column-level security",
+    "Chỉ ở cấp độ tài khoản Cloud và vùng",
+    "Chỉ ở cấp độ file vật lý trên storage"
+   ]
+  },
+  {
+   "id": "bs-c2-3",
+   "explanation": "Metric Catalog quản lý vòng đời chỉ số: khởi tạo → kiểm thử → xác thực; định nghĩa một nơi, dùng ở mọi công cụ BI."
+  },
+  {
+   "id": "bs-c2-4",
+   "explanation": "Slide: 'Áp dụng kỹ thuật phân vùng dữ liệu dựa trên các trường thông tin phổ biến nhất bên trong cột VARIANT'.",
+   "options": [
+    "Ngẫu nhiên theo số dòng của bảng",
+    "Các trường phổ biến nhất trong cột VARIANT",
+    "Tên file nguồn và thời điểm nạp dữ liệu",
+    "Kích thước của từng tài liệu JSON"
+   ]
+  },
+  {
+   "id": "bs-c2-5",
+   "explanation": "Bronze lưu kèm Ingestion_Timestamp và mã hệ thống nguồn để truy vết và Reprocess.",
+   "options": [
+    "Các chỉ số KPI đã được tổng hợp sẵn theo chiều",
+    "Kết quả dự báo đã tính sẵn của mô hình AI",
+    "Ingestion_Timestamp và mã định danh hệ thống nguồn",
+    "Tên người dùng BI cuối truy cập báo cáo"
+   ]
+  },
+  {
+   "id": "bs-c2-6",
+   "explanation": "Giữ nguyên dữ liệu gốc ở Bronze cho phép chạy lại (Reprocess) toàn bộ pipeline khi logic thay đổi hoặc phát hiện lỗi.",
+   "options": [
+    "Để Reprocess dữ liệu khi logic nghiệp vụ thay đổi",
+    "Để thay thế hoàn toàn tầng Gold trong Lakehouse",
+    "Để giảm số cột và dung lượng của bảng",
+    "Để tăng tốc độ truy vấn BI và báo cáo"
+   ]
+  },
+  {
+   "id": "bs-c2-7",
+   "explanation": "Slide: xây dựng và lưu các đặc trưng tổng hợp vào tầng Gold để tái sử dụng.",
+   "options": [
+    "Tầng Bronze (Raw Layer)",
+    "Tầng Silver (Curated Layer)",
+    "Bộ nhớ đệm của trình duyệt web",
+    "Tầng Gold (Consumption Layer)"
+   ]
+  },
+  {
+   "id": "bs-c2-8",
+   "explanation": "Cùng một logic SQL dùng cho cả train và predict → tránh lệch đặc trưng (training-serving skew).",
+   "options": [
+    "Vì Database tự chọn thuật toán tốt nhất cho mô hình",
+    "Vì loại bỏ hoàn toàn nhu cầu chuẩn hóa dữ liệu",
+    "Logic tạo đặc trưng đồng nhất giữa train và serve",
+    "Vì mô hình không cần dữ liệu lịch sử để học"
+   ]
+  }
+ ]
+}

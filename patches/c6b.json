@@ -1,0 +1,551 @@
+{
+ "chunk": "c6b",
+ "items": [
+  {
+   "id": "c6-q70",
+   "explanation": "CREATE MODEL nhận tham số thuật toán: slide nêu LOGISTIC_REG (phân loại) và LINEAR_REG (hồi quy).\n• DBSCAN và APRIORI là thuật toán có thật nhưng không được slide nhắc tới"
+  },
+  {
+   "id": "c6-q71",
+   "explanation": "ML.EVALUATE trả về ngay các chỉ số đánh giá của mô hình bằng một câu SELECT: ROC-AUC và F1-Score.\n• Damping factor thuộc PageRank; số dòng bảng chỉ là thống kê, không phải độ đo chất lượng mô hình"
+  },
+  {
+   "id": "c6-q72",
+   "explanation": "ML.PREDICT gọi mô hình đã huấn luyện để dự báo ngay trên các bảng dữ liệu mới đang lưu trữ, không cần di chuyển dữ liệu ra ngoài. CREATE MODEL mới là lệnh khởi tạo và huấn luyện.",
+   "options": [
+    "Khởi tạo và huấn luyện mô hình mới trên bảng dữ liệu huấn luyện",
+    "Trích xuất chỉ số đánh giá như ROC-AUC, F1-Score",
+    "Tối ưu hóa siêu tham số của mô hình đã huấn luyện",
+    "Gọi mô hình để dự báo ngay trên các bảng dữ liệu mới đang lưu trữ"
+   ]
+  },
+  {
+   "id": "c6-q73",
+   "explanation": "Churn là nhãn nhị phân (có/không) nên đây là bài toán phân loại → chọn LOGISTIC_REG trong CREATE MODEL.\n• LINEAR_REG dùng cho hồi quy dự đoán giá trị số liên tục"
+  },
+  {
+   "id": "c6-q74",
+   "explanation": "Doanh thu tháng tới là giá trị số liên tục nên đây là bài toán hồi quy → dùng LINEAR_REG.\n• LOGISTIC_REG dành cho nhãn danh mục, CPT+ cho dự đoán chuỗi, Anomaly Detection cho điểm bất thường",
+   "options": [
+    "LOGISTIC_REG vì doanh thu là nhãn danh mục cần phân loại",
+    "LINEAR_REG vì đây là bài toán hồi quy dự đoán giá trị số liên tục",
+    "CPT+ vì doanh thu là chuỗi phần tử theo thời gian",
+    "Anomaly Detection vì doanh thu tháng sau là điểm bất thường"
+   ]
+  },
+  {
+   "id": "c6-q75",
+   "explanation": "Cortex ML Functions đóng gói sẵn hai bài toán doanh nghiệp: Forecasting (dự báo chuỗi thời gian như doanh số, tồn kho) và Anomaly Detection (điểm dữ liệu bất thường).\n• Model Registry và CREATE MODEL không thuộc nhóm hàm này",
+   "options": [
+    "Forecasting (dự báo chuỗi thời gian như doanh số, tồn kho)",
+    "Model Registry quản lý trạng thái mô hình",
+    "Anomaly Detection (phát hiện điểm dữ liệu bất thường)",
+    "Huấn luyện mô hình bằng CREATE MODEL của BigQuery ML"
+   ]
+  },
+  {
+   "id": "c6-q76",
+   "explanation": "Cortex AI & LLM Integration cho phép gọi trực tiếp các mô hình ngôn ngữ lớn như Llama và Mistral bằng câu lệnh SQL đơn giản.\n• Prophet là thư viện dự báo chuỗi thời gian, Random Forest là thuật toán ML cổ điển, cả hai không phải LLM"
+  },
+  {
+   "id": "c6-q77",
+   "explanation": "Gọi LLM qua Cortex bằng SQL phục vụ hai tác vụ trên dữ liệu text thô: tóm tắt văn bản và phân tích cảm xúc.\n• PageRank (xếp hạng trang) và CPT+ (dự đoán chuỗi) là thuật toán khác, không phải tác vụ của LLM",
+   "options": [
+    "Tóm tắt văn bản",
+    "Phân tích cảm xúc trích xuất từ dữ liệu text thô",
+    "Xếp hạng tầm quan trọng của trang web bằng PageRank",
+    "Dự đoán phần tử kế tiếp của chuỗi bằng CPT+"
+   ]
+  },
+  {
+   "id": "c6-q78",
+   "explanation": "Đội ngũ chỉ biết SQL, cần dự báo chuỗi thời gian tồn kho mà không tự xây mô hình → dùng hàm Forecasting đóng gói sẵn của Cortex ML Functions.\n• Tự viết DNN, xuất dữ liệu sang BigQuery hay dựng cụm Spark đều phá vỡ Zero Data Movement",
+   "options": [
+    "Viết mã huấn luyện mạng DNN bằng Snowpark từ đầu",
+    "Dùng hàm Forecasting đóng gói sẵn của Snowflake Cortex ML Functions",
+    "Xuất dữ liệu sang BigQuery ML của Google để huấn luyện",
+    "Triển khai cụm Spark riêng bên ngoài kho dữ liệu"
+   ]
+  },
+  {
+   "id": "c6-q79",
+   "explanation": "Snowpark là thư viện API dạng DataFrame cho Python, R, Scala nhưng quá trình thực thi diễn ra bên trong Snowflake.\n• Snowpark không phải công cụ dashboard, dịch vụ lưu file hay biến thể SQL thay ANSI SQL",
+   "options": [
+    "Một công cụ dựng dashboard và báo cáo trực quan ngay trong Snowflake Web UI",
+    "Một dịch vụ lưu trữ file đám mây dùng để chia sẻ dữ liệu giữa các phòng ban",
+    "Thư viện cung cấp API dạng DataFrame cho Python, R hoặc Scala nhưng thực thi bên trong Snowflake",
+    "Một biến thể SQL riêng của Snowflake thay thế hoàn toàn ANSI SQL khi truy vấn"
+   ]
+  },
+  {
+   "id": "c6-q80",
+   "explanation": "Push-down: mã Python người dùng viết được Snowpark tự biên dịch thành câu SQL tối ưu, chạy song song trên các cụm máy chủ ảo của kho dữ liệu.\n• Không có chuyện đẩy dữ liệu xuống máy trạm hay chạy tuần tự trên một máy chủ",
+   "options": [
+    "Đẩy toàn bộ dữ liệu thô từ Snowflake xuống máy trạm của người dùng để xử lý cục bộ",
+    "Nén và đẩy mô hình đã huấn luyện lên nhà cung cấp cloud khác để chạy suy luận",
+    "Chuyển mã Python sang chạy tuần tự trên một máy chủ đơn thay vì chạy song song",
+    "Mã Python được biên dịch thành SQL tối ưu, chạy song song trên các cụm máy chủ ảo của kho dữ liệu"
+   ]
+  },
+  {
+   "id": "c6-q81",
+   "explanation": "Zero Data Movement là giữ dữ liệu thô tại chỗ: toàn bộ quá trình xử lý diễn ra bên trong kho, không trích dữ liệu ra ngoài.\n• Các phương án còn lại chỉ nói về lịch truyền, nén dữ liệu hay sao chép metadata",
+   "options": [
+    "Toàn bộ quy trình xử lý diễn ra theo nguyên lý không dịch chuyển dữ liệu thô ra ngoài kho",
+    "Dữ liệu chỉ được phép di chuyển vào ban đêm để tránh nghẽn băng thông mạng",
+    "Dữ liệu được nén về kích thước gần bằng không trước khi truyền qua mạng",
+    "Chỉ di chuyển metadata, còn dữ liệu thô được sao chép định kỳ sang vùng tạm"
+   ]
+  },
+  {
+   "id": "c6-q82",
+   "explanation": "Quen viết Python kiểu DataFrame mà không được rút dữ liệu ra ngoài → Snowpark: DataFrame API cho Python, thực thi ngay trong Snowflake.\n• BigQuery ML là SQL, Cortex Forecasting chỉ dự báo; xuất CSV vi phạm Zero Data Movement",
+   "options": [
+    "BigQuery ML vì hỗ trợ SQL chuẩn và huấn luyện mô hình ngay trên BigQuery",
+    "Snowpark vì cung cấp DataFrame API cho Python và thực thi ngay trong Snowflake",
+    "Cortex Forecasting vì tự động dự báo chuỗi thời gian doanh số theo lịch",
+    "Xuất dữ liệu ra CSV rồi xử lý bằng pandas trên laptop của Data Scientist"
+   ]
+  },
+  {
+   "id": "c6-q83",
+   "explanation": "Dữ liệu đã nằm trên BigQuery và nhóm chỉ biết SQL → BigQuery ML với CREATE MODEL, chọn LOGISTIC_REG cho bài toán phân loại.\n• Snowpark cần Python/Scala; Hadoop hay GPU riêng đều cồng kềnh và phải dịch chuyển dữ liệu"
+  },
+  {
+   "id": "c6-q84",
+   "explanation": "Phân tích cảm xúc text trong Snowflake chỉ bằng SQL, không huấn luyện mô hình → gọi LLM (Llama, Mistral) qua Snowflake Cortex.\n• LINEAR_REG, CPT+ hay PageRank đều không giải quyết bài toán cảm xúc văn bản",
+   "options": [
+    "BigQuery ML với LINEAR_REG để hồi quy điểm cảm xúc của từng review",
+    "Tự xây dựng Prediction Tree bằng CPT+ trên chuỗi các review đã tách từ",
+    "Dùng thuật toán PageRank để xếp hạng review theo độ quan trọng",
+    "Gọi LLM (như Llama, Mistral) qua Snowflake Cortex bằng câu lệnh SQL đơn giản"
+   ]
+  },
+  {
+   "id": "c6-q85",
+   "explanation": "Tích hợp Anaconda cho phép gọi trực tiếp hàng ngàn thư viện phổ biến (scikit-learn, numpy, pandas, scipy) mà không cần cài đặt thủ công.\n• Anaconda không sinh dữ liệu giả, không thay SQL và không mã hóa mã nguồn",
+   "options": [
+    "Gọi trực tiếp hàng ngàn thư viện phổ biến mà không cần cài đặt thủ công",
+    "Tự động sinh dữ liệu giả để kiểm thử mô hình trước khi huấn luyện",
+    "Thay thế hoàn toàn ngôn ngữ SQL trong kho dữ liệu bằng Python",
+    "Mã hóa toàn bộ mã nguồn Python của người dùng trước khi thực thi"
+   ]
+  },
+  {
+   "id": "c6-q86",
+   "explanation": "Slide nêu scikit-learn, numpy, pandas, scipy là các thư viện phổ biến gọi được qua Anaconda.\n• spark-mllib là thư viện của Spark/Scala, không nằm trong kho Anaconda tích hợp sẵn của kho dữ liệu",
+   "options": [
+    "scikit-learn",
+    "numpy",
+    "pandas",
+    "spark-mllib"
+   ]
+  },
+  {
+   "id": "c6-q87",
+   "explanation": "Sandboxing chạy mã Python/R trong không gian cô lập an toàn tuyệt đối, ngăn mã độc xâm nhập hạ tầng dữ liệu doanh nghiệp.\n• Tăng tốc biên dịch là việc của Push-down; chia train/test hay sao lưu mã không thuộc cơ chế này",
+   "options": [
+    "Tăng tốc độ biên dịch mã Python thành các câu lệnh SQL song song",
+    "Chạy mã Python/R trong không gian cô lập an toàn, ngăn mã độc xâm nhập hạ tầng",
+    "Tự động chia dữ liệu thành tập train và tập test theo tỉ lệ",
+    "Sao lưu mã nguồn của người dùng theo thời gian thực lên vùng lưu trữ"
+   ]
+  },
+  {
+   "id": "c6-q88",
+   "explanation": "Python Worksheets cho phép viết, chạy thử nghiệm và trực quan hóa mã Python ngay trên giao diện Web UI của kho dữ liệu.\n• Đó không phải nơi xem lịch sử SQL, phân quyền tài khoản hay thiết kế ERD",
+   "options": [
+    "Chỉ xem lại lịch sử các truy vấn SQL đã chạy trên kho dữ liệu",
+    "Quản lý quyền truy cập của các tài khoản người dùng theo vai trò",
+    "Viết, chạy thử và trực quan hóa mã Python ngay trên Web UI của kho dữ liệu",
+    "Thiết kế sơ đồ quan hệ ERD cho các bảng dữ liệu trong kho"
+   ]
+  },
+  {
+   "id": "c6-q89",
+   "explanation": "Thiếu Feature Store, mỗi phòng ban tự tính đặc trưng nên dễ trùng lặp công sức và logic bị sai lệch giữa các nhóm.\n• Suy giảm độ chính xác theo thời gian là Model Drift; tái lập phiên bản là việc của Model Versioning",
+   "options": [
+    "Mô hình bị suy giảm độ chính xác theo thời gian do Model Drift",
+    "Các phòng ban tính toán đặc trưng trùng lặp",
+    "Không thể tái lập phiên bản dữ liệu khi huấn luyện lại",
+    "Logic tính toán đặc trưng bị sai lệch giữa các nhóm"
+   ]
+  },
+  {
+   "id": "c6-q90",
+   "explanation": "Feature Store là kho lưu trữ tập trung quản lý và phân phối các đặc trưng đã tính sẵn để nhiều mô hình ML dùng lại.\n• Nó không phải chợ mua bán mô hình, công cụ trực quan hóa hay chỉ mục tăng tốc truy vấn",
+   "options": [
+    "Kho lưu trữ tập trung quản lý và phân phối đặc trưng đã tính sẵn cho nhiều mô hình",
+    "Một chợ ứng dụng để mua bán mô hình ML giữa các phòng ban",
+    "Một công cụ trực quan hóa đặc trưng dữ liệu trước khi huấn luyện",
+    "Một loại chỉ mục giúp truy vấn bảng đặc trưng nhanh hơn nhiều lần"
+   ]
+  },
+  {
+   "id": "c6-q91",
+   "explanation": "Ba lợi ích lớn: Discovery (tái sử dụng đặc trưng dễ dàng), Consistency (nhất quán) và Lineage (truy vết nguồn gốc).\n• Sharding (tự động phân mảnh dữ liệu) không nằm trong ba lợi ích này"
+  },
+  {
+   "id": "c6-q92",
+   "explanation": "Hai team ra kết quả khác nhau vì mỗi bên tự tính đặc trưng → Consistency: mọi mô hình dùng chung một đặc trưng có logic thống nhất.\n• Lineage chỉ truy vết nguồn gốc, Discovery chỉ giúp tìm kiếm đặc trưng",
+   "options": [
+    "Lineage vì giúp truy vết nguồn gốc của từng đặc trưng",
+    "Discovery vì giúp tìm kiếm và tái sử dụng đặc trưng đã có",
+    "Sharding vì phân tán dữ liệu đặc trưng ra nhiều máy chủ",
+    "Consistency vì mọi mô hình dùng chung một đặc trưng có logic tính thống nhất"
+   ]
+  },
+  {
+   "id": "c6-q93",
+   "explanation": "MLOps là tập quy trình áp dụng tư duy DevOps vào ML, tự động hóa và quản lý vòng đời mô hình từ thử nghiệm đến môi trường vận hành thực tế.\n• MLOps không phải thuật toán, dịch vụ giám sát chi phí hay chuẩn định dạng file",
+   "options": [
+    "Một thuật toán học sâu chuyên dùng cho dữ liệu trong kho",
+    "Một dịch vụ giám sát chi phí của các tài khoản cloud",
+    "Tập hợp quy trình áp dụng DevOps vào ML, tự động hóa vòng đời mô hình",
+    "Một chuẩn định dạng file để lưu và trao đổi mô hình đã huấn luyện"
+   ]
+  },
+  {
+   "id": "c6-q94",
+   "explanation": "Model Registry quản lý trạng thái mô hình: Đang phát triển, Đã phê duyệt và Đã hạ tải.\n• Mã hóa AES là kỹ thuật bảo mật dữ liệu, không phải trạng thái mô hình trong Model Registry"
+  },
+  {
+   "id": "c6-q95",
+   "explanation": "Model Versioning ràng buộc phiên bản mô hình đi kèm đúng Data Version và mã nguồn tạo ra nó, để tái lập và kiểm thử lại được.\n• Mô hình vẫn được huấn luyện lại nhiều lần và không bắt buộc dùng chung siêu tham số",
+   "options": [
+    "Ràng buộc phiên bản mô hình đi kèm đúng phiên bản dữ liệu và mã nguồn tạo ra nó",
+    "Mỗi mô hình chỉ được huấn luyện đúng một lần duy nhất trong ngày",
+    "Mọi mô hình trong kho phải dùng chung một tập siêu tham số tối ưu",
+    "Phiên bản mô hình phải trùng với phiên bản hệ điều hành máy chủ"
+   ]
+  },
+  {
+   "id": "c6-q96",
+   "explanation": "Model Drift: sau khi đưa vào thực tế, độ chính xác của mô hình giảm dần theo thời gian do Data Drift hoặc Concept Drift.\n• Đây không phải lỗi xóa mô hình, thiếu bộ nhớ hay lệch kết quả giữa hai máy chủ"
+  },
+  {
+   "id": "c6-q97",
+   "explanation": "Data Drift là khi phân phối của dữ liệu đầu vào thực tế thay đổi so với dữ liệu huấn luyện.\n• Quan hệ giữa thuộc tính đầu vào và nhãn mục tiêu thay đổi là Concept Drift; hai phương án còn lại nói về lỗi truyền dữ liệu và dung lượng lưu trữ"
+  },
+  {
+   "id": "c6-q98",
+   "explanation": "Concept Drift là khi mối quan hệ giữa thuộc tính đầu vào và nhãn mục tiêu bị thay đổi, cùng đặc điểm đầu vào vẫn có thể cho nhãn khác.\n• Phân phối đầu vào đổi là Data Drift; còn lại là đổi phiên bản hay đổi tên tài liệu"
+  },
+  {
+   "id": "c6-q99",
+   "explanation": "Đầu vào (tuổi, thu nhập, khu vực) không đổi nhưng quan hệ đầu vào → nhãn mua hàng đã đổi, nên đây là Concept Drift.\n• Data Drift là khi chính phân phối đầu vào thay đổi; Overfitting/Underfitting là vấn đề huấn luyện",
+   "options": [
+    "Concept Drift vì mối quan hệ giữa đầu vào và nhãn mục tiêu đã thay đổi",
+    "Data Drift vì phân phối dữ liệu đầu vào đã thay đổi so với lúc huấn luyện",
+    "Overfitting vì mô hình đã học thuộc lòng toàn bộ dữ liệu huấn luyện",
+    "Underfitting vì mô hình quá đơn giản so với dữ liệu thực tế"
+   ]
+  },
+  {
+   "id": "c6-q100",
+   "explanation": "Phân phối đầu vào thực tế đã dịch từ nhóm 20-30 tuổi sang 40-50 tuổi, còn quan hệ đặc trưng → khả năng trả nợ không đổi → Data Drift.\n• Concept Drift là khi chính quan hệ đầu vào-nhãn thay đổi",
+   "options": [
+    "Concept Drift vì quan hệ giữa đầu vào và nhãn mục tiêu đã thay đổi",
+    "Lỗi cấu hình của Model Registry khi lưu phiên bản mô hình",
+    "Overfitting vì mô hình đã học thuộc lòng tập huấn luyện 20-30 tuổi",
+    "Data Drift vì phân phối dữ liệu đầu vào thực tế đã thay đổi so với dữ liệu huấn luyện"
+   ]
+  },
+  {
+   "id": "c6-q101",
+   "explanation": "Giải pháp: thiết lập hệ thống giám sát tự động kích hoạt huấn luyện lại mô hình (Auto-retraining) khi độ chính xác tụt dưới ngưỡng cho phép.\n• Tắt mô hình, giảm dữ liệu hay đổi cách đóng gói UDF đều không xử lý được drift",
+   "options": [
+    "Tắt mô hình vĩnh viễn ngay khi độ chính xác bắt đầu giảm",
+    "Đóng gói lại mô hình thành UDF mới để dự báo nhanh hơn",
+    "Thiết lập giám sát tự động kích hoạt huấn luyện lại khi độ chính xác tụt ngưỡng",
+    "Giảm kích thước tập dữ liệu huấn luyện để mô hình học nhanh hơn"
+   ]
+  },
+  {
+   "id": "c6-q102",
+   "explanation": "AutoML tự động hóa toàn bộ chuỗi quy trình xây dựng mô hình ML, giảm tối đa thao tác thử sai lặp đi lặp lại của con người.\n• AutoML không phải thuật toán phân loại mới, dịch vụ sao lưu hay ngôn ngữ lập trình",
+   "options": [
+    "Một thuật toán phân loại mới thay thế hoàn toàn Decision Tree",
+    "Dịch vụ tự động sao lưu mô hình đã huấn luyện lên cloud",
+    "Một ngôn ngữ lập trình chuyên dụng cho bài toán ML",
+    "Công nghệ tự động hóa chuỗi quy trình xây dựng mô hình ML, giảm thao tác thử sai"
+   ]
+  },
+  {
+   "id": "c6-q103",
+   "explanation": "AutoML tự động hóa: Automated Feature Engineering (chọn/biến đổi đặc trưng), huấn luyện thử nhiều thuật toán để chọn tốt nhất và Hyperparameter Tuning.\n• Phê duyệt mô hình trong Model Registry vẫn thuộc quy trình MLOps, không do AutoML làm",
+   "options": [
+    "Tự động lựa chọn và biến đổi các đặc trưng hữu ích (Automated Feature Engineering)",
+    "Tự động huấn luyện thử nghiệm đồng thời trên nhiều thuật toán khác nhau để chọn ra thuật toán tốt nhất",
+    "Tự động Hyperparameter Tuning để tối ưu hiệu năng mô hình",
+    "Tự động phê duyệt và hạ tải mô hình trong Model Registry"
+   ]
+  },
+  {
+   "id": "c6-q104",
+   "explanation": "Sau khi huấn luyện và phê duyệt, mô hình được đóng gói thành UDF ngay trong DWH, biến mô hình thành một lệnh SQL trực quan.\n• Đây không phải file trên máy trạm, REST API bên ngoài hay bảng kết quả tĩnh",
+   "options": [
+    "Một hàm tự định nghĩa UDF (User-Defined Function) đóng gói ngay trong DWH",
+    "Một file thực thi được cài trên máy trạm của từng người dùng",
+    "Một REST API độc lập chạy bên ngoài kho dữ liệu doanh nghiệp",
+    "Một bảng dữ liệu tĩnh chứa toàn bộ kết quả dự đoán đã tính trước"
+   ]
+  },
+  {
+   "id": "c6-q105",
+   "explanation": "Với UDF, người dùng không cần viết code API, chỉ chạy một câu SELECT bình thường và nhận dự báo thời gian thực trên từng dòng.\n• Bắt buộc xuất dữ liệu sang máy chủ ML bên ngoài là cách làm cũ, trái với In-Database"
+  },
+  {
+   "id": "b-c6-q1",
+   "explanation": "In-Database ML: đưa THUẬT TOÁN đến với DỮ LIỆU (huấn luyện/triển khai ngay trong DWH), thay vì đưa dữ liệu đến thuật toán (trích ra máy chủ riêng như cách truyền thống).",
+   "options": [
+    "Huấn luyện và triển khai mô hình ML ngay trong hạ tầng lưu trữ của Data Warehouse",
+    "Chỉ dùng cho dữ liệu phi cấu trúc như ảnh, video và log",
+    "Huấn luyện mô hình trên máy cá nhân của Data Scientist rồi tải lên",
+    "Trích xuất dữ liệu ra một máy chủ ML riêng biệt để huấn luyện"
+   ]
+  },
+  {
+   "id": "b-c6-q2",
+   "explanation": "Governance: RBAC đồng nhất, phân quyền dùng mô hình ML giống phân quyền bảng. Scalability = tính toán song song/auto-scaling; Simplicity = tích hợp vào ELT sẵn có.",
+   "options": [
+    "Tăng băng thông mạng khi dịch chuyển dữ liệu giữa các vùng",
+    "Kiểm soát truy cập dựa trên vai trò (RBAC) áp dụng đồng nhất cho cả bảng và mô hình",
+    "Tận dụng tính toán song song quy mô lớn và tự động mở rộng của DWH",
+    "Tích hợp mô hình vào các ELT Pipeline sẵn có của doanh nghiệp"
+   ]
+  },
+  {
+   "id": "b-c6-q3",
+   "explanation": "Google BigQuery ML và Snowflake Cortex là hai đại diện In-Database ML, huấn luyện mô hình hoàn toàn bằng câu lệnh SQL ngay trên dữ liệu đang lưu trữ.",
+   "options": [
+    "Neo4j và Qdrant – cơ sở dữ liệu đồ thị và vector",
+    "Debezium và Fivetran – công cụ CDC và ELT",
+    "Apache Airflow và Dagster – công cụ điều phối pipeline",
+    "Google BigQuery ML và Snowflake Cortex – huấn luyện bằng SQL"
+   ]
+  },
+  {
+   "id": "b-c6-q4",
+   "explanation": "Supervised: Labeled Data (đã có 'đáp án'/nhãn) → học ánh xạ dự đoán. Unsupervised: Unlabeled Data → tự khám phá cấu trúc/quy luật ẩn.",
+   "options": [
+    "Dữ liệu huấn luyện có được gán nhãn sẵn hay không: Labeled Data và Unlabeled Data",
+    "Kiểu dữ liệu đầu vào: Supervised cho dữ liệu số, Unsupervised cho văn bản",
+    "Tốc độ huấn luyện: Supervised nhanh hơn Unsupervised trên mọi bộ dữ liệu",
+    "Chiều gán nhãn: Supervised dùng dữ liệu chưa gán nhãn, Unsupervised dùng dữ liệu đã gán"
+   ]
+  },
+  {
+   "id": "b-c6-q5",
+   "explanation": "Unsupervised: Clustering, Anomaly Detection. Supervised: Classification (dự đoán nhãn danh mục), Regression (dự đoán giá trị số liên tục)."
+  },
+  {
+   "id": "b-c6-q6",
+   "explanation": "Recall: trong số thực sự dương tính, phát hiện đúng bao nhiêu. Precision: trong số dự đoán dương tính, đúng bao nhiêu. Accuracy: tỉ lệ đúng tổng thể. F1-Score: trung bình điều hòa Precision-Recall."
+  },
+  {
+   "id": "b-c6-q7",
+   "explanation": "F1-Score = trung bình điều hòa Precision & Recall, dùng khi cần cân bằng cả hai, đặc biệt với dữ liệu MẤT CÂN BẰNG nhãn (Accuracy hợp khi dữ liệu cân bằng).",
+   "options": [
+    "Khi chỉ cần tối ưu Precision, không quan tâm Recall",
+    "Khi dữ liệu hoàn toàn cân bằng giữa các nhãn dương và âm",
+    "Khi cần cân bằng cả Precision và Recall, nhất là dữ liệu mất cân bằng nhãn",
+    "Khi không có nhãn thực để đánh giá chất lượng mô hình"
+   ]
+  },
+  {
+   "id": "b-c6-q8",
+   "explanation": "CPT+ là thuật toán dự đoán chuỗi tuần tự: dự đoán phần tử kế tiếp sau một chuỗi sự kiện, ứng dụng dự đoán truy cập web, giỏ hàng, gợi ý sản phẩm kế tiếp.",
+   "options": [
+    "Xếp hạng tầm quan trọng của các trang web dựa trên liên kết",
+    "Chuẩn hóa dữ liệu về cùng thang đo trước khi huấn luyện",
+    "Dự đoán chuỗi tuần tự, tức dự đoán phần tử tiếp theo sau chuỗi sự kiện đã cho",
+    "Phân cụm dữ liệu số nhiều chiều thành các nhóm tương tự"
+   ]
+  },
+  {
+   "id": "b-c6-q9",
+   "explanation": "CPT+ gồm: Prediction Tree (cây tiền tố chia sẻ nhánh), Inverted Index (bảng 1/0 phần tử có trong chuỗi nào), Lookup Table (trỏ từ chuỗi tới node cuối trên cây).",
+   "options": [
+    "FP-Tree, Conditional Pattern Base, Count Table (cấu trúc của FP-Growth)",
+    "Prediction Tree (cây tiền tố), Inverted Index (bảng bit) và Lookup Table (trỏ node cuối)",
+    "Bronze, Silver, Gold (ba tầng của kiến trúc Medallion)",
+    "Queue, Stack và Dendrogram (ba cấu trúc lưu trữ cơ bản)"
+   ]
+  },
+  {
+   "id": "b-c6-q10",
+   "explanation": "Mệnh đề kết quả (consequent) của chuỗi u đối với s = chuỗi con dài nhất đứng SAU tất cả phần tử của Pᵧ(s) trong u. Tần suất mỗi phần tử được cộng vào Count Table.",
+   "options": [
+    "Chuỗi con dài nhất nằm sau tất cả phần tử của hậu tố Pᵧ(s) trong chuỗi đó",
+    "Số lần phần tử A và D xuất hiện trong chuỗi tương tự",
+    "Phần tử đầu tiên nằm ngay sau hậu tố trong chuỗi tương tự",
+    "Toàn bộ chuỗi tương tự sau khi đã loại bỏ hậu tố"
+   ]
+  },
+  {
+   "id": "b-c6-q11",
+   "explanation": "P(C)=2/3 (s3,s4), P(B)=2/3 (s3,s4), P(F)=1/3 (s1). B và C đồng điểm cao nhất 0,667 → dự đoán là B hoặc C."
+  },
+  {
+   "id": "b-c6-q12",
+   "explanation": "PageRank: một trang được nhiều trang QUAN TRỌNG khác liên kết đến thì bản thân có điểm cao. Dựa trên số lượng + chất lượng link trỏ ĐẾN trang.",
+   "options": [
+    "Tốc độ tải trang và số lượng người truy cập mỗi ngày",
+    "Số lượng và chất lượng các liên kết trỏ đến trang đó",
+    "Số lượng từ khóa chính xuất hiện trong nội dung trang",
+    "Số lượng liên kết mà trang đó trỏ đi tới các trang khác"
+   ]
+  },
+  {
+   "id": "b-c6-q13",
+   "explanation": "df (damping factor) thường lấy 0,85. Nếu đề không cho thì mặc định 0,85. (0,0001 là ngưỡng hội tụ ε)."
+  },
+  {
+   "id": "b-c6-q14",
+   "explanation": "PR₁(F) = (1 − df) + df × (PR₀(E)/C(E)) = (1 − 0,85) + 0,85 × (1/3) = 0,15 + 0,283 ≈ 0,43 (kết quả vòng lặp 1)."
+  },
+  {
+   "id": "b-c6-q15",
+   "explanation": "CREATE MODEL: khởi tạo/huấn luyện (chọn LOGISTIC_REG, LINEAR_REG...). ML.EVALUATE: trích chỉ số (ROC-AUC, F1). ML.PREDICT: dự báo trên bảng mới.",
+   "options": [
+    "ML.EVALUATE để trích xuất chỉ số đánh giá của mô hình",
+    "SELECT * FROM để quét toàn bộ bảng dữ liệu huấn luyện",
+    "ML.PREDICT để dự báo ngay trên các bảng dữ liệu mới",
+    "CREATE MODEL (ví dụ chọn LOGISTIC_REG hoặc LINEAR_REG)"
+   ]
+  },
+  {
+   "id": "b-c6-q16",
+   "explanation": "Snowflake Cortex: hàm ML/AI đóng gói (Forecasting, Anomaly Detection) + Cortex AI & LLM Integration gọi Llama/Mistral qua SQL. BigQuery ML dùng CREATE MODEL/ML.EVALUATE/ML.PREDICT.",
+   "options": [
+    "Chỉ dùng để nạp file batch vào kho dữ liệu theo lịch trình",
+    "Các hàm ML/AI đóng gói sẵn: Forecasting, Anomaly Detection và gọi LLM qua SQL",
+    "Chỉ dùng để đọc Redo logs và khôi phục dữ liệu sau sự cố",
+    "Chỉ huấn luyện Logistic/Linear Regression bằng CREATE MODEL"
+   ]
+  },
+  {
+   "id": "b-c6-q17",
+   "explanation": "Snowpark cung cấp API DataFrame cho Python/R/Scala, nhưng thực thi bên trong Snowflake (In-Database). Cơ chế Push-down tự biên dịch Python thành SQL tối ưu, Zero Data Movement, Secure Sandboxing.",
+   "options": [
+    "Viết mã chạy trên máy cá nhân rồi tải kết quả ngược về kho dữ liệu",
+    "Viết mã Python/R/Scala qua API DataFrame, thực thi bên trong hạ tầng Snowflake",
+    "Chỉ đọc dữ liệu mà không được phép tính toán trong kho",
+    "Chỉ dùng SQL thuần túy để truy vấn dữ liệu trong kho"
+   ]
+  },
+  {
+   "id": "b-c6-q18",
+   "explanation": "Feature Store là kho tập trung quản lý/phân phối đặc trưng đã tính sẵn, ba lợi ích: Discovery, Consistency, Lineage — tránh các phòng ban tính trùng lặp/sai lệch logic.",
+   "options": [
+    "Bronze, Silver, Gold – ba tầng của kiến trúc Medallion trong DWH",
+    "Support, Confidence và Lift – ba độ đo của luật kết hợp khi khai phá dữ liệu",
+    "Discovery (tái sử dụng), Consistency (nhất quán), Lineage (truy vết nguồn gốc)",
+    "Accuracy, Precision, Recall – ba độ đo đánh giá chất lượng mô hình"
+   ]
+  },
+  {
+   "id": "b-c6-q19",
+   "explanation": "MLOps áp dụng tư duy DevOps vào ML. Hai thành phần: Model Registry (quản lý trạng thái mô hình) và Model Versioning (gắn mô hình với đúng Data Version + mã nguồn → reproducibility).",
+   "options": [
+    "Feature Construction và Feature Selection trong Feature Store",
+    "Bronze Layer và Gold Layer của kiến trúc Medallion ba tầng",
+    "Producer và Consumer trong một pipeline streaming dữ liệu",
+    "Model Registry (danh mục mô hình) và Model Versioning (ràng buộc phiên bản)"
+   ]
+  },
+  {
+   "id": "b-c6-q20",
+   "explanation": "Data Drift: phân phối ĐẦU VÀO thay đổi (tuổi/thu nhập khách đổi). Concept Drift: quan hệ đầu vào - NHÃN đổi (cùng hành vi nhưng ý nghĩa dự đoán khác, ví dụ thị hiếu đổi).",
+   "options": [
+    "Data Drift: phân phối đầu vào đổi; Concept Drift: quan hệ đầu vào – nhãn đổi",
+    "Cả hai đều là hiện tượng giống hệt nhau, chỉ khác tên gọi",
+    "Data Drift: quan hệ đầu vào-nhãn đổi; Concept Drift: phân phối đầu vào đổi",
+    "Data Drift chỉ xảy ra với dữ liệu văn bản, còn Concept Drift với dữ liệu số"
+   ]
+  },
+  {
+   "id": "b-c6-q21",
+   "explanation": "Concept Drift: độ chính xác GIẢM dù phân phối đầu vào ít đổi (do quan hệ đầu vào-nhãn đổi). Data Drift nhận biết qua so sánh phân phối thống kê dữ liệu mới vs huấn luyện."
+  },
+  {
+   "id": "b-c6-q22",
+   "explanation": "AutoML tự động: (1) Feature Engineering (chọn/biến đổi đặc trưng), (2) thử nghiệm nhiều thuật toán chọn cái tốt nhất, (3) Hyperparameter Tuning.",
+   "options": [
+    "Tự động backup, tự động failover và tự động phân quyền",
+    "Tự động chọn đặc trưng, thử nhiều thuật toán, Hyperparameter Tuning",
+    "Tự động nạp dữ liệu, tự động mã hóa và tự động vẽ biểu đồ",
+    "Tự động phân mảnh, tự động nén và tự động sao lưu dữ liệu"
+   ]
+  },
+  {
+   "id": "b-c6-q23",
+   "explanation": "Mô hình được đóng gói thành UDF (User-Defined Function) ngay trong kho — bước cuối khép kín MLOps. Scoring diễn ra tức thời chỉ bằng câu lệnh SELECT thông thường.",
+   "options": [
+    "UDF (User-Defined Function) – biến mô hình thành lệnh SQL",
+    "Một Bridge Table nối hai bảng chiều trong mô hình sao",
+    "Một Redo log ghi lại các thay đổi để khôi phục dữ liệu",
+    "Một Micro-partition mới lưu kết quả dự đoán"
+   ]
+  },
+  {
+   "id": "bs-c6-1",
+   "explanation": "Cả 4 chuỗi đều chứa D và C. Phần sau khi đã gặp đủ {D,C}: s1 → F; s2 → B, E; s3 → B; s4 → (không có). Đếm: B = 2, E = 1, F = 1. Mẫu số = số nhánh chứa hậu tố = 4 → B = 0.5 cao nhất."
+  },
+  {
+   "id": "bs-c6-2",
+   "explanation": "E chỉ xuất hiện trong mệnh đề kết quả của s2 nên điểm của E = 1/4 = 0.25; mẫu số là số nhánh chứa hậu tố, tức cả 4 chuỗi."
+  },
+  {
+   "id": "bs-c6-3",
+   "explanation": "CPT+ dùng FSC: thay chuỗi con xuất hiện thường xuyên (AB) bằng một ký hiệu mới (x) để giảm kích thước Prediction Tree. SBC gộp các nhánh đơn.",
+   "options": [
+    "SBC — Simple Branches Compression (gộp nhánh đơn)",
+    "Merkle Tree — cây băm xác thực toàn vẹn dữ liệu",
+    "Product Quantization — lượng tử hóa vector đặc trưng",
+    "FSC — Frequent Subsequence Compression (nén chuỗi con phổ biến)"
+   ]
+  },
+  {
+   "id": "bs-c6-4",
+   "explanation": "SBC nén các nhánh đơn giản (chỉ có một đường đi) thành một nút; FSC nén chuỗi con phổ biến.",
+   "options": [
+    "Gộp các nhánh đơn (chuỗi nút chỉ có một con) thành một nút",
+    "Thay chuỗi con xuất hiện phổ biến bằng một ký hiệu mới",
+    "Xóa các chuỗi có độ dài ngắn để giảm kích thước cây",
+    "Mã hóa Inverted Index thành vector nhị phân nén"
+   ]
+  },
+  {
+   "id": "bs-c6-5",
+   "explanation": "Inverted Index là bảng bit: 1 = chuỗi đó có chứa item. Dùng để tìm nhanh các chuỗi tương tự (chứa mọi item của hậu tố) bằng phép giao bit."
+  },
+  {
+   "id": "bs-c6-6",
+   "explanation": "Page 2 nhận link từ 1 (C(1)=1) và 3 (C(3)=4). PR(2) = 0.15 + 0.85×(1/1 + 1/4) = 0.15 + 0.85×1.25 = 1.2125."
+  },
+  {
+   "id": "bs-c6-7",
+   "explanation": "Page 1 chỉ nhận link từ 3, mà 3 trỏ ra 4 trang. PR(1) = 0.15 + 0.85×(1/4) = 0.15 + 0.2125 = 0.3625."
+  },
+  {
+   "id": "bs-c6-8",
+   "explanation": "Page 5 nhận từ 2 (C=1), 3 (C=4), 4 (C=2): 0.15 + 0.85×(1 + 0.25 + 0.5) = 0.15 + 1.4875 = 1.6375."
+  },
+  {
+   "id": "bs-c6-9",
+   "explanation": "Slide dùng df = 0.85 (nên 1 − df = 0.15); các giá trị 0.15, 0.5 và 1.0 không phải damping factor mặc định."
+  },
+  {
+   "id": "bs-c6-10",
+   "explanation": "Lặp đến khi chênh lệch PR giữa 2 vòng lặp liên tiếp nhỏ hơn ε, thường ε = 0.0001.",
+   "options": [
+    "0.1",
+    "0.0001",
+    "0.01",
+    "0.001"
+   ]
+  }
+ ]
+}

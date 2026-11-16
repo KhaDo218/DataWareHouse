@@ -1,0 +1,77 @@
+{
+ "chunk": "fix-c10",
+ "items": [
+  {
+   "id": "bs-c10-1",
+   "options": [
+    "Kho dữ liệu chứa kết quả của quá trình ETL/ELT và phục vụ vấn tin phân tích",
+    "Công cụ điều phối thứ tự chạy các pipeline dữ liệu hằng ngày",
+    "Hệ quản trị cơ sở dữ liệu OLTP phục vụ giao dịch trực tuyến",
+    "Công cụ trực quan hoá dashboard cho người dùng cuối"
+   ]
+  },
+  {
+   "id": "bs-c10-10",
+   "options": [
+    "Phân cụm khách hàng thành các nhóm tương đồng về hành vi",
+    "Phân loại nhị phân: dự đoán khách hàng rời bỏ (churn) hay không",
+    "Phát hiện khách hàng bất thường bằng thuật toán ngoại lai",
+    "Hồi quy dự đoán doanh thu của khách hàng theo từng tháng"
+   ]
+  },
+  {
+   "id": "bs-c10-11",
+   "options": [
+    "CALL ML.EVALUATE để chấm điểm lại mô hình sau mỗi lần chạy",
+    "EXECUTE IMMEDIATE FORMAT(...) để ghép động tên bảng truyền vào",
+    "MERGE INTO để cập nhật kết quả dự đoán vào bảng đích cố định",
+    "CREATE MODEL để huấn luyện lại mô hình trước khi dự đoán"
+   ]
+  },
+  {
+   "id": "bs-c10-14",
+   "options": [
+    "Số tháng khách hàng đã sử dụng dịch vụ, làm tròn 2 chữ số thập phân",
+    "Độ chính xác (accuracy) tổng thể của mô hình, làm tròn 2 chữ số",
+    "Xác suất thuộc lớp rời bỏ đổi sang phần trăm, làm tròn 2 chữ số",
+    "Xác suất khách hàng tiếp tục ở lại, làm tròn 2 chữ số thập phân"
+   ]
+  },
+  {
+   "id": "bs-c10-15",
+   "options": [
+    "Đếm số hợp đồng phân biệt bằng COUNT(DISTINCT Contract)",
+    "Ép kiểu phí hằng tháng bằng CAST(MonthlyCharges AS FLOAT64)",
+    "CASE WHEN INITCAP(Contract) = 'Month-To-Month' THEN 1 ELSE 0 END",
+    "Ép kiểu số tháng sử dụng bằng CAST(tenure AS INT64)"
+   ]
+  },
+  {
+   "id": "bs-c10-17",
+   "options": [
+    "Không sắp xếp, giữ nguyên thứ tự khách hàng trong bảng gốc",
+    "ORDER BY risk_percentage DESC — rủi ro cao nhất lên đầu",
+    "ORDER BY customerID ASC — theo mã khách hàng tăng dần",
+    "ORDER BY active_months DESC — theo số tháng hoạt động giảm dần"
+   ]
+  },
+  {
+   "id": "bs-c10-18",
+   "options": [
+    "CALL `dbt_workspace.sp_predict_churn`('<tên bảng khách hàng mới>')",
+    "SELECT * FROM sp_predict_churn với tên bảng nằm trong WHERE",
+    "EXECUTE sp_predict_churn() không truyền tham số đầu vào",
+    "RUN PROCEDURE sp_predict_churn sau khi khai báo biến toàn cục"
+   ]
+  },
+  {
+   "id": "bs-c10-19",
+   "options": [
+    "Mô hình bắt được phần lớn khách rời bỏ nhưng còn nhiều cảnh báo nhầm",
+    "Mô hình không đưa ra bất kỳ cảnh báo nhầm nào trên tập kiểm thử",
+    "Mô hình hầu như không phát hiện được khách hàng thực sự rời bỏ",
+    "Recall và precision luôn bằng nhau trên mọi ngưỡng quyết định"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,475 @@
+{
+ "chunk": "c4a",
+ "items": [
+  {
+   "id": "c4-q1",
+   "explanation": "Accuracy đo mức độ dữ liệu mô tả đúng thực thể trong thực tế; dữ liệu sai lệch thường do lỗi hệ thống hoặc con người. Tỷ lệ Null là Completeness, đồng bộ định dạng là Consistency, độ trễ là Timeliness."
+  },
+  {
+   "id": "c4-q2",
+   "explanation": "Completeness là tỷ lệ dữ liệu không bị khuyết (Null/Missing), yếu tố quan trọng cho các mô hình định lượng. Bản ghi trùng lặp thuộc Deduplication, còn thống nhất đơn vị đo là Consistency."
+  },
+  {
+   "id": "c4-q3",
+   "explanation": "Consistency là sự đồng bộ về logic và định dạng giữa các nguồn, tránh xung đột đơn vị khi tích hợp. Mô tả đúng thực thể là Accuracy, còn không có ngoại lai thuộc xử lý Outlier.",
+   "options": [
+    "Dữ liệu mô tả đúng thực thể ngoài đời thực",
+    "Dữ liệu không chứa giá trị ngoại lai",
+    "Sự đồng bộ logic và định dạng giữa các nguồn",
+    "Dữ liệu được lưu trên một máy chủ duy nhất"
+   ]
+  },
+  {
+   "id": "c4-q4",
+   "explanation": "Timeliness chính là độ trễ của dữ liệu so với thời điểm phát sinh; dữ liệu trễ làm mất tính thời sự của tín hiệu thị trường. Số thuộc tính, tỷ lệ Null hay mức trùng lặp không thuộc chiều này."
+  },
+  {
+   "id": "c4-q5",
+   "explanation": "Nguyên lý trong chương: chất lượng dữ liệu là nền tảng của tri thức, dữ liệu sai lệch sẽ tạo ra tri thức sai lệch. Chậm truy vấn hay tốn dung lượng chỉ là chi phí vận hành, không phải hệ quả cốt lõi."
+  },
+  {
+   "id": "c4-q6",
+   "explanation": "Kiểm tra Schema dùng Metadata để xác thực tính đồng nhất của kiểu dữ liệu trên toàn bộ Warehouse. Data Cube phục vụ OLAP, Golden Record là kết quả Deduplication, Centroid là giá trị đại diện cụm."
+  },
+  {
+   "id": "c4-q7",
+   "explanation": "Cross-field Validation áp dụng các quy tắc logic liên thuộc tính, ví dụ ngày giao hàng không được trước ngày đặt hàng. Đếm giá trị Null là Completeness, chạy lại ETL không phải kỹ thuật kiểm tra."
+  },
+  {
+   "id": "c4-q8",
+   "explanation": "Bốn chiều chất lượng dữ liệu của chương là Accuracy, Completeness, Consistency và Timeliness.\n• Scalability (khả năng mở rộng) là thuộc tính kiến trúc hệ thống, không nằm trong bốn chiều này"
+  },
+  {
+   "id": "c4-q9",
+   "explanation": "Ngân hàng tích hợp dữ liệu từ hệ thống Thẻ và hệ thống Khoản vay để chấm điểm tín dụng khách hàng.\n• Chấm công nhân sự và quản lý kho hàng không thuộc phạm vi dữ liệu tín dụng"
+  },
+  {
+   "id": "c4-q10",
+   "explanation": "Giải pháp trong slide: dùng dbt chuẩn hóa ngày tại tầng Silver và dùng ML/DL ước lượng giá trị bị thiếu.\n• Xóa toàn bộ hồ sơ thiếu sẽ mất cả khách hàng tốt; đẩy dữ liệu về Bronze là đi ngược luồng xử lý"
+  },
+  {
+   "id": "c4-q11",
+   "explanation": "Slide ghi rõ dữ liệu sai lệch thường do lỗi hệ thống hoặc con người trong khâu nhập và xử lý. Khối lượng dữ liệu lớn, dùng OLAP hay chuẩn hóa Min-Max không phải nguyên nhân gây kém Accuracy.",
+   "options": [
+    "Do khối lượng dữ liệu quá lớn",
+    "Do lỗi hệ thống hoặc con người",
+    "Do truy vấn OLAP đa chiều",
+    "Do chuẩn hóa Min-Max dữ liệu"
+   ]
+  },
+  {
+   "id": "c4-q12",
+   "explanation": "Timeliness kém nghĩa là dữ liệu bị trễ, khiến mất tính thời sự của các tín hiệu thị trường và quyết định ra sau thời điểm. Nó không làm tăng số chiều, thêm Null hay sinh thêm trùng lặp.",
+   "options": [
+    "Làm tăng số chiều của tập dữ liệu",
+    "Làm xuất hiện thêm nhiều giá trị Null",
+    "Làm mất tính thời sự của tín hiệu thị trường",
+    "Làm dữ liệu bị trùng lặp nhiều hơn"
+   ]
+  },
+  {
+   "id": "c4-q13",
+   "explanation": "Case study chấm điểm tín dụng nêu hai vấn đề: nhiều hồ sơ thiếu thông tin (Completeness) và ngày tất toán nợ lệch định dạng (Consistency).\n• Dữ liệu trễ 24 giờ và mã hóa sai thuật toán không được nêu trong ví dụ"
+  },
+  {
+   "id": "c4-q14",
+   "explanation": "Hai nơi lưu cùng số dư nhưng khác đơn vị (VND và nghìn VND) là xung đột đơn vị, đúng định nghĩa Consistency: đồng bộ logic và định dạng giữa các nguồn. Không phải thiếu dữ liệu hay dữ liệu trễ."
+  },
+  {
+   "id": "c4-q15",
+   "explanation": "Noise là các sai số ngẫu nhiên hoặc biến động không mong muốn làm ẩn tín hiệu thực của dữ liệu. Trùng lặp thuộc Deduplication, Null thuộc Completeness, khác tên cùng nghĩa thuộc Metadata Resolution.",
+   "options": [
+    "Sai số ngẫu nhiên làm ẩn tín hiệu thực của dữ liệu",
+    "Bản ghi trùng lặp xuất hiện giữa nhiều nguồn dữ liệu",
+    "Giá trị Null hoặc thiếu dữ liệu trong một cột",
+    "Thuộc tính khác tên nhưng cùng ý nghĩa nghiệp vụ"
+   ]
+  },
+  {
+   "id": "c4-q16",
+   "explanation": "Binning chia dữ liệu thành các khoảng rồi thay giá trị trong khoảng bằng trung bình bin để làm mượt. Xóa giá trị ngoài 3 lần độ lệch chuẩn là quy tắc Z-Score, nhân 10^j là Decimal Scaling.",
+   "options": [
+    "Xóa mọi giá trị nằm ngoài 3 lần độ lệch chuẩn",
+    "Chia thành các khoảng rồi thay bằng trung bình bin",
+    "Nhân toàn bộ giá trị với 10^j để dịch dấu thập phân",
+    "Sắp xếp dữ liệu theo thứ tự giảm dần rồi bỏ đuôi"
+   ]
+  },
+  {
+   "id": "c4-q17",
+   "explanation": "Regression dùng các hàm toán học để khớp dữ liệu và loại bỏ thành phần nhiễu. Chia bin tần suất bằng nhau là Binning, thay bằng giá trị xuất hiện nhiều nhất là làm mượt theo mode, gom cụm lấy Centroid là Clustering.",
+   "options": [
+    "Chia dữ liệu thành các bin có tần suất bằng nhau",
+    "Thay giá trị nhiễu bằng giá trị xuất hiện nhiều nhất",
+    "Dùng hàm toán học khớp dữ liệu để loại bỏ nhiễu",
+    "Gom nhóm bản ghi tương đồng rồi lấy Centroid"
+   ]
+  },
+  {
+   "id": "c4-q18",
+   "explanation": "Theo phương pháp Z-Score, điểm dữ liệu nằm ngoài ngưỡng 3 lần độ lệch chuẩn, tức |Z| > 3, được coi là Outlier tiềm năng. Giá trị có |Z| nhỏ hơn 3 vẫn nằm trong vùng bình thường."
+  },
+  {
+   "id": "c4-q19",
+   "explanation": "Z = (v − μ) / σ với μ là trung bình và σ là độ lệch chuẩn. Công thức (v − min)/(max − min) là Min-Max, v/10^j là Decimal Scaling, (Q3 − Q1) × 1.5 là bước tính ngưỡng IQR."
+  },
+  {
+   "id": "c4-q20",
+   "explanation": "Theo IQR, outlier là giá trị nằm ngoài khoảng [Q1 − 1.5×IQR, Q3 + 1.5×IQR].\n• Giá trị nằm giữa Q1 và Q3 hoặc đúng bằng trung vị thuộc vùng dữ liệu trung tâm nên hoàn toàn bình thường"
+  },
+  {
+   "id": "c4-q21",
+   "explanation": "Z = (85 − 50) / 10 = 3.5; vì |Z| = 3.5 > 3 nên giao dịch là outlier tiềm năng. Kết quả 8.5 là khi quên chia cho σ, còn 2.5 là tính sai hiệu số."
+  },
+  {
+   "id": "c4-q22",
+   "explanation": "Z = (150 − 200) / 25 = −2; |Z| = 2 < 3 nên ngày này không phải outlier, chỉ là biến động bình thường. Dấu âm cho biết giá trị nằm dưới mức trung bình.",
+   "options": [
+    "Z = 2, nên kết luận không phải outlier",
+    "Z = 8, nên kết luận là outlier",
+    "Z = −2, không phải outlier vì |Z| < 3",
+    "Z = −8, nên kết luận là outlier"
+   ]
+  },
+  {
+   "id": "c4-q23",
+   "explanation": "IQR = Q3 − Q1 = 40 − 20 = 20 triệu. Ngưỡng trên = Q3 + 1.5×IQR = 40 + 30 = 70 triệu; chỉ giá trị lớn hơn 70 triệu mới bị coi là outlier."
+  },
+  {
+   "id": "c4-q24",
+   "explanation": "IQR = 18 − 10 = 8; ngưỡng trên = 18 + 1.5×8 = 30. Điểm 35 > 30 nên là outlier. Không phải mọi giá trị lớn hơn Q3 đều là outlier, chỉ khi vượt 1,5 lần IQR."
+  },
+  {
+   "id": "c4-q25",
+   "explanation": "Case study gian lận thẻ gồm ba bước: làm mượt chi tiêu bằng Moving Average, phát hiện giao dịch bất thường với Z-score > 5, rồi tự động gắn trạng thái nghi ngờ và tạm khóa thẻ.\n• PCA giảm chiều không được nêu trong ví dụ này"
+  },
+  {
+   "id": "c4-q26",
+   "explanation": "Giao dịch phát sinh tại nước ngoài gấp 50 lần mức chi tiêu bình thường, tương ứng Z-score > 5 nên bị đánh dấu nghi ngờ gian lận. Con số 5 là ngưỡng Z-score, không phải số lần."
+  },
+  {
+   "id": "c4-q27",
+   "explanation": "Hai phương pháp phát hiện Outlier trong chương là Z-Score (ngưỡng |Z| > 3) và khoảng tứ phân vị IQR (ngoài Q1 − 1.5×IQR và Q3 + 1.5×IQR).\n• Jaccard đo tương đồng tập hợp, SMA là kỹ thuật làm mượt chuỗi"
+  },
+  {
+   "id": "c4-q28",
+   "explanation": "Z = (46 − 30) / 4 = 4; vì |Z| = 4 > 3 nên giao dịch 46 ms là outlier tiềm năng. Các phương án khác sai ở bước chia cho σ hoặc lấy sai mốc μ = 30."
+  },
+  {
+   "id": "c4-q29",
+   "explanation": "IQR = 140 − 100 = 40 triệu. Ngưỡng dưới = Q1 − 1.5×IQR = 100 − 60 = 40 triệu; chỉ giá trị nhỏ hơn 40 triệu mới bị coi là outlier."
+  },
+  {
+   "id": "c4-q30",
+   "explanation": "Ba kỹ thuật làm mượt/xử lý noise trong chương là Binning (thay bằng trung bình bin), Regression (khớp hàm toán học) và Moving Average (trung bình cửa sổ trượt).\n• PCA là giảm số chiều, không dùng để khử noise"
+  },
+  {
+   "id": "c4-q31",
+   "explanation": "Entity Resolution xác định các bản ghi từ nhiều nguồn khác nhau (SQL, API, Web) cùng mô tả một thực thể để hợp nhất chúng. Xóa bản ghi Null là làm sạch dữ liệu, không phải giải quyết xung đột thực thể.",
+   "options": [
+    "Xác định bản ghi từ nhiều nguồn cùng mô tả một thực thể",
+    "Xóa các bản ghi có giá trị Null trước khi tích hợp",
+    "Chuyển đổi dữ liệu số về khoảng giá trị [0, 1]",
+    "Chia thuộc tính liên tục thành các khoảng rời rạc"
+   ]
+  },
+  {
+   "id": "c4-q32",
+   "explanation": "Metadata Resolution đối chiếu các thuộc tính khác tên nhưng cùng ý nghĩa, ví dụ mã khách hàng được đặt tên khác nhau ở hai hệ thống, để ánh xạ đúng khi tích hợp. Loại nhiễu, trung bình trượt hay phát hiện outlier đều thuộc nhóm làm sạch dữ liệu."
+  },
+  {
+   "id": "c4-q33",
+   "explanation": "J(A,B) = |A∩B| / |A∪B|, tức phần giao chia phần hợp. Đảo tử mẫu, chia cho tổng kích thước hai tập hay lấy hiệu của chúng đều không phải công thức Jaccard."
+  },
+  {
+   "id": "c4-q34",
+   "explanation": "Jaccard càng gần 1 thì hai tập càng tương đồng, và nó dùng để đo mức trùng lặp giữa hai tập thuộc tính của thực thể.\n• J gần 0 mới là ít giống nhau; J luôn nằm trong [0, 1] nên không thể lớn hơn 1"
+  },
+  {
+   "id": "c4-q35",
+   "explanation": "A∩B = {Python, SQL} nên |A∩B| = 2; A∪B = {Python, SQL, Tableau, Power BI, Excel, R} nên |A∪B| = 6. Vậy J = 2/6 ≈ 0.33, mức tương đồng thấp."
+  },
+  {
+   "id": "c4-q36",
+   "explanation": "A∩B = {Java, C++, R} nên |A∩B| = 3; A∪B = {Python, SQL, Java, C++, R, Scala} nên |A∪B| = 6. Vậy J = 3/6 = 0.5, hai hồ sơ trùng một nửa tập kỹ năng."
+  },
+  {
+   "id": "c4-q37",
+   "explanation": "A∩B = {Python, Java} nên |A∩B| = 2; A∪B = {SQL, Python, Java, C++, R} nên |A∪B| = 5. Vậy J = 2/5 = 0.4; mẫu số là hợp hai tập, không phải tổng kích thước."
+  },
+  {
+   "id": "c4-q38",
+   "explanation": "Deduplication loại bỏ bản ghi trùng lặp sau khi tích hợp để tạo ra một Golden Record duy nhất cho mỗi thực thể. Data Cube thuộc OLAP, Concept Hierarchy thuộc rời rạc hóa, Covariance Matrix thuộc PCA."
+  },
+  {
+   "id": "c4-q39",
+   "explanation": "Conflict Handling xử lý khi hai nguồn cung cấp giá trị khác nhau cho cùng một trường dữ liệu, ví dụ hai hệ thống ghi khác số điện thoại. Nhiều thuộc tính, nhiễu cảm biến hay biến động chuỗi thời gian là vấn đề khác.",
+   "options": [
+    "Hai nguồn cho giá trị khác nhau ở cùng một trường",
+    "Một bản ghi có quá nhiều thuộc tính dư thừa",
+    "Dữ liệu bị nhiễu do lỗi cảm biến ghi nhận",
+    "Chuỗi thời gian có biến động ngắn hạn lặp lại"
+   ]
+  },
+  {
+   "id": "c4-q40",
+   "explanation": "Quy tắc Latest timestamp lấy giá trị mới nhất theo thời gian khi hai nguồn xung đột. Lấy nguồn tin cậy nhất là Source Authority, còn lấy trung bình hoặc giá trị phổ biến nhất là cách tổng hợp khác."
+  },
+  {
+   "id": "c4-q41",
+   "explanation": "Clustering nhóm các bản ghi tương đồng lại trước khi hợp nhất, nhờ đó giảm số cặp phải so sánh và tăng hiệu năng. Chuẩn hóa [0, 1], tính trị riêng hay dựng cây khái niệm là việc của kỹ thuật khác.",
+   "options": [
+    "Để chuẩn hóa mọi giá trị số về đoạn [0, 1]",
+    "Để tính trị riêng của Covariance Matrix",
+    "Nhóm bản ghi tương đồng trước khi hợp nhất",
+    "Để dựng cây phân cấp khái niệm tự động"
+   ]
+  },
+  {
+   "id": "c4-q42",
+   "explanation": "Case study M&A dùng Fuzzy Matching để xác định tỷ lệ trùng khớp thực thể khi CMND và địa chỉ của khách hàng không đồng nhất giữa hai bên. Binning, Decimal Scaling hay Sampling không giải quyết trùng lặp thực thể."
+  },
+  {
+   "id": "c4-q43",
+   "explanation": "Kết quả hợp nhất là hồ sơ khách hàng 360 độ, nhờ đó khai phá được hành vi đầu tư từ dữ liệu tiết kiệm.\n• Không xóa dữ liệu một bên và cũng không tách một khách hàng thành hai thực thể, vì như vậy là làm ngược mục tiêu tích hợp"
+  },
+  {
+   "id": "c4-q44",
+   "explanation": "Hai quy tắc ưu tiên trong chương là áp dụng trọng số tin cậy (Source Authority) và lấy giá trị mới nhất (Latest timestamp).\n• Chọn ngẫu nhiên hay luôn lấy giá trị lớn hơn không phải quy tắc được nêu"
+  },
+  {
+   "id": "c4-q45",
+   "explanation": "Slide nêu các bản ghi cùng mô tả một thực thể có thể đến từ SQL, API và Web.\n• Blockchain không nằm trong danh sách nguồn của Entity Resolution"
+  },
+  {
+   "id": "c4-q46",
+   "explanation": "|A∪B| = 7 + 5 − 4 = 8. Vậy J = |A∩B| / |A∪B| = 4/8 = 0.5. Phương án 4/12 là lấy tổng kích thước hai tập làm mẫu số."
+  },
+  {
+   "id": "c4-q47",
+   "explanation": "SMA là trung bình cộng của k giá trị gần nhất trong cửa sổ trượt, dùng để khử biến động ngắn hạn và làm nổi xu hướng. Giá trị lớn nhất, độ lệch chuẩn hay tổng tích lũy đều không phải trung bình động.",
+   "options": [
+    "Giá trị lớn nhất của k giá trị gần nhất trong cửa sổ",
+    "Độ lệch chuẩn của k giá trị gần nhất trong cửa sổ",
+    "Trung bình cộng của k giá trị gần nhất trong cửa sổ",
+    "Tổng tích lũy của toàn bộ chuỗi dữ liệu trong cửa sổ"
+   ]
+  },
+  {
+   "id": "c4-q48",
+   "explanation": "k là số giá trị gần nhất được lấy từ thời điểm n ngược về trước, chính là kích thước cửa sổ trượt. pi là giá trị tại thời điểm i, còn n là mốc thời gian cuối cùng của cửa sổ."
+  },
+  {
+   "id": "c4-q49",
+   "explanation": "SMA Ngày 5 = (82 + 84 + 88) / 3 = 254 / 3 ≈ 84.7, lấy 3 ngày gần nhất là Ngày 3, 4, 5. Con số 84.0 chính là SMA của Ngày 4 nên rất dễ nhầm."
+  },
+  {
+   "id": "c4-q50",
+   "explanation": "SMA phiên 5 = (102 + 105 + 108) / 3 = 315 / 3 = 105.0, chỉ dùng 3 phiên gần nhất. Các phương án khác lấy sai cửa sổ hoặc chia sai số phần tử."
+  },
+  {
+   "id": "c4-q51",
+   "explanation": "SMA = (20 + 24 + 26 + 30) / 4 = 100 / 4 = 25.0. Vì k = 4 bằng đúng số phiên nên cửa sổ phủ toàn bộ chuỗi; 100.0 là kết quả khi quên chia cho k."
+  },
+  {
+   "id": "c4-q52",
+   "explanation": "Data Aggregation kết hợp các bản ghi chi tiết thành bản tóm tắt cấp cao, ví dụ doanh thu theo ngày gộp thành doanh thu theo tháng. Chia khoảng là Discretization, chuyển văn bản thành vector là Embedding.",
+   "options": [
+    "Chia dữ liệu liên tục thành các khoảng bằng nhau",
+    "Chuyển văn bản thô thành vector số nhiều chiều",
+    "Loại bỏ các thuộc tính dư thừa khỏi bảng dữ liệu",
+    "Kết hợp bản ghi chi tiết thành bản tóm tắt cấp cao"
+   ]
+  },
+  {
+   "id": "c4-q53",
+   "explanation": "OLAP dùng Data Cubes để thực hiện các phép toán đa chiều như Roll-up và Drill-down. Golden Record thuộc Deduplication, Histogram thuộc Numerosity Reduction, Candlestick là biểu đồ giá."
+  },
+  {
+   "id": "c4-q54",
+   "explanation": "Granularity là lựa chọn mức độ tập hợp phù hợp để cân bằng giữa hiệu suất và độ chi tiết của dữ liệu. Số nguồn, tốc độ ghi hay số outlier không phải nội dung của khái niệm này.",
+   "options": [
+    "Số lượng nguồn dữ liệu được tích hợp vào kho dữ liệu",
+    "Mức độ tập hợp phù hợp để cân bằng hiệu suất và chi tiết",
+    "Tốc độ ghi dữ liệu vào kho tại mỗi lô nạp dữ liệu",
+    "Số lượng outlier được phép xuất hiện trong mỗi bin"
+   ]
+  },
+  {
+   "id": "c4-q55",
+   "explanation": "Nguyên lý trong chương: biến đổi dữ liệu tại tầng Gold để tối ưu hóa cho các công cụ ra quyết định. Bronze và Raw còn giữ dữ liệu thô, còn Staging chỉ là vùng trung gian."
+  },
+  {
+   "id": "c4-q56",
+   "explanation": "Đường MA-50 và MA-200 được dùng để xác định các điểm Golden Cross, nơi đường trung bình ngắn hạn cắt đường dài hạn. Ngưỡng IQR, Centroid hay tỷ lệ trùng khớp thực thể thuộc kỹ thuật khác."
+  },
+  {
+   "id": "c4-q57",
+   "explanation": "Candlesticks khung 1 giờ được tổng hợp từ hàng triệu lệnh khớp trong tick data, giúp loại bỏ biến động nhiễu trong phiên. Báo cáo quý, khảo sát hay dữ liệu thẻ tín dụng không phải nguồn của ví dụ này."
+  },
+  {
+   "id": "c4-q58",
+   "explanation": "SMA ngày 5 = (105 + 95) / 2 = 100, vì k = 2 nên chỉ lấy ngày 4 và ngày 5. Con số 200 là tổng hai giá trị khi quên chia cho k."
+  },
+  {
+   "id": "c4-q59",
+   "explanation": "OLAP trong chương nhắc Roll-up (tổng hợp lên mức cao hơn) và Drill-down (đi sâu xuống chi tiết).\n• Fuzzy Matching thuộc tích hợp dữ liệu, còn Binning thuộc làm mượt và rời rạc hóa"
+  },
+  {
+   "id": "c4-q60",
+   "explanation": "SMA ngày 5 = (48 + 46 + 52) / 3 = 146 / 3 ≈ 48.7. Cửa sổ k = 3 nên chỉ lấy ba ngày gần nhất là ngày 3, 4 và 5."
+  },
+  {
+   "id": "c4-q61",
+   "explanation": "Chương khẳng định biến đổi từ dữ liệu thô (Bronze) sang đặc trưng Gold chính là quá trình chiết xuất tri thức (Knowledge Discovery). Sao lưu, nén hay phân quyền là thao tác vận hành, không tạo tri thức.",
+   "options": [
+    "Quá trình sao lưu và phục hồi dữ liệu định kỳ",
+    "Quá trình nén dữ liệu vật lý trên ổ đĩa",
+    "Quá trình phân quyền truy cập cho người dùng",
+    "Quá trình chiết xuất tri thức (Knowledge Discovery)"
+   ]
+  },
+  {
+   "id": "c4-q62",
+   "explanation": "Case study phân tích kỹ thuật dùng MA-50, MA-200 để làm mượt và tìm Golden Cross, đồng thời tổng hợp hàng triệu lệnh khớp thành Candlesticks khung 1 giờ.\n• PCA và Decimal Scaling không được dùng trong ví dụ này"
+  },
+  {
+   "id": "c4-q63",
+   "explanation": "Dimensionality Reduction loại bỏ các thuộc tính dư thừa hoặc không tương quan để giảm độ phức tạp, giải quyết Curse of Dimensionality. Tăng số bản ghi, đổi kiểu dữ liệu hay xóa trùng lặp là mục tiêu khác.",
+   "options": [
+    "Loại bỏ thuộc tính dư thừa hoặc không tương quan",
+    "Tăng số lượng bản ghi để mô hình học tốt hơn",
+    "Chuyển dữ liệu số thành dữ liệu văn bản thô",
+    "Loại bỏ các bản ghi bị trùng lặp trong bảng"
+   ]
+  },
+  {
+   "id": "c4-q64",
+   "explanation": "PCA là phép biến đổi tuyến tính giúp giữ lại tối đa phương sai của dữ liệu.\n• PCA thuộc nhóm giảm số chiều chứ không phải Numerosity Reduction, và không đưa dữ liệu về [0, 1] như Min-Max"
+  },
+  {
+   "id": "c4-q65",
+   "explanation": "Thành phần chính là các vector riêng ứng với các trị riêng lớn nhất của Covariance Matrix, tức hướng biến thiên mạnh nhất của dữ liệu. Cột nhiều Null, trung bình cộng hay giá trị tuyệt đối lớn nhất đều không liên quan.",
+   "options": [
+    "Là các cột có nhiều giá trị Null nhất trong bảng dữ liệu",
+    "Là trung bình cộng của toàn bộ các thuộc tính số",
+    "Là vector riêng ứng với trị riêng lớn nhất của ma trận hiệp phương sai",
+    "Là các thuộc tính có giá trị tuyệt đối lớn nhất"
+   ]
+  },
+  {
+   "id": "c4-q66",
+   "explanation": "Hai lợi ích của PCA là giải quyết Curse of Dimensionality và tăng tốc độ huấn luyện cho các mô hình AI.\n• PCA làm giảm số thuộc tính chứ không tăng, và không bảo đảm dữ liệu hết giá trị âm"
+  },
+  {
+   "id": "c4-q67",
+   "explanation": "Regression Models trong Numerosity Reduction thay thế tập dữ liệu khổng lồ bằng các tham số của một mô hình toán học đơn giản, chỉ lưu hệ số thay vì mọi điểm dữ liệu. Chia bin, embedding hay xóa theo Z-score là kỹ thuật khác.",
+   "options": [
+    "Thay tập dữ liệu khổng lồ bằng tham số của mô hình toán học",
+    "Chia dữ liệu thành các bin có độ rộng bằng nhau",
+    "Chuyển văn bản thô thành các vector embedding",
+    "Xóa các bản ghi ngoại lai có Z-score lớn hơn 3"
+   ]
+  },
+  {
+   "id": "c4-q68",
+   "explanation": "Sampling chọn ra một tập con đại diện (Stratified Sampling) để khai phá trên dữ liệu Big Data thay vì xử lý toàn bộ. Nén toàn bộ dữ liệu hay chọn một thuộc tính không phải lấy mẫu.",
+   "options": [
+    "Chọn toàn bộ dữ liệu rồi nén lại thành một tệp",
+    "Chọn ra một tập con đại diện để khai phá trên Big Data",
+    "Chọn ngẫu nhiên một thuộc tính để phân tích",
+    "Chọn các bản ghi có giá trị lớn nhất trong bảng"
+   ]
+  },
+  {
+   "id": "c4-q69",
+   "explanation": "Histograms dùng phân phối tần suất để đại diện cho dữ liệu thay vì lưu từng giá trị chi tiết, nhờ đó giảm khối lượng phải xử lý. Lưu chi tiết, vẽ để phát hiện gian lận hay chuẩn hóa Z-score không phải mục tiêu này.",
+   "options": [
+    "Lưu từng giá trị chi tiết kèm nhãn thời gian",
+    "Vẽ biểu đồ để phát hiện giao dịch gian lận",
+    "Dùng phân phối tần suất thay cho việc lưu từng giá trị",
+    "Chuyển dữ liệu về trung bình 0, độ lệch chuẩn 1"
+   ]
+  },
+  {
+   "id": "c4-q70",
+   "explanation": "Clustering thay thế một nhóm các điểm tương đồng bằng giá trị Centroid đại diện của cụm. Giá trị lớn nhất, Q3 hay giá trị xuất hiện đầu tiên không đại diện được cho cả nhóm."
+  },
+  {
+   "id": "c4-q71",
+   "explanation": "PCA rút gọn 1.000 biến cổ phiếu xuống còn 10 thành phần chính đại diện cho các yếu tố vĩ mô. Con số 10 vừa giảm mạnh số chiều vừa giữ được phần lớn phương sai của danh mục."
+  },
+  {
+   "id": "c4-q72",
+   "explanation": "Sau khi giảm số chiều và lấy mẫu phân tầng, mô hình tính Value-at-Risk chạy nhanh hơn 100 lần mà vẫn đảm bảo độ tin cậy cao. Đây là kết quả nêu trong case study quản trị rủi ro danh mục."
+  },
+  {
+   "id": "c4-q73",
+   "explanation": "Numerosity Reduction gồm Regression Models, Sampling, Histograms và Clustering (thay cụm bằng Centroid).\n• PCA thuộc nhóm giảm số chiều (Dimensionality Reduction), không phải giảm số lượng bản ghi"
+  },
+  {
+   "id": "c4-q74",
+   "explanation": "Dữ liệu trở nên thưa và mô hình học chậm, kém hiệu quả khi số chiều tăng được gọi là Curse of Dimensionality. Golden Cross, Data Skewness hay Overfitting không mô tả đúng hiện tượng này."
+  },
+  {
+   "id": "c4-q75",
+   "explanation": "10 thành phần chính sau PCA đại diện cho các yếu tố vĩ mô tác động đến toàn danh mục, thay cho 1.000 mã cổ phiếu riêng lẻ. Chúng không phải mã vốn hóa lớn, kịch bản khủng hoảng hay chi nhánh giao dịch."
+  },
+  {
+   "id": "c4-q76",
+   "explanation": "Case study dùng PCA để giảm số chiều (1.000 biến xuống 10 thành phần) và lấy mẫu phân tầng để chọn kịch bản thị trường tiêu biểu.\n• Equal-width Binning và Fuzzy Matching không được dùng trong ví dụ này"
+  },
+  {
+   "id": "c4-q77",
+   "explanation": "Discretization chia thuộc tính liên tục thành các khoảng giá trị hoặc các nhãn định danh, ví dụ chia số dư thành Standard, Silver, Gold, Diamond. Gộp bảng, đảo chiều rời rạc hóa hay xóa ngoài IQR đều không đúng.",
+   "options": [
+    "Chia thuộc tính liên tục thành các khoảng hoặc nhãn",
+    "Gộp nhiều bảng dữ liệu thành một bảng duy nhất",
+    "Chuyển dữ liệu rời rạc thành dữ liệu liên tục",
+    "Xóa các giá trị nằm ngoài khoảng tứ phân vị"
+   ]
+  },
+  {
+   "id": "c4-q78",
+   "explanation": "Equal-width Binning chia dải giá trị thành N khoảng có độ rộng bằng nhau: Width = (max − min) / N. Ví dụ hạn mức 10–70 triệu với N = 3 cho Width = 20 triệu."
+  },
+  {
+   "id": "c4-q79",
+   "explanation": "Với dữ liệu lệch mạnh, Equal-width tạo ra bin rỗng và dồn gần hết bản ghi vào một bin. Equal-frequency chia mỗi bin chứa số bản ghi bằng nhau nên phù hợp với dữ liệu skewed.\n• Equal-width không tự loại outlier, và dữ liệu lệch vẫn rời rạc hóa được",
+   "options": [
+    "Equal-width Binning, vì các khoảng có độ rộng bằng nhau",
+    "Equal-width Binning, vì tự động loại bỏ outlier",
+    "Equal-frequency Binning, vì mỗi bin chứa số bản ghi bằng nhau",
+    "Equal-frequency Binning, vì số khoảng tự chọn theo độ lệch"
+   ]
+  },
+  {
+   "id": "c4-q80",
+   "explanation": "Width = (max − min) / N = (70 − 10) / 3 = 60 / 3 = 20 triệu. Ba nhóm lần lượt là 10–30, 30–50 và 50–70 triệu."
+  },
+  {
+   "id": "c4-q81",
+   "explanation": "Hạn mức 42 triệu nằm trong khoảng 30–50 triệu, tức Nhóm 2 (Trung bình). Nhóm 1 là 10–30 triệu và Nhóm 3 là 50–70 triệu."
+  },
+  {
+   "id": "c4-q82",
+   "explanation": "Width = (90 − 0) / 3 = 30, các bin là 0–30, 30–60 và 60–90. Điểm 65 nằm trong khoảng 60–90 nên thuộc Bin 3."
+  },
+  {
+   "id": "c4-q83",
+   "explanation": "Width = (45 − 5) / 4 = 10, các bin là 5–15, 15–25, 25–35 và 35–45. Giá trị 27 triệu thuộc Bin 3 (25–35)."
+  },
+  {
+   "id": "c4-q84",
+   "explanation": "Width = (max − min) / N = (100 − 20) / 4 = 80 / 4 = 20. Bốn nhóm tuổi là 20–40, 40–60, 60–80 và 80–100."
+  },
+  {
+   "id": "c4-q85",
+   "explanation": "Concept Hierarchy tổ chức thuộc tính theo tầng bậc từ cụ thể đến tổng quát, ví dụ chi nhánh, khu vực, quốc gia. Chuẩn hóa trung bình 0, bin theo tần suất hay lưu theo cột là khái niệm khác."
+  },
+  {
+   "id": "c4-q86",
+   "explanation": "Chương nêu có thể tự động tạo cây phân cấp bằng Schema hoặc bằng phân tích thống kê.\n• Nhập thủ công từng dòng thì không gọi là tự động hóa, còn Moving Average là kỹ thuật làm mượt chuỗi"
+  }
+ ]
+}

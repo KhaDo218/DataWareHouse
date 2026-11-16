@@ -27,9 +27,11 @@ jobs:
         run: |
           mkdir -p _site
           cp -r index.html assets data .nojekyll _site/
-          # Tài liệu ôn thi (file HTML tự chứa) — bắt buộc phải có để nút tải hoạt động
+          # Tài liệu ôn thi + slide PDF: bắt buộc phải có để nút tải và trình xem PDF hoạt động
           cp -r *.html _site/
+          [ -d slides ] && cp -r slides _site/ || true
           ls -la _site
+          ls -la _site/slides | head
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site

@@ -1,0 +1,549 @@
+{
+ "chunk": "c9b",
+ "items": [
+  {
+   "id": "c9-q71",
+   "explanation": "Quantization (Product Quantization - PQ) nén kích thước lưu trữ của vector để đưa toàn bộ chỉ mục vào bộ nhớ RAM.\n• HNSW chỉ tăng tốc tìm láng giềng bằng đồ thị phân cấp, không nén dữ liệu\n• Tăng số chiều càng làm chỉ mục phình to hơn"
+  },
+  {
+   "id": "c9-q72",
+   "explanation": "Stored procedure chạy tìm kiếm ngữ nghĩa (Semantic Search) trên các đánh giá: câu truy vấn được nhúng thành vector rồi so khoảng cách với vector đánh giá để trả về top 3 tương đồng nhất.\n• Không phải xóa trùng lặp hay huấn luyện lại mô hình.",
+   "options": [
+    "Xóa các đánh giá trùng lặp rồi nạp lại vào kho dữ liệu trung tâm",
+    "Tìm kiếm ngữ nghĩa trên đánh giá, trả về top 3 kết quả tương đồng nhất",
+    "Chuyển các đánh giá đã làm sạch thành giao dịch ghi lên blockchain",
+    "Huấn luyện lại mô hình Deep Learning sinh embedding từ đầu"
+   ]
+  },
+  {
+   "id": "c9-q73",
+   "explanation": "On-chain data gồm toàn bộ thông tin lịch sử giao dịch, số dư tài khoản và mã trạng thái thực thi của Smart Contracts được ghi vĩnh viễn trên mạng Blockchain.\n• Dữ liệu off-chain trong bảng quan hệ không nằm trên chuỗi nên không thuộc on-chain.",
+   "options": [
+    "Toàn bộ thông tin lịch sử giao dịch trên chuỗi",
+    "Số dư tài khoản của các địa chỉ ví",
+    "Mã trạng thái thực thi của các Hợp đồng thông minh",
+    "Dữ liệu off-chain lưu trong bảng quan hệ của kho trung tâm"
+   ]
+  },
+  {
+   "id": "c9-q74",
+   "explanation": "Theo slide, dữ liệu thô trên Blockchain minh bạch tuyệt đối nhưng tồn tại dưới dạng byte/hex phi cấu trúc và phân tán trên hàng ngàn nút.\n• Phương án lưu tập trung tại một máy chủ là ngược với bản chất phân tán của blockchain."
+  },
+  {
+   "id": "c9-q75",
+   "explanation": "Mục tiêu là chuyển dòng dữ liệu on-chain phi cấu trúc về dạng bảng quan hệ để chạy các thuật toán BI/Fintech.\n• Không hề mã hóa lại blockchain, xóa giao dịch cũ hay thay các node phân tán bằng máy chủ trung tâm.",
+   "options": [
+    "Chuyển dữ liệu on-chain phi cấu trúc về dạng bảng quan hệ để chạy BI/Fintech",
+    "Mã hóa lại toàn bộ chuỗi blockchain bằng khóa riêng của doanh nghiệp",
+    "Xóa các giao dịch cũ trên chuỗi để tiết kiệm dung lượng lưu trữ",
+    "Thay các node phân tán bằng một máy chủ trung tâm duy nhất"
+   ]
+  },
+  {
+   "id": "c9-q76",
+   "explanation": "Node Ingestion là kết nối liên tục với các nút mạng (Ethereum/Bitcoin Nodes) qua giao thức RPC để bắt các khối mới sinh.\n• Dùng ABI là Event Decoding; đổi Wei sang Ether là Data Normalization; ghi Root Hash là Anchoring.",
+   "options": [
+    "Dùng tệp ABI để dịch các chuỗi Hex trong Logs thành tên hàm",
+    "Chuyển đổi Wei sang Ether với 18 chữ số thập phân và đồng bộ UTC",
+    "Ghi Merkle Root Hash lên Smart Contract để neo nhật ký",
+    "Kết nối liên tục với các nút mạng qua giao thức RPC để bắt các khối mới sinh"
+   ]
+  },
+  {
+   "id": "c9-q77",
+   "explanation": "Event Decoding dùng tệp ABI (Application Binary Interface) để dịch các chuỗi Hex trong phần Logs thành tên hàm và tham số cụ thể: người gửi, người nhận, số tiền.\n• Global Catalog, HNSW và Query Hints thuộc federated querying và chỉ mục vector.",
+   "options": [
+    "Global Catalog để tra cứu cột dữ liệu nằm ở nguồn nào",
+    "Tệp ABI để dịch chuỗi Hex trong Logs thành tên hàm và tham số",
+    "Chỉ mục HNSW để tìm các giao dịch có vector tương đồng",
+    "Query Hints để ép kế hoạch thực thi khi thiếu thống kê"
+   ]
+  },
+  {
+   "id": "c9-q78",
+   "explanation": "Data Normalization gồm đổi đơn vị số nguyên lớn (18 chữ số thập phân của Wei sang Ether) và đồng bộ định dạng Timestamp về chuẩn UTC của kho dữ liệu.\n• Băm SHA-256 rồi xóa dữ liệu gốc hay tự sinh giao dịch giả lập đều không có trong quy trình.",
+   "options": [
+    "Chuyển đổi các đơn vị số nguyên lớn, như 18 chữ số thập phân của Wei sang Ether",
+    "Băm toàn bộ giao dịch bằng SHA-256 rồi xóa dữ liệu gốc khỏi nguồn",
+    "Đồng bộ định dạng Timestamp về chuẩn UTC của kho dữ liệu",
+    "Đổi Timestamp về múi giờ địa phương của từng chi nhánh phân tích"
+   ]
+  },
+  {
+   "id": "c9-q79",
+   "explanation": "Đúng thứ tự: Node Ingestion (bắt khối mới qua RPC) → Event Decoding (dịch Hex bằng ABI) → Data Normalization (Wei sang Ether, Timestamp về UTC).\n• Phải giải mã được log trước thì mới chuẩn hóa được đơn vị và thời gian."
+  },
+  {
+   "id": "c9-q80",
+   "explanation": "Logs chỉ là chuỗi Hex nên bước cần làm là Event Decoding: dùng tệp ABI dịch thành tên hàm và tham số người gửi, người nhận, số tiền.\n• Dữ liệu đã lấy về qua RPC rồi nên không cần Node Ingestion, càng không cần Anchoring."
+  },
+  {
+   "id": "c9-q81",
+   "explanation": "Ba bước Blockchain ETL theo slide: Node Ingestion qua RPC, Event Decoding bằng tệp ABI, Data Normalization (đơn vị Wei/Ether và Timestamp UTC).\n• Automated Failover là cơ chế của kiến trúc HA/DR, không thuộc quy trình ETL."
+  },
+  {
+   "id": "c9-q82",
+   "explanation": "Demo phân tích token USDT (ERC-20) truy vấn bảng token_transfers — nơi lưu các sự kiện chuyển token đã trích xuất từ on-chain về dạng bảng.\n• orders, audit_logs, wiki_users thuộc các bài thực hành khác của môn học."
+  },
+  {
+   "id": "c9-q83",
+   "explanation": "USDT dùng 6 chữ số thập phân nên value on-chain là số nguyên đã nhân 10^6; chia lại 10^6 mới ra lượng USDT thực.\n• Blockchain không giới hạn số nguyên dưới 10^6, mỗi block cũng không chứa 10^6 giao dịch.",
+   "options": [
+    "Vì blockchain chỉ lưu được các số nguyên nhỏ hơn 10^6",
+    "Vì USDT dùng 6 chữ số thập phân, cần chia 10^6 để quy về đơn vị thực",
+    "Vì mỗi block chứa đúng 10^6 giao dịch chuyển token",
+    "Vì đó là tỷ giá cố định giữa USDT và Ether trên chuỗi"
+   ]
+  },
+  {
+   "id": "c9-q84",
+   "explanation": "0xdac17... là địa chỉ hợp đồng thông minh (contract) của token USDT trên Ethereum, dùng làm điều kiện lọc các bản ghi token_transfers thuộc đúng token này.\n• Đó không phải ví cá nhân, mã băm Merkle hay khóa API."
+  },
+  {
+   "id": "c9-q85",
+   "explanation": "Phép phân tích trong demo là đếm số lệnh chuyển token theo từng ngày để theo dõi dòng chảy giao dịch USDT.\n• Dự đoán giá, tính cosine giữa các ví hay dựng quan hệ WORKS_AT đều không phải nội dung của demo."
+  },
+  {
+   "id": "c9-q86",
+   "explanation": "Lỗ hổng: DBA có quyền tối cao, có thể sửa đổi hoặc xóa Audit Logs để xóa dấu vết gian lận.\n• Các phương án còn lại nói về quyền xem báo cáo, chi phí lưu trữ hay tốc độ ghi — không phải bài toán mà Immutable Audit Logs giải quyết.",
+   "options": [
+    "Người dùng cuối không được cấp quyền xem báo cáo phân tích",
+    "DBA có quyền tối cao và có thể sửa hoặc xóa Audit Logs để xóa dấu vết",
+    "Chi phí lưu trữ nhật ký quá thấp nên không ai kiểm soát",
+    "Nhật ký được ghi quá chậm, gây nghẽn toàn bộ hệ thống"
+   ]
+  },
+  {
+   "id": "c9-q87",
+   "explanation": "Giải pháp là dùng công nghệ sổ cái Blockchain như bên thứ ba độc lập, không thể bị thao túng, để lưu bằng chứng về mọi hành vi thay đổi dữ liệu.\n• Cấp thêm quyền DBA, in giấy hay mã hóa bằng mật khẩu đều vẫn nằm trong tay một bên kiểm soát.",
+   "options": [
+    "Cấp thêm quyền quản trị cho nhiều DBA để giám sát lẫn nhau",
+    "In nhật ký ra giấy và lưu trong két sắt của phòng kế toán",
+    "Mã hóa audit logs bằng mật khẩu riêng của giám đốc",
+    "Dùng sổ cái Blockchain như bên thứ ba độc lập, không thể bị thao túng"
+   ]
+  },
+  {
+   "id": "c9-q88",
+   "explanation": "Giá trị cốt lõi là tính không thể phủ nhận (Non-repudiation) và tính minh bạch tuyệt đối cho siêu dữ liệu.\n• Sổ cái bất biến không nhằm tăng tốc ghi, giảm số nhật ký hay cho phép DBA sửa log.",
+   "options": [
+    "Đảm bảo tính không thể phủ nhận (Non-repudiation) và minh bạch tuyệt đối cho metadata",
+    "Tăng tốc độ ghi nhật ký lên gấp nhiều lần so với cách ghi log thông thường",
+    "Giảm số lượng nhật ký cần lưu trữ xuống còn một phần nhỏ so với trước",
+    "Cho phép DBA chỉnh sửa nhật ký thuận tiện và nhanh hơn khi cần"
+   ]
+  },
+  {
+   "id": "c9-q89",
+   "explanation": "Slide nêu rõ: không lưu toàn bộ dữ liệu thô lên Blockchain để tiết kiệm chi phí và bảo mật thông tin; chỉ ghi mã băm SHA-256 đại diện.\n• Hash là hàm một chiều, không thể giải mã ngược thành dữ liệu gốc, nên phương án giải mã ngược sai."
+  },
+  {
+   "id": "c9-q90",
+   "explanation": "Trong Data Anchoring, Merkle Tree gom hàng ngàn mã băm nhật ký trong ngày thành một mã băm gốc duy nhất gọi là Merkle Root Hash, rồi mới đem neo lên chuỗi.\n• Duyệt đồ thị, Voronoi cells và nén vector là kỹ thuật của graph và vector.",
+   "options": [
+    "Duyệt đồ thị tri thức theo chiều sâu bằng ngăn xếp LIFO",
+    "Phân cụm không gian vector thành các Voronoi cells",
+    "Gom hàng ngàn mã băm nhật ký thành một Merkle Root Hash duy nhất",
+    "Nén kích thước vector để đưa chỉ mục vào bộ nhớ RAM"
+   ]
+  },
+  {
+   "id": "c9-q91",
+   "explanation": "Anchoring là ghi nhận Merkle Root Hash lên mạng lưới Blockchain thông qua một Smart Contract.\n• Sao chép log sang vùng dự phòng là HA/DR; lưu vào bảng tạm hay gửi email không tạo được bằng chứng bất biến."
+  },
+  {
+   "id": "c9-q92",
+   "explanation": "Khi có tranh chấp, hệ thống băm lại dữ liệu hiện tại rồi đối chiếu với mã băm đã ghi trên chuỗi.\n• Root Hash không thể giải mã ngược, còn lời khai của DBA hay so sánh thủ công không phải cơ chế của Data Anchoring."
+  },
+  {
+   "id": "c9-q93",
+   "explanation": "SHA-256 luôn cho cùng kết quả với cùng dữ liệu; hai giá trị khác nhau chứng tỏ nhật ký đã bị thay đổi sau thời điểm anchoring nên mã băm không còn khớp.\n• Blockchain không tự đổi Root Hash và hash không phải giá trị ngẫu nhiên."
+  },
+  {
+   "id": "c9-q94",
+   "explanation": "Nguyên lý gồm ba phần: Cryptographic Hashing (SHA-256), Merkle Tree gom thành Root Hash, và Anchoring ghi Root Hash lên Blockchain qua Smart Contract.\n• Voronoi cells là kỹ thuật phân vùng của IVF trong chỉ mục vector."
+  },
+  {
+   "id": "c9-q95",
+   "explanation": "Federated Querying cho phép viết một câu SQL duy nhất mà vẫn lấy và liên kết dữ liệu từ nhiều nền tảng (SQL, Graph, Blockchain) mà không cần di chuyển dữ liệu thô.\n• Không sao chép về kho trung tâm, không hợp nhất hệ quản trị, không chặn truy vấn chéo.",
+   "options": [
+    "Tự động sao chép toàn bộ dữ liệu của các nguồn về kho trung tâm mỗi đêm",
+    "Chuyển đổi mọi cơ sở dữ liệu nguồn về cùng một hệ quản trị duy nhất",
+    "Viết một câu SQL duy nhất liên kết dữ liệu nhiều nền tảng, không di chuyển dữ liệu thô",
+    "Chặn mọi truy vấn chéo giữa các hệ thống để đảm bảo an toàn dữ liệu"
+   ]
+  },
+  {
+   "id": "c9-q96",
+   "explanation": "Zero-Copy/Query Virtualization: dữ liệu được giữ tại nguồn và chỉ lấy kết quả khi cần, thay cho ETL truyền thống phải gom toàn bộ dữ liệu về một chỗ.\n• Không bắt buộc gom dữ liệu trước khi truy vấn, cũng không yêu cầu nhân bản ba vùng địa lý."
+  },
+  {
+   "id": "c9-q97",
+   "explanation": "Lợi ích kinh tế của Federated Querying là tiết kiệm chi phí lưu trữ gấp nhiều lần và đảm bảo tính thời gian thực (Real-time data access).\n• Nó không loại bỏ nhu cầu đường truyền mạng và không tự tăng độ chính xác của dữ liệu nguồn."
+  },
+  {
+   "id": "c9-q98",
+   "explanation": "Slide nêu Presto, Trino và BigQuery Omni là các Connector/Wrapper Engines đóng vai trò trung gian dịch lệnh SQL tổng sang ngôn ngữ của từng nguồn.\n• Apache Kafka là nền tảng streaming, không phải bộ máy truy vấn liên kết.",
+   "options": [
+    "Presto",
+    "Trino",
+    "BigQuery Omni",
+    "Apache Kafka"
+   ]
+  },
+  {
+   "id": "c9-q99",
+   "explanation": "Connector/Wrapper Engine nhận SQL tổng rồi tự động dịch thành ngôn ngữ của từng nguồn: Cypher cho Graph, RPC cho Blockchain.\n• Nó không từ chối truy vấn, không buộc người dùng viết ba câu riêng, cũng không sao chép dữ liệu về kho.",
+   "options": [
+    "Từ chối truy vấn vì hai nguồn dùng ngôn ngữ truy vấn khác nhau",
+    "Tự động dịch SQL tổng thành ngôn ngữ nguồn: Cypher cho Graph, RPC cho Blockchain",
+    "Yêu cầu người dùng tự viết ba câu truy vấn riêng cho từng nguồn",
+    "Sao chép toàn bộ hai nguồn dữ liệu về kho trung tâm rồi mới chạy SQL"
+   ]
+  },
+  {
+   "id": "c9-q100",
+   "explanation": "Global Catalog duy trì một bảng từ điển dữ liệu chung để biết rõ cột nào nằm ở cơ sở dữ liệu nào, giúp định tuyến phần truy vấn tới đúng nguồn.\n• Nó không lưu dữ liệu thô, không mã hóa truy vấn và không đo sức khỏe hệ thống.",
+   "options": [
+    "Lưu trữ toàn bộ dữ liệu thô của mọi nguồn trong một kho trung tâm",
+    "Mã hóa các câu truy vấn trước khi gửi đến các nguồn dữ liệu",
+    "Đo lường sức khỏe hệ thống mỗi 30 giây bằng Health Check",
+    "Duy trì bảng từ điển dữ liệu chung để biết cột nào nằm ở nguồn nào"
+   ]
+  },
+  {
+   "id": "c9-q101",
+   "explanation": "Predicate Pushdown đẩy các điều kiện lọc WHERE xuống thẳng các CSDL nguồn để chúng tự lọc dữ liệu thô, chỉ trả về tập kết quả nhỏ qua đường truyền mạng.\n• Vì vậy không phải kéo toàn bộ dữ liệu về rồi mới lọc, càng không bỏ mệnh đề WHERE.",
+   "options": [
+    "Đẩy điều kiện lọc WHERE xuống nguồn để chỉ trả về tập kết quả nhỏ qua mạng",
+    "Kéo toàn bộ dữ liệu thô về máy chủ trung tâm rồi mới lọc theo WHERE",
+    "Loại bỏ mệnh đề WHERE để đơn giản hóa câu truy vấn gửi đi",
+    "Chuyển điều kiện lọc thành mã băm SHA-256 gửi cho nguồn"
+   ]
+  },
+  {
+   "id": "c9-q102",
+   "explanation": "Predicate Pushdown đẩy điều kiện lọc WHERE xuống nguồn để nguồn tự lọc, chỉ truyền tập kết quả nhỏ qua mạng — đúng với triệu chứng kéo hàng triệu dòng thô về máy trung tâm.\n• Quantization, Merkle Tree và Multi-Region Replication giải quyết vấn đề khác."
+  },
+  {
+   "id": "c9-q103",
+   "explanation": "Demo NKDL_TH_9.2 kết hợp dữ liệu BigQuery với đồ thị Neo4j AuraDB bằng phép merge của pandas theo khóa user_id.\n• Không dùng JOIN của SQLite/MongoDB, không phải UNION ALL hai bảng BigQuery hay Smart Contract.",
+   "options": [
+    "SQLite và MongoDB, kết hợp bằng JOIN của SQL theo trường khóa chung",
+    "Hai bảng BigQuery, kết hợp bằng UNION ALL theo khóa user_id",
+    "BigQuery và Neo4j AuraDB, merge bằng pandas theo khóa user_id",
+    "Neo4j và Ethereum node, kết hợp bằng một Smart Contract"
+   ]
+  },
+  {
+   "id": "c9-q104",
+   "explanation": "Sau khi hợp nhất hai nguồn, kết quả trong demo NKDL_TH_9.2 được sắp xếp theo cột total_votes_cast — số phiếu mà mỗi thực thể nhận được.\n• order_date, review_score, wallet_address là cột của các bài thực hành khác."
+  },
+  {
+   "id": "c9-q105",
+   "explanation": "Optimizer dễ quyết định sai vì không có đầy đủ số liệu thống kê (Statistics) về kích thước và chỉ mục của hệ thống đối tác.\n• SQL vẫn hỗ trợ JOIN và các nguồn vẫn trả dữ liệu; vấn đề nằm ở thông tin để lập kế hoạch.",
+   "options": [
+    "Vì thiếu số liệu thống kê về kích thước và chỉ mục của hệ thống đối tác",
+    "Vì SQL không hỗ trợ mệnh đề JOIN giữa các bảng ở nguồn khác",
+    "Vì các hệ thống đối tác luôn từ chối trả dữ liệu khi truy vấn",
+    "Vì Optimizer chỉ hoạt động vào ban đêm theo lịch cấu hình"
+   ]
+  },
+  {
+   "id": "c9-q106",
+   "explanation": "Khi thiếu thống kê, Optimizer có thể chọn sai thứ tự và cách nối, gây nghẽn cổ chai đường truyền mạng (Network Bottleneck) hoặc làm tràn bộ nhớ RAM của máy chủ trung tâm.\n• Truy vấn chỉ đọc nên không xóa dữ liệu nguồn hay làm sai mã băm."
+  },
+  {
+   "id": "c9-q107",
+   "explanation": "Mục tiêu là xây dựng một Kế hoạch thực thi (Execution Plan) thông minh nhất, điều phối thứ tự ưu tiên lấy dữ liệu từ các nguồn.\n• Không loại bỏ truy vấn chéo nguồn, không tăng số CSDL tham gia, không ép mọi truy vấn sang Cypher.",
+   "options": [
+    "Loại bỏ hoàn toàn nhu cầu truy vấn chéo nguồn trong toàn hệ thống",
+    "Xây dựng Execution Plan thông minh nhất, điều phối thứ tự lấy dữ liệu từ các nguồn",
+    "Tăng số lượng cơ sở dữ liệu tham gia vào mỗi câu truy vấn liên kết",
+    "Chuyển toàn bộ truy vấn liên kết sang ngôn ngữ Cypher của Graph"
+   ]
+  },
+  {
+   "id": "c9-q108",
+   "explanation": "Cost-Based Optimizer phân tích chi phí dựa trên hai tham số: chi phí tính toán tại chỗ (CPU/I-O) và chi phí vận chuyển dữ liệu qua mạng.\n• Số nhân viên vận hành và giá bản quyền phần mềm không phải tham số của bộ tối ưu hóa."
+  },
+  {
+   "id": "c9-q110",
+   "explanation": "Hash Join là băm nhỏ cả hai bảng để thực hiện phép nối, áp dụng tùy dung lượng thực tế.\n• Kéo bảng nhỏ sang máy chủ chứa bảng lớn là Broadcast Join; hai phương án còn lại nhầm sang băm mật khẩu và mã băm blockchain."
+  },
+  {
+   "id": "c9-q111",
+   "explanation": "Với bảng nhỏ 10 MB và bảng lớn 2 TB, Broadcast Join kéo bảng nhỏ sang máy chủ chứa bảng lớn là tối ưu vì chỉ truyền 10 MB qua mạng.\n• Kéo 2 TB về là sai hướng; từ chối nối hay nén vector đều không giải quyết phép nối."
+  },
+  {
+   "id": "c9-q112",
+   "explanation": "Query Hints dùng khi máy tính thiếu thông tin thống kê: chủ động viết các chỉ thị điều hướng ẩn trong câu lệnh để ép hệ thống thực thi theo đúng ý đồ kiến trúc.\n• Nó không dùng để sinh tài liệu, ẩn truy vấn khỏi log hay dịch SQL sang Cypher.",
+   "options": [
+    "Khi cần tự động sinh tài liệu mô tả chi tiết cho câu truy vấn",
+    "Khi muốn ẩn nội dung câu truy vấn khỏi nhật ký hệ thống",
+    "Khi cần dịch tự động câu lệnh SQL sang ngôn ngữ Cypher",
+    "Viết chỉ thị điều hướng ẩn trong câu lệnh để ép hệ thống thực thi đúng ý đồ"
+   ]
+  },
+  {
+   "id": "c9-q113",
+   "explanation": "RTO (Recovery Time Objective) là thời gian tối đa chấp nhận để khôi phục hệ thống hoạt động trở lại sau sự cố.\n• Lượng dữ liệu tối đa bị mất là RPO; tần suất sao lưu và độ trễ truy vấn là chỉ số khác.",
+   "options": [
+    "Lượng dữ liệu tối đa chấp nhận bị mất khi xảy ra sự cố",
+    "Tần suất sao lưu dữ liệu định kỳ của toàn hệ thống",
+    "Thời gian tối đa chấp nhận để khôi phục hệ thống sau sự cố",
+    "Thời gian trễ trung bình của một truy vấn liên kết đa nguồn"
+   ]
+  },
+  {
+   "id": "c9-q114",
+   "explanation": "RPO (Recovery Point Objective) là lượng dữ liệu tối đa chấp nhận được bị mất đi, tính bằng phút/giờ, trong quá trình xảy ra sự cố.\n• Thời gian khôi phục hệ thống là RTO; số vùng dự phòng và chu kỳ Health Check không phải RPO.",
+   "options": [
+    "Lượng dữ liệu tối đa chấp nhận bị mất (phút/giờ) khi xảy ra sự cố",
+    "Thời gian tối đa để khôi phục hệ thống hoạt động trở lại",
+    "Số lượng vùng dự phòng tối thiểu cần duy trì song song",
+    "Chu kỳ kiểm tra sức khỏe hệ thống bằng Health Check"
+   ]
+  },
+  {
+   "id": "c9-q115",
+   "explanation": "Tích hợp càng nhiều mô hình (SQL + NoSQL + Graph + Blockchain) thì xác suất lỗi phần cứng hoặc sập một mắt xích tăng lũy tiến; một thành phần sập làm tê liệt cả chuỗi dữ liệu.\n• Đây không phải vấn đề sao lưu, bản quyền hay nhân bản dữ liệu.",
+   "options": [
+    "Vì các mô hình dữ liệu mới không hỗ trợ cơ chế sao lưu dữ liệu định kỳ",
+    "Nhiều mô hình nên xác suất lỗi tăng lũy tiến; một mắt xích sập làm tê liệt cả chuỗi",
+    "Vì chi phí bản quyền tăng nên không thể mua đủ thiết bị dự phòng",
+    "Vì dữ liệu đa mô hình không thể nhân bản sang vùng địa lý dự phòng"
+   ]
+  },
+  {
+   "id": "c9-q116",
+   "explanation": "Automated Failover dựa trên bộ giám sát Health Check: nếu vùng chính mất tín hiệu quá 30 giây, hệ thống tự động bẻ hướng toàn bộ luồng truy cập sang vùng dự phòng.\n• Không phải sao lưu băng từ, gửi email thủ công hay khóa toàn bộ hệ thống.",
+   "options": [
+    "Tự động sao lưu dữ liệu mỗi 30 phút vào băng từ ở vùng dự phòng",
+    "Gửi cảnh báo email cho quản trị viên để xử lý thủ công khi có sự cố",
+    "Khóa toàn bộ hệ thống ngay khi phát hiện một truy cập bất thường",
+    "Vùng chính mất tín hiệu quá 30 giây thì tự chuyển luồng truy cập sang vùng dự phòng"
+   ]
+  },
+  {
+   "id": "c9-q117",
+   "explanation": "Ba cơ chế trong thiết kế HA/DR đa mô hình: Multi-Region Replication, Automated Failover với Health Check, và Asynchronous Sync nhân bản bất đồng bộ xuyên quốc gia.\n• Full Table Scan định kỳ là thao tác đọc dữ liệu, không phải cơ chế chịu lỗi."
+  },
+  {
+   "id": "c9-q118",
+   "explanation": "RTO = 10:45 − 10:00 = 45 phút (thời gian khôi phục). RPO = 10:00 − 09:30 = 30 phút (lượng dữ liệu có thể mất, tính từ bản đồng bộ gần nhất).\n• Đảo hai chỉ số sẽ ra đáp án sai 30/45."
+  },
+  {
+   "id": "c9-q119",
+   "explanation": "\"15 phút dữ liệu được phép mất\" là RPO; \"2 giờ phải hoạt động trở lại\" là RTO.\n• Health Check Interval và các chỉ số vận hành khác không phải chỉ số SLA về dữ liệu mất hay thời gian khôi phục.",
+   "options": [
+    "RTO và RPO",
+    "RPO và Health Check",
+    "RTO và Health Check",
+    "RPO và RTO"
+   ]
+  },
+  {
+   "id": "c9-q120",
+   "explanation": "Asynchronous Sync dùng cơ chế nhân bản bất đồng bộ xuyên quốc gia để tránh làm giảm tốc độ ghi dữ liệu của hệ thống.\n• Tắt nhân bản, dồn về một vùng hay giảm chu kỳ Health Check đều không giải quyết đúng vấn đề.",
+   "options": [
+    "Asynchronous Sync: nhân bản bất đồng bộ xuyên quốc gia để không giảm tốc độ ghi",
+    "Tắt hẳn cơ chế nhân bản xuyên quốc gia để giữ nguyên tốc độ ghi dữ liệu",
+    "Chuyển toàn bộ dữ liệu về một vùng duy nhất để tránh mọi độ trễ mạng",
+    "Giảm chu kỳ Health Check từ 30 giây xuống còn 1 giây cho nhanh"
+   ]
+  },
+  {
+   "id": "b-c9-q1",
+   "explanation": "Polyglot Persistence: 'One size does not fit all' — dùng đồng thời nhiều công nghệ lưu trữ (SQL, NoSQL) vì không có CSDL duy nhất tối ưu cho mọi tác vụ.",
+   "options": [
+    "Chỉ dùng NoSQL cho mọi loại dữ liệu để tối ưu tốc độ truy xuất",
+    "'One size fits all' – một CSDL duy nhất cho mọi loại tác vụ",
+    "Chỉ dùng RDBMS/SQL cho mọi loại dữ liệu để đảm bảo tính ACID",
+    "'One size does not fit all' – dùng đồng thời nhiều công nghệ SQL, NoSQL"
+   ]
+  },
+  {
+   "id": "b-c9-q2",
+   "explanation": "Key-Value Store: truy xuất tốc độ cao cho Caching/Session. RDBMS(SQL): giao dịch cốt lõi ACID. Document Store(NoSQL): hồ sơ Schema-less thay đổi liên tục."
+  },
+  {
+   "id": "b-c9-q3",
+   "explanation": "CAP: chấp nhận Eventual Consistency ở NoSQL vệ tinh (đổi lấy tốc độ, tính sẵn sàng), nhưng Strong Consistency tại kho trung tâm.",
+   "options": [
+    "Loại bỏ hoàn toàn tính nhất quán để tối ưu tốc độ truy vấn",
+    "Chấp nhận Eventual Consistency ở NoSQL vệ tinh, Strong Consistency tại kho",
+    "Chỉ đảm bảo Availability, bỏ qua Consistency và Partition tolerance",
+    "Đảm bảo Strong Consistency ở mọi tầng bất kể chi phí vận hành"
+   ]
+  },
+  {
+   "id": "b-c9-q4",
+   "explanation": "Knowledge Graph (Nodes + Edges): Relationship-First — quan hệ được lưu trực tiếp như thực thể hạng nhất, không phải tính online qua JOIN. Ontology định nghĩa quan hệ (Customer-[WORKS_AT]-Organization).",
+   "options": [
+    "Ưu tiên lưu trữ dạng bảng quan hệ chuẩn hóa trong kho dữ liệu",
+    "Quan hệ được lưu trực tiếp như một thực thể hạng nhất, không tính bằng JOIN",
+    "Chỉ lưu các thực thể dạng node mà không lưu các cạnh quan hệ",
+    "Quan hệ được tính lại mỗi lần truy vấn bằng lệnh JOIN online"
+   ]
+  },
+  {
+   "id": "b-c9-q5",
+   "explanation": "BFS: duyệt theo cấp độ (chiều ngang), Queue-FIFO. DFS: duyệt sâu theo một nhánh đến khi cụt mới quay lui (backtrack), Stack-LIFO hoặc đệ quy.",
+   "options": [
+    "BFS duyệt từng cấp dùng Queue-FIFO; DFS duyệt sâu dùng Stack-LIFO",
+    "Cả hai cùng dùng Stack-LIFO và duyệt theo từng cấp độ",
+    "BFS duyệt sâu theo một nhánh; DFS duyệt theo từng cấp độ",
+    "Cả hai cùng dùng Queue-FIFO và duyệt sâu theo nhánh"
+   ]
+  },
+  {
+   "id": "b-c9-q6",
+   "explanation": "BFS (theo cấp độ): A, B, D, G, E, F, C. DFS (đi sâu A→B→E→G rồi quay lui khám phá F→C→D): A, B, E, G, F, C, D."
+  },
+  {
+   "id": "b-c9-q7",
+   "explanation": "BFS: tìm đường ngắn nhất, gợi ý sản phẩm, mở rộng truy vấn theo cấp lân cận. DFS: khám phá quan hệ sâu nhiều tầng, duyệt ontology, xây taxonomy, khai phá chuỗi liên kết dài.",
+   "options": [
+    "Xây dựng cây phân cấp (taxonomy) từ dữ liệu đồ thị",
+    "Khám phá quan hệ sâu nhiều tầng, duyệt ontology tìm khái niệm con",
+    "Khai phá chuỗi liên kết dài giữa các thực thể trong đồ thị",
+    "Tìm đường ngắn nhất, gợi ý sản phẩm, mở rộng truy vấn theo cấp lân cận"
+   ]
+  },
+  {
+   "id": "b-c9-q8",
+   "explanation": "Neo4j (Neo4j Aura) là hệ quản trị Graph Database thương mại dùng ngôn ngữ Cypher (ví dụ MATCH (u:WikiUser)-[:VOTED_FOR]->...) trên đồ thị 7.115 nodes, 103.689 relationships.",
+   "options": [
+    "Apache Kafka (nền tảng streaming)",
+    "Google BigQuery (kho dữ liệu đám mây)",
+    "Qdrant (cơ sở dữ liệu vector)",
+    "Neo4j (Neo4j Aura, graph database)"
+   ]
+  },
+  {
+   "id": "b-c9-q9",
+   "explanation": "Vector Embeddings: 768-1536 chiều, do mô hình Deep Learning tạo; thực thể tương đồng nằm gần nhau → thay tìm kiếm từ khóa bằng Semantic Search.",
+   "options": [
+    "Chỉ 2-3 chiều; dùng để vẽ biểu đồ trực quan cho dữ liệu",
+    "768-1536 chiều; thực thể tương đồng nằm gần nhau để Semantic Search",
+    "Vô hạn chiều; dùng để nén dữ liệu phi cấu trúc trong RAM",
+    "1 chiều; dùng để sắp xếp dữ liệu theo thứ tự tăng dần"
+   ]
+  },
+  {
+   "id": "b-c9-q10",
+   "explanation": "Curse of Dimensionality: quét khoảng cách trên hàng triệu vector số chiều cao gây quá tải CPU. Giải pháp là Approximate Nearest Neighbor (ANN).",
+   "options": [
+    "Số chiều tự động giảm về 1 khi dữ liệu vượt ngưỡng",
+    "Vector bị mất chiều khi lưu trữ xuống đĩa và nén lại",
+    "Quét khoảng cách trên hàng triệu vector nhiều chiều gây quá tải CPU",
+    "Dữ liệu bị mã hóa nhầm sang bảng mã khác khi nạp"
+   ]
+  },
+  {
+   "id": "b-c9-q11",
+   "explanation": "HNSW: đồ thị phân cấp mạng lưới nhảy vùng tìm láng giềng gần (mili-giây). IVF: phân cụm vector thành Voronoi cells. Quantization (PQ): nén để đưa chỉ mục vào RAM.",
+   "options": [
+    "IVFFLAT của pgvector",
+    "Quantization (Product Quantization)",
+    "IVF (Inverted File Index, Voronoi cells)",
+    "HNSW (Hierarchical Navigable Small World)"
+   ]
+  },
+  {
+   "id": "b-c9-q12",
+   "explanation": "On-chain Data: toàn bộ lịch sử giao dịch, số dư, mã trạng thái Smart Contracts ghi VĨNH VIỄN trên Blockchain — minh bạch tuyệt đối nhưng ở dạng byte/hex phi cấu trúc.",
+   "options": [
+    "Dữ liệu chỉ được lưu trên máy chủ trung tâm của doanh nghiệp",
+    "Lịch sử giao dịch, số dư và mã trạng thái Smart Contracts ghi vĩnh viễn",
+    "Dữ liệu tạm thời trong bộ nhớ đệm của các node mạng",
+    "Metadata mô tả cấu trúc kỹ thuật của bảng dữ liệu"
+   ]
+  },
+  {
+   "id": "b-c9-q13",
+   "explanation": "Blockchain ETL: Node Ingestion (kết nối node qua RPC bắt block) → Event Decoding (dùng ABI dịch Hex thành tên hàm/tham số) → Data Normalization (Wei→Ether, Timestamp→UTC).",
+   "options": [
+    "Băm toàn bộ dữ liệu log bằng SHA-256 để đối chiếu",
+    "Dùng tệp ABI dịch chuỗi Hex trong Logs thành tên hàm và tham số",
+    "Kết nối các nút mạng qua RPC để bắt các khối mới",
+    "Chuyển đổi Wei sang Ether và đồng bộ Timestamp về UTC"
+   ]
+  },
+  {
+   "id": "b-c9-q14",
+   "explanation": "Lỗ hổng: DBA có quyền tối cao, có thể sửa/xóa Audit Logs để xóa dấu vết gian lận. Giải pháp: dùng Blockchain làm bên thứ ba độc lập không thể thao túng → Non-repudiation.",
+   "options": [
+    "Truy vấn quá chậm trên khối dữ liệu lớn của kho",
+    "Dữ liệu bị mất khi mạng gián đoạn kéo dài nhiều giờ",
+    "Thiếu khả năng mở rộng theo chiều ngang của hệ thống",
+    "DBA có quyền tối cao có thể sửa hoặc xóa Audit Logs để xóa dấu vết"
+   ]
+  },
+  {
+   "id": "b-c9-q15",
+   "explanation": "Merkle Tree gom hàng ngàn mã băm nhật ký thành một Merkle Root Hash duy nhất; sau đó Anchoring ghi Root Hash lên Blockchain qua Smart Contract để đối chiếu khi tranh chấp.",
+   "options": [
+    "Mã hóa dữ liệu bằng khóa đối xứng dùng chung",
+    "Gom hàng ngàn mã băm nhật ký thành một Merkle Root Hash duy nhất",
+    "Ghi trực tiếp toàn bộ dữ liệu thô lên Blockchain",
+    "Băm dữ liệu thành SHA-256 riêng lẻ cho từng bản ghi"
+   ]
+  },
+  {
+   "id": "b-c9-q16",
+   "explanation": "Federated Querying: một SQL duy nhất lấy/liên kết dữ liệu từ nhiều nền tảng (SQL, Graph, Blockchain) không di chuyển dữ liệu thô (Zero-Copy/Query Virtualization), giữ dữ liệu tại nguồn.",
+   "options": [
+    "Chỉ truy vấn được một loại CSDL tại một thời điểm duy nhất",
+    "Gom toàn bộ dữ liệu các nguồn về một kho trung tâm bằng ETL",
+    "Một câu SQL duy nhất liên kết dữ liệu nhiều nền tảng, không di chuyển dữ liệu thô",
+    "Sao chép dữ liệu từ nguồn về đích một cách thủ công theo lịch"
+   ]
+  },
+  {
+   "id": "b-c9-q17",
+   "explanation": "Connector/Wrapper Engines (Presto, Trino, BigQuery Omni): dịch SQL tổng thành ngôn ngữ nguồn (Cypher/RPC). Global Catalog: từ điển dữ liệu chung. Predicate Pushdown: đẩy WHERE xuống nguồn.",
+   "options": [
+    "Tiếp nhận SQL tổng và dịch thành ngôn ngữ nguồn: Cypher, RPC",
+    "Duy trì từ điển dữ liệu chung để biết cột nào ở CSDL nào",
+    "Đẩy điều kiện lọc WHERE xuống thẳng nguồn dữ liệu",
+    "Băm dữ liệu bằng SHA-256 để đảm bảo toàn vẹn"
+   ]
+  },
+  {
+   "id": "b-c9-q18",
+   "explanation": "Cost-Based Optimizer ước tính dựa trên: chi phí tính toán tại chỗ (CPU/I-O) và chi phí vận chuyển dữ liệu qua mạng — để xây Execution Plan thông minh nhất, tránh Network Bottleneck.",
+   "options": [
+    "Chi phí tính toán tại chỗ (CPU/I-O) và chi phí vận chuyển qua mạng",
+    "Số lượng người dùng và số lượng bảng tham gia truy vấn",
+    "Số lần quét CSDL và số ứng viên sinh ra khi JOIN",
+    "Dung lượng đĩa và số lượng cột của các bảng nguồn"
+   ]
+  },
+  {
+   "id": "b-c9-q19",
+   "explanation": "Broadcast Join: kéo bảng NHỎ sang máy chủ chứa bảng LỚN. Hash Join: băm nhỏ cả hai bảng. Query Hints ép hệ thống thực thi đúng ý đồ khi thiếu thống kê."
+  },
+  {
+   "id": "b-c9-q20",
+   "explanation": "RTO (Recovery TIME Objective): thời gian tối đa để khôi phục hệ thống. RPO (Recovery POINT Objective): lượng dữ liệu tối đa chấp nhận bị mất (phút/giờ).",
+   "options": [
+    "RTO là thời gian khôi phục tối đa; RPO là lượng dữ liệu tối đa bị mất",
+    "Cả hai đều đo thời gian khôi phục hệ thống sau sự cố",
+    "Cả hai đều đo lượng dữ liệu bị mất trong lúc xảy ra sự cố",
+    "RTO là lượng dữ liệu bị mất; RPO là thời gian khôi phục"
+   ]
+  },
+  {
+   "id": "b-c9-q21",
+   "explanation": "Automated Failover: Health Check giám sát; nếu vùng chính mất tín hiệu >30 giây → tự động chuyển luồng sang vùng dự phòng. Multi-Region Replication sao chép liên tục; Asynchronous Sync cho NoSQL/Graph.",
+   "options": [
+    "Băm dữ liệu bằng SHA-256 để đảm bảo tính toàn vẹn nhật ký",
+    "Vùng chính mất tín hiệu quá 30 giây thì tự chuyển luồng sang vùng dự phòng",
+    "Dùng nhân bản bất đồng bộ xuyên quốc gia cho NoSQL/Graph",
+    "Sao chép dữ liệu liên tục từ Primary Region sang DR Region"
+   ]
+  }
+ ]
+}

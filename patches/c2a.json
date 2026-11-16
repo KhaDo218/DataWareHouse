@@ -1,0 +1,363 @@
+{
+  "chunk": "c2a",
+  "items": [
+    {
+      "id": "c2-q1",
+      "explanation": "Kimball vẫn duy trì triết lý User-centric: mô hình chiều xoay quanh cách người dùng kinh doanh đặt câu hỏi. Cloud chỉ thay đổi hạ tầng (lưu trữ vô hạn, tính toán linh hoạt) chứ không đổi triết lý thiết kế."
+    },
+    {
+      "id": "c2-q2",
+      "explanation": "Cloud cho lưu trữ vô hạn nên không cần tối ưu không gian lưu trữ nữa; trọng tâm chuyển sang tối ưu hiệu suất truy vấn để báo cáo trả về nhanh."
+    },
+    {
+      "id": "c2-q3",
+      "explanation": "• Giảm phụ thuộc các kỹ thuật Indexing vật lý phức tạp của On-premise\n• Hỗ trợ tốt hơn dữ liệu bán cấu trúc ngay trong Schema\n• Tăng tính linh hoạt cho chu kỳ phát triển Agile và DevOps\n• Tăng chuẩn hóa tối đa là hướng ngược lại, Cloud khuyến khích phi chuẩn hóa"
+    },
+    {
+      "id": "c2-q4",
+      "explanation": "Cloud có khả năng lưu trữ vô hạn và tính toán linh hoạt (tách rời Compute/Storage), nên Kimball không còn phải tiết kiệm dung lượng mà dồn vào hiệu suất truy vấn."
+    },
+    {
+      "id": "c2-q5",
+      "explanation": "Bước đầu tiên là Chọn Business Process - chọn quy trình nghiệp vụ cần phân tích; sau đó mới xác định Grain, Dimensions rồi mới đến Facts."
+    },
+    {
+      "id": "c2-q6",
+      "explanation": "Thứ tự đúng: Business Process → Grain → Dimensions → Facts. Chọn quy trình trước, chốt mức chi tiết, rồi tìm chiều mô tả và cuối cùng là số liệu định lượng."
+    },
+    {
+      "id": "c2-q7",
+      "explanation": "• Đảm bảo tính nhất quán giữa các mô hình dữ liệu\n• Giúp xây dựng Single Version of Truth cho doanh nghiệp\n• Conformed Dimensions không hề thay thế bảng Fact hay quy trình thiết kế 4 bước"
+    },
+    {
+      "id": "c2-q8",
+      "explanation": "• Chọn Business Process\n• Xác định Grain của dữ liệu\n• Xác định Dimensions mô tả sự kiện kinh doanh\n• Xác định Facts định lượng gắn với quy trình\nSemantic Layer và công cụ BI không thuộc 4 bước này"
+    },
+    {
+      "id": "c2-q9",
+      "explanation": "Storage tách rời và rẻ nên khuyến khích dùng Flat tables (bảng dẹt, phi chuẩn hóa) để giảm phép Join; bảng 3NF, Bridge hay History không phải ưu tiên ở đây."
+    },
+    {
+      "id": "c2-q10",
+      "explanation": "Nguyên tắc là tối ưu chi phí bằng cách tính toán khi thực sự có truy vấn: compute chỉ bật lúc cần, không duy trì cụm chạy 24/7."
+    },
+    {
+      "id": "c2-q11",
+      "explanation": "• Không cần chuẩn hóa quá mức để tiết kiệm dung lượng\n• Tăng tốc Ingestion nhờ kiến trúc song song quy mô lớn\n• Cho phép lưu dữ liệu thô mà không làm chậm hệ thống báo cáo\n• Tách rời giúp giảm bớt chứ không bắt buộc Indexing vật lý phức tạp"
+    },
+    {
+      "id": "c2-q12",
+      "explanation": "Tách rời Compute/Storage cho phép bỏ việc chuẩn hóa quá mức để tiết kiệm dung lượng, nên \"bắt buộc chuẩn hóa quá mức\" là phát biểu sai, không phải tác động của nó."
+    },
+    {
+      "id": "c2-q13",
+      "explanation": "Denormalization là chiến lược ưu tiên để tận dụng Columnar scanning: chỉ đọc những cột cần thiết, nên phi chuẩn hóa không tốn chi phí đọc như trên hệ row-based."
+    },
+    {
+      "id": "c2-q14",
+      "explanation": "• Giảm thiểu độ phức tạp của SQL\n• Tăng tốc hiển thị cho BI và các mô hình Data Mining\n• Hỗ trợ tốt phân tích Time Series quy mô lớn\n• Vẫn phải quản lý tính nhất quán dữ liệu, không loại bỏ được nhu cầu đó"
+    },
+    {
+      "id": "c2-q15",
+      "explanation": "Đánh đổi lớn nhất là phải quản lý sự nhất quán của dữ liệu khi phi chuẩn hóa, vì cùng một thông tin bị lặp ở nhiều nơi. Đổi lại BI và Time Series chạy nhanh hơn."
+    },
+    {
+      "id": "c2-q16",
+      "explanation": "Data Mesh chuyển giao quyền thiết kế mô hình từ IT sang các Domain (miền nghiệp vụ); mỗi miền tự chịu trách nhiệm về chất lượng và cấu trúc Dimension/Fact."
+    },
+    {
+      "id": "c2-q17",
+      "explanation": "• Mỗi Domain tự chịu trách nhiệm chất lượng và cấu trúc Dimension/Fact\n• Dùng Federated Conformed Dimensions để kết nối các miền\n• Tăng tính tự chủ khi phát triển sản phẩm dữ liệu\n• IT không còn nắm toàn quyền thiết kế mọi mô hình"
+    },
+    {
+      "id": "c2-q18",
+      "explanation": "Kimball trở thành \"ngôn ngữ chung\" để các đơn vị kinh doanh giao tiếp; quản trị vẫn được đảm bảo tập trung qua các chuẩn kết nối chung chứ không bị loại bỏ."
+    },
+    {
+      "id": "c2-q19",
+      "explanation": "Mỗi Micro-partition thường chứa từ 50MB đến 500MB dữ liệu nén; hệ thống tự chia nhỏ nên không cần phân vùng thủ công như cơ sở dữ liệu truyền thống."
+    },
+    {
+      "id": "c2-q20",
+      "explanation": "Dữ liệu trong mỗi Micro-partition được tổ chức theo Columnar (theo cột), đây là nền tảng cho khả năng quét và nén dữ liệu hiệu quả trên Cloud."
+    },
+    {
+      "id": "c2-q21",
+      "explanation": "Metadata của mỗi phân vùng lưu giá trị Min/Max của từng cột; nhờ đó công cụ truy vấn biết phân vùng nào cần đọc và bỏ qua phần còn lại khi Pruning."
+    },
+    {
+      "id": "c2-q22",
+      "explanation": "• Hệ thống tự động chia bảng thành các tập tin lưu trữ nhỏ\n• Là nền tảng cho khả năng quét dữ liệu cực nhanh trên Cloud\n• Không cần phân vùng thủ công và mỗi phân vùng chỉ 50MB-500MB dữ liệu nén"
+    },
+    {
+      "id": "c2-q23",
+      "explanation": "Data Pruning tối ưu truy vấn bằng cách bỏ qua các phân vùng không chứa dữ liệu cần thiết; nó không xóa dữ liệu, chỉ giảm khối lượng phải đọc."
+    },
+    {
+      "id": "c2-q24",
+      "explanation": "Pruning hoạt động dựa trên các điều kiện lọc trong câu lệnh SQL, đối chiếu với Min/Max trong metadata của từng Micro-partition để loại phân vùng không liên quan."
+    },
+    {
+      "id": "c2-q25",
+      "explanation": "• Giảm khối lượng dữ liệu phải đọc từ lưu trữ về bộ nhớ tính toán\n• Giảm Compute credit vì quét ít dữ liệu hơn\n• Tăng tốc phản hồi cho báo cáo dù dữ liệu lớn\n• Chuẩn hóa 3NF không phải việc Pruning làm"
+    },
+    {
+      "id": "c2-q26",
+      "explanation": "Pruning hiệu quả nhất khi dữ liệu được sắp xếp tốt theo các cột thường xuyên lọc, vì khi đó phạm vi Min/Max mỗi phân vùng hẹp và ít chồng lấn."
+    },
+    {
+      "id": "c2-q27",
+      "explanation": "Clustering là việc sắp xếp dữ liệu trong các Micro-partitions dựa trên một hoặc nhiều cột khóa, giúp phạm vi giá trị mỗi phân vùng hẹp hơn và không chồng lấn."
+    },
+    {
+      "id": "c2-q28",
+      "explanation": "Clustering tối ưu cho Range queries (truy vấn theo khoảng giá trị) vì dữ liệu đã sắp theo khóa nên chỉ cần đọc dải phân vùng chứa khoảng cần tìm."
+    },
+    {
+      "id": "c2-q29",
+      "explanation": "Nên chọn cột có độ chọn lọc cao và thường xuyên xuất hiện trong điều kiện lọc làm Clustering Key; cột trùng lặp hoặc ít dùng không giúp thu hẹp phạm vi phân vùng."
+    },
+    {
+      "id": "c2-q30",
+      "explanation": "• Phân vùng có phạm vi giá trị hẹp hơn và không chồng lấn\n• Giảm thiểu tình trạng Data Skew\n• Đặc biệt quan trọng với bảng có kích thước cực lớn\n• Clustering bổ trợ, không thay thế Micro-partitioning"
+    },
+    {
+      "id": "c2-q31",
+      "explanation": "Clustering Depth là chỉ số đo mức độ chồng lấn giữa các Micro-partitions; chỉ số càng thấp thì dữ liệu càng được sắp xếp gọn gàng."
+    },
+    {
+      "id": "c2-q32",
+      "explanation": "Clustering Depth càng thấp nghĩa là các phân vùng ít chồng lấn, Pruning loại bỏ được nhiều dữ liệu hơn nên hiệu suất truy vấn càng cao."
+    },
+    {
+      "id": "c2-q33",
+      "explanation": "Chỉ số Clustering Depth giúp Data Architect quyết định khi nào cần thực hiện Re-clustering, tức khi độ chồng lấn tăng lên do dữ liệu mới nạp."
+    },
+    {
+      "id": "c2-q34",
+      "explanation": "Clustering Depth ảnh hưởng trực tiếp đến khả năng Pruning: phân vùng càng ít chồng lấn thì công cụ tối ưu truy vấn càng bỏ qua được nhiều phân vùng."
+    },
+    {
+      "id": "c2-q35",
+      "explanation": "Re-clustering tự động sắp xếp lại dữ liệu ngầm bằng tài nguyên tính toán riêng, không khóa bảng và không làm gián đoạn các truy vấn đang chạy."
+    },
+    {
+      "id": "c2-q36",
+      "explanation": "Hệ thống tự kích hoạt Re-clustering khi phát hiện suy giảm hiệu năng do dữ liệu mới nạp làm tăng độ chồng lấn, không chạy theo giờ cố định."
+    },
+    {
+      "id": "c2-q37",
+      "explanation": "• Chạy trên tài nguyên tính toán riêng biệt\n• Kiểm soát chi phí bằng cách bật/tắt tính năng\n• Giảm tải công việc vận hành cho Data Architect\n• Không khóa bảng, không dừng truy vấn đang chạy"
+    },
+    {
+      "id": "c2-q38",
+      "explanation": "Transaction Fact Table lưu ở Atomic level - mức nguyên tử, chi tiết nhất, ghi từng sự kiện riêng lẻ ngay khi nó xảy ra."
+    },
+    {
+      "id": "c2-q39",
+      "explanation": "• Ghi lại từng sự kiện riêng lẻ khi nó xảy ra\n• Thường có số lượng dòng lớn nhất trong kho dữ liệu\n• Là nguồn dữ liệu gốc để xây dựng các loại Fact Table khác\n• Không phải bảng chỉ cập nhật vào cuối kỳ báo cáo"
+    },
+    {
+      "id": "c2-q40",
+      "explanation": "Ghi lại từng giao dịch ngay khi phát sinh và cần drill-down chi tiết là bài toán của Transaction Fact Table; hai loại Snapshot dùng cho trạng thái định kỳ và tiến độ quy trình."
+    },
+    {
+      "id": "c2-q41",
+      "explanation": "Transaction Fact Table phù hợp để drill-down chi tiết đến từng sự kiện; so sánh số dư cuối kỳ là Periodic Snapshot, theo dõi tiến độ là Accumulating Snapshot."
+    },
+    {
+      "id": "c2-q42",
+      "explanation": "Periodic Snapshot lưu tình trạng của một quy trình tại các thời điểm cố định (cuối ngày/tháng), ví dụ số dư tài khoản cuối ngày hay tồn kho cuối tuần.",
+      "options": [
+        "Tình trạng của quy trình tại các mốc thời điểm cố định",
+        "Từng sự kiện riêng lẻ được ghi lại ngay khi phát sinh",
+        "Các sự kiện không có số liệu định lượng kèm theo",
+        "Mối quan hệ nhiều-nhiều giữa các thực thể trong mô hình"
+      ]
+    },
+    {
+      "id": "c2-q43",
+      "explanation": "\"Số dư tài khoản cuối ngày\" và \"tồn kho cuối tuần\" là ảnh chụp trạng thái tại mốc thời gian cố định, đúng bản chất Periodic Snapshot Fact Table."
+    },
+    {
+      "id": "c2-q44",
+      "explanation": "• Dễ dàng so sánh hiệu năng giữa các kỳ báo cáo\n• Giảm tính toán lại từ các bảng giao dịch khổng lồ\n• Hỗ trợ tốt cho phân tích xu hướng (Trend analysis)\n• Cập nhật liên tục một dòng là Accumulating Snapshot, không phải Periodic"
+    },
+    {
+      "id": "c2-q45",
+      "explanation": "Periodic Snapshot không thay đổi dữ liệu đã ghi trong quá khứ; mỗi kỳ là một ảnh chụp riêng nên lịch sử luôn ổn định để so sánh hiệu năng."
+    },
+    {
+      "id": "c2-q46",
+      "explanation": "Accumulating Snapshot dùng để theo dõi tiến độ của một quy trình có nhiều giai đoạn, mỗi dòng là một thực thể và được cập nhật dần các mốc thời gian."
+    },
+    {
+      "id": "c2-q47",
+      "explanation": "Yêu cầu theo dõi đơn hàng qua các mốc đặt hàng - đóng gói - giao hàng với mỗi dòng được cập nhật dần mốc thời gian đúng là Accumulating Snapshot Fact Table."
+    },
+    {
+      "id": "c2-q48",
+      "explanation": "Mỗi dòng lưu nhiều cột ngày tháng ứng với các mốc, nên Accumulating Snapshot giúp tính Lead time giữa các bước của quy trình."
+    },
+    {
+      "id": "c2-q49",
+      "explanation": "• Mỗi dòng là một thực thể, được cập nhật dần các mốc thời gian\n• Thường chứa nhiều cột ngày tháng ứng với các mốc quy trình\n• Hữu ích tối ưu chuỗi cung ứng và vận hành\n• Dữ liệu vẫn được cập nhật, khác Periodic Snapshot"
+    },
+    {
+      "id": "c2-q50",
+      "explanation": "Quy tắc quan trọng: tất cả các Fact trong một bảng phải cùng một mức chi tiết, tránh trộn lẫn nhiều grain trong cùng bảng Fact."
+    },
+    {
+      "id": "c2-q51",
+      "explanation": "Grain càng thấp (chi tiết) thì khả năng phân tích càng rộng, nhưng số dòng tăng nên kích thước bảng và chi phí truy vấn cũng tăng theo.",
+      "options": [
+        "Khả năng phân tích bị thu hẹp lại và bảng nhỏ hơn",
+        "Kích thước bảng giảm đi đáng kể so với grain cao",
+        "Không ảnh hưởng đến hiệu năng truy vấn và dung lượng",
+        "Khả năng phân tích rộng hơn nhưng bảng và chi phí truy vấn tăng"
+      ]
+    },
+    {
+      "id": "c2-q52",
+      "explanation": "Lưu doanh thu mức tổng đơn hàng cùng mức từng dòng sản phẩm trong một bảng Fact là trộn nhiều mức chi tiết, vi phạm nguyên tắc mọi Fact phải cùng một grain.",
+      "options": [
+        "Trộn nhiều mức chi tiết trong cùng một bảng Fact",
+        "Thiếu Surrogate Key khi xây dựng bảng chiều",
+        "Không sử dụng Conformed Dimensions giữa các Fact",
+        "Thiếu cột Ingestion_Timestamp ở tầng Bronze"
+      ]
+    },
+    {
+      "id": "c2-q53",
+      "explanation": "• Kích thước của bảng Fact\n• Hiệu năng truy vấn\n• Yêu cầu thống nhất chặt chẽ với nghiệp vụ\n• Màu sắc hiển thị trên dashboard BI không liên quan đến grain"
+    },
+    {
+      "id": "c2-q54",
+      "explanation": "Factless Fact Table dùng để lưu các sự kiện không có số liệu định lượng, chỉ gồm khóa chiều, hữu ích khi phân tích những gì không diễn ra."
+    },
+    {
+      "id": "c2-q55",
+      "explanation": "• Dùng để lưu sự kiện không có số liệu định lượng\n• Hữu ích cho việc phân tích những gì KHÔNG diễn ra\n• Không bắt buộc phải chứa measure số học\n• Quan hệ nhiều-nhiều là việc của Bridge Table"
+    },
+    {
+      "id": "c2-q56",
+      "explanation": "Bridge Table dùng để giải quyết mối quan hệ nhiều-nhiều (M-M) giữa các thực thể, ánh xạ giữa các nhóm thực thể không có liên kết trực tiếp."
+    },
+    {
+      "id": "c2-q57",
+      "explanation": "Cần thận trọng vì Bridge Table có thể gây bùng nổ dữ liệu: số dòng tăng theo tích các bên khi join, làm phình to bảng Fact."
+    },
+    {
+      "id": "c2-q58",
+      "explanation": "Dimension cung cấp Context cho các sự kiện định lượng, đóng vai trò điểm lọc và điểm nhóm trong truy vấn; số liệu định lượng thuộc về bảng Fact.",
+      "options": [
+        "Cung cấp Context cho sự kiện, làm điểm lọc và điểm nhóm",
+        "Lưu trữ các số liệu định lượng của sự kiện kinh doanh",
+        "Ghi lại tiến độ quy trình gồm nhiều giai đoạn kế tiếp",
+        "Lưu trữ dữ liệu thô chưa qua biến đổi ở tầng Bronze"
+      ]
+    },
+    {
+      "id": "c2-q59",
+      "explanation": "Surrogate Keys đảm bảo tính độc lập giữa kho dữ liệu và hệ thống nguồn, nhờ đó thay đổi khóa nghiệp vụ ở nguồn không phá vỡ mô hình chiều."
+    },
+    {
+      "id": "c2-q60",
+      "explanation": "• Ưu tiên Denormalization để tối ưu hiệu năng Columnar Scan\n• Thiết kế thuộc tính Verbose, hạn chế mã code khó hiểu\n• Xây dựng Conformed Dimensions cho Single Version of Truth\n• Chuẩn hóa hoàn toàn 3NF là hướng ngược lại"
+    },
+    {
+      "id": "c2-q61",
+      "explanation": "Grain của Dimension phải tương thích tuyệt đối với mức chi tiết thấp nhất của bảng Fact liên kết, để mọi dòng Fact đều tìm được chiều tương ứng."
+    },
+    {
+      "id": "c2-q62",
+      "explanation": "SCD Type 1 cập nhật trực tiếp và ghi đè dữ liệu cũ, không lưu vết lịch sử; phù hợp với thuộc tính không có nhu cầu báo cáo quá khứ."
+    },
+    {
+      "id": "c2-q63",
+      "explanation": "SCD Type 2 dùng bộ cột Start_Date, End_Date, Is_Current để giữ từng phiên bản của bản ghi, phục vụ báo cáo Point-in-time đúng bối cảnh lịch sử."
+    },
+    {
+      "id": "c2-q64",
+      "explanation": "Báo cáo Point-in-time cần đúng bối cảnh lịch sử nên phải dùng SCD Type 2; Type 1 ghi đè mất lịch sử, Type 3 chỉ giữ một giá trị cũ gần nhất."
+    },
+    {
+      "id": "c2-q65",
+      "explanation": "SCD Type 3 lưu giá trị cũ và giá trị mới trong các cột riêng biệt, nên chỉ theo dõi được một lần thay đổi gần nhất chứ không giữ toàn bộ lịch sử."
+    },
+    {
+      "id": "c2-q66",
+      "explanation": "SCD Type 6 kết hợp Type 1 + Type 2 + Type 3: vừa ghi đè, vừa giữ lịch sử theo dòng, vừa có cột giá trị cũ, nhờ đó tối ưu truy vấn."
+    },
+    {
+      "id": "c2-q67",
+      "explanation": "SCD Type 4 tách Current Table và History Table thành hai bảng riêng, giúp bảng chính luôn gọn nhẹ và tối ưu hiệu năng truy vấn.",
+      "options": [
+        "Tách Current Table và History Table thành hai bảng riêng",
+        "Ghi đè trực tiếp dữ liệu cũ trên bảng chính",
+        "Chỉ lưu một giá trị cũ gần nhất trong cột riêng",
+        "Dùng cột Is_Current để đánh dấu bản ghi hiện hành"
+      ]
+    },
+    {
+      "id": "c2-q68",
+      "explanation": "SCD Type 5 kết hợp Mini-dimension với logic Type 1, cho phép quản lý các thuộc tính Rapidly Changing mà không làm bảng chiều phình to."
+    },
+    {
+      "id": "c2-q69",
+      "explanation": "Bài giảng nêu dùng dbt để tự động hóa quy trình SCD, đảm bảo tính nhất quán logic và giảm rủi ro sai sót; Tableau, PowerBI, Streamlit chỉ là công cụ BI."
+    },
+    {
+      "id": "c2-q70",
+      "explanation": "Junk Dimensions gom các thuộc tính flag và mã trạng thái rời rạc vào một bảng duy nhất để giảm số lượng Join.",
+      "options": [
+        "Tách các thuộc tính thay đổi nhanh sang một bảng phụ",
+        "Lưu trực tiếp các khóa nghiệp vụ trong bảng Fact, bỏ bảng chiều",
+        "Dùng một bảng chiều đơn nhất cho nhiều vai trò khác nhau",
+        "Gom các flag và mã trạng thái rời rạc vào một bảng duy nhất"
+      ]
+    },
+    {
+      "id": "c2-q71",
+      "explanation": "Degenerate Dimensions lưu khóa nghiệp vụ trực tiếp trong bảng Fact, không cần bảng chiều riêng, thường là số chứng từ hay mã đơn hàng.",
+      "options": [
+        "Lưu khóa nghiệp vụ trực tiếp trong bảng Fact, bỏ bảng chiều",
+        "Bảng chiều bị hỏng và cần được xây dựng lại từ nguồn",
+        "Bảng chiều chỉ chứa các thuộc tính flag và mã trạng thái",
+        "Bảng chiều được tách thành Current và History Table"
+      ]
+    },
+    {
+      "id": "c2-q72",
+      "explanation": "Mini-dimensions tách các thuộc tính Rapidly Changing (thu nhập, điểm tín dụng) sang bảng phụ để tránh bảng chiều khách hàng phình to.",
+      "options": [
+        "Degenerate Dimensions: lưu khóa nghiệp vụ trực tiếp trong bảng Fact",
+        "Mini-dimensions: tách các thuộc tính Rapidly Changing sang bảng phụ",
+        "Role-Playing Dimensions: dùng một bảng chiều cho nhiều vai trò",
+        "Bridge Tables: giải quyết quan hệ nhiều-nhiều giữa các thực thể"
+      ]
+    },
+    {
+      "id": "c2-q73",
+      "explanation": "Một bảng dim_date dùng cho cả \"Ngày đặt hàng\" và \"Ngày giao hàng\" là Role-Playing Dimensions: một chiều đơn nhất đóng nhiều vai trò trong cùng bảng Fact."
+    },
+    {
+      "id": "c2-q74",
+      "explanation": "Khóa Integer tốn ít byte, so sánh nhanh và nén cột tốt hơn chuỗi, nên giúp tối ưu hiệu năng tính toán và nén dữ liệu cột."
+    },
+    {
+      "id": "c2-q75",
+      "explanation": "• Hỗ trợ cơ chế nén dữ liệu\n• Giúp Data Pruning hiệu quả\n• Không liên quan đến row-level security hay việc sinh Surrogate Key"
+    },
+    {
+      "id": "c2-q76",
+      "explanation": "Bronze là điểm đổ bộ dữ liệu thô: tiếp nhận dữ liệu gốc từ Hugging Face, API, ERP mà không biến đổi, giữ Immutability để reprocess khi logic nghiệp vụ thay đổi.",
+      "options": [
+        "Tiếp nhận dữ liệu gốc từ nguồn mà không qua biến đổi nào",
+        "Chỉ nhận dữ liệu đã được làm sạch và chuẩn hóa kiểu dữ liệu",
+        "Chỉ nhận các KPI đã tổng hợp sẵn cho báo cáo",
+        "Chỉ nhận dữ liệu đã qua phê duyệt của nghiệp vụ"
+      ]
+    }
+  ]
+}

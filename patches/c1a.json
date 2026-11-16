@@ -1,0 +1,393 @@
+{
+ "chunk": "c1a",
+ "items": [
+  {
+   "id": "c1-q1",
+   "explanation": "Thập niên 1980s là kỷ nguyên RDBMS tập trung cho giao dịch đơn lẻ (OLTP). Báo cáo quản trị và phân tích OLAP mới là mục tiêu của Data Warehouse ở thập niên 1990s."
+  },
+  {
+   "id": "c1-q2",
+   "explanation": "Thập niên 1990s đánh dấu sự trỗi dậy của Data Warehouse phục vụ báo cáo quản trị và phân tích (OLAP). Xử lý giao dịch OLTP là vai trò của RDBMS từ thập niên 1980s."
+  },
+  {
+   "id": "c1-q3",
+   "explanation": "Thập niên 2010s là làn sóng Data Lake: lưu trữ dữ liệu thô quy mô lớn trên nền tảng Hadoop/S3. Việc hợp nhất SQL và Lake là đặc trưng của Lakehouse thập niên 2020s."
+  },
+  {
+   "id": "c1-q4",
+   "explanation": "Lakehouse (2020s) hợp nhất sự tin cậy của SQL với tính linh hoạt của Data Lake. Các phương án còn lại không phải nội dung của sự hợp nhất này."
+  },
+  {
+   "id": "c1-q5",
+   "explanation": "Xu hướng hiện nay là dịch chuyển sang kiến trúc AI-Native, tức hỗ trợ AI ngay từ tầng lưu trữ chứ không chỉ bổ sung ở tầng ứng dụng cuối cùng."
+  },
+  {
+   "id": "c1-q6",
+   "explanation": "Iceberg và Delta Lake là hai Open Table Formats trở thành tiêu chuẩn kết nối. Parquet/ORC chỉ là định dạng file nén, Hudi là một OTF khác trong cùng nhóm."
+  },
+  {
+   "id": "c1-q7",
+   "explanation": "Slide nêu sự thay đổi tư duy: chuyển từ \"Lưu trữ để báo cáo\" sang \"Lưu trữ để dự báo và hành động\", tức dữ liệu phục vụ dự báo chứ không dừng ở báo cáo."
+  },
+  {
+   "id": "c1-q8",
+   "explanation": "• 1980s: RDBMS phục vụ giao dịch OLTP\n• 2010s: Data Lake lưu dữ liệu thô trên Hadoop/S3\n• 2020s: Lakehouse hợp nhất sự tin cậy của SQL và tính linh hoạt của Lake\n• Làn sóng Data Lake thuộc 2010s, không phải 1990s (1990s là Data Warehouse/OLAP)"
+  },
+  {
+   "id": "c1-q9",
+   "explanation": "Schema-on-write đòi hỏi cấu trúc dữ liệu nghiêm ngặt trước khi nạp. Việc đọc cấu trúc ngay tại thời điểm truy vấn là schema-on-read, đặc trưng của hướng Lake."
+  },
+  {
+   "id": "c1-q10",
+   "explanation": "• RDBMS không tối ưu cho dữ liệu phi cấu trúc: video, văn bản, âm thanh\n• Bảng giao dịch có cấu trúc lại chính là loại dữ liệu RDBMS xử lý tốt nhất"
+  },
+  {
+   "id": "c1-q11",
+   "explanation": "Ràng buộc tính toán với lưu trữ khiến không thể nâng cấp CPU mà không tăng dung lượng đĩa. Đây là hệ quả của mô hình Coupled mà tách rời Compute/Storage khắc phục."
+  },
+  {
+   "id": "c1-q12",
+   "explanation": "RDBMS truyền thống gặp nghẽn cổ chai vì việc Scale-out theo chiều ngang khó khăn và đắt đỏ khi dữ liệu tăng nhanh trong kỷ nguyên Big Data."
+  },
+  {
+   "id": "c1-q13",
+   "explanation": "• Chi phí bản quyền (giấy phép) cao\n• Tương tác kém với AI/ML: mô hình học máy khó truy cập dữ liệu trực tiếp\n• Rủi ro Silo dữ liệu: hình thành các kho rời rạc, khó tích hợp\n• \"Không đảm bảo toàn vẹn giao dịch\" sai vì ACID là thế mạnh của RDBMS"
+  },
+  {
+   "id": "c1-q14",
+   "explanation": "Native Vector cho phép lưu trữ và truy vấn Vector Embeddings trực tiếp cho LLMs, phục vụ tìm kiếm ngữ nghĩa trên chính nền tảng dữ liệu."
+  },
+  {
+   "id": "c1-q15",
+   "explanation": "Feature Store quản lý và tái sử dụng các đặc trưng (features) cho mô hình ML. Quản lý danh mục nguồn dữ liệu là vai trò của Data Catalog trong Data Fabric."
+  },
+  {
+   "id": "c1-q16",
+   "explanation": "ACID trên Object Storage đảm bảo tính toàn vẹn dữ liệu ngay cả trên đám mây, giữ được giao dịch tin cậy như một cơ sở dữ liệu quan hệ."
+  },
+  {
+   "id": "c1-q17",
+   "explanation": "Kiến trúc Serverless giúp người dùng không cần quan tâm đến việc quản lý máy chủ vật lý, chỉ tập trung vào dữ liệu và truy vấn."
+  },
+  {
+   "id": "c1-q18",
+   "explanation": "• Compute đa năng: chạy được cả SQL Warehouse và ML clusters\n• Streaming thời gian thực: phân tích ngay khi dữ liệu vừa phát sinh\n• Quản trị Metadata tự động bằng AI\n• Schema-on-write nghiêm ngặt là hạn chế của RDBMS, không phải đặc điểm Lakehouse"
+  },
+  {
+   "id": "c1-q19",
+   "explanation": "Quản trị Metadata tự động nghĩa là AI tự gán nhãn, phân loại và bảo mật dữ liệu thô, thay cho việc quản trị viên nhập tay theo biểu mẫu."
+  },
+  {
+   "id": "c1-q20",
+   "explanation": "Time-to-Insight là khoảng thời gian từ lúc có dữ liệu đến lúc ra quyết định; tăng tốc độ này nghĩa là giảm độ trễ đó xuống."
+  },
+  {
+   "id": "c1-q21",
+   "explanation": "Kiến trúc hiện đại cung cấp \"nhiên liệu\" dữ liệu sạch cho các tác nhân AI, nhờ đó được xem là sẵn sàng cho kỷ nguyên Generative AI."
+  },
+  {
+   "id": "c1-q22",
+   "explanation": "Tối ưu chi phí vận hành nhờ loại bỏ việc duy trì song song hai hệ thống Lake và Warehouse, chỉ còn phải quản trị một hạ tầng duy nhất."
+  },
+  {
+   "id": "c1-q23",
+   "explanation": "Hợp nhất đội ngũ Data nghĩa là xóa nhòa ranh giới giữa Data Engineer và Data Scientist để cùng xử lý mọi tác vụ dữ liệu trên một nền tảng."
+  },
+  {
+   "id": "c1-q24",
+   "explanation": "• Tuân thủ pháp lý: dễ kiểm toán và truy vết dòng đời dữ liệu cho AI\n• Nâng cao năng lực cạnh tranh nhờ dự báo thị trường chính xác hơn\n• Ứng phó bùng nổ dữ liệu từ IoT và mạng xã hội\n• \"Giảm nhu cầu bảo mật\" là sai, chuyển đổi còn giúp tuân thủ tốt hơn"
+  },
+  {
+   "id": "c1-q25",
+   "explanation": "SaaS nghĩa là toàn bộ hệ thống được cung cấp dưới dạng dịch vụ phần mềm, doanh nghiệp không phải tự cài đặt trên máy chủ riêng."
+  },
+  {
+   "id": "c1-q26",
+   "explanation": "Zero Management là giảm thiểu tối đa việc cấu hình, cài đặt và bảo trì hạ tầng; không liên quan đến chuyện \"không có người quản lý\" hay bỏ quản trị chi phí."
+  },
+  {
+   "id": "c1-q27",
+   "explanation": "Elasticity là khả năng co giãn tài nguyên tính toán nhanh chóng. Phục hồi sau thảm họa là DR, nén dữ liệu là tối ưu lưu trữ, kết nối công cụ BI là khả năng tích hợp."
+  },
+  {
+   "id": "c1-q28",
+   "explanation": "Pay-as-you-go là mô hình tài chính linh hoạt: chỉ trả tiền cho những gì thực sự sử dụng, khác với trả trước nhiều năm hay phí cố định hằng tháng."
+  },
+  {
+   "id": "c1-q29",
+   "explanation": "High Concurrency là khả năng hỗ trợ hàng ngàn người dùng truy vấn đồng thời mà không suy giảm hiệu năng; các phương án còn lại nói về phiên bản phần mềm, bản sao dữ liệu và vùng địa lý.",
+   "options": [
+    "Nhiều ngàn người dùng truy vấn đồng thời mà không suy giảm hiệu năng",
+    "Chạy nhiều phiên bản phần mềm song song trên cùng một cụm máy chủ",
+    "Lưu nhiều bản sao dữ liệu ở các tầng lưu trữ khác nhau cùng lúc",
+    "Ghi dữ liệu đồng thời vào nhiều vùng địa lý để giảm độ trễ"
+   ]
+  },
+  {
+   "id": "c1-q30",
+   "explanation": "Bảo mật đa lớp nghĩa là mã hóa dữ liệu tự động ở cả trạng thái tĩnh (at-rest) và trạng thái di chuyển (in-transit), không chỉ một trong hai."
+  },
+  {
+   "id": "c1-q31",
+   "explanation": "• Zero Management: giảm thiểu cấu hình, cài đặt và bảo trì hạ tầng\n• Pay-as-you-go: chỉ trả cho tài nguyên đã dùng\n• Tích hợp Cloud Ecosystem: dùng chung bảo mật, định danh của đám mây\n• Domain Ownership là nguyên tắc của Data Mesh, không thuộc nhóm này"
+  },
+  {
+   "id": "c1-q32",
+   "explanation": "Loại bỏ CAPEX nghĩa là không cần đầu tư lớn vào phần cứng và phòng máy ban đầu; chi phí chuyển thành OPEX trả theo mức sử dụng."
+  },
+  {
+   "id": "c1-q33",
+   "explanation": "Khả năng phục hồi thảm họa của Modern Data Warehouse dựa trên sao lưu đa vùng tự động (Multi-region), không phải sao chép thủ công ra ổ cứng ngoài."
+  },
+  {
+   "id": "c1-q34",
+   "explanation": "• Khởi tạo kho dữ liệu quy mô lớn trong vài phút thay vì vài tháng\n• Chia sẻ dữ liệu an toàn giữa các khu vực địa lý\n• Đơn giản hóa quản trị, tập trung nhân sự vào phân tích nghiệp vụ\n• Đầu tư CAPEX lớn là đặc điểm On-Premise, trái với lợi ích \"loại bỏ CAPEX\""
+  },
+  {
+   "id": "c1-q35",
+   "explanation": "Cập nhật liên tục: doanh nghiệp luôn dùng phiên bản phần mềm mới nhất mà không cần downtime, cũng không phải tự tải và cài bản vá thủ công."
+  },
+  {
+   "id": "c1-q36",
+   "explanation": "Tối ưu hóa truy vấn tự động: hệ thống tự học và điều chỉnh index để tăng tốc độ, thay vì DBA phải rebuild index thủ công theo định kỳ."
+  },
+  {
+   "id": "c1-q37",
+   "explanation": "Snowflake tiên phong trong tách rời Compute/Storage và chia sẻ dữ liệu an toàn. Tích hợp sẵn mô hình AI/ML của Google là đặc điểm của BigQuery."
+  },
+  {
+   "id": "c1-q38",
+   "explanation": "Google BigQuery nổi bật với kiến trúc Serverless mạnh mẽ và tích hợp sẵn các mô hình AI/ML của Google, khác với các nền tảng còn lại."
+  },
+  {
+   "id": "c1-q39",
+   "explanation": "Azure Synapse Analytics hợp nhất SQL, Spark và tích hợp dữ liệu trong cùng một môi trường duy nhất."
+  },
+  {
+   "id": "c1-q40",
+   "explanation": "Firebolt tập trung vào tốc độ truy vấn cực nhanh cho các ứng dụng phân tích thời gian thực, không phải chia sẻ dữ liệu hay quản trị metadata."
+  },
+  {
+   "id": "c1-q41",
+   "explanation": "MotherDuck là giải pháp Lakehouse \"nhẹ\" nhưng hiệu quả cao dựa trên DuckDB, không phải kho On-Premise hay dịch vụ lưu trữ đối tượng của Azure."
+  },
+  {
+   "id": "c1-q42",
+   "explanation": "Databricks SQL mang trải nghiệm Warehouse vào nền tảng Lakehouse cho hiệu năng cao, khác với các Warehouse thuần túy."
+  },
+  {
+   "id": "c1-q43",
+   "explanation": "• Danh sách nền tảng tiêu biểu có Amazon Redshift Serverless, Google BigQuery và Firebolt\n• Danh sách đầy đủ còn có Snowflake, Azure Synapse Analytics, Databricks SQL, MotherDuck\n• Apache Hive không nằm trong danh sách Modern Data Warehouse tiêu biểu"
+  },
+  {
+   "id": "c1-q44",
+   "explanation": "Auto-suspend là tắt cụm tính toán khi không có truy vấn để tiết kiệm phí; không liên quan đến khóa tài khoản người dùng hay tự động xóa dữ liệu cũ."
+  },
+  {
+   "id": "c1-q45",
+   "explanation": "Caching tránh tính toán lại những kết quả cũ đối với truy vấn lặp. Nén dữ liệu, phân tầng lưu trữ và Budget Alerts là các chiến lược tiết kiệm chi phí khác."
+  },
+  {
+   "id": "c1-q46",
+   "explanation": "Iceberg và Delta Lake thuộc nhóm Open Table Formats - chuẩn kết nối mở cho dữ liệu trên Lake, không phải hệ OLTP truyền thống hay định dạng CSV thuần."
+  },
+  {
+   "id": "c1-q47",
+   "explanation": "Hadoop/S3 gắn với làn sóng Data Lake thập niên 2010s. 1980s là RDBMS, 1990s là Data Warehouse, 2020s là Lakehouse."
+  },
+  {
+   "id": "c1-q48",
+   "explanation": "Tệp video và âm thanh là dữ liệu phi cấu trúc mà RDBMS truyền thống không tối ưu. Bảng khách hàng, bản ghi giao dịch và chỉ mục đều là dữ liệu có cấu trúc."
+  },
+  {
+   "id": "c1-q49",
+   "explanation": "Tìm kiếm ngữ nghĩa cho LLM cần khả năng Native Vector - lưu trữ và truy vấn Vector Embeddings ngay trên nền tảng dữ liệu. Serverless và Auto-suspend chỉ là tối ưu vận hành, chi phí."
+  },
+  {
+   "id": "c1-q50",
+   "explanation": "Streaming thời gian thực cho phép nạp và phân tích dữ liệu ngay khi nó vừa phát sinh, đúng yêu cầu của câu hỏi."
+  },
+  {
+   "id": "c1-q51",
+   "explanation": "Giảm độ trễ dữ liệu giúp doanh nghiệp ra quyết định nhanh hơn, đó chính là nội dung của việc tăng tốc độ Time-to-Insight."
+  },
+  {
+   "id": "c1-q52",
+   "explanation": "Rủi ro Silo dữ liệu của RDBMS truyền thống dẫn đến hình thành các kho dữ liệu rời rạc, khó tích hợp với nhau."
+  },
+  {
+   "id": "c1-q53",
+   "explanation": "Tuân thủ pháp lý nhấn mạnh khả năng dễ kiểm toán và truy vết dòng đời dữ liệu cho AI, không phải loại bỏ kiểm toán hay che giấu dòng đời dữ liệu."
+  },
+  {
+   "id": "c1-q54",
+   "explanation": "Vì tính toán gắn chặt với lưu trữ, muốn thêm sức mạnh tính toán buộc phải tăng cả dung lượng đĩa dù không cần, gây lãng phí tài nguyên.",
+   "options": [
+    "Muốn thêm sức mạnh tính toán buộc phải tăng cả dung lượng đĩa",
+    "Muốn thêm dung lượng đĩa buộc phải nâng cấp cả cấu hình CPU",
+    "Mọi truy vấn SQL đều phải quét toàn bộ dữ liệu trên đĩa cứng",
+    "Dữ liệu phải nạp lại toàn bộ mỗi khi mở rộng cụm máy chủ"
+   ]
+  },
+  {
+   "id": "c1-q55",
+   "explanation": "Feature Store quản lý và tái sử dụng các đặc trưng đã tính toán cho nhiều mô hình ML khác nhau, đúng nhu cầu của nhóm Data Science."
+  },
+  {
+   "id": "c1-q56",
+   "explanation": "Compute đa năng nghĩa là một nền tảng chạy được cả SQL Warehouse lẫn ML clusters, không tách rời hay giới hạn ở một loại tải duy nhất."
+  },
+  {
+   "id": "c1-q57",
+   "explanation": "\"Nhiên liệu\" dữ liệu sạch cho các tác nhân AI là cách mô tả lý do Sẵn sàng cho kỷ nguyên Generative AI."
+  },
+  {
+   "id": "c1-q58",
+   "explanation": "Loại bỏ việc duy trì song song hai hệ thống Lake và Warehouse giúp tối ưu hóa chi phí vận hành vì chỉ còn một hạ tầng phải quản trị."
+  },
+  {
+   "id": "c1-q59",
+   "explanation": "Schema-on-write cứng nhắc buộc phải định nghĩa cấu trúc trước khi nạp, nên khi dữ liệu đến với cấu trúc thay đổi liên tục thì đây là hạn chế gây khó khăn nhất."
+  },
+  {
+   "id": "c1-q60",
+   "explanation": "Khả năng mở rộng linh hoạt giúp doanh nghiệp sẵn sàng ứng phó với sự bùng nổ dữ liệu từ IoT và mạng xã hội."
+  },
+  {
+   "id": "c1-q61",
+   "explanation": "Nâng cao năng lực cạnh tranh dựa trên khả năng dự báo thị trường chính xác hơn nhờ Big Data."
+  },
+  {
+   "id": "c1-q62",
+   "explanation": "Tương tác kém với AI/ML nghĩa là các mô hình học máy khó truy cập dữ liệu trực tiếp một cách hiệu quả; RDBMS không hề chạy ML nhanh hơn Lakehouse."
+  },
+  {
+   "id": "c1-q63",
+   "explanation": "Cần giao dịch không bị hỏng khi ghi đồng thời trên object storage thì dùng cơ chế ACID trên Object Storage của AI-Native Lakehouse."
+  },
+  {
+   "id": "c1-q64",
+   "explanation": "• Kiến trúc Serverless, không cần quản lý máy chủ vật lý\n• Cơ chế ACID trên Object Storage\n• Tích hợp Feature Store cho mô hình ML\n• Mua trước phần cứng theo mô hình CAPEX là đặc điểm On-Premise, trái với Lakehouse"
+  },
+  {
+   "id": "c1-q65",
+   "explanation": "• Tăng tốc độ Time-to-Insight\n• Sẵn sàng cho kỷ nguyên Generative AI\n• Hợp nhất đội ngũ Data Engineer và Data Scientist\n• \"Tăng chi phí vận hành\" là sai: chuyển đổi nhằm tối ưu hóa chi phí"
+  },
+  {
+   "id": "c1-q66",
+   "explanation": "Thứ tự đúng theo dòng thời gian: RDBMS (OLTP, 1980s) - Data Warehouse (OLAP, 1990s) - Data Lake (2010s) - Lakehouse (2020s)."
+  },
+  {
+   "id": "c1-q67",
+   "explanation": "• Scale-out theo chiều ngang khó khăn và đắt đỏ\n• Tính toán và lưu trữ ràng buộc, không nâng CPU độc lập được\n• Không tối ưu cho dữ liệu phi cấu trúc như video, âm thanh\n• Truy vấn vector cho LLM là năng lực của AI-Native Lakehouse, không phải RDBMS"
+  },
+  {
+   "id": "c1-q68",
+   "explanation": "• Hỗ trợ AI ngay từ tầng lưu trữ, không chỉ thêm ở tầng ứng dụng cuối\n• Chuyển từ \"lưu trữ để báo cáo\" sang \"lưu trữ để dự báo và hành động\"\n• Metadata được AI tự động gán nhãn, phân loại và bảo mật"
+  },
+  {
+   "id": "c1-q69",
+   "explanation": "• Dễ kiểm toán và truy vết dòng đời dữ liệu cho AI\n• Ứng phó tốt với bùng nổ dữ liệu IoT và mạng xã hội\n• Xóa nhòa ranh giới Data Engineer và Data Scientist\n• \"Tăng độ trễ ra quyết định\" là ngược lại: chuyển đổi giúp giảm độ trễ"
+  },
+  {
+   "id": "c1-q70",
+   "explanation": "• Hỗ trợ Native Vector cho LLMs\n• Tích hợp Feature Store để tái sử dụng đặc trưng\n• Quản trị Metadata tự động bằng AI\n• Schema-on-write nghiêm ngặt là hạn chế của RDBMS, không giúp phục vụ tải AI/ML"
+  },
+  {
+   "id": "c1-q71",
+   "explanation": "Kiến trúc hiện đại cho phép nạp dữ liệu thô đa dạng mà không cần cấu trúc nghiêm ngặt trước, nhờ vậy linh hoạt hơn hẳn schema-on-write của RDBMS."
+  },
+  {
+   "id": "c1-q72",
+   "explanation": "RDBMS truyền thống thường đi kèm phí giấy phép lớn; chuyển sang kiến trúc hiện đại giúp giảm gánh nặng chi phí bản quyền này."
+  },
+  {
+   "id": "c1-q73",
+   "explanation": "Giá trị cốt lõi của Lakehouse là hợp nhất sự tin cậy của SQL với tính linh hoạt của Data Lake, thay vì chỉ lưu dữ liệu thô như Data Lake thuần."
+  },
+  {
+   "id": "c1-q74",
+   "explanation": "SaaS nghĩa là toàn bộ hệ thống được cung cấp dưới dạng dịch vụ phần mềm, không phải phần mềm cài trên máy chủ vật lý của công ty."
+  },
+  {
+   "id": "c1-q75",
+   "explanation": "Zero Management hướng tới giảm thiểu tối đa việc cấu hình, cài đặt và bảo trì hạ tầng để đội ngũ tập trung vào phân tích nghiệp vụ."
+  },
+  {
+   "id": "c1-q76",
+   "explanation": "Elasticity là khả năng co giãn tài nguyên tính toán nhanh chóng; nén dữ liệu, mã hóa nhiều lớp và sao lưu hằng ngày là các khái niệm khác."
+  },
+  {
+   "id": "c1-q77",
+   "explanation": "Pay-as-you-go: chỉ trả tiền cho những tài nguyên thực sự sử dụng, không trả trọn gói theo năm hay bản quyền vĩnh viễn một lần."
+  },
+  {
+   "id": "c1-q78",
+   "explanation": "High Concurrency là hỗ trợ hàng ngàn người dùng truy vấn đồng thời mà không suy giảm hiệu năng; chỉ một người truy vấn là ngược lại."
+  },
+  {
+   "id": "c1-q79",
+   "explanation": "Bảo mật đa lớp là mã hóa dữ liệu tự động ở cả trạng thái tĩnh và trạng thái di chuyển; chỉ mã hóa một chiều là bảo mật thiếu lớp."
+  },
+  {
+   "id": "c1-q80",
+   "explanation": "• SaaS: cung cấp dưới dạng dịch vụ phần mềm\n• Pay-as-you-go: chỉ trả cho phần thực sự dùng\n• Elasticity: co giãn tài nguyên nhanh chóng\n• Đầu tư phần cứng On-Premise là mô hình cũ, trái với bản chất cloud"
+  },
+  {
+   "id": "c1-q82",
+   "explanation": "Modern Data Warehouse khởi tạo kho dữ liệu quy mô lớn trong vài phút thay vì vài tháng như On-Premise."
+  },
+  {
+   "id": "c1-q84",
+   "explanation": "Cập nhật liên tục: luôn dùng phiên bản phần mềm mới nhất mà không cần downtime, người dùng không phải tự cài bản vá hay chờ một lần mỗi năm."
+  },
+  {
+   "id": "c1-q85",
+   "explanation": "• Loại bỏ CAPEX đầu tư phần cứng ban đầu\n• Phục hồi thảm họa nhờ sao lưu đa vùng tự động\n• Đơn giản hóa quản trị, tập trung nguồn lực vào phân tích nghiệp vụ\n• \"Bắt buộc downtime dài\" là ngược lại: cập nhật diễn ra không cần downtime"
+  },
+  {
+   "id": "c1-q86",
+   "explanation": "Snowflake được mô tả là nền tảng tiên phong trong tách rời Compute/Storage và chia sẻ dữ liệu an toàn."
+  },
+  {
+   "id": "c1-q87",
+   "explanation": "Google BigQuery có kiến trúc Serverless mạnh mẽ và tích hợp sẵn các mô hình AI/ML của Google."
+  },
+  {
+   "id": "c1-q88",
+   "explanation": "Amazon Redshift Serverless là giải pháp mạnh mẽ cho người dùng trong hệ sinh thái AWS."
+  },
+  {
+   "id": "c1-q90",
+   "explanation": "MotherDuck là giải pháp Lakehouse \"nhẹ\" nhưng hiệu quả cao dựa trên DuckDB, không phải dịch vụ Serverless của Amazon hay công cụ ảo hóa của Microsoft."
+  },
+  {
+   "id": "c1-q91",
+   "explanation": "Azure Synapse Analytics hợp nhất SQL, Spark và tích hợp dữ liệu trong một môi trường, không chỉ SQL truyền thống hay tác vụ OLTP."
+  },
+  {
+   "id": "c1-q93",
+   "explanation": "Caching tránh tính toán lại những kết quả cũ với các truy vấn lặp. Nén dữ liệu, phân tầng lưu trữ và Budget Alerts là những chiến lược khác."
+  },
+  {
+   "id": "c1-q94",
+   "explanation": "Parquet/ORC là định dạng nén nên giúp giảm phí lưu trữ cho dữ liệu nạp vào; mã hóa, tăng người dùng đồng thời hay sao lưu đa vùng là việc khác."
+  },
+  {
+   "id": "c1-q95",
+   "explanation": "Budget Alerts cảnh báo tự động khi chi phí vượt ngưỡng cho phép; tắt cụm tự động, nén dữ liệu và phân tầng lưu trữ là chiến lược khác."
+  },
+  {
+   "id": "c1-q96",
+   "explanation": "• Auto-suspend cụm tính toán khi rảnh\n• Phân tầng lưu trữ dữ liệu cũ vào vùng giá rẻ\n• Theo dõi Lineage chi phí để tìm bộ phận tiêu thụ nhiều tài nguyên\n• Giữ cụm chạy 24/7 là phản chiến lược vì làm chi phí tăng cao"
+  },
+  {
+   "id": "c1-q97",
+   "explanation": "Data Fabric - \"tấm vải dữ liệu\" - kết nối mọi nguồn dữ liệu rời rạc thành một thể thống nhất, mục tiêu là xóa bỏ data silo."
+  },
+  {
+   "id": "c1-q98",
+   "explanation": "Virtualization (Zero-copy) là truy cập dữ liệu tại nguồn mà không cần sao chép về kho trung tâm, giúp tránh nhân bản dữ liệu."
+  }
+ ]
+}

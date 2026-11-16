@@ -1,0 +1,407 @@
+{
+ "chunk": "c8b",
+ "items": [
+  {
+   "id": "c8-q56",
+   "explanation": "Chat-with-your-data xóa rào cản kỹ thuật SQL: người dùng kinh doanh hỏi trực tiếp bằng ngôn ngữ tự nhiên (Việt/Anh) và nhận kết quả phân tích, không phải tự viết truy vấn."
+  },
+  {
+   "id": "c8-q57",
+   "explanation": "Slide ví dụ nguyên văn câu hỏi ngôn ngữ tự nhiên \"Hiển thị top 5 sản phẩm có doanh thu cao nhất quý 3\": người dùng chỉ mô tả điều mình muốn, hệ thống tự sinh SQL."
+  },
+  {
+   "id": "c8-q58",
+   "explanation": "Generative BI là sự kết hợp liền mạch giữa BI Tools (Looker, Tableau) và Large Language Models (Gemini/ChatGPT).\n• ERP thuần túy không có AI và mạng chia sẻ file ngang hàng không thuộc kiến trúc này"
+  },
+  {
+   "id": "c8-q59",
+   "explanation": "Workflow Conversational BI đi theo thứ tự: Natural Query (hỏi bằng ngôn ngữ tự nhiên) → Auto-SQL (LLM biên dịch thành SQL) → Instant Insight (truy xuất và hiển thị biểu đồ)."
+  },
+  {
+   "id": "c8-q60",
+   "explanation": "Auto-SQL yêu cầu LLM biên dịch câu hỏi ngữ nghĩa thành SQL chuẩn xác, tối ưu và an toàn; câu chỉ chạy được mà không tối ưu hay thiếu an toàn đều không đạt."
+  },
+  {
+   "id": "c8-q61",
+   "explanation": "Instant Insight tự động truy xuất dữ liệu, chọn loại biểu đồ phù hợp nhất (Bar chart, Line chart) và hiển thị kết quả cho người dùng.\n• Việc viết SQL đã được bước Auto-SQL làm thay"
+  },
+  {
+   "id": "c8-q62",
+   "explanation": "Dân chủ hóa dữ liệu thể hiện ở: người dùng kinh doanh hỏi trực tiếp bằng ngôn ngữ tự nhiên, không còn rào cản SQL, và giảm hầu hết thời gian tạo báo cáo.\n• Việc chỉ IT được truy cập là ngược lại mục tiêu này",
+   "options": [
+    "Hỏi trực tiếp bằng ngôn ngữ tự nhiên (Việt/Anh)",
+    "Không còn rào cản về kỹ thuật SQL",
+    "Chỉ đội ngũ IT mới được phép truy cập dữ liệu",
+    "Giảm hầu hết thời gian tạo báo cáo"
+   ]
+  },
+  {
+   "id": "c8-q63",
+   "explanation": "Slide nêu tích hợp Streaming API với Dataflow và Kafka để xử lý hàng triệu sự kiện mỗi giây.\n• Apache Sqoop là công cụ truyền dữ liệu theo lô, Crontab là bộ lập lịch, không phải nền tảng luồng"
+  },
+  {
+   "id": "c8-q64",
+   "explanation": "Phân tích Streaming tích hợp Streaming API với Dataflow/Kafka để xử lý hàng triệu sự kiện mỗi giây, giúp doanh nghiệp phản ứng tức thì với các biến động."
+  },
+  {
+   "id": "c8-q65",
+   "explanation": "Ba ứng dụng cốt lõi: phát hiện gian lận thẻ tín dụng, định giá động theo thời gian thực, quản trị chuỗi cung ứng và giao vận.\n• Báo cáo tổng kết cuối năm là phân tích lô, không cần độ trễ thấp"
+  },
+  {
+   "id": "c8-q66",
+   "explanation": "Zero Latency đạt được nhờ kết hợp hệ thống Pub/Sub và Continuous Queries, cho phép hành động tự động ngay khi dữ liệu vừa phát sinh.\n• Batch ETL hằng đêm và sao lưu băng từ đều có độ trễ cao"
+  },
+  {
+   "id": "c8-q67",
+   "explanation": "Case Study Zero Latency: hệ thống tự động gửi khuyến mãi cá nhân hóa ngay khi khách vừa rời giỏ hàng mà chưa thanh toán.\n• Các phương án còn lại đều là xử lý theo lô nên có độ trễ",
+   "options": [
+    "Gửi email tổng kết doanh thu cho quản lý vào cuối mỗi tháng",
+    "Tự động gửi khuyến mãi cá nhân hóa ngay khi khách rời giỏ hàng",
+    "In hóa đơn giấy và gửi bưu điện sau 24 giờ kể từ khi đặt hàng",
+    "Khóa tài khoản khách hàng không phát sinh giao dịch sau một năm"
+   ]
+  },
+  {
+   "id": "c8-q68",
+   "explanation": "Nguyên lý Kafka: Producer sinh dữ liệu → Kafka Cluster lưu và phân phối → Consumer đọc dữ liệu; nhiều Producer và Consumer hoạt động độc lập, không giao tiếp trực tiếp."
+  },
+  {
+   "id": "c8-q69",
+   "explanation": "Producer là thành phần gửi (publish) dữ liệu vào Topic trên Broker; Consumer đọc dữ liệu, Broker là máy chủ lưu trữ, Zookeeper điều phối cluster."
+  },
+  {
+   "id": "c8-q70",
+   "explanation": "Topic là kênh logic dùng để phân loại và chứa các message/record theo chủ đề.\n• Máy chủ vật lý trong cluster là Broker, không phải Topic",
+   "options": [
+    "Một máy chủ vật lý trong Kafka Cluster dùng để lưu trữ dữ liệu",
+    "Kênh logic dùng để phân loại và chứa các message/record theo chủ đề",
+    "Tài khoản quản trị dùng để phân quyền người dùng trong hệ thống",
+    "Công cụ trực quan hóa dùng để vẽ biểu đồ thời gian thực"
+   ]
+  },
+  {
+   "id": "c8-q71",
+   "explanation": "Offset là số định danh tuần tự cho biết vị trí của mỗi record trong một partition, nhờ đó consumer theo dõi được mình đã đọc tới đâu.",
+   "options": [
+    "Khoảng thời gian chờ cố định giữa hai lần gửi message",
+    "Tên miền được dùng để định danh máy chủ Broker trong cluster",
+    "Số định danh tuần tự cho biết vị trí của mỗi record trong partition",
+    "Dung lượng tối đa mà một message được phép mang theo"
+   ]
+  },
+  {
+   "id": "c8-q72",
+   "explanation": "Một Topic được chia thành nhiều Partition để xử lý song song; các Record ghi nối tiếp vào Partition với offset tăng dần.\n• Partition không chứa nhiều Topic và không đồng nhất với Topic",
+   "options": [
+    "Topic chia thành nhiều Partition, Record ghi nối tiếp theo offset tăng dần",
+    "Một Partition chứa nhiều Topic; mỗi Topic chỉ có đúng một Record",
+    "Record là đơn vị trung gian có thể chứa nhiều Topic khác nhau",
+    "Partition và Topic chỉ là hai tên gọi khác nhau của cùng một khái niệm"
+   ]
+  },
+  {
+   "id": "c8-q73",
+   "explanation": "Zookeeper quản lý và điều phối các Broker trong cluster (metadata, trạng thái).\n• Lưu trữ message là việc của Broker, không phải của Zookeeper",
+   "options": [
+    "Lưu trữ trực tiếp toàn bộ message của các Topic trong cluster",
+    "Sinh dữ liệu giả lập để kiểm thử hiệu năng của hệ thống",
+    "Hiển thị dashboard giám sát trạng thái cho người dùng cuối",
+    "Quản lý, điều phối các Broker trong cluster (metadata, trạng thái)"
+   ]
+  },
+  {
+   "id": "c8-q74",
+   "explanation": "Broker là một máy chủ Kafka lưu trữ các Topic/Partition; nhiều Broker hợp thành Kafka Cluster.\n• Consumer chỉ đọc dữ liệu, không phải Broker",
+   "options": [
+    "Ứng dụng khách dùng để đọc dữ liệu từ các Topic",
+    "Máy chủ Kafka lưu trữ các Topic/Partition trong cluster",
+    "Thư viện Python dùng để kết nối tới Kafka cluster",
+    "Giao thức mã hóa dữ liệu trên đường truyền"
+   ]
+  },
+  {
+   "id": "c8-q75",
+   "explanation": "Producer ghi dữ liệu vào Topic trên Broker; Consumer đọc dữ liệu và theo dõi tiến độ bằng offset; nhiều Broker hợp thành cluster do Zookeeper điều phối.\n• Zookeeper không lưu message thay Broker"
+  },
+  {
+   "id": "c8-q76",
+   "explanation": "Trong sơ đồ, một consumer có thể đọc từ nhiều topic và một topic có thể được nhiều consumer cùng đọc; consumer không phải ghi ngược dữ liệu vào topic."
+  },
+  {
+   "id": "c8-q77",
+   "explanation": "Demo Oracle Streaming của chương thu thập dữ liệu thời gian thực từ Reddit API; cảm biến IoT, log ngân hàng hay file CSV tĩnh đều không phải nguồn của demo này.",
+   "options": [
+    "Reddit API",
+    "Cảm biến IoT",
+    "Log ngân hàng",
+    "File CSV tĩnh"
+   ]
+  },
+  {
+   "id": "c8-q78",
+   "explanation": "Demo thống kê sentiment counts theo các mức từ Very Positive đến Very Negative, không chỉ hai mức Tốt/Xấu và không dùng thang điểm 1–100."
+  },
+  {
+   "id": "c8-q79",
+   "explanation": "nest_asyncio cho phép chạy vòng lặp sự kiện asyncio lồng nhau bên trong notebook vốn đã có sẵn event loop, nhờ đó đoạn mã streaming bất đồng bộ chạy được ngay trong ô notebook.",
+   "options": [
+    "Nén dữ liệu message trước khi đẩy vào Kafka topic",
+    "Cho phép chạy event loop asyncio lồng nhau trong notebook",
+    "Tự động vẽ và cập nhật biểu đồ sentiment",
+    "Thay thế hoàn toàn phần cấu hình Kafka producer"
+   ]
+  },
+  {
+   "id": "c8-q80",
+   "explanation": "Demo trực quan hóa sentiment theo thời gian thực bằng Dash/Plotly; Matplotlib, báo cáo PDF hay bảng tính Excel đều là cách trình bày tĩnh, không cập nhật liên tục.",
+   "options": [
+    "Matplotlib tĩnh",
+    "Báo cáo PDF",
+    "Dash/Plotly",
+    "Bảng tính Excel"
+   ]
+  },
+  {
+   "id": "c8-q81",
+   "explanation": "Data Storytelling trình bày theo cấu trúc Bối cảnh → Vấn đề → Giải pháp → Hành động, dẫn người xem từ bối cảnh tới việc cần làm."
+  },
+  {
+   "id": "c8-q82",
+   "explanation": "Trực quan hóa thông minh dùng màu sắc và vị trí để dẫn dắt sự chú ý của người xem vào các chỉ số then chốt (Key Metrics).",
+   "options": [
+    "Màu sắc và vị trí",
+    "Âm thanh và hiệu ứng",
+    "Font chữ và ảnh động",
+    "Mật khẩu và quyền"
+   ]
+  },
+  {
+   "id": "c8-q83",
+   "explanation": "Gen AI tự động viết các đoạn giải thích văn bản (tóm tắt) cho dashboard, giúp lãnh đạo nắm nhanh trọng tâm mà không phải tự đọc số liệu.",
+   "options": [
+    "Thay thế hoàn toàn kho dữ liệu của doanh nghiệp",
+    "Tự động sao lưu dashboard định kỳ mỗi giờ bằng script",
+    "Tự động viết đoạn tóm tắt giúp lãnh đạo nắm nhanh trọng tâm",
+    "Ngăn người dùng xuất dữ liệu ra khỏi dashboard"
+   ]
+  },
+  {
+   "id": "c8-q84",
+   "explanation": "Alerting & Actions cho thấy dashboard không chỉ để xem mà còn có nút lệnh kích hoạt quy trình nghiệp vụ, ví dụ Write-back to CRM.",
+   "options": [
+    "Dashboard chỉ dùng để xem báo cáo một cách thụ động",
+    "Dashboard tự xóa dữ liệu cũ theo chu kỳ định kỳ",
+    "Dashboard bắt buộc kết nối Internet công cộng",
+    "Dashboard có nút lệnh kích hoạt trực tiếp quy trình nghiệp vụ"
+   ]
+  },
+  {
+   "id": "c8-q85",
+   "explanation": "Theo nghiên cứu khoa học hành vi trong slide, dữ liệu kể dưới dạng câu chuyện có khả năng ghi nhớ và thuyết phục cao hơn 65% so với con số khô khan."
+  },
+  {
+   "id": "c8-q86",
+   "explanation": "Data Storytelling là kỹ năng cầu nối quan trọng nhất giữa bộ phận kỹ thuật (IT/Data) và bộ phận Chiến lược (Business).",
+   "options": [
+    "Bộ phận kỹ thuật (IT/Data) và bộ phận Chiến lược (Business)",
+    "Bộ phận kế toán và bộ phận kiểm toán nội bộ doanh nghiệp",
+    "Khách hàng và nhà cung cấp phần cứng máy chủ",
+    "Bộ phận nhân sự và bộ phận pháp chế doanh nghiệp"
+   ]
+  },
+  {
+   "id": "c8-q87",
+   "explanation": "Ba thành phần: màu sắc và vị trí dẫn sự chú ý vào Key Metrics; Gen AI tự động viết đoạn tóm tắt; Alerting và nút hành động Write-back to CRM.\n• In báo cáo ra giấy không thuộc dashboard thông minh",
+   "options": [
+    "Dùng màu sắc và vị trí dẫn sự chú ý vào Key Metrics",
+    "Dùng Gen AI tự động viết đoạn tóm tắt giải thích",
+    "Alerting và nút hành động Write-back to CRM",
+    "Bắt buộc in toàn bộ báo cáo ra giấy để trình bày"
+   ]
+  },
+  {
+   "id": "c8-q88",
+   "explanation": "Agentic BI là tầm nhìn cho giai đoạn 2025–2030, khi AI Agents vượt vai trò trợ lý hỏi-đáp để trở thành chuyên viên phân tích tự hành."
+  },
+  {
+   "id": "c8-q89",
+   "explanation": "Theo tầm nhìn Agentic BI, AI Agents trở thành \"Chuyên viên phân tích tự hành\", không chỉ là trợ lý hỏi-đáp hay công cụ vẽ biểu đồ."
+  },
+  {
+   "id": "c8-q90",
+   "explanation": "Năng lực cốt lõi: tự theo dõi mục tiêu kinh doanh, tự lập kế hoạch phân tích và truy vấn kho dữ liệu, phát hiện xu hướng ẩn, chủ động gửi báo cáo đề xuất chiến lược.\n• Không cần con người ra lệnh từng thao tác",
+   "options": [
+    "Tự động theo dõi mục tiêu kinh doanh",
+    "Tự lập kế hoạch phân tích và truy vấn kho dữ liệu",
+    "Phát hiện xu hướng ẩn, chủ động gửi báo cáo đề xuất",
+    "Chỉ hoạt động khi con người ra lệnh từng thao tác"
+   ]
+  },
+  {
+   "id": "c8-q91",
+   "explanation": "Agentic BI chủ động chạy cả chu trình phân tích (mục tiêu, lập kế hoạch, truy vấn, báo cáo) mà không cần lệnh liên tục; Chat-with-your-data vẫn là hỏi-đáp bị động, chờ người dùng đặt câu hỏi.",
+   "options": [
+    "Agentic BI chủ động chạy toàn bộ chu trình phân tích mà không cần con người ra lệnh liên tục",
+    "Agentic BI chỉ hoạt động với dữ liệu có cấu trúc, còn Chat-with-your-data chỉ với dữ liệu phi cấu trúc",
+    "Chat-with-your-data không cần dùng LLM, còn Agentic BI thì bắt buộc phải có LLM",
+    "Hai khái niệm hoàn toàn giống nhau, chỉ khác tên gọi thương mại trên thị trường"
+   ]
+  },
+  {
+   "id": "c8-q92",
+   "explanation": "Demo NKDL_TH_8.2 dùng google_play_scraper lấy review Shopee, SentenceTransformer tạo embedding và QdrantClient chế độ in-memory làm vector database.\n• Hadoop HDFS không được dùng"
+  },
+  {
+   "id": "c8-q93",
+   "explanation": "Demo dùng paraphrase-multilingual-MiniLM-L12-v2, mô hình SentenceTransformer đa ngôn ngữ phù hợp review tiếng Việt; bert-base-uncased và word2vec vốn chỉ mạnh với tiếng Anh.",
+   "options": [
+    "Mô hình bert-base-uncased (chỉ hỗ trợ tốt tiếng Anh)",
+    "Mô hình paraphrase-multilingual-MiniLM-L12-v2",
+    "Mô hình gpt-2-small dùng để sinh văn bản",
+    "Mô hình word2vec-google-news-300 (300 chiều)"
+   ]
+  },
+  {
+   "id": "c8-q94",
+   "explanation": "VECTOR_SIZE phải bằng đúng số chiều vector đầu ra của mô hình embedding (paraphrase-multilingual-MiniLM-L12-v2 cho 384 chiều) thì mới lưu và so khớp được.",
+   "options": [
+    "Vì 384 là giới hạn số chiều tối đa mà Qdrant hỗ trợ",
+    "Vì số review thu thập được đúng bằng 384 bản ghi",
+    "Vì phải khớp số chiều vector đầu ra của mô hình embedding",
+    "Vì 384 là số cổng mạng mặc định của Qdrant server"
+   ]
+  },
+  {
+   "id": "c8-q95",
+   "explanation": "Hệ thống so sánh embedding của truy vấn và review bằng khoảng cách Distance.COSINE, nhờ đó bắt được tương đồng ngữ nghĩa dù câu truy vấn khác từ khóa.",
+   "options": [
+    "So khớp chuỗi ký tự chính xác giữa truy vấn và review",
+    "Đếm tần suất xuất hiện của từ khóa trong review",
+    "Đối chiếu thời gian đăng của các review với nhau",
+    "So sánh embedding của truy vấn và review bằng Distance.COSINE"
+   ]
+  },
+  {
+   "id": "b-c8-q1",
+   "explanation": "Descriptive: 'điều gì đã xảy ra?', dữ liệu tĩnh, con người tự quyết. Actionable/Prescriptive: 'sẽ xảy ra gì và nên làm gì?', AI (BigQuery ML) dự báo + đề xuất hành động cụ thể tức thì.",
+   "options": [
+    "Cả hai đều loại bỏ hoàn toàn vai trò quyết định của con người",
+    "Descriptive trả lời 'điều gì đã xảy ra?'; Actionable trả lời 'nên làm gì?'",
+    "Cả hai đều chỉ mô tả dữ liệu quá khứ, không hề dự báo",
+    "Descriptive dự báo tương lai; Actionable mô tả quá khứ"
+   ]
+  },
+  {
+   "id": "b-c8-q2",
+   "explanation": "Object Tables cho phép kho dữ liệu phân tích trực tiếp dữ liệu PHI CẤU TRÚC (ảnh, PDF, âm thanh, video) bằng SQL, tích hợp Vertex AI, không cần di chuyển dữ liệu ra ngoài.",
+   "options": [
+    "Tự động phát hiện Schema Drift ngay khi nạp dữ liệu vào kho dữ liệu",
+    "Chỉ xử lý dữ liệu có cấu trúc dạng bảng và cột như trước đây",
+    "Nén dữ liệu thành các Micro-partition nhỏ để tiết kiệm chỗ lưu",
+    "Phân tích trực tiếp dữ liệu phi cấu trúc bằng câu lệnh SQL"
+   ]
+  },
+  {
+   "id": "b-c8-q4",
+   "explanation": "Keyword Search: khớp từ khóa chính xác, người dùng phải dùng đúng từ trong dữ liệu. Semantic Search: khớp theo ý nghĩa qua Vector Index (IVFFLAT), chấp nhận diễn đạt khác nhau cùng ý.",
+   "options": [
+    "Cả hai đều khớp chính xác từ khóa trong dữ liệu",
+    "Cả hai đều dùng vector embeddings để so khớp",
+    "Semantic Search khớp theo Ý NGHĨA qua vector; Keyword Search khớp TỪ KHÓA chính xác",
+    "Semantic Search khớp từ khóa chính xác; Keyword Search khớp ý nghĩa"
+   ]
+  },
+  {
+   "id": "b-c8-q5",
+   "explanation": "RAG giúp AI sinh tạo trả lời dựa trên kho dữ liệu nội bộ ĐÃ KIỂM CHỨNG, thay vì kiến thức chung chung → loại bỏ Hallucination (ảo giác).",
+   "options": [
+    "Mã hóa dữ liệu nhạy cảm ở mức cột của bảng",
+    "Tự động phân cụm dữ liệu không cần giám sát",
+    "Nén tài liệu để giảm dung lượng lưu trữ trên kho dữ liệu",
+    "Trả lời dựa trên kho dữ liệu nội bộ đã kiểm chứng của doanh nghiệp"
+   ]
+  },
+  {
+   "id": "b-c8-q6",
+   "explanation": "RAG: Ingestion (nạp tài liệu vào Object Tables) → Embedding (băm thành chunks, chuyển vector) → Retrieval (tìm ngữ cảnh qua Vector Search) → Generation (LLM tổng hợp câu trả lời, không 'bịa')."
+  },
+  {
+   "id": "b-c8-q7",
+   "explanation": "RAG loại Hallucination vì mô hình chỉ được dùng dữ liệu nội bộ ĐÃ KIỂM CHỨNG làm ngữ cảnh → không tự bịa thông tin sai lệch, thiếu căn cứ.",
+   "options": [
+    "Cho phép mô hình tự do sáng tạo câu trả lời",
+    "Tăng số lượng tham số của mô hình ngôn ngữ",
+    "Xóa toàn bộ dữ liệu Internet ra khỏi mô hình",
+    "Chỉ dùng dữ liệu nội bộ đã kiểm chứng làm ngữ cảnh trả lời"
+   ]
+  },
+  {
+   "id": "b-c8-q8",
+   "explanation": "Generative BI dân chủ hóa dữ liệu: người dùng phi kỹ thuật hỏi bằng ngôn ngữ tự nhiên (Việt/Anh), nhận kết quả ngay, nhờ kết hợp công cụ BI (Looker/Tableau) và LLMs (Gemini/ChatGPT).",
+   "options": [
+    "Loại bỏ hoàn toàn các công cụ BI như Tableau",
+    "Dân chủ hóa dữ liệu cho người dùng không chuyên kỹ thuật",
+    "Tăng độ phức tạp của các câu lệnh SQL",
+    "Chỉ dành cho các Data Engineer chuyên nghiệp"
+   ]
+  },
+  {
+   "id": "b-c8-q9",
+   "explanation": "Workflow: Natural Query (hỏi bằng ngôn ngữ tự nhiên) → Auto-SQL (LLM biên dịch thành SQL chuẩn) → Instant Insight (truy xuất + chọn biểu đồ phù hợp).",
+   "options": [
+    "LLM biên dịch câu hỏi ngôn ngữ tự nhiên thành SQL",
+    "Nạp tài liệu vào các Object Tables của kho",
+    "Người dùng tự viết câu lệnh SQL bằng tay",
+    "Hệ thống tự chọn loại biểu đồ phù hợp"
+   ]
+  },
+  {
+   "id": "b-c8-q10",
+   "explanation": "Kafka: Producer sinh dữ liệu → Kafka Cluster → phân phối tới nhiều Consumer. Nhiều Producer/Consumer hoạt động ĐỘC LẬP, không giao tiếp trực tiếp (mô hình Pub/Sub).",
+   "options": [
+    "Producer đọc dữ liệu; Consumer sinh dữ liệu",
+    "Producer sinh dữ liệu, Kafka Cluster phân phối tới nhiều Consumer độc lập",
+    "Chỉ có một Producer và một Consumer duy nhất",
+    "Producer và Consumer phải giao tiếp trực tiếp với nhau"
+   ]
+  },
+  {
+   "id": "b-c8-q11",
+   "explanation": "Trong Kafka Cluster: dữ liệu tổ chức theo Topic → chia nhiều Partition (song song), mỗi Record ghi tuần tự vào Partition theo FIFO (vào trước ra trước). Zookeeper điều phối Broker.",
+   "options": [
+    "Theo cấu trúc cây phân cấp LIFO nhiều tầng",
+    "Theo Topic chia nhiều Partition, ghi tuần tự FIFO",
+    "Theo mô hình Star Schema của kho dữ liệu",
+    "Theo các Micro-partition dạng Columnar"
+   ]
+  },
+  {
+   "id": "b-c8-q12",
+   "explanation": "Zookeeper quản lý cấu hình và điều phối cluster; Broker là máy chủ lưu trữ/phân phối dữ liệu; Producer sinh dữ liệu; Consumer đọc dữ liệu."
+  },
+  {
+   "id": "b-c8-q13",
+   "explanation": "Zero Latency Decision: hành động tự động ngay khi dữ liệu phát sinh — ví dụ gửi khuyến mãi cá nhân hóa ngay lúc khách rời giỏ hàng chưa thanh toán (kết hợp Pub/Sub + Continuous Queries).",
+   "options": [
+    "Sao lưu dữ liệu định kỳ hàng đêm bằng băng từ",
+    "Báo cáo doanh thu được tổng hợp vào cuối tháng",
+    "Tính lương nhân viên vào cuối mỗi kỳ lương",
+    "Tự động gửi khuyến mãi cá nhân hóa khi khách rời giỏ hàng"
+   ]
+  },
+  {
+   "id": "b-c8-q14",
+   "explanation": "Data Storytelling trình bày dữ liệu như câu chuyện có cấu trúc: Bối cảnh → Vấn đề → Giải pháp → Hành động, tăng khả năng ghi nhớ và thuyết phục (cao hơn ~65% so với con số khô khan)."
+  },
+  {
+   "id": "b-c8-q15",
+   "explanation": "Agentic BI: AI Agents là 'chuyên viên phân tích tự hành' — tự theo dõi mục tiêu, lập kế hoạch, truy vấn, phát hiện xu hướng ẩn, chủ động gửi báo cáo, không cần con người ra lệnh liên tục (dự báo 2025-2030).",
+   "options": [
+    "AI Agents chỉ vẽ biểu đồ theo yêu cầu",
+    "AI Agents không thể tự truy vấn kho dữ liệu",
+    "AI Agents chỉ trả lời khi được hỏi một câu cụ thể",
+    "AI Agents tự lập kế hoạch, truy vấn và chủ động báo cáo đề xuất"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,297 @@
+{
+  "chunk": "c8a",
+  "items": [
+    {
+      "id": "c8-q1",
+      "explanation": "Phân tích Descriptive chỉ tổng hợp, báo cáo dữ liệu quá khứ nên trả lời câu hỏi “Điều gì đã xảy ra?”.\n• “Điều gì sẽ xảy ra?” là câu hỏi của Predict, còn đề xuất hành động thuộc Prescribe của phân tích Actionable"
+    },
+    {
+      "id": "c8-q2",
+      "explanation": "Tự động đề xuất hành động ngay tại kho dữ liệu là năng lực của phân tích Actionable (Prescribe).\n• Descriptive chỉ có: dữ liệu tĩnh, độ trễ cao, báo cáo quá khứ và phụ thuộc hoàn toàn vào con người ra quyết định"
+    },
+    {
+      "id": "c8-q3",
+      "explanation": "Slide nêu BigQuery ML là ví dụ ứng dụng AI để dự báo (Predict) và đề xuất hành động (Prescribe) ngay tại kho dữ liệu, biến Insights thành hành động tức thì."
+    },
+    {
+      "id": "c8-q4",
+      "explanation": "Trong phân tích Actionable, Predict là dự báo điều sẽ xảy ra còn Prescribe là đề xuất hành động cần thực hiện; cả hai chạy ngay tại kho dữ liệu.\n• Mô tả quá khứ là Descriptive, nén trữ dữ liệu là chuyện lưu trữ"
+    },
+    {
+      "id": "c8-q5",
+      "explanation": "Descriptive truyền thống gồm:\n• Báo cáo quá khứ, trả lời “Điều gì đã xảy ra?”\n• Dữ liệu tĩnh và độ trễ cao\n• Phụ thuộc hoàn toàn vào con người để ra quyết định\n• Tự động biến Insights thành hành động là đặc điểm của Actionable"
+    },
+    {
+      "id": "c8-q6",
+      "explanation": "Điểm then chốt là AI chạy ngay trong kho dữ liệu để Predict (dự báo) và Prescribe (đề xuất hành động), biến Insights thành giá trị tức thì thay vì chỉ báo cáo quá khứ như Descriptive.",
+      "options": [
+        "Xuất toàn bộ dữ liệu ra hệ thống ngoài để phân tích rồi mới quyết định",
+        "Dự báo (Predict) và đề xuất hành động (Prescribe) ngay tại kho dữ liệu",
+        "Chỉ tăng tốc độ vẽ biểu đồ và xuất báo cáo mô tả nhanh hơn",
+        "Thay thế hoàn toàn kho dữ liệu bằng một mô hình AI dự báo"
+      ]
+    },
+    {
+      "id": "c8-q7",
+      "explanation": "Actionable bao gồm:\n• Dự báo (Predict)\n• Đề xuất hành động (Prescribe)\n• Biến Insights thành giá trị kinh doanh và hành động tức thì\n• Chỉ báo cáo lại quá khứ là giới hạn của Descriptive"
+    },
+    {
+      "id": "c8-q8",
+      "explanation": "Slide khuyên ứng dụng AI như BigQuery ML để Predict và Prescribe ngay tại kho dữ liệu, biến Insights thành hành động tức thì.\n• Báo cáo dày hơn, thêm người đọc hay vẽ thêm biểu đồ vẫn chỉ là Descriptive, độ trễ cao",
+      "options": [
+        "Tăng tần suất xuất báo cáo mô tả lên hằng ngày để rút ngắn độ trễ",
+        "Thuê thêm nhân viên chuyên đọc và diễn giải báo cáo mô tả mỗi tháng",
+        "Xuất dữ liệu sang Excel và vẽ thêm nhiều biểu đồ mô tả trực quan",
+        "Ứng dụng AI như BigQuery ML để Predict và Prescribe ngay tại kho dữ liệu"
+      ]
+    },
+    {
+      "id": "c8-q9",
+      "explanation": "BigQuery Object Tables phân tích trực tiếp Hình ảnh, PDF, Audio và Video bằng SQL.\n• Bảng quan hệ đã chuẩn hóa 3NF là dữ liệu có cấu trúc, không thuộc nhóm phi cấu trúc"
+    },
+    {
+      "id": "c8-q10",
+      "explanation": "Object Tables tích hợp sâu với Vertex AI để trích xuất tri thức từ dữ liệu thô ngay tại chỗ, không phải di chuyển dữ liệu sang hệ thống khác."
+    },
+    {
+      "id": "c8-q11",
+      "explanation": "Slide nêu lợi ích khai thác triệt để 80% dữ liệu tiềm ẩn của doanh nghiệp, chính là phần dữ liệu phi cấu trúc thường bị bỏ quên."
+    },
+    {
+      "id": "c8-q12",
+      "explanation": "Object Tables kết hợp Vertex AI để trích xuất tri thức ngay trên dữ liệu thô nằm trong kho, không cần ETL hay chuyển dữ liệu sang hệ thống khác."
+    },
+    {
+      "id": "c8-q13",
+      "explanation": "Phân tích phi cấu trúc trực tiếp trong Warehouse cho:\n• Bảo mật tập trung\n• Quản trị thống nhất\n• Khai thác triệt để 80% dữ liệu tiềm ẩn\n• Bắt buộc sao chép dữ liệu sang nhiều hệ thống là điều Object Tables giúp tránh"
+    },
+    {
+      "id": "c8-q14",
+      "explanation": "Người dùng truy vấn dữ liệu phi cấu trúc trong BigQuery Object Tables bằng chính SQL, không cần API NoSQL riêng hay ngôn ngữ khác.\n• Nhờ vậy hình ảnh, PDF, audio, video được phân tích ngay trong kho dữ liệu"
+    },
+    {
+      "id": "c8-q15",
+      "explanation": "Đúng tinh thần slide: Object Tables phân tích trực tiếp file trong kho bằng SQL, Vertex AI trích xuất tri thức tại chỗ, đảm bảo bảo mật tập trung và không di chuyển dữ liệu."
+    },
+    {
+      "id": "c8-q16",
+      "explanation": "Object Tables chỉ nhận dữ liệu phi cấu trúc: Hình ảnh, PDF, Audio, Video.\n• Bảng quan hệ có lược đồ cố định là dữ liệu có cấu trúc, đã nằm sẵn trong mô hình quan hệ của kho dữ liệu",
+      "options": [
+        "Audio ghi âm giọng nói",
+        "Hình ảnh chụp từ camera",
+        "PDF của báo cáo tài chính",
+        "Bảng quan hệ có lược đồ cố định"
+      ]
+    },
+    {
+      "id": "c8-q17",
+      "explanation": "Notebook NKDL_TH_8.1 minh họa chuyển dữ liệu không cấu trúc (PDF) thành bán cấu trúc (JSON) rồi thành cấu trúc (DataFrame), đúng như tiêu đề slide."
+    },
+    {
+      "id": "c8-q18",
+      "explanation": "File PDF báo cáo tài chính được tải lên bucket của Data Lake trước, sau đó mới được Gemini đọc và trích xuất nội dung thành JSON."
+    },
+    {
+      "id": "c8-q19",
+      "explanation": "Trong ví dụ, Gemini đọc file PDF và trích xuất nội dung thành dữ liệu JSON trước khi nạp vào pandas DataFrame; BERT, Word2Vec, ResNet không được dùng ở bước này."
+    },
+    {
+      "id": "c8-q20",
+      "explanation": "Thứ tự đúng: tải PDF lên bucket Data Lake → Gemini trích xuất nội dung thành JSON → nạp JSON vào pandas DataFrame để phân tích tiếp."
+    },
+    {
+      "id": "c8-q21",
+      "explanation": "Tên nghiên cứu là Grouping and Predicting Information Propagation on Social Networks Based on Hierarchical Trees and Sequence Prediction, nên hai kỹ thuật nền là cây phân cấp và dự đoán chuỗi."
+    },
+    {
+      "id": "c8-q22",
+      "explanation": "Slide xếp nghiên cứu vào nhóm “Một nghiên cứu về Data Mining”, và môi trường áp dụng là lan truyền thông tin trên mạng xã hội."
+    },
+    {
+      "id": "c8-q23",
+      "explanation": "Bốn phase theo thứ tự: thu thập dữ liệu mạng xã hội → xây hierarchy tree → tạo sequence database → sorting tìm nhóm nổi bật và dự đoán bằng CPT+.\n• Ba phương án còn lại đảo lộn thứ tự các bước"
+    },
+    {
+      "id": "c8-q24",
+      "explanation": "Phase 4.1 dùng Propagation Weight để sorting, tìm ra các nhóm lan truyền thông tin nổi bật.\n• Dự đoán người lan truyền tiếp theo là việc của Phase 4.2 với CPT+",
+      "options": [
+        "Huấn luyện mô hình ngôn ngữ lớn trên dữ liệu chuỗi",
+        "Nén dữ liệu chuỗi để tiết kiệm bộ nhớ lưu trữ",
+        "Dự đoán người dùng lan truyền thông tin tiếp theo",
+        "Sắp xếp để tìm ra các nhóm lan truyền thông tin nổi bật"
+      ]
+    },
+    {
+      "id": "c8-q25",
+      "explanation": "Phase 4.2 dùng CPT+ để dự đoán người lan truyền thông tin tiếp theo; LSTM, ARIMA, Hidden Markov Model đều không được nêu trong nghiên cứu."
+    },
+    {
+      "id": "c8-q26",
+      "explanation": "Khi dự đoán bằng CPT+, các chuỗi được retain phải có độ dài lớn hơn hoặc bằng 3 để đủ ngữ cảnh cho mô hình dự đoán phần tử kế tiếp."
+    },
+    {
+      "id": "c8-q27",
+      "explanation": "Propagation Weight định lượng mức độ lan truyền thông tin của mỗi nhóm, nhờ đó Phase 4.1 sắp xếp và tìm ra nhóm lan truyền nổi bật.",
+      "options": [
+        "Đo dung lượng lưu trữ mà kho dữ liệu đang dùng",
+        "Tính băng thông mạng khi truyền dữ liệu giữa hai máy",
+        "Định lượng mức độ lan truyền thông tin của từng nhóm",
+        "Đếm tổng số bạn bè của một người dùng trên mạng xã hội"
+      ]
+    },
+    {
+      "id": "c8-q28",
+      "explanation": "CPT+ nén dữ liệu chuỗi không mất mát (lossless) nên vẫn giữ nguyên thông tin phục vụ dự đoán, khác với nén có mất mát kiểu JPEG."
+    },
+    {
+      "id": "c8-q29",
+      "explanation": "Các phát biểu đúng:\n• Hierarchy tree được xây từ dữ liệu mạng xã hội\n• CPT+ dự đoán người lan truyền tiếp theo\n• Phase 4.1 dùng sorting tìm nhóm nổi bật\n• Nghiên cứu có bước dự đoán, không chỉ thống kê mô tả"
+    },
+    {
+      "id": "c8-q30",
+      "explanation": "Hai mục tiêu đúng như tên nghiên cứu:\n• Grouping: nhóm các nhóm lan truyền thông tin trên mạng xã hội\n• Predicting: dự đoán người lan truyền thông tin tiếp theo\n• Tạo mạng xã hội mới hay sinh quảng cáo không phải mục tiêu bài báo"
+    },
+    {
+      "id": "c8-q31",
+      "explanation": "Embeddings chuyển văn bản, hình ảnh thành chuỗi số (vector) mang ý nghĩa ngữ nghĩa để máy tính so sánh được mức tương đồng.\n• Nó không phải nén file, mã hóa mật khẩu hay nhúng biểu đồ",
+      "options": [
+        "Chuyển văn bản và hình ảnh thành các vector số mang ý nghĩa ngữ nghĩa",
+        "Kỹ thuật nén file văn bản thành định dạng zip để giảm dung lượng",
+        "Cách mã hóa mật khẩu người dùng trước khi lưu vào kho dữ liệu",
+        "Phương pháp nhúng biểu đồ vào dashboard để hiển thị trực quan"
+      ]
+    },
+    {
+      "id": "c8-q32",
+      "explanation": "Slide nêu IVFFLAT là ví dụ về chỉ mục (Vector Index) mà kho dữ liệu hỗ trợ, giúp tìm kiếm tương đồng trên hàng triệu bản ghi chỉ trong vài mili giây."
+    },
+    {
+      "id": "c8-q33",
+      "explanation": "Nhờ Vector Index, việc tìm kiếm hàng triệu bản ghi tương đồng chỉ mất vài mili giây thay vì vài phút hay vài giờ như quét tuần tự."
+    },
+    {
+      "id": "c8-q34",
+      "explanation": "Semantic Match so khớp theo ý nghĩa ngữ nghĩa thay vì khớp từ khóa chính xác, nên vẫn tìm được kết quả dù câu chữ khác nhau."
+    },
+    {
+      "id": "c8-q35",
+      "explanation": "Semantic Match phù hợp cho:\n• Hệ thống gợi ý sản phẩm\n• Tra cứu tài liệu pháp lý phức tạp\n• So khớp khóa chính là việc của truy vấn quan hệ, nén video không liên quan đến tìm kiếm ngữ nghĩa"
+    },
+    {
+      "id": "c8-q36",
+      "explanation": "Máy tính so sánh ý nghĩa bằng cách biểu diễn văn bản thành các vector ngữ nghĩa (Embeddings) rồi đo độ tương đồng giữa các vector đó."
+    },
+    {
+      "id": "c8-q37",
+      "explanation": "Semantic Search dùng Embeddings và Vector Search để so khớp theo ý nghĩa nên vẫn trả về “áo khoác lông vũ” dù không trùng từ khóa.\n• Keyword search hay LIKE chỉ khớp chuỗi nên sẽ trượt"
+    },
+    {
+      "id": "c8-q38",
+      "explanation": "Mã SKU là định danh cần khớp đúng từng ký tự, nên tìm kiếm từ khóa/khớp chuỗi chính xác phù hợp hơn Semantic Search vốn so khớp theo ý nghĩa.",
+      "options": [
+        "Tìm kiếm theo từ khóa khớp chuỗi chính xác, vì cần khớp đúng một mã định danh",
+        "Semantic Search, vì mã SKU mang nhiều tầng ý nghĩa ngữ nghĩa để so khớp",
+        "Duyệt thủ công từng tài liệu, vì cách này đảm bảo chính xác nhất",
+        "Dùng mô hình sinh văn bản, vì mô hình có thể đoán ra mã sản phẩm"
+      ]
+    },
+    {
+      "id": "c8-q39",
+      "explanation": "Slide nêu Embeddings chuyển văn bản và hình ảnh thành vector số.\n• Địa chỉ IP và mã băm ngẫu nhiên không mang ngữ nghĩa để so sánh nên không phải đối tượng của Embeddings"
+    },
+    {
+      "id": "c8-q40",
+      "explanation": "IVFFLAT là một loại chỉ mục vector mà kho dữ liệu hỗ trợ, giúp tìm kiếm hàng triệu bản ghi tương đồng chỉ trong vài mili giây.",
+      "options": [
+        "Một định dạng file dùng để lưu trữ hình ảnh",
+        "Một giao thức truyền dữ liệu streaming thời gian thực",
+        "Một chuẩn nén âm thanh dùng trong streaming",
+        "Một loại chỉ mục vector giúp tìm kiếm tương đồng nhanh"
+      ]
+    },
+    {
+      "id": "c8-q41",
+      "explanation": "RAG là viết tắt của Retrieval-Augmented Generation, tức truy hồi tài liệu để tăng cường sinh văn bản.\n• Ba cụm còn lại không phải thuật ngữ của kiến trúc này"
+    },
+    {
+      "id": "c8-q42",
+      "explanation": "RAG giúp AI sinh tạo văn bản trả lời dựa trên kho dữ liệu tin cậy của doanh nghiệp thay vì kiến thức chung chung trên Internet."
+    },
+    {
+      "id": "c8-q43",
+      "explanation": "Bốn bước đúng thứ tự: Ingestion (đưa tài liệu vào Object Tables) → Embedding (băm Chunks, tạo Vector) → Retrieval (Vector Search khi có câu hỏi) → Generation (LLM trả lời)."
+    },
+    {
+      "id": "c8-q44",
+      "explanation": "Ingestion là bước đầu tiên: chuyển tài liệu vào Object Tables của kho dữ liệu.\n• Băm nhỏ và tạo vector là Embedding, tìm ngữ cảnh là Retrieval, sinh câu trả lời là Generation"
+    },
+    {
+      "id": "c8-q45",
+      "explanation": "Bước Embedding gồm:\n• Băm nhỏ tài liệu thành các Chunks\n• Tạo Vector cho dữ liệu\n• Sinh câu trả lời hoàn chỉnh là việc của bước Generation, không thuộc Embedding"
+    },
+    {
+      "id": "c8-q46",
+      "explanation": "Retrieval diễn ra khi có câu hỏi: hệ thống dùng Vector Search tìm ngữ cảnh liên quan nhất trong kho vector rồi chuyển cho LLM tổng hợp câu trả lời."
+    },
+    {
+      "id": "c8-q47",
+      "explanation": "Ở bước Generation, LLM tổng hợp ngữ cảnh do Retrieval trả về và sinh câu trả lời cho người dùng.\n• Băm Chunks, tạo vector và tải tài liệu thuộc Ingestion/Embedding",
+      "options": [
+        "Tạo chỉ mục IVFFLAT cho kho vector để tìm kiếm",
+        "LLM tổng hợp và trả lời dựa trên ngữ cảnh vừa tìm được",
+        "Tải tài liệu mới vào Object Tables của kho dữ liệu",
+        "Băm nhỏ tài liệu thành các đoạn Chunks và tạo Vector"
+      ]
+    },
+    {
+      "id": "c8-q48",
+      "explanation": "Hallucination là hiện tượng AI tự đưa ra câu trả lời sai, không có căn cứ trong dữ liệu — đúng như cách slide mô tả."
+    },
+    {
+      "id": "c8-q49",
+      "explanation": "RAG ép mô hình chỉ được dùng dữ liệu nội bộ đã kiểm chứng, truy hồi ngữ cảnh từ kho doanh nghiệp nên chặn được các câu trả lời tự bịa."
+    },
+    {
+      "id": "c8-q50",
+      "explanation": "Ứng dụng thực tế của RAG:\n• Chatbot nội bộ cho phòng HR\n• Tra cứu quy trình vận hành phức tạp\n• Hỗ trợ khách hàng đa kênh dựa trên lịch sử giao dịch\n• Khai thác tiền mã hóa trên GPU không liên quan"
+    },
+    {
+      "id": "c8-q51",
+      "explanation": "Thiếu Retrieval, LLM không còn ngữ cảnh nội bộ do Vector Search cung cấp nên phải dựa vào kiến thức chung, khiến nguy cơ Hallucination tăng cao.",
+      "options": [
+        "Hệ thống không thể lưu trữ thêm tài liệu mới vào Object Tables",
+        "LLM mất ngữ cảnh nội bộ, trả lời bằng kiến thức chung nên dễ Hallucination",
+        "Vector Index IVFFLAT bị hỏng và không thể tìm kiếm tương đồng",
+        "Người dùng không thể nhập câu hỏi bằng tiếng Việt như trước"
+      ]
+    },
+    {
+      "id": "c8-q52",
+      "explanation": "RAG cập nhật chính sách chỉ bằng cách nạp tài liệu mới và tạo lại vector, không cần huấn luyện lại mô hình, nên câu trả lời luôn bám dữ liệu nội bộ.",
+      "options": [
+        "Huấn luyện lại (fine-tune) toàn bộ LLM mỗi lần chính sách thay đổi",
+        "Dùng LLM gốc và chấp nhận trả lời theo kiến thức chung trên Internet",
+        "Dùng kiến trúc RAG: đưa tài liệu vào kho, tạo vector và truy hồi ngữ cảnh khi có câu hỏi",
+        "Chuyển toàn bộ chính sách thành hình ảnh để mô hình ghi nhớ lâu hơn"
+      ]
+    },
+    {
+      "id": "c8-q53",
+      "explanation": "Băm nhỏ thành Chunks giúp mỗi đoạn có vector riêng, nên Retrieval chọn đúng đoạn ngữ cảnh sát với câu hỏi thay vì trả về cả tài liệu dài.",
+      "options": [
+        "Mỗi đoạn có vector riêng để Retrieval tìm đúng phần ngữ cảnh liên quan nhất",
+        "Để giảm chi phí lưu trữ các file gốc bên trong Object Tables",
+        "Vì LLM chỉ đọc được tối đa 10 ký tự trong mỗi lần gọi",
+        "Để tài liệu được mã hóa an toàn hơn khi truyền qua mạng nội bộ"
+      ]
+    },
+    {
+      "id": "c8-q54",
+      "explanation": "Các phát biểu đúng:\n• Retrieval chạy khi có câu hỏi từ người dùng\n• Generation trả lời dựa trên ngữ cảnh do Retrieval cung cấp\n• Ingestion chuyển tài liệu vào Object Tables\n• Embedding đứng trước Generation, không phải sau"
+    },
+    {
+      "id": "c8-q55",
+      "explanation": "Slide nêu ưu điểm của Generative BI là giúp giảm hầu hết thời gian tạo báo cáo, nhờ giao diện chat-with-your-data không còn rào cản về kỹ thuật SQL."
+    }
+  ]
+}

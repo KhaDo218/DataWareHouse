@@ -2,201 +2,300 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ôn thi Nhà Kho Dữ Liệu</title>
-<meta name="description" content="Ngân hàng câu hỏi trắc nghiệm ôn thi môn Nhà kho dữ liệu và tích hợp (UEL).">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#1f4e9d">
+<title>Ôn thi Nhà Kho Dữ Liệu &amp; Tích Hợp</title>
+<meta name="description" content="Web ôn thi môn Nhà kho dữ liệu và tích hợp: luyện trắc nghiệm có giải thích, thi thử, xem lại câu sai, đọc slide PDF.">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
 
-<header class="app-header">
-  <div class="wrap header-inner">
-    <div class="brand">
-      <div class="brand-mark">DW</div>
+<div class="app">
+
+  <!-- ============================= SIDEBAR ============================= -->
+  <aside class="sidebar">
+    <div class="side-brand">
+      <div class="side-mark">DW</div>
       <div>
-        <h1>Nhà Kho Dữ Liệu &amp; Tích Hợp</h1>
-        <p id="brand-sub">Ngân hàng câu hỏi ôn thi</p>
+        <b>Nhà Kho Dữ Liệu</b>
+        <small id="brand-sub">&amp; Tích Hợp</small>
       </div>
     </div>
-    <nav class="tabs" role="tablist">
-      <button class="tab-btn active" data-tab="practice" role="tab">Luyện tập</button>
-      <button class="tab-btn" data-tab="exam" role="tab">Thi thử</button>
-      <button class="tab-btn" data-tab="review" role="tab">Câu làm sai <span id="wrong-count" class="pill">0</span></button>
-      <button class="tab-btn" data-tab="docs" role="tab">Tài liệu</button>
-      <button id="theme-btn" class="tab-btn theme-btn" type="button" title="Đổi giao diện sáng/tối" aria-label="Đổi giao diện sáng/tối">Tối</button>
+
+    <nav class="side-nav" role="tablist" aria-label="Khu vực">
+      <button class="nav-item active" data-view="dashboard" role="tab" aria-selected="true">
+        <span class="ico" aria-hidden="true">▦</span><span class="lbl">Tổng quan</span>
+      </button>
+      <button class="nav-item" data-view="practice" role="tab" aria-selected="false">
+        <span class="ico" aria-hidden="true">✎</span><span class="lbl">Luyện tập</span>
+      </button>
+      <button class="nav-item" data-view="exam" role="tab" aria-selected="false">
+        <span class="ico" aria-hidden="true">⏱</span><span class="lbl">Thi thử</span>
+      </button>
+      <button class="nav-item" data-view="review" role="tab" aria-selected="false">
+        <span class="ico" aria-hidden="true">⟲</span><span class="lbl">Câu sai</span>
+        <span class="badge hidden" id="wrong-count">0</span>
+      </button>
+      <button class="nav-item" data-view="docs" role="tab" aria-selected="false">
+        <span class="ico" aria-hidden="true">▤</span><span class="lbl">Tài liệu</span>
+      </button>
+      <button class="nav-item" data-view="slides" role="tab" aria-selected="false">
+        <span class="ico" aria-hidden="true">▷</span><span class="lbl">Slide</span>
+      </button>
     </nav>
+
+    <div class="side-foot">
+      <button class="theme-btn" id="theme-btn" type="button" aria-label="Đổi giao diện sáng/tối">
+        <span id="theme-icon" aria-hidden="true">◐</span><span id="theme-label">Giao diện tối</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- ============================== MAIN ============================== -->
+  <div class="main">
+    <header class="topbar">
+      <div>
+        <h2 id="view-title">Tổng quan</h2>
+        <div class="topbar-sub" id="view-sub">Tiến độ học của bạn</div>
+      </div>
+      <div class="topbar-actions">
+        <button class="btn ghost small theme-inline" id="theme-btn-inline" type="button" aria-label="Đổi giao diện sáng/tối">◐</button>
+      </div>
+    </header>
+
+    <main class="content">
+
+      <!-- ---------------------- TỔNG QUAN ---------------------- -->
+      <section id="dashboard-view" class="view active">
+        <div class="card">
+          <div class="card-head">
+            <h3>Tiến độ tổng thể</h3>
+            <span class="muted" id="dash-updated"></span>
+          </div>
+          <div class="ring-wrap">
+            <div class="ring" id="dash-ring">
+              <svg viewBox="0 0 100 100" width="108" height="108" aria-hidden="true">
+                <circle class="track" cx="50" cy="50" r="45"></circle>
+                <circle class="bar" cx="50" cy="50" r="45" id="dash-ring-bar"></circle>
+              </svg>
+              <div class="mid" id="dash-ring-pct">0%</div>
+            </div>
+            <div style="flex:1 1 260px; min-width:0">
+              <div class="stat-grid">
+                <div class="stat"><div class="k">Đã làm</div><div class="v" id="dash-done">0<small id="dash-total"> / 0</small></div></div>
+                <div class="stat"><div class="k">Đúng</div><div class="v" id="dash-right">0</div></div>
+                <div class="stat"><div class="k">Cần ôn lại</div><div class="v" id="dash-wrong">0</div></div>
+                <div class="stat"><div class="k">Hôm nay</div><div class="v" id="dash-today">0<small> câu</small></div></div>
+              </div>
+              <div class="btn-row" style="margin-top:14px">
+                <button class="btn primary" data-goto="practice" type="button">Tiếp tục luyện tập</button>
+                <button class="btn ghost" data-goto="review" type="button">Ôn câu sai</button>
+                <button class="btn ghost" data-goto="exam" type="button">Thi thử</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-head">
+            <h3>Theo từng chương</h3>
+            <span class="muted">Bấm vào chương để luyện riêng</span>
+          </div>
+          <div class="ch-list" id="dash-chapters"></div>
+        </div>
+
+        <div class="card">
+          <div class="card-head">
+            <h3>Lịch sử thi thử</h3>
+            <span class="muted" id="dash-exam-count"></span>
+          </div>
+          <div id="dash-exams"></div>
+        </div>
+
+        <div class="card">
+          <h3>Dữ liệu học của bạn</h3>
+          <p class="muted" style="margin-top:0">Tiến độ lưu ngay trên trình duyệt này. Xuất ra file để mang sang máy khác, hoặc nhập lại khi cần.</p>
+          <div class="btn-row">
+            <button class="btn ghost small" id="export-progress-btn" type="button">Xuất tiến độ (.json)</button>
+            <button class="btn ghost small" id="import-progress-btn" type="button">Nhập tiến độ</button>
+            <button class="btn ghost small" id="reset-progress-btn" type="button">Xoá toàn bộ tiến độ</button>
+            <input type="file" id="import-progress-file" accept="application/json,.json" class="hidden">
+          </div>
+        </div>
+      </section>
+
+      <!-- ---------------------- LUYỆN TẬP ---------------------- -->
+      <section id="practice-view" class="view">
+        <div class="card">
+          <div class="filters">
+            <label class="field"><span>Chương</span><select id="f-chapter"></select></label>
+            <label class="field"><span>Độ khó</span>
+              <select id="f-diff">
+                <option value="all">Tất cả</option>
+                <option value="1">Dễ</option>
+                <option value="2">Trung bình</option>
+                <option value="3">Khó</option>
+              </select>
+            </label>
+            <label class="field"><span>Trạng thái</span>
+              <select id="f-status">
+                <option value="all">Tất cả</option>
+                <option value="todo">Chưa làm</option>
+                <option value="wrong">Đã làm sai</option>
+                <option value="right">Đã làm đúng</option>
+              </select>
+            </label>
+            <label class="field wide"><span>Tìm kiếm</span>
+              <input type="search" id="f-search" placeholder="Từ khoá trong câu hỏi hoặc đáp án">
+            </label>
+          </div>
+          <div class="toolbar">
+            <div class="stats-line" id="practice-stats"></div>
+            <div class="actions">
+              <label class="check"><input type="checkbox" id="f-shuffle"> Xáo thứ tự</label>
+            </div>
+          </div>
+          <div class="progress" style="margin-top:10px"><i id="practice-bar"></i></div>
+        </div>
+
+        <div id="practice-list"></div>
+        <div class="pager" id="practice-pager"></div>
+      </section>
+
+      <!-- ---------------------- THI THỬ ---------------------- -->
+      <section id="exam-view" class="view">
+        <div id="exam-setup" class="card">
+          <h3>Thiết lập bài thi</h3>
+          <p class="muted" style="margin-top:4px">Câu hỏi được chọn ngẫu nhiên, thứ tự đáp án được xáo. Kết quả và giải thích chỉ hiện sau khi nộp bài.</p>
+          <div class="setup-grid">
+            <label class="field"><span>Số câu</span><input type="number" id="exam-count" min="5" value="40"></label>
+            <label class="field"><span>Thời gian (phút)</span><input type="number" id="exam-minutes" min="1" max="240" value="45"></label>
+            <label class="field"><span>Độ khó</span>
+              <select id="exam-diff">
+                <option value="all">Trộn tất cả</option>
+                <option value="1">Dễ</option>
+                <option value="2">Trung bình</option>
+                <option value="3">Khó</option>
+              </select>
+            </label>
+            <label class="field"><span>Sắp xếp</span>
+              <select id="exam-order">
+                <option value="random">Ngẫu nhiên</option>
+                <option value="chapter">Theo chương</option>
+              </select>
+            </label>
+          </div>
+          <div class="chapter-picks" id="exam-chapters"></div>
+          <div class="btn-row" style="justify-content:flex-end; margin-top:14px">
+            <button class="btn ghost small" id="exam-all-ch" type="button">Chọn tất cả</button>
+            <button class="btn ghost small" id="exam-none-ch" type="button">Bỏ chọn</button>
+            <button class="btn primary" id="start-exam-btn" type="button">Bắt đầu thi</button>
+          </div>
+        </div>
+
+        <div id="exam-running" class="hidden">
+          <div class="exam-bar card">
+            <div class="timer" id="exam-timer">00:00</div>
+            <div class="exam-progress" id="exam-progress"></div>
+            <button class="btn primary" id="submit-exam-btn" type="button">Nộp bài</button>
+          </div>
+          <div id="exam-summary" class="hidden"></div>
+          <div class="exam-layout">
+            <div class="exam-main">
+              <div id="exam-list"></div>
+              <div class="center" style="margin-bottom:20px">
+                <button class="btn ghost hidden" id="retry-exam-btn" type="button">Làm bài khác</button>
+              </div>
+            </div>
+            <aside class="exam-nav card" id="exam-nav">
+              <h3>Bảng câu hỏi</h3>
+              <div class="exam-nav-grid" id="exam-nav-grid"></div>
+              <div class="exam-nav-legend muted">
+                <span><i class="lg lg-done"></i>Đã làm</span>
+                <span><i class="lg lg-flag"></i>Đánh dấu</span>
+                <span><i class="lg"></i>Chưa làm</span>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <!-- ---------------------- CÂU SAI ---------------------- -->
+      <section id="review-view" class="view">
+        <div class="card">
+          <div class="card-head" style="margin-bottom:0">
+            <div class="muted" style="max-width:640px">Những câu bạn trả lời sai ở phần Luyện tập hoặc Thi thử được lưu lại ở đây. Làm đúng lại sẽ tự gỡ khỏi danh sách.</div>
+            <button class="btn ghost small" id="clear-wrong-btn" type="button">Xoá danh sách</button>
+          </div>
+        </div>
+        <div id="review-list"></div>
+      </section>
+
+      <!-- ---------------------- TÀI LIỆU ---------------------- -->
+      <section id="docs-view" class="view">
+        <div class="card">
+          <h3>Tài liệu ôn thi</h3>
+          <div class="doc-row" style="margin-top:12px">
+            <div class="doc-ic">HTML</div>
+            <div class="doc-body">
+              <h4>Giải chi tiết bộ câu hỏi chẩn đoán kiến thức</h4>
+              <p class="muted">Giải đủ 41 câu, sơ đồ kiến trúc SVG, bảng tính từng bước, câu hỏi biến thể, bảng công thức và thuật ngữ Anh&ndash;Việt. Một file HTML tự chứa, mở offline được.</p>
+              <div class="doc-meta">
+                <span class="tag">41 câu giải chi tiết</span>
+                <span class="tag">16 sơ đồ SVG</span>
+                <span class="tag">Bảng công thức</span>
+              </div>
+              <div class="btn-row doc-actions">
+                <a class="btn primary small" id="doc-preview" href="giai-cau-hoi-chan-doan.html" target="_blank" rel="noopener">Mở xem</a>
+                <a class="btn ghost small" id="doc-download" href="giai-cau-hoi-chan-doan.html" download="giai-cau-hoi-chan-doan.html">Tải về máy (.html)</a>
+                <span class="muted" id="doc-status"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-head">
+            <h3>Slide bài giảng</h3>
+            <button class="btn ghost small" data-goto="slides" type="button">Mở trình xem slide</button>
+          </div>
+          <p class="muted" style="margin:0">12 file PDF: 9 chương lý thuyết, 2 tài liệu thực hành (BigQuery, Medallion) và đề chẩn đoán. Mở ngay trong web, không cần tải về.</p>
+        </div>
+
+        <div class="card">
+          <h3>Phím tắt &amp; mẹo dùng</h3>
+          <ul class="tips">
+            <li><b>Luyện tập</b>: <kbd>1</kbd>&ndash;<kbd>4</kbd> chọn đáp án, <kbd>Enter</kbd> kiểm tra, <kbd>J</kbd>/<kbd>K</kbd> sang câu kế/trước, <kbd>F</kbd> đánh dấu khi thi thử.</li>
+            <li><b>Tìm kiếm</b> gõ <b>không dấu</b> vẫn ra kết quả (vd: <i>kho du lieu</i>).</li>
+            <li><b>Câu hỏi có nút "Giải thích"</b>: mở ra để xem vì sao đúng/sai, kèm gạch đầu dòng cho từng ý.</li>
+            <li><b>Tiến độ</b> tự lưu sau mỗi câu; tắt máy mở lại vẫn còn.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ---------------------- SLIDE ---------------------- -->
+      <section id="slides-view" class="view">
+        <div class="card viewer-bar">
+          <select id="slide-select" aria-label="Chọn file slide"></select>
+          <button class="btn ghost small" id="slide-prev" type="button" aria-label="Trang trước">← Trước</button>
+          <span class="viewer-page" id="slide-page">—</span>
+          <button class="btn ghost small" id="slide-next" type="button" aria-label="Trang sau">Sau →</button>
+          <button class="btn ghost small" id="slide-fit" type="button">Vừa màn hình</button>
+          <a class="btn ghost small" id="slide-open" href="#" target="_blank" rel="noopener">Mở tab mới</a>
+        </div>
+        <div class="viewer-stage" id="slide-stage">
+          <div class="viewer-msg"><b>Chọn một file slide ở trên</b>để bắt đầu xem.</div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="app-foot">
+      Web ôn thi môn Nhà kho dữ liệu và tích hợp. Tiến độ lưu trên trình duyệt của bạn.
+    </footer>
   </div>
-</header>
-
-<main class="wrap">
-
-  <!-- ===================== LUYỆN TẬP ===================== -->
-  <section id="practice-tab" class="tab-content active">
-    <div class="toolbar card">
-      <div class="filters">
-        <label>Chương
-          <select id="f-chapter"></select>
-        </label>
-        <label>Độ khó
-          <select id="f-diff">
-            <option value="all">Tất cả</option>
-            <option value="1">Dễ</option>
-            <option value="2">Trung bình</option>
-            <option value="3">Khó</option>
-          </select>
-        </label>
-        <label>Nguồn
-          <select id="f-source">
-            <option value="all">Tất cả</option>
-            <option value="bo1">Bộ đề 1</option>
-            <option value="bo2">Bộ đề 2 (có giải thích)</option>
-            <option value="bosung">Câu bổ sung</option>
-          </select>
-        </label>
-        <label>Trạng thái
-          <select id="f-status">
-            <option value="all">Tất cả</option>
-            <option value="todo">Chưa làm</option>
-            <option value="wrong">Đã làm sai</option>
-            <option value="right">Đã làm đúng</option>
-          </select>
-        </label>
-        <label class="grow">Tìm kiếm
-          <input type="search" id="f-search" placeholder="Từ khóa trong câu hỏi hoặc đáp án">
-        </label>
-      </div>
-      <div class="toolbar-row">
-        <div class="stats" id="practice-stats"></div>
-        <div class="actions">
-          <label class="check"><input type="checkbox" id="f-shuffle"> Xáo thứ tự câu</label>
-          <button id="reset-practice-btn" class="btn ghost">Xóa tiến độ</button>
-        </div>
-      </div>
-      <div class="progress"><i id="practice-bar"></i></div>
-    </div>
-
-    <div id="practice-list"></div>
-    <div class="pager" id="practice-pager"></div>
-  </section>
-
-  <!-- ===================== THI THỬ ===================== -->
-  <section id="exam-tab" class="tab-content">
-    <div id="exam-setup" class="card setup">
-      <h2>Thiết lập bài thi</h2>
-      <p class="muted">Câu hỏi được chọn ngẫu nhiên, đáp án được xáo trộn. Kết quả và giải thích chỉ hiện sau khi nộp bài.</p>
-      <div class="setup-grid">
-        <label>Số câu
-          <input type="number" id="exam-count" min="5" value="40">
-        </label>
-        <label>Thời gian (phút)
-          <input type="number" id="exam-minutes" min="1" max="240" value="45">
-        </label>
-        <label>Độ khó
-          <select id="exam-diff">
-            <option value="all">Trộn tất cả</option>
-            <option value="1">Dễ</option>
-            <option value="2">Trung bình</option>
-            <option value="3">Khó</option>
-          </select>
-        </label>
-      </div>
-      <div class="chapter-picks" id="exam-chapters"></div>
-      <div class="setup-actions">
-        <button class="btn ghost" id="exam-all-ch">Chọn tất cả</button>
-        <button class="btn ghost" id="exam-none-ch">Bỏ chọn</button>
-        <button id="start-exam-btn" class="btn primary">Bắt đầu thi</button>
-      </div>
-    </div>
-
-    <div id="exam-running" class="hidden">
-      <div class="exam-bar card">
-        <div class="timer" id="exam-timer">00:00</div>
-        <div class="exam-progress" id="exam-progress"></div>
-        <button id="submit-exam-btn" class="btn primary">Nộp bài</button>
-      </div>
-      <div id="exam-summary" class="hidden"></div>
-      <div class="exam-layout">
-        <div class="exam-main">
-          <div id="exam-list"></div>
-          <div class="center">
-            <button id="retry-exam-btn" class="btn ghost hidden">Làm bài thi khác</button>
-          </div>
-        </div>
-        <aside class="exam-nav card" id="exam-nav">
-          <h3>Bảng câu hỏi</h3>
-          <div class="exam-nav-grid" id="exam-nav-grid"></div>
-          <div class="exam-nav-legend muted">
-            <span><i class="lg lg-done"></i>Đã làm</span>
-            <span><i class="lg lg-flag"></i>Đánh dấu</span>
-            <span><i class="lg"></i>Chưa làm</span>
-          </div>
-        </aside>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== CÂU LÀM SAI ===================== -->
-  <section id="review-tab" class="tab-content">
-    <div class="card toolbar-row">
-      <div class="muted">Những câu bạn trả lời sai ở phần Luyện tập hoặc Thi thử được lưu lại ở đây (trên trình duyệt này). Làm đúng lại sẽ tự gỡ khỏi danh sách.</div>
-      <button id="clear-wrong-btn" class="btn ghost">Xóa danh sách</button>
-    </div>
-    <div id="review-list"></div>
-  </section>
-
-  <!-- ===================== TÀI LIỆU ===================== -->
-  <section id="docs-tab" class="tab-content">
-    <div class="doc-card">
-      <div class="doc-head">
-        <div class="doc-icon" aria-hidden="true">HTML</div>
-        <div class="doc-title">
-          <h2>Giải 40 câu hỏi chẩn đoán kiến thức</h2>
-          <p class="muted">Tài liệu ôn thi chi tiết: giải đủ 41 câu, 16 sơ đồ SVG, bảng tính từng bước, 48 câu hỏi biến thể, bảng công thức và thuật ngữ Anh&ndash;Việt. Là một file HTML tự chứa &mdash; mở bằng trình duyệt là đọc được, không cần mạng.</p>
-          <div class="doc-meta">
-            <span class="tag">41 câu giải chi tiết</span>
-            <span class="tag">16 sơ đồ SVG</span>
-            <span class="tag">68 bảng</span>
-            <span class="tag">1 file duy nhất</span>
-          </div>
-        </div>
-      </div>
-      <div class="doc-actions">
-        <a id="doc-download" class="btn primary" href="giai-cau-hoi-chan-doan.html" download="giai-cau-hoi-chan-doan.html">Tải về máy (.html)</a>
-        <a id="doc-preview" class="btn ghost" href="giai-cau-hoi-chan-doan.html" target="_blank" rel="noopener">Mở xem trước</a>
-        <span id="doc-status" class="doc-status muted"></span>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="toolbar-row" style="margin-top:0">
-        <div>
-          <strong>Sao lưu tiến độ học</strong>
-          <div class="muted">Tiến độ đang lưu trên trình duyệt này. Xuất ra file để mang sang máy khác, hoặc nhập lại khi cần.</div>
-        </div>
-        <div class="actions">
-          <button id="export-progress-btn" class="btn ghost" type="button">Xuất tiến độ (.json)</button>
-          <button id="import-progress-btn" class="btn ghost" type="button">Nhập tiến độ</button>
-          <input type="file" id="import-progress-file" accept="application/json,.json" class="hidden">
-        </div>
-      </div>
-    </div>
-
-    <div class="card">
-      <strong>Cách dùng nhanh</strong>
-      <ul class="doc-tips">
-        <li><b>Luyện tập</b>: bấm phím <kbd>1</kbd>&ndash;<kbd>4</kbd> để chọn đáp án, <kbd>Enter</kbd> để kiểm tra, <kbd>J</kbd>/<kbd>K</kbd> để sang câu kế/trước.</li>
-        <li><b>Thi thử</b>: bảng số câu bên phải giúp nhảy nhanh và đánh dấu câu cần xem lại.</li>
-        <li>Tìm kiếm gõ <b>không dấu</b> vẫn ra kết quả (vd: <i>kho du lieu</i>).</li>
-      </ul>
-    </div>
-  </section>
-
-</main>
-
-<footer class="app-footer wrap">
-  Tổng hợp từ slide môn Nhà kho dữ liệu và tích hợp (TS. Nguyễn Thôn Dã), bộ đề của anh chị khóa trước và câu hỏi bổ sung.
-  <br>Tài liệu giải chi tiết: <a href="giai-cau-hoi-chan-doan.html" download="giai-cau-hoi-chan-doan.html">tải về máy</a>.
-</footer>
+</div>
 
 <script src="data/questions.js"></script>
 <script src="assets/app.js"></script>

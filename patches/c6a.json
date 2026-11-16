@@ -1,0 +1,467 @@
+{
+ "chunk": "c6a",
+ "items": [
+  {
+   "id": "c6-q1",
+   "explanation": "Trích xuất lượng lớn dữ liệu từ kho, đẩy qua Internet rồi nạp vào máy chủ ML riêng để huấn luyện nên tốn băng thông, trễ thời gian và có nguy cơ bảo mật.\n• Đóng gói thuật toán chạy ngay trong kho là cách In-Database hiện đại, không phải cách cũ"
+  },
+  {
+   "id": "c6-q2",
+   "explanation": "• Tốn băng thông: phải kéo lượng lớn dữ liệu từ kho ra ngoài\n• Trễ thời gian: dữ liệu phải chờ truyền rồi nạp lại ở máy chủ ML\n• Nguy cơ bảo mật: dữ liệu nhạy cảm rời khỏi hạ tầng kho\nGiảm chi phí lưu trữ không phải hệ quả của cách làm này"
+  },
+  {
+   "id": "c6-q3",
+   "explanation": "Giữ nguyên dữ liệu tại chỗ, đóng gói thuật toán ML và đẩy vào thực thi trực tiếp trên hạ tầng lưu trữ của Data Warehouse.\n• Sao chép sang cụm Hadoop hay nén rồi gửi lên máy chủ ngoài đều là dịch chuyển dữ liệu",
+   "options": [
+    "Sao chép dữ liệu sang cụm Hadoop bên ngoài để huấn luyện phân tán",
+    "Giữ dữ liệu tại chỗ và đẩy thuật toán ML vào chạy trên hạ tầng DWH",
+    "Nén dữ liệu lại rồi gửi lên máy chủ ML bên ngoài qua Internet",
+    "Chỉ dùng lại các mô hình đã huấn luyện sẵn ở hệ thống bên ngoài"
+   ]
+  },
+  {
+   "id": "c6-q4",
+   "explanation": "• Loại bỏ hoàn toàn độ trễ và chi phí dịch chuyển dữ liệu\n• Đảm bảo tính bảo mật vì dữ liệu không rời khỏi kho\n• Tuân thủ dữ liệu tập trung (Data Governance)\nMô hình vẫn phải đánh giá sau khi huấn luyện, đó là bước bắt buộc"
+  },
+  {
+   "id": "c6-q5",
+   "explanation": "Data Governance ở đây là sự tuân thủ và quản trị dữ liệu tập trung ngay tại kho, do dữ liệu không phải rời khỏi hạ tầng.\n• Nén theo cột, sao lưu định kỳ hay mã hóa đường truyền là kỹ thuật khác",
+   "options": [
+    "Kỹ thuật nén dữ liệu theo cột để tiết kiệm dung lượng lưu trữ",
+    "Quy trình sao lưu dữ liệu định kỳ ra hệ thống lưu trữ ngoài",
+    "Quản trị dữ liệu tập trung tại kho vì dữ liệu không rời hạ tầng",
+    "Việc mã hóa toàn bộ dữ liệu trước khi truyền qua Internet"
+   ]
+  },
+  {
+   "id": "c6-q6",
+   "explanation": "• Tận dụng kiến trúc tính toán song song quy mô lớn của DWH\n• Dựa vào cơ chế tự động mở rộng của DWH để xử lý hàng Terabyte dữ liệu\n• Không cần cấu hình cụm Spark/Hadoop phức tạp\nBắt buộc dựng thêm cụm Spark/Hadoop là điều In-Database ML loại bỏ"
+  },
+  {
+   "id": "c6-q7",
+   "explanation": "Kiểm soát quyền truy cập dựa trên vai trò (RBAC) đồng nhất: người quản trị phân quyền ai được dùng mô hình ML giống hệt như phân quyền truy cập bảng dữ liệu thô.",
+   "options": [
+    "Phân quyền dùng mô hình ML theo vai trò (RBAC) như phân quyền bảng dữ liệu thô",
+    "Chỉ cho phép duy nhất một tài khoản admin được quyền chạy mọi mô hình",
+    "Bỏ hoàn toàn cơ chế phân quyền để các mô hình chạy nhanh hơn",
+    "Phân quyền dựa trên địa chỉ IP của người dùng truy cập hệ thống"
+   ]
+  },
+  {
+   "id": "c6-q8",
+   "explanation": "Simplicity là tích hợp trực tiếp mô hình vào các luồng dữ liệu tự động (ELT Pipelines) có sẵn của doanh nghiệp, nhờ đó không phải dựng thêm đường ống riêng cho ML.\n• In-Database ML không bỏ bước tiền xử lý dữ liệu",
+   "options": [
+    "Chỉ hỗ trợ đúng một thuật toán ML cố định trong kho",
+    "Tích hợp trực tiếp mô hình vào các luồng ELT tự động có sẵn",
+    "Loại bỏ hoàn toàn bước tiền xử lý dữ liệu trước khi huấn luyện",
+    "Tự động sinh báo cáo tài chính định kỳ cho doanh nghiệp"
+   ]
+  },
+  {
+   "id": "c6-q9",
+   "explanation": "Dữ liệu không rời khỏi kho nên ngân hàng vừa giữ được bảo mật vừa tuân thủ quản trị dữ liệu tập trung (Data Governance).\n• GPU, nén dữ liệu hay AutoML không giải quyết mối lo rò rỉ khi phải sao chép dữ liệu",
+   "options": [
+    "Tăng tốc huấn luyện nhờ GPU chuyên dụng đặt tại kho",
+    "Tự động nén dữ liệu trước khi truyền sang máy chủ ngoài",
+    "Dữ liệu không rời khỏi kho nên bảo mật và quản trị tập trung",
+    "Tự động lựa chọn thuật toán tối ưu bằng AutoML của kho"
+   ]
+  },
+  {
+   "id": "c6-q10",
+   "explanation": "RBAC = Role-Based Access Control, tức kiểm soát quyền truy cập dựa trên vai trò. Ba cụm còn lại chỉ là cách ghép chữ cái cho giống viết tắt, không phải khái niệm có trong bài.",
+   "options": [
+    "Rule-Based Analytical Computing",
+    "Row-Based Access Control",
+    "Rapid Batch Access Control",
+    "Role-Based Access Control"
+   ]
+  },
+  {
+   "id": "c6-q11",
+   "explanation": "Supervised Learning huấn luyện trên Labeled Data (dữ liệu đã gán nhãn), nhờ nhãn mà mô hình học được ánh xạ từ thuộc tính sang kết quả.\n• Unlabeled Data là đầu vào của Unsupervised Learning"
+  },
+  {
+   "id": "c6-q12",
+   "explanation": "Unsupervised Learning khám phá cấu trúc ẩn từ Unlabeled Data, không có nhãn mục tiêu để bám vào.\n• Dự đoán nhãn danh mục hay giá trị số liên tục là việc của Supervised Learning"
+  },
+  {
+   "id": "c6-q13",
+   "explanation": "Classification dự đoán nhãn danh mục, ví dụ giao dịch hợp lệ hay gian lận.\n• Dự đoán giá trị số liên tục là Regression, phân cụm là Clustering của học không giám sát"
+  },
+  {
+   "id": "c6-q14",
+   "explanation": "Regression dự đoán giá trị số liên tục như giá bán hay doanh thu.\n• Dự đoán nhãn danh mục là Classification; phân nhóm và tìm điểm bất thường thuộc học không giám sát"
+  },
+  {
+   "id": "c6-q15",
+   "explanation": "Clustering phân nhóm, phân cụm dữ liệu theo sự tương tự mà không cần nhãn trước.\n• Dự đoán nhãn là Classification, dự đoán số liên tục là Regression, cả hai đều cần nhãn"
+  },
+  {
+   "id": "c6-q16",
+   "explanation": "Anomaly Detection tìm kiếm các bản ghi dị biệt trong hệ thống, thuộc nhóm học không giám sát.\n• Dự đoán doanh số hay gán nhãn danh mục là việc của học có giám sát"
+  },
+  {
+   "id": "c6-q17",
+   "explanation": "• Classification: dự đoán nhãn danh mục trên Labeled Data\n• Regression: dự đoán giá trị số liên tục trên Labeled Data\nClustering và Anomaly Detection dùng Unlabeled Data nên thuộc Unsupervised Learning"
+  },
+  {
+   "id": "c6-q18",
+   "explanation": "• Clustering: phân nhóm theo sự tương tự trên dữ liệu không nhãn\n• Anomaly Detection: tìm các bản ghi dị biệt\nClassification và Regression cần Labeled Data nên thuộc Supervised Learning"
+  },
+  {
+   "id": "c6-q19",
+   "explanation": "Giá bán là giá trị số liên tục và dữ liệu lịch sử đã có nhãn là giá thực tế nên đây là Regression, không phải Clustering hay Classification."
+  },
+  {
+   "id": "c6-q20",
+   "explanation": "Không có nhãn phân nhóm trước, chỉ cần nhóm khách hàng theo hành vi tương tự nên dùng Clustering (học không giám sát).\n• Classification và Regression đều đòi dữ liệu có nhãn"
+  },
+  {
+   "id": "c6-q21",
+   "explanation": "Giao dịch không được gán nhãn trước và cần phát hiện điểm khác thường nên dùng Anomaly Detection, kỹ thuật của học không giám sát.\n• Classification cần nhãn gian lận có sẵn"
+  },
+  {
+   "id": "c6-q22",
+   "explanation": "• Lọc dữ liệu (filtering)\n• Xử lý giá trị thiếu (missing values) và giá trị ngoại lai (outliers)\n• Mã hóa One-Hot Encoding cho thuộc tính phân loại\nTăng damping factor lên 0.85 là tham số của PageRank, không thuộc tiền xử lý"
+  },
+  {
+   "id": "c6-q23",
+   "explanation": "One-Hot Encoding chuyển thuộc tính phân loại (categorical) thành các cột nhị phân 0/1 để mô hình xử lý được.\n• Loại trùng lặp, chuẩn hóa số về [0,1] hay băm văn bản là kỹ thuật tiền xử lý khác",
+   "options": [
+    "Loại bỏ các dòng dữ liệu bị trùng lặp trong tập huấn luyện",
+    "Chuyển thuộc tính phân loại thành các cột nhị phân 0/1",
+    "Chuẩn hóa mọi giá trị số về cùng khoảng [0,1] chuẩn",
+    "Nén dữ liệu văn bản thô thành các mã băm ngắn"
+   ]
+  },
+  {
+   "id": "c6-q24",
+   "explanation": "Train-Test Split giữ lại một phần dữ liệu chưa từng dùng huấn luyện để đánh giá khách quan hiệu năng mô hình, tránh điểm số lạc quan do mô hình học thuộc dữ liệu.",
+   "options": [
+    "Giảm dung lượng lưu trữ của toàn bộ tập dữ liệu huấn luyện",
+    "Tăng tốc độ truy vấn SQL trực tiếp trên kho dữ liệu",
+    "Giữ một phần dữ liệu chưa dùng huấn luyện để đánh giá khách quan mô hình",
+    "Loại bỏ các giá trị ngoại lai khỏi tập dữ liệu huấn luyện"
+   ]
+  },
+  {
+   "id": "c6-q25",
+   "explanation": "k=5 nghĩa là chia dữ liệu thành 5 phần bằng nhau, lần lượt mỗi phần làm tập kiểm tra còn 4 phần huấn luyện, lặp 5 lần rồi tổng hợp kết quả để có đánh giá ổn định.",
+   "options": [
+    "Huấn luyện 5 mô hình khác nhau trên cùng toàn bộ dữ liệu rồi lấy mô hình tốt nhất",
+    "Chia dữ liệu thành 2 phần và lặp lại việc huấn luyện 5 lần trên phần train",
+    "Chọn ngẫu nhiên 5% dữ liệu làm tập kiểm tra cố định",
+    "Chia dữ liệu thành 5 phần bằng nhau, lần lượt mỗi phần làm tập kiểm tra, lặp 5 lần"
+   ]
+  },
+  {
+   "id": "c6-q26",
+   "explanation": "DNN (Deep Neural Network) là mạng nơ-ron nhiều tầng nên là đại diện tiêu biểu của Deep Learning.\n• Decision Tree, Random Forest và SVM đều thuộc nhóm Machine Learning truyền thống",
+   "options": [
+    "DNN (Deep Neural Network)",
+    "Decision Tree (cây quyết định)",
+    "SVM (Support Vector Machine)",
+    "Random Forest (rừng ngẫu nhiên)"
+   ]
+  },
+  {
+   "id": "c6-q27",
+   "explanation": "• Decision Tree (cây quyết định)\n• Random Forest (rừng ngẫu nhiên)\n• SVM (máy vector hỗ trợ)\nDNN là mạng nơ-ron sâu nên thuộc Deep Learning, không phải ML truyền thống"
+  },
+  {
+   "id": "c6-q28",
+   "explanation": "• Accuracy: tỷ lệ dự đoán đúng trên toàn bộ mẫu\n• Recall: tỷ lệ mẫu dương thực tế được phát hiện đúng\n• F1-Score: trung bình điều hòa của Precision và Recall\nOne-Hot Encoding là kỹ thuật tiền xử lý, không phải độ đo"
+  },
+  {
+   "id": "c6-q29",
+   "explanation": "Precision là tỷ lệ mẫu dương dự đoán đúng trên tổng số mẫu được mô hình dự đoán là dương, tức đo độ chính xác của các cảnh báo dương.\n• Đo mức phát hiện mẫu dương thực tế là Recall"
+  },
+  {
+   "id": "c6-q30",
+   "explanation": "Recall là tỷ lệ số mẫu dương thực tế được mô hình phát hiện đúng trên tổng số mẫu dương thực tế.\n• Precision lấy mẫu số là số mẫu mô hình dự đoán dương, khác Recall ở chỗ mẫu số",
+   "options": [
+    "Tỷ lệ dự đoán đúng trên tổng số mẫu của tập kiểm tra",
+    "Tỷ lệ mẫu được dự đoán dương trên toàn bộ tập dữ liệu",
+    "Trung bình cộng đơn giản của Precision và Accuracy",
+    "Tỷ lệ mẫu dương thực tế được mô hình phát hiện đúng"
+   ]
+  },
+  {
+   "id": "c6-q31",
+   "explanation": "F1-Score là trung bình điều hòa (harmonic mean) của Precision và Recall nên chỉ cao khi cả hai đều cao; nó không phải trung bình cộng, hiệu hay tích của các độ đo.",
+   "options": [
+    "Là trung bình điều hòa của Precision và Recall",
+    "Là trung bình cộng của Accuracy và Recall",
+    "Là hiệu số giữa Precision và Recall của mô hình",
+    "Là tích của Accuracy và Precision của mô hình"
+   ]
+  },
+  {
+   "id": "c6-q32",
+   "explanation": "Với dữ liệu mất cân bằng, Accuracy 99% vẫn đạt được nhờ đoán mọi giao dịch là hợp lệ, nên phải xem thêm Precision, Recall và F1-Score để thấy mô hình bỏ sót gian lận.",
+   "options": [
+    "Chỉ cần xem Accuracy là đủ để kết luận mô hình",
+    "Precision, Recall và F1-Score vì Accuracy gây hiểu nhầm",
+    "Chỉ cần xem Precision là đủ để kết luận mô hình",
+    "Chỉ cần Accuracy kèm thời gian huấn luyện mô hình"
+   ]
+  },
+  {
+   "id": "c6-q33",
+   "explanation": "Bỏ sót một ca gian lận gây thiệt hại lớn nên cần tối đa Recall, tức giảm thiểu số mẫu dương thực tế bị bỏ qua, dù phải chấp nhận nhiều cảnh báo nhầm làm Precision giảm.",
+   "options": [
+    "Accuracy",
+    "Precision",
+    "Recall",
+    "F1-Score"
+   ]
+  },
+  {
+   "id": "c6-q34",
+   "explanation": "CPT+ là viết tắt của Compact Prediction Tree Plus, thuật toán dự đoán chuỗi dựa trên cây nén các chuỗi huấn luyện.\n• Ba cụm còn lại chỉ ghép chữ cái cho giống viết tắt"
+  },
+  {
+   "id": "c6-q35",
+   "explanation": "• Prediction Tree (cây dự đoán): lưu chuỗi dưới dạng nén\n• Inverted Index (chỉ mục ngược): tìm nhánh chứa hậu tố\n• Lookup Table (bảng tra cứu): ánh xạ chuỗi tới nút cuối\nHash Partition là kỹ thuật phân mảnh, không thuộc CPT+"
+  },
+  {
+   "id": "c6-q36",
+   "explanation": "Prediction Tree lưu các chuỗi huấn luyện dưới dạng cây nén, các chuỗi có tiền tố chung dùng chung nhánh nên giảm mạnh bộ nhớ so với lưu rời từng chuỗi.",
+   "options": [
+    "Lưu chuỗi huấn luyện dạng cây nén, chuỗi chung tiền tố dùng chung nhánh",
+    "Đếm tần suất các phần tử xuất hiện ngay sau hậu tố trên cây",
+    "Lưu địa chỉ IP của từng người dùng truy cập website",
+    "Tính điểm PageRank cho từng nút của cây dự đoán"
+   ]
+  },
+  {
+   "id": "c6-q37",
+   "explanation": "Inverted Index cho biết mỗi phần tử xuất hiện trong những chuỗi (nhánh) nào, nhờ đó tìm nhanh các nhánh chứa chuỗi hậu tố cần dự đoán thay vì quét toàn bộ cây.",
+   "options": [
+    "Sắp xếp các chuỗi huấn luyện theo thứ tự giảm dần của độ dài",
+    "Cho biết mỗi phần tử nằm trong những nhánh nào để tìm nhanh hậu tố",
+    "Lưu kết quả dự đoán cuối cùng của toàn bộ mô hình",
+    "Mã hóa mỗi phần tử thành một vector nhị phân"
+   ]
+  },
+  {
+   "id": "c6-q38",
+   "explanation": "Lookup Table ánh xạ mỗi chuỗi huấn luyện tới nút cuối của nó trên Prediction Tree để truy hồi lại toàn bộ chuỗi khi cần, thay vì phải duyệt cây lại từ gốc.",
+   "options": [
+    "Đếm số nhánh có chứa chuỗi hậu tố cần dự đoán",
+    "Lưu ngưỡng epsilon để dừng vòng lặp hội tụ",
+    "Ánh xạ mỗi chuỗi tới nút cuối của nó trên cây để truy hồi chuỗi",
+    "Chuyển đổi nhãn danh mục thành giá trị số nguyên"
+   ]
+  },
+  {
+   "id": "c6-q39",
+   "explanation": "Hậu tố Py(s) là chuỗi con gồm y phần tử cuối cùng của chuỗi s, dùng làm ngữ cảnh để tra các chuỗi tương tự.\n• y phần tử đầu tiên là tiền tố, không phải hậu tố"
+  },
+  {
+   "id": "c6-q40",
+   "explanation": "Count Table đếm số lần các phần tử xuất hiện sau hậu tố trong các chuỗi tương tự, làm cơ sở ước lượng và chọn phần tử dự đoán; mẫu số là số nhánh chứa hậu tố.",
+   "options": [
+    "Đếm số lần phần tử xuất hiện sau hậu tố để ước lượng và chọn dự đoán",
+    "Đếm tổng số nút và số nhánh của cây Prediction Tree",
+    "Thống kê số lần người dùng đăng nhập vào hệ thống web",
+    "Lưu số vòng lặp cần thiết để PageRank hội tụ về ngưỡng"
+   ]
+  },
+  {
+   "id": "c6-q41",
+   "explanation": "• Dùng Inverted Index tìm các nhánh chứa chuỗi hậu tố\n• Đếm phần tử xuất hiện sau hậu tố vào Count Table\n• Chọn phần tử có giá trị ước lượng cao nhất làm dự đoán\nCập nhật trọng số bằng gradient descent không có trong CPT+"
+  },
+  {
+   "id": "c6-q42",
+   "explanation": "Mẫu số trong phép ước lượng phần tử chính là số nhánh chứa chuỗi hậu tố, không phải tổng số phần tử, độ dài chuỗi cần dự đoán hay tổng số nút của cây."
+  },
+  {
+   "id": "c6-q43",
+   "explanation": "F xuất hiện sau hậu tố ở 1 trong 3 nhánh chứa hậu tố <A,D> nên ước lượng = 1/3 ≈ 0.333; B và C có 2/3 ≈ 0.667 nên cao hơn F."
+  },
+  {
+   "id": "c6-q44",
+   "explanation": "C xuất hiện sau hậu tố <A,B> ở 2 trong 3 nhánh chứa hậu tố (S1, S2) nên ước lượng = 2/3 ≈ 0.667, cao hơn D chỉ 1/3 ≈ 0.333.\n• E không nằm trong nhánh nào chứa <A,B>",
+   "options": [
+    "C (ước lượng 0.667)",
+    "D (ước lượng 0.667)",
+    "E (ước lượng 1.0)",
+    "B (ước lượng 0.5)"
+   ]
+  },
+  {
+   "id": "c6-q45",
+   "explanation": "D xuất hiện sau hậu tố <A,B> ở 1 trong 3 nhánh chứa hậu tố (chỉ S3) nên ước lượng = 1/3 ≈ 0.333, thấp hơn C với 2/3 ≈ 0.667.",
+   "options": [
+    "0.25",
+    "0.333",
+    "0.5",
+    "0.667"
+   ]
+  },
+  {
+   "id": "c6-q46",
+   "explanation": "Hậu tố <X,Y> có trong 2 nhánh S1, S2; Z chỉ xuất hiện sau hậu tố ở S1 nên ước lượng = 1/2 = 0.5, bằng với T cũng đạt 1/2.",
+   "options": [
+    "0.333",
+    "0.25",
+    "0.5",
+    "1.0"
+   ]
+  },
+  {
+   "id": "c6-q47",
+   "explanation": "Ước lượng = số nhánh có K xuất hiện sau hậu tố chia số nhánh chứa hậu tố = 3/4 = 0.75; mẫu số là số nhánh chứa hậu tố, không phải số chuỗi hay số nút.",
+   "options": [
+    "0.25",
+    "0.333",
+    "0.5",
+    "0.75"
+   ]
+  },
+  {
+   "id": "c6-q48",
+   "explanation": "PageRank là thuật toán xếp hạng trang web của Google, dùng cấu trúc liên kết giữa các trang để đánh giá mức quan trọng của từng trang."
+  },
+  {
+   "id": "c6-q49",
+   "explanation": "Công thức đúng là PR(A) = (1−df) + df × Σ(PR(Ti)/C(Ti)): một phần ngẫu nhiên (1−df) cộng phần lan truyền theo liên kết đã chia cho số link ra của mỗi trang."
+  },
+  {
+   "id": "c6-q50",
+   "explanation": "Damping factor thường lấy df = 0.85, nghĩa là khoảng 85% trọng số lan theo liên kết, 15% còn lại lan ngẫu nhiên cho mọi trang."
+  },
+  {
+   "id": "c6-q51",
+   "explanation": "Ở bước khởi tạo (bước 0), mọi trang được gán PR = 1 như nhau, sau đó mới lặp để cập nhật dần cho tới khi hội tụ theo ngưỡng ε."
+  },
+  {
+   "id": "c6-q52",
+   "explanation": "C(Ti) là số liên kết trỏ ra (outbound links) của trang Ti, dùng để chia đều giá trị PR mà Ti truyền cho các trang mà nó trỏ tới."
+  },
+  {
+   "id": "c6-q53",
+   "explanation": "PR₁(F) = 1 − 0.85 + 0.85 × (PR₀(E)/C(E)) = 0.15 + 0.85 × (1/3) ≈ 0.43, với C(E)=3 và PR₀(E)=1.",
+   "options": [
+    "0.15",
+    "0.85",
+    "1.0",
+    "0.43"
+   ]
+  },
+  {
+   "id": "c6-q54",
+   "explanation": "Vòng lặp dừng khi độ chênh lệch PR giữa 2 vòng liên tiếp đạt ngưỡng ε (thường ε = 0.0001), tức đã hội tụ; không dừng theo số vòng cố định.",
+   "options": [
+    "Khi chênh lệch PR giữa 2 vòng lặp liên tiếp nhỏ hơn ε",
+    "Khi tất cả các giá trị PR đều hội tụ về bằng 1",
+    "Sau đúng 10 vòng lặp cố định do người dùng đặt",
+    "Khi damping factor giảm dần về 0 sau mỗi vòng"
+   ]
+  },
+  {
+   "id": "c6-q55",
+   "explanation": "Theo hình minh họa trên slide, PR(F) hội tụ về 3.9 sau khoảng 50 lần tính, khác với giá trị 0.43 chỉ là kết quả của riêng vòng lặp 1."
+  },
+  {
+   "id": "c6-q56",
+   "explanation": "PR₁(X) = 1 − 0.85 + 0.85 × (PR₀(A)/C(A) + PR₀(B)/C(B)) = 0.15 + 0.85 × (1/2 + 1/4) = 0.7875.",
+   "options": [
+    "0.575",
+    "0.6375",
+    "0.7875",
+    "0.85"
+   ]
+  },
+  {
+   "id": "c6-q57",
+   "explanation": "PR₁(K) = 0.15 + 0.85 × (PR₀(H)/C(H)) = 0.15 + 0.85 × (1/4) = 0.3625; K chỉ nhận phần PR của H đã chia cho 4 link trỏ ra.",
+   "options": [
+    "0.2125",
+    "0.25",
+    "0.575",
+    "0.3625"
+   ]
+  },
+  {
+   "id": "c6-q58",
+   "explanation": "PR₂(F) = 0.15 + 0.85 × (PR₁(E)/C(E)) = 0.15 + 0.85 × (0.6/3) = 0.15 + 0.17 = 0.32.",
+   "options": [
+    "0.17",
+    "0.32",
+    "0.43",
+    "0.62"
+   ]
+  },
+  {
+   "id": "c6-q59",
+   "explanation": "PR₁(Q) = 0.15 + 0.85 × (1/2 + 1/5 + 1/10) = 0.15 + 0.85 × 0.8 = 0.83, cộng dồn phần PR từ cả 3 trang trỏ tới Q.",
+   "options": [
+    "0.68",
+    "0.75",
+    "0.83",
+    "0.95"
+   ]
+  },
+  {
+   "id": "c6-q60",
+   "explanation": "• Thuật toán dự đoán chuỗi (Sequence Prediction, CPT+) dự đoán trang sẽ được truy cập\n• PageRank xếp hạng mức quan trọng của trang theo liên kết\nK-Means và Apriori không có trong nghiên cứu này"
+  },
+  {
+   "id": "c6-q61",
+   "explanation": "Theo nghiên cứu, website được chia thành 5 zones (vùng) khác nhau để mô hình hóa hành vi truy cập của người dùng trên từng khu vực."
+  },
+  {
+   "id": "c6-q62",
+   "explanation": "Trên bộ dữ liệu KOSARAK, độ chính xác dự đoán được cải thiện khoảng 30% khi kết hợp dự đoán chuỗi với PageRank."
+  },
+  {
+   "id": "c6-q63",
+   "explanation": "Trên bộ dữ liệu FIFA, mức cải thiện độ chính xác dự đoán khoảng 15%, thấp hơn con số khoảng 30% của bộ KOSARAK."
+  },
+  {
+   "id": "c6-q64",
+   "explanation": "• KOSARAK cải thiện khoảng 30%\n• MSNBC cải thiện khoảng 50%\nFIFA chỉ cải thiện khoảng 15%, không phải 50% như phương án còn lại"
+  },
+  {
+   "id": "c6-q65",
+   "explanation": "Use case là cải thiện độ chính xác của dự đoán rating (rating prediction) cho các hệ thống gợi ý (recommender systems), thuộc nhóm học có giám sát.",
+   "options": [
+    "Cải thiện độ chính xác của dự đoán rating cho hệ thống gợi ý",
+    "Dự báo giá cổ phiếu theo thời gian thực bằng mô hình chuỗi",
+    "Nhận dạng khuôn mặt người dùng trong ảnh chụp",
+    "Phân cụm các văn bản tin tức theo chủ đề"
+   ]
+  },
+  {
+   "id": "c6-q66",
+   "explanation": "Thứ tự đúng là thu thập dữ liệu, rồi tiền xử lý các unrevised ratings, rồi sinh các ratings mới, cuối cùng mới đánh giá rating prediction và Top-K Recommendation.",
+   "options": [
+    "Sinh ratings mới → Thu thập dữ liệu → Đánh giá → Tiền xử lý unrevised ratings",
+    "Thu thập dữ liệu → Tiền xử lý unrevised ratings → Sinh ratings mới → Đánh giá",
+    "Đánh giá Top-K Recommendation → Sinh ratings mới → Thu thập dữ liệu → Tiền xử lý",
+    "Tiền xử lý unrevised ratings → Thu thập dữ liệu → Đánh giá → Sinh ratings mới"
+   ]
+  },
+  {
+   "id": "c6-q67",
+   "explanation": "Bước đánh giá cuối cùng đo cả rating prediction và Top-K Recommendation để biết mô hình dự đoán điểm số và gợi ý danh sách tốt đến đâu."
+  },
+  {
+   "id": "c6-q68",
+   "explanation": "BigQuery ML cho phép xây dựng mô hình Học máy bằng cú pháp SQL chuẩn mà không cần viết mã Python phức tạp, dữ liệu vẫn nằm trong kho dữ liệu."
+  },
+  {
+   "id": "c6-q69",
+   "explanation": "CREATE MODEL khởi tạo và bắt đầu huấn luyện mô hình, ví dụ chọn thuật toán LOGISTIC-REG hoặc LINEAR-REG.\n• ML.EVALUATE trích xuất chỉ số đánh giá, ML.PREDICT dự báo trên bảng dữ liệu mới",
+   "options": [
+    "Xóa mô hình cũ ra khỏi hệ thống lưu trữ",
+    "Khởi tạo và bắt đầu huấn luyện mô hình mới",
+    "Trích xuất các chỉ số đánh giá của mô hình",
+    "Gọi mô hình để dự báo trên bảng dữ liệu mới"
+   ]
+  }
+ ]
+}

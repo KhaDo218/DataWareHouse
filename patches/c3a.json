@@ -1,0 +1,599 @@
+{
+ "chunk": "c3a",
+ "items": [
+  {
+   "id": "c3-q1",
+   "explanation": "ETL truyền thống buộc phải định nghĩa xong toàn bộ luồng biến đổi rồi mới nạp vào kho, nên cấu trúc rất cứng nhắc.\n• Định nghĩa cấu trúc tại thời điểm truy vấn (Schema-on-read) là đặc trưng của Cloud-Native ELT, không phải ETL",
+   "options": [
+    "Cho phép định nghĩa cấu trúc dữ liệu ngay tại thời điểm truy vấn",
+    "Cấu trúc cứng nhắc, phải định nghĩa toàn bộ luồng biến đổi trước khi nạp",
+    "Chỉ hỗ trợ dữ liệu phi cấu trúc và bán cấu trúc khi nạp vào kho",
+    "Tự động thích ứng ngay khi lược đồ của hệ thống nguồn thay đổi"
+   ]
+  },
+  {
+   "id": "c3-q2",
+   "explanation": "ETL truyền thống chạy trên các máy chủ ETL trung gian đặt riêng nên phụ thuộc vào phần cứng máy chủ. Kho đối tượng trên Cloud, Serverless hay message queue đều là thành phần của kiến trúc Cloud-Native."
+  },
+  {
+   "id": "c3-q3",
+   "explanation": "Mỗi khi hệ thống nguồn thay đổi, kỹ sư lại phải viết lại các đoạn logic biến đổi ở tầng trung gian, nên công bảo trì rất lớn.\n• SQL không có phí bản quyền; chi phí đắt nằm ở công sức sửa logic, không phải giấy phép",
+   "options": [
+    "Vì phải viết lại logic trung gian mỗi khi nguồn thay đổi",
+    "Vì phải trả phí bản quyền ngôn ngữ truy vấn SQL rất cao",
+    "Vì phải lưu trữ và sao lưu toàn bộ dữ liệu thô trong kho",
+    "Vì chi phí Auto-scaling tài nguyên máy chủ luôn tăng cao"
+   ]
+  },
+  {
+   "id": "c3-q4",
+   "explanation": "ETL truyền thống tạo nút thắt cổ chai gây độ trễ cao khi dữ liệu lớn, và rất khó mở rộng quy mô linh hoạt.\n• Tách biệt Storage/Compute và Schema-on-read là ưu điểm của Cloud-Native ELT, không phải hạn chế của ETL"
+  },
+  {
+   "id": "c3-q5",
+   "explanation": "ELT nạp thẳng dữ liệu thô vào Data Lake/Warehouse trước, sau đó mới biến đổi tại chỗ (in-place transform) bằng sức mạnh tính toán của Cloud."
+  },
+  {
+   "id": "c3-q6",
+   "explanation": "In-place Transform là biến đổi ngay tại nơi lưu trữ nhờ sức mạnh Cloud computing, không đẩy dữ liệu qua máy chủ trung gian. Đây là điểm khác cốt lõi so với ETL truyền thống."
+  },
+  {
+   "id": "c3-q7",
+   "explanation": "Schema-on-read nghĩa là cấu trúc dữ liệu chỉ được định nghĩa tại thời điểm truy vấn, thay vì khai báo trước khi nạp như ETL. Không phải là bỏ hẳn việc định nghĩa cấu trúc."
+  },
+  {
+   "id": "c3-q8",
+   "explanation": "Tách biệt hoàn toàn Storage và Compute cho phép mở rộng độc lập từng thành phần: tăng dung lượng lưu trữ mà không cần nâng cấu hình tính toán, và ngược lại."
+  },
+  {
+   "id": "c3-q9",
+   "explanation": "Giữ lại dữ liệu thô trong kho giúp hỗ trợ tối đa cho AI và Machine Learning, vì mô hình cần dữ liệu gốc chi tiết chứ không chỉ dữ liệu đã tổng hợp."
+  },
+  {
+   "id": "c3-q10",
+   "explanation": "Nạp dữ liệu thô trực tiếp vào Data Lake/Warehouse trước khi xử lý.\n• Hỗ trợ Schema-on-read, định nghĩa cấu trúc tại thời điểm truy vấn.\n• Biến đổi trước khi nạp và phụ thuộc máy chủ trung gian là đặc điểm của ETL truyền thống"
+  },
+  {
+   "id": "c3-q11",
+   "explanation": "ELT tối ưu chi phí nhờ mô hình Pay-as-you-go: chỉ trả cho tài nguyên thực dùng. Trả trước trọn gói hay mua đứt phần cứng là cách của hạ tầng truyền thống.",
+   "options": [
+    "Trả trước trọn gói cho cả năm sử dụng dịch vụ",
+    "Thanh toán theo mức tài nguyên dùng thực tế (Pay-as-you-go)",
+    "Mua đứt phần cứng máy chủ rồi tự vận hành tại chỗ",
+    "Phí thuê bao cố định hàng tháng không thay đổi theo tải"
+   ]
+  },
+  {
+   "id": "c3-q12",
+   "explanation": "Trong ELT, dữ liệu đi thẳng vào kho nên không phải di chuyển qua các máy chủ ETL trung gian, nhờ đó giảm bớt bề mặt rủi ro và nguy cơ rò rỉ dữ liệu."
+  },
+  {
+   "id": "c3-q13",
+   "explanation": "Hệ sinh thái SQL phổ biến giúp giảm thiểu sự phụ thuộc vào các công cụ kéo thả độc quyền, đồng thời tận dụng được kỹ năng sẵn có của đội ngũ."
+  },
+  {
+   "id": "c3-q14",
+   "explanation": "Tận dụng sức mạnh xử lý song song để thực thi các câu lệnh SQL với tốc độ cực nhanh.\n• Có khả năng Auto-scaling tài nguyên đáp ứng linh hoạt các mức tải.\n• Đầu tư phần cứng đắt tiền và gom lô chạy hàng đêm là hạn chế của ETL truyền thống"
+  },
+  {
+   "id": "c3-q15",
+   "explanation": "Bronze lưu trữ toàn bộ dữ liệu thô nguyên bản, chưa qua xử lý từ các nguồn, làm bản sao nguồn để có thể re-run pipeline về sau.",
+   "options": [
+    "Dữ liệu đã được tổng hợp và sẵn sàng phục vụ báo cáo BI",
+    "Dữ liệu đã được chuẩn hóa, làm sạch và lọc bản ghi rác",
+    "Chỉ lưu trữ phần metadata mô tả cấu trúc các bảng",
+    "Toàn bộ dữ liệu thô nguyên bản, chưa qua xử lý từ các nguồn"
+   ]
+  },
+  {
+   "id": "c3-q16",
+   "explanation": "Silver chứa dữ liệu đã được chuẩn hóa, làm sạch và lọc bỏ các bản ghi rác, làm bước đệm trước khi tổng hợp cho báo cáo.",
+   "options": [
+    "Dữ liệu thô nguyên bản, hoàn toàn chưa được xử lý lần nào",
+    "Dữ liệu đã được chuẩn hóa, làm sạch và lọc bỏ các bản ghi rác",
+    "Dữ liệu đã tổng hợp, sẵn sàng cho báo cáo và phân tích",
+    "Dữ liệu đã được nén, mã hóa toàn bộ để tiết kiệm chỗ"
+   ]
+  },
+  {
+   "id": "c3-q17",
+   "explanation": "Gold chứa dữ liệu đã được tổng hợp, sẵn sàng phục vụ báo cáo BI và phân tích cho người dùng nghiệp vụ.",
+   "options": [
+    "Lưu trữ bản sao dự phòng cho toàn bộ hệ thống nguồn dữ liệu",
+    "Chứa các bản ghi rác, dữ liệu lỗi cần được lọc bỏ trước",
+    "Dữ liệu được tổng hợp, sẵn sàng phục vụ báo cáo BI và phân tích",
+    "Lưu trữ log vận hành và nhật ký lỗi của toàn hệ thống"
+   ]
+  },
+  {
+   "id": "c3-q18",
+   "explanation": "Lớp Bronze vẫn giữ dữ liệu thô nguyên bản nên có thể re-run pipeline từ đó để tính lại Silver/Gold khi phát hiện lỗi.\n• Sửa số liệu tay trên dashboard chỉ che lỗi, không khắc phục được gốc",
+   "options": [
+    "Re-run pipeline từ lớp Bronze vì vẫn giữ dữ liệu thô nguyên bản",
+    "Xóa toàn bộ kho dữ liệu và nạp lại từ hệ thống nguồn",
+    "Chỉnh sửa số liệu thủ công trực tiếp trên dashboard báo cáo",
+    "Không thể khắc phục nên buộc phải chấp nhận sai số đó"
+   ]
+  },
+  {
+   "id": "c3-q19",
+   "explanation": "CDC là nhóm kỹ thuật nhận diện và nắm bắt các thay đổi từ hệ thống CSDL nguồn để đồng bộ sang kho dữ liệu.",
+   "options": [
+    "Kỹ thuật nén dữ liệu ngay tại hệ thống nguồn trước khi truyền",
+    "Nhóm kỹ thuật nhận diện và nắm bắt các thay đổi từ hệ thống CSDL nguồn",
+    "Công cụ dựng dashboard và báo cáo thời gian thực cho ban lãnh đạo",
+    "Phương pháp mã hóa dữ liệu khi truyền tải qua mạng"
+   ]
+  },
+  {
+   "id": "c3-q20",
+   "explanation": "CDC quản lý ba thao tác làm thay đổi dữ liệu: INSERT, UPDATE và DELETE.\n• SELECT chỉ đọc dữ liệu, không tạo ra thay đổi nào nên không cần bắt"
+  },
+  {
+   "id": "c3-q21",
+   "explanation": "Log-based CDC đọc trực tiếp từ Redo logs của CSDL thay vì quét truy vấn, nên bắt được mọi thay đổi đã được ghi vào log."
+  },
+  {
+   "id": "c3-q22",
+   "explanation": "Vì chỉ đọc Redo logs nên Log-based CDC gần như không ảnh hưởng đến hiệu suất CSDL nguồn.\n• Quét bảng liên tục và khóa bảng là nhược điểm của Query-based CDC",
+   "options": [
+    "Gần như không làm ảnh hưởng đến hiệu suất của cơ sở dữ liệu nguồn",
+    "Làm chậm đáng kể vì phải quét toàn bộ bảng liên tục",
+    "Khóa toàn bộ bảng trong suốt quá trình đồng bộ dữ liệu",
+    "Làm tăng gấp đôi tải CPU của hệ thống nguồn mỗi lần chạy"
+   ]
+  },
+  {
+   "id": "c3-q23",
+   "explanation": "CDC đọc từ Redo logs nên gần như đồng bộ tức thời; slide nêu độ trễ chỉ tính bằng mili giây, đạt chuẩn real-time chứ không phải vài giờ hay vài ngày.",
+   "options": [
+    "Vài giờ đồng bộ một lần",
+    "Vài ngày đồng bộ một lần",
+    "Vài chục phút đồng bộ một lần",
+    "Chỉ tính bằng mili giây"
+   ]
+  },
+  {
+   "id": "c3-q24",
+   "explanation": "Query-based CDC phải liên tục thực hiện lệnh truy vấn quét bảng để dò thay đổi nên gây nặng hệ thống nguồn; Log-based chỉ đọc Redo logs nên tải cực nhẹ."
+  },
+  {
+   "id": "c3-q25",
+   "explanation": "Query-based chỉ quét bảng theo chu kỳ nên rất khó phát hiện bản ghi đã bị Hard Delete; Log-based đọc Redo logs nên ghi nhận việc xóa tức thì và chính xác.\n• Không phải cả hai cơ chế đều mù với thao tác DELETE",
+   "options": [
+    "Query-based CDC ghi nhận việc xóa tức thì và chính xác",
+    "Cả hai cơ chế CDC đều không thể phát hiện thao tác xóa",
+    "Query-based khó thấy bản ghi bị Hard Delete; Log-based thấy xóa tức thì",
+    "Log-based CDC luôn bỏ qua mọi thao tác DELETE"
+   ]
+  },
+  {
+   "id": "c3-q26",
+   "explanation": "Query-based chỉ thấy trạng thái tại thời điểm quét nên dễ sai lệch hoặc bỏ sót nếu dữ liệu đổi quá nhanh giữa hai chu kỳ; Log-based đọc log nên không bỏ sót.",
+   "options": [
+    "Query-based dễ sai lệch hoặc bỏ sót, Log-based không bỏ sót",
+    "Log-based CDC bỏ sót nhiều dữ liệu hơn Query-based",
+    "Cả hai cơ chế đều bỏ sót dữ liệu như nhau",
+    "Không cơ chế nào bị ảnh hưởng bởi tốc độ thay đổi"
+   ]
+  },
+  {
+   "id": "c3-q27",
+   "explanation": "Query-based là CDC kiểu batch nên độ trễ phụ thuộc vào chu kỳ lên lịch quét, ví dụ mỗi 5 phút hay 1 giờ; tốc độ ghi Redo logs là yếu tố của Log-based."
+  },
+  {
+   "id": "c3-q28",
+   "explanation": "Log-based khó cấu hình ban đầu nhưng cực kỳ ổn định về dài hạn.\n• Query-based dễ thiết lập vì chỉ cần viết SQL, nhưng kém ổn định và khó tối ưu khi dữ liệu mở rộng.\n• Log-based không hề kém ổn định khi khối lượng dữ liệu tăng"
+  },
+  {
+   "id": "c3-q29",
+   "explanation": "Log-based CDC có tải hệ thống cực kỳ nhẹ và độ trễ đạt chuẩn real-time, tính bằng mili giây.\n• Dễ viết SQL và bị trễ theo chu kỳ quét bảng là đặc điểm của Query-based CDC"
+  },
+  {
+   "id": "c3-q30",
+   "explanation": "Query-based dễ thiết lập vì chỉ cần viết SQL, rất khó phát hiện bản ghi bị Hard Delete và gây nặng hệ thống do phải liên tục quét bảng.\n• Đảm bảo không bỏ sót là ưu điểm của Log-based"
+  },
+  {
+   "id": "c3-q31",
+   "explanation": "Ngân hàng cần real-time, tải nguồn thấp và ghi nhận chính xác bản ghi bị xóa nên Log-based CDC là lựa chọn phù hợp nhất.\n• Query-based dễ làm nhưng gây nặng OLTP, trễ theo chu kỳ và khó thấy Hard Delete",
+   "options": [
+    "Query-based CDC vì dễ thiết lập ban đầu bằng SQL",
+    "Xuất file CSV thủ công hàng đêm để nạp vào kho",
+    "Log-based CDC vì tải nhẹ, bắt được xóa, trễ mili giây",
+    "Lên lịch quét bảng mỗi giờ một lần để dò thay đổi"
+   ]
+  },
+  {
+   "id": "c3-q32",
+   "explanation": "CDC giúp đồng bộ trạng thái nhanh chóng và nhất quán giữa các dịch vụ phân tán trong kiến trúc Microservices, nhờ luồng thay đổi được phát đi liên tục.",
+   "options": [
+    "Đồng bộ trạng thái nhanh chóng và nhất quán giữa các dịch vụ phân tán",
+    "Thay thế hoàn toàn vai trò của API gateway trong hệ thống",
+    "Cân bằng tải giữa các container khi lưu lượng truy cập tăng cao",
+    "Nén thông điệp trao đổi giữa các dịch vụ để giảm băng thông"
+   ]
+  },
+  {
+   "id": "c3-q33",
+   "explanation": "CDC cấp dữ liệu mới liên tục cho các báo cáo điều hành của ban lãnh đạo, nhờ đó dashboard phản ánh tình hình gần thời gian thực.\n• CDC không tự vẽ biểu đồ hay thay thế công cụ BI",
+   "options": [
+    "Tự động vẽ mọi loại biểu đồ mà không cần cấu hình",
+    "Cấp dữ liệu mới liên tục cho các báo cáo điều hành của ban lãnh đạo",
+    "Giảm số lượng dashboard cần xây dựng cho mỗi phòng ban",
+    "Thay thế hoàn toàn công cụ BI đang dùng trong doanh nghiệp"
+   ]
+  },
+  {
+   "id": "c3-q34",
+   "explanation": "Trong Cloud Migration, CDC hỗ trợ chuyển đổi dữ liệu lên Cloud mà không gây gián đoạn (Zero-downtime) vì dữ liệu được đồng bộ liên tục trong lúc hệ thống cũ vẫn chạy.",
+   "options": [
+    "Giảm phí bản quyền nền tảng Cloud khi di chuyển dữ liệu",
+    "Tự động lựa chọn nhà cung cấp Cloud tốt nhất cho doanh nghiệp",
+    "Tự động mã hóa toàn bộ dữ liệu trong lúc di chuyển lên Cloud",
+    "Hỗ trợ chuyển đổi dữ liệu lên Cloud mà không gây gián đoạn (Zero-downtime)"
+   ]
+  },
+  {
+   "id": "c3-q35",
+   "explanation": "Audit Trails lưu chi tiết lịch sử mọi thao tác thay đổi để phục vụ kiểm toán nội bộ.\n• Fraud Detection nhận diện và ngăn chặn gian lận dựa trên chuỗi hành vi thời gian thực.\n• CDC không thay thế kho dữ liệu doanh nghiệp"
+  },
+  {
+   "id": "c3-q36",
+   "explanation": "Debezium là nền tảng mã nguồn mở, hoạt động dựa trên cơ sở Apache Kafka Connect để bắt thay đổi từ CSDL nguồn.",
+   "options": [
+    "Nền tảng mã nguồn mở, hoạt động dựa trên cơ sở Apache Kafka Connect",
+    "Dịch vụ SaaS thương mại mã đóng do một hãng cung cấp",
+    "Kho dữ liệu Cloud chuyên dụng cho phân tích của doanh nghiệp",
+    "Công cụ trực quan hóa dashboard cho đội ngũ phân tích dữ liệu"
+   ]
+  },
+  {
+   "id": "c3-q37",
+   "explanation": "FiveTran là giải pháp SaaS thương mại giúp tự động hóa và đơn giản hóa hoàn toàn luồng CDC, không phải công cụ mã nguồn mở hay tính năng của Snowflake.",
+   "options": [
+    "Nền tảng mã nguồn mở xây dựng trên Apache Kafka Connect",
+    "Dịch vụ Cloud chuyên dụng của Amazon để đồng bộ liên tục",
+    "Giải pháp SaaS thương mại tự động và đơn giản hóa toàn bộ luồng CDC",
+    "Tính năng theo dõi thay đổi có sẵn bên trong Snowflake Streams"
+   ]
+  },
+  {
+   "id": "c3-q38",
+   "explanation": "Snowflake Streams theo dõi thay đổi bên trong kho dữ liệu.\n• AWS DMS là dịch vụ Cloud chuyên dụng của Amazon để di chuyển và đồng bộ dữ liệu liên tục.\n• Qlik Replicate mạnh về Legacy data; Debezium là mã nguồn mở chứ không phải SaaS đóng"
+  },
+  {
+   "id": "c3-q39",
+   "explanation": "Zero-ETL là phương thức tích hợp dữ liệu trực tiếp mà không cần xây dựng code pipeline trung gian, nên còn được gọi là tích hợp dữ liệu no-code.",
+   "options": [
+    "Quy trình ETL chạy tự động theo lịch vào ban đêm",
+    "Kỹ thuật giảm dung lượng lưu trữ dữ liệu về gần bằng 0",
+    "Phương thức tích hợp dữ liệu trực tiếp, không cần code pipeline trung gian",
+    "Công cụ tự động xóa dữ liệu khi hết thời hạn lưu trữ"
+   ]
+  },
+  {
+   "id": "c3-q40",
+   "explanation": "Tính tự động hóa của Zero-ETL thể hiện ở việc hệ thống tự mapping và đồng bộ cấu trúc dữ liệu từ nguồn đến đích, người dùng không phải viết code pipeline.",
+   "options": [
+    "Hệ thống tự động mapping và đồng bộ cấu trúc dữ liệu từ nguồn đến đích",
+    "Tự động viết code Python cho toàn bộ pipeline dữ liệu",
+    "Tự động sinh dashboard báo cáo cho người dùng cuối",
+    "Tự động huấn luyện các mô hình ML từ dữ liệu nguồn"
+   ]
+  },
+  {
+   "id": "c3-q41",
+   "explanation": "Zero-ETL loại bỏ hoàn toàn khâu trung gian nên giảm thiểu tối đa các failure point, nhờ đó tính ổn định cao hơn hẳn kiến trúc có máy chủ ETL trung gian.",
+   "options": [
+    "Vì sử dụng phần cứng chuyên dụng đắt tiền hơn hẳn",
+    "Vì luôn có đội kỹ sư trực vận hành 24/7 tại chỗ",
+    "Vì dữ liệu luôn được sao lưu thành ba bản độc lập",
+    "Vì loại bỏ hoàn toàn khâu trung gian nên giảm tối đa failure point"
+   ]
+  },
+  {
+   "id": "c3-q42",
+   "explanation": "Proprietary Connectors là các liên kết được chính các Cloud Platform tối ưu hóa ở mức độ sâu, cho tốc độ và độ ổn định cao hơn connector thông thường."
+  },
+  {
+   "id": "c3-q43",
+   "explanation": "Metadata Sharing áp dụng cơ chế chia sẻ trực tiếp siêu dữ liệu cấu trúc ở cấp độ lưu trữ, không phải sao chép dữ liệu thật sang hệ thống khác."
+  },
+  {
+   "id": "c3-q44",
+   "explanation": "Storage Mirroring là kỹ thuật nhân bản dữ liệu tự động và liên tục ở tầng hệ thống vật lý, không phải sao lưu thủ công hay nén ở tầng ứng dụng.",
+   "options": [
+    "Nhân bản dữ liệu tự động và liên tục ở tầng hệ thống vật lý",
+    "Nén dữ liệu ngay tại tầng ứng dụng trước khi lưu trữ",
+    "Vẽ sơ đồ cấu trúc hệ thống lưu trữ của doanh nghiệp",
+    "Sao lưu dữ liệu thủ công theo chu kỳ hàng tuần"
+   ]
+  },
+  {
+   "id": "c3-q45",
+   "explanation": "Serverless Scaling tự động mở rộng năng lực đồng bộ khi khối lượng dữ liệu tăng cao.\n• Unified Control Plane giám sát và quản lý toàn bộ luồng tích hợp trên một bảng điều khiển duy nhất.\n• Máy chủ ETL trung gian và code mapping thủ công là cách làm cũ"
+  },
+  {
+   "id": "c3-q46",
+   "explanation": "Zero-ETL giải phóng kỹ sư dữ liệu khỏi các tác vụ xây dựng và bảo trì pipeline, để họ dồn sức cho phân tích.",
+   "options": [
+    "Thuê thêm nhiều kỹ sư dữ liệu cho từng hệ thống nguồn",
+    "Giải phóng kỹ sư dữ liệu khỏi việc xây dựng và bảo trì pipeline",
+    "Chuyển toàn bộ công việc tích hợp sang cho đội ngũ BI",
+    "Cắt giảm số lượng nguồn dữ liệu cần tích hợp trong doanh nghiệp"
+   ]
+  },
+  {
+   "id": "c3-q47",
+   "explanation": "Rút ngắn tối đa Time-to-Insight từ lúc phát sinh dữ liệu đến khi phân tích.\n• Data Engineer tập trung vào logic phân tích thay vì thiết lập hạ tầng.\n• Giảm đáng kể tổng chi phí sở hữu hệ thống (TCO); tăng chi phí nhân sự là sai"
+  },
+  {
+   "id": "c3-q48",
+   "explanation": "Độ tin cậy của Zero-ETL được bảo đảm bởi chính các nhà cung cấp Cloud, vì họ trực tiếp vận hành dịch vụ và cam kết SLA thay cho doanh nghiệp.",
+   "options": [
+    "Được vận hành và bảo đảm SLA trực tiếp bởi các nhà cung cấp Cloud",
+    "Bởi đội DevOps nội bộ của chính doanh nghiệp sử dụng dịch vụ",
+    "Bởi cộng đồng mã nguồn mở đứng sau nền tảng tích hợp đó",
+    "Bởi một bên kiểm toán độc lập thứ ba được thuê để giám sát"
+   ]
+  },
+  {
+   "id": "c3-q49",
+   "explanation": "Tự chủ hóa dữ liệu nghĩa là người dùng phi kỹ thuật cũng có thể dễ dàng tự cấu hình các luồng tích hợp đơn giản, không cần chờ đội kỹ thuật.",
+   "options": [
+    "Dữ liệu tự quản trị bằng công nghệ blockchain và hợp đồng thông minh",
+    "Chỉ CTO mới được phép cấu hình các luồng dữ liệu của doanh nghiệp",
+    "Người dùng phi kỹ thuật cũng tự cấu hình được luồng tích hợp đơn giản",
+    "Dữ liệu tự động xóa khi hết thời hạn lưu trữ đã đăng ký trước"
+   ]
+  },
+  {
+   "id": "c3-q50",
+   "explanation": "Vendor Lock-in là rủi ro bị phụ thuộc vào hệ sinh thái của một nhà cung cấp nền tảng Cloud duy nhất, khiến việc chuyển đổi về sau rất tốn kém.",
+   "options": [
+    "Bị khóa tài khoản do vi phạm điều khoản sử dụng dịch vụ",
+    "Bị phụ thuộc vào hệ sinh thái của một nhà cung cấp Cloud duy nhất",
+    "Mất quyền sở hữu dữ liệu về mặt pháp lý khi dùng dịch vụ Cloud",
+    "Bị tăng giá phần cứng máy chủ do nhà cung cấp điều chỉnh"
+   ]
+  },
+  {
+   "id": "c3-q51",
+   "explanation": "Zero-ETL hoàn toàn không phù hợp với dữ liệu nguồn bẩn cần làm sạch và biến đổi phức tạp.\n• Phát sinh chi phí ẩn khi đồng bộ lượng dữ liệu quá lớn.\n• Khó triển khai cho On-premise dù chạy rất tốt giữa các Cloud"
+  },
+  {
+   "id": "c3-q52",
+   "explanation": "Không phù hợp: Zero-ETL không thích hợp với dữ liệu bẩn cần biến đổi phức tạp và gặp rào cản khi triển khai On-premise.\n• Hai hạn chế này nằm đúng trong danh sách nhược điểm của Zero-ETL",
+   "options": [
+    "Rất phù hợp vì Zero-ETL tự động làm sạch mọi dữ liệu nguồn",
+    "Phù hợp vì Zero-ETL hỗ trợ môi trường On-premise tốt nhất",
+    "Phù hợp nếu doanh nghiệp tăng băng thông mạng truyền dữ liệu",
+    "Không phù hợp vì dữ liệu bẩn và rào cản triển khai On-premise"
+   ]
+  },
+  {
+   "id": "c3-q53",
+   "explanation": "Slide ví Orchestration như nhạc trưởng điều khiển các tác vụ, đảm bảo từng bước chạy đúng trình tự và điều kiện."
+  },
+  {
+   "id": "c3-q54",
+   "explanation": "Khi một tác vụ thất bại, công cụ Orchestration tự động Retry và gửi cảnh báo cho đội vận hành, thay vì bỏ qua hoặc dừng vĩnh viễn cả hệ thống."
+  },
+  {
+   "id": "c3-q55",
+   "explanation": "Khả năng kiểm toán thể hiện ở việc ghi nhận chính xác lịch sử thực thi, bao gồm ai đã kích hoạt và vào thời điểm cụ thể nào.",
+   "options": [
+    "Tự động lập báo cáo tài chính theo từng quý cho doanh nghiệp",
+    "Ghi nhận chính xác lịch sử thực thi: ai kích hoạt và vào thời điểm nào",
+    "Mã hóa toàn bộ log thực thi để không ai đọc được nội dung",
+    "Ẩn danh người kích hoạt pipeline để bảo vệ thông tin cá nhân"
+   ]
+  },
+  {
+   "id": "c3-q56",
+   "explanation": "Orchestration đảm bảo các bước xử lý thực thi đúng trình tự và điều kiện đã thiết lập.\n• Cung cấp cái nhìn tổng thể trực quan về toàn bộ data flow của doanh nghiệp.\n• Làm sạch dữ liệu và thay thế Data Warehouse không thuộc vai trò này"
+  },
+  {
+   "id": "c3-q57",
+   "explanation": "Directed nghĩa là dòng chảy công việc luôn diễn ra theo một chiều xác định từ đầu vào đến đầu ra, không có tác vụ chạy ngược hay ngẫu nhiên.",
+   "options": [
+    "Các tác vụ được thực thi theo thứ tự ngẫu nhiên mỗi lần chạy",
+    "Đồ thị có thể quay vòng về điểm xuất phát ban đầu của nó",
+    "Mọi tác vụ trong đồ thị đều phải chạy song song với nhau",
+    "Dòng chảy công việc luôn đi một chiều xác định từ vào đến ra"
+   ]
+  },
+  {
+   "id": "c3-q58",
+   "explanation": "Acyclic nghĩa là đồ thị không có chu trình, nhờ đó loại bỏ hoàn toàn các vòng lặp vô hạn có thể gây treo hệ thống dữ liệu.",
+   "options": [
+    "Cho phép lặp vô hạn để thử lại tác vụ khi bị lỗi",
+    "Loại bỏ hoàn toàn các vòng lặp vô hạn có thể gây treo hệ thống",
+    "Chạy các tác vụ theo chu kỳ lịch cố định đã đăng ký",
+    "Không cho phép pipeline có nhánh rẽ ra nhiều hướng khác nhau"
+   ]
+  },
+  {
+   "id": "c3-q59",
+   "explanation": "Slide nêu ví dụ lớp Gold chỉ được phép thực thi sau khi lớp Silver đã hoàn tất, đúng thứ tự Bronze → Silver → Gold.",
+   "options": [
+    "Lớp Gold chỉ được thực thi sau khi lớp Silver đã hoàn tất",
+    "Lớp Bronze phải chạy sau khi lớp Gold đã chạy xong hoàn toàn",
+    "Lớp Silver và lớp Gold luôn phải chạy đồng thời với nhau",
+    "Lớp Gold chạy trước để tiết kiệm thời gian xử lý cho hệ thống"
+   ]
+  },
+  {
+   "id": "c3-q60",
+   "explanation": "DAG tự động nhận diện và phân bổ các tác vụ độc lập (không phụ thuộc nhau) để thực thi cùng lúc, nhờ đó rút ngắn thời gian chạy pipeline."
+  },
+  {
+   "id": "c3-q61",
+   "explanation": "Tính Module hóa cho phép chia nhỏ pipeline thành các khối logic để tái sử dụng nhiều lần.\n• Thuộc tính Acyclic giúp loại bỏ các vòng lặp vô hạn gây treo hệ thống.\n• Vòng lặp để retry và việc Gold chạy trước Silver đều sai"
+  },
+  {
+   "id": "c3-q62",
+   "explanation": "Task-centric là tư duy truyền thống tập trung giám sát các tác vụ đang chạy, ví dụ điển hình là Apache Airflow."
+  },
+  {
+   "id": "c3-q63",
+   "explanation": "Asset-centric là tư duy hiện đại tập trung vào quản lý tài sản dữ liệu nào được tạo ra, với Dagster là ví dụ tiêu biểu."
+  },
+  {
+   "id": "c3-q64",
+   "explanation": "Trong xu hướng Asset-centric, người ta ưu tiên theo dõi nguồn gốc (Lineage) và trạng thái dữ liệu hơn là chỉ quan tâm câu lệnh chạy thành công hay thất bại."
+  },
+  {
+   "id": "c3-q65",
+   "explanation": "Apache Airflow là tiêu chuẩn công nghiệp cực kỳ phổ biến với hàng nghìn thư viện kết nối đa dạng, không phải công cụ CDC hay dịch vụ Serverless.",
+   "options": [
+    "Nền tảng điều phối tích hợp sâu AI để sinh mã nguồn tự động",
+    "Dịch vụ Serverless do Google cung cấp cho môi trường Cloud",
+    "Tiêu chuẩn công nghiệp phổ biến với hàng nghìn thư viện kết nối",
+    "Công cụ CDC mã nguồn mở dựa trên Apache Kafka Connect"
+   ]
+  },
+  {
+   "id": "c3-q66",
+   "explanation": "Mage.ai dùng AI để sinh mã nguồn và dự đoán lỗi.\n• AWS Step Functions hoặc Google Workflows dành cho hệ thống Serverless.\n• Dagster và Prefect là thế hệ mới tối ưu lập trình Python; Airflow là Task-centric"
+  },
+  {
+   "id": "c3-q67",
+   "explanation": "Batch là gom khối lượng lớn dữ liệu để xử lý đồng loạt theo chu kỳ thời gian định sẵn (hàng đêm, hàng tuần).\n• Xử lý ngay khi sự kiện phát sinh là Streaming, không phải Batch",
+   "options": [
+    "Xử lý từng sự kiện ngay khi chúng vừa phát sinh",
+    "Gom khối lớn dữ liệu để xử lý đồng loạt theo chu kỳ định sẵn",
+    "Chỉ xử lý các dữ liệu phi cấu trúc như văn bản, video",
+    "Xử lý dữ liệu trực tiếp ngay trên thiết bị biên (edge)"
+   ]
+  },
+  {
+   "id": "c3-q68",
+   "explanation": "Streaming là tiếp nhận và xử lý liên tục các sự kiện dữ liệu ngay lập tức khi chúng phát sinh, không gom lô chờ theo chu kỳ như Batch.",
+   "options": [
+    "Gom lô dữ liệu thật lớn để xử lý hàng tuần một lần",
+    "Chỉ dùng để xử lý video trực tuyến cho người dùng xem",
+    "Chỉ xử lý khi người dùng gửi yêu cầu thủ công từ giao diện",
+    "Tiếp nhận và xử lý liên tục sự kiện ngay khi chúng phát sinh"
+   ]
+  },
+  {
+   "id": "c3-q69",
+   "explanation": "Batch tiết kiệm chi phí máy chủ nhờ tận dụng tối đa hiệu suất tính toán quy mô lớn trong khoảng thời gian ngắn.\n• Streaming tốn kém hơn do phải duy trì tài nguyên chạy liên tục 24/7.\n• Streaming không rẻ hơn Batch, và Batch không cần chạy 24/7"
+  },
+  {
+   "id": "c3-q70",
+   "explanation": "Streaming đòi hỏi hạ tầng mạng mạnh mẽ và cơ chế chịu lỗi (fault tolerance) khắt khe để xử lý sự kiện liên tục mà không mất dữ liệu.",
+   "options": [
+    "Vì bắt buộc phải lập trình bằng ngôn ngữ cấp thấp như Assembly",
+    "Vì mọi dữ liệu phải được nén lại trước khi đưa vào xử lý",
+    "Vì cần hạ tầng mạng mạnh và cơ chế chịu lỗi rất khắt khe",
+    "Vì hoàn toàn không có công cụ nào hỗ trợ xử lý streaming"
+   ]
+  },
+  {
+   "id": "c3-q71",
+   "explanation": "Hệ thống chấp nhận độ trễ cao như tính lương, báo cáo cuối ngày nên chọn Batch: phù hợp SLA và tiết kiệm chi phí hơn Streaming.\n• Streaming là bắt buộc chỉ khi cần độ trễ cực thấp",
+   "options": [
+    "Streaming vì là công nghệ hiện đại hơn hẳn Batch",
+    "Batch vì hệ thống chấp nhận độ trễ cao và tiết kiệm chi phí",
+    "Bắt buộc Streaming theo quy định chung cho mọi hệ thống",
+    "Cả hai cơ chế phải chạy song song mọi lúc để dự phòng"
+   ]
+  },
+  {
+   "id": "c3-q72",
+   "explanation": "Chống gian lận thẻ và gợi ý sản phẩm cần độ trễ cực thấp nên bắt buộc dùng Streaming theo tiêu chí SLA; Batch không đáp ứng được yêu cầu thời gian thực.",
+   "options": [
+    "Batch chạy hàng đêm để gom lô dữ liệu lớn xử lý",
+    "Batch chạy hàng tuần vào cuối tuần để tổng hợp",
+    "Xuất file thủ công theo yêu cầu của bộ phận nghiệp vụ",
+    "Streaming, vì bắt buộc khi cần độ trễ cực thấp, thời gian thực"
+   ]
+  },
+  {
+   "id": "c3-q73",
+   "explanation": "Báo cáo cuối ngày và tính lương định kỳ đều chấp nhận độ trễ cao nên xử lý Batch là phù hợp.\n• Chống gian lận thẻ và gợi ý sản phẩm tức thì cần Streaming"
+  },
+  {
+   "id": "c3-q74",
+   "explanation": "Snowpipe tự động nạp dữ liệu ngay khi file vừa xuất hiện trên Cloud Storage, không chờ lịch cố định hay lệnh thủ công."
+  },
+  {
+   "id": "c3-q75",
+   "explanation": "Serverless nghĩa là người dùng không phải cấu hình máy chủ, nền tảng tự động cấp phát tài nguyên nạp khi có file mới.",
+   "options": [
+    "Không yêu cầu cấu hình máy chủ, nền tảng tự cấp phát tài nguyên nạp",
+    "Hoàn toàn không sử dụng bất kỳ máy chủ nào trong hệ thống",
+    "Chạy toàn bộ quá trình nạp trên máy tính của người dùng",
+    "Chỉ hoạt động khi máy chủ chính của kho dữ liệu bị tắt"
+   ]
+  },
+  {
+   "id": "c3-q76",
+   "explanation": "Micro-batch nghĩa là thay vì chờ gom lô thật lớn, dữ liệu được chia nhỏ thành các lô liên tục để nạp vào kho, nhờ đó dữ liệu đến đích nhanh hơn."
+  },
+  {
+   "id": "c3-q77",
+   "explanation": "Snowpipe nhận tín hiệu nạp từ các message queue như AWS SQS hoặc Azure Event Grid; Kafka, RabbitMQ, Redis hay MQTT không phải cặp được nêu trong slide."
+  },
+  {
+   "id": "c3-q78",
+   "explanation": "Chi phí Snowpipe chỉ tính trên lượng dữ liệu nạp thực tế, rất phù hợp với tải rải rác, không phải phí cố định hay tính theo số người dùng.",
+   "options": [
+    "Trả một khoản phí cố định hàng tháng cho mọi khối lượng",
+    "Tính phí theo số lượng người dùng truy cập kho dữ liệu",
+    "Chi phí tính trên lượng dữ liệu nạp thực tế, hợp với tải rải rác",
+    "Hoàn toàn miễn phí với mọi khối lượng dữ liệu nạp vào"
+   ]
+  },
+  {
+   "id": "c3-q79",
+   "explanation": "Snowpipe là Serverless: nền tảng tự động cấp phát tài nguyên nạp.\n• Nạp dữ liệu theo cơ chế micro-batch liên tục.\n• Cấu hình warehouse thủ công và chạy theo lịch hàng đêm đều sai"
+  },
+  {
+   "id": "c3-q80",
+   "explanation": "Exactly-once bảo đảm độ chính xác: mỗi bản ghi được xử lý đúng một lần, không bị lặp lại và cũng không bị thất thoát."
+  },
+  {
+   "id": "c3-q81",
+   "explanation": "Windowing cho phép tính các phép toán tập hợp theo từng khung thời gian, ví dụ tổng hợp mỗi 5 phút một lần trên luồng dữ liệu.",
+   "options": [
+    "Tính các phép toán tập hợp theo từng khung thời gian, ví dụ mỗi 5 phút",
+    "Mở nhiều cửa sổ giao diện cùng lúc để theo dõi hệ thống",
+    "Phân quyền truy cập dữ liệu theo nhóm người dùng được chỉ định",
+    "Chia dữ liệu theo vùng địa lý để xử lý ở từng khu vực"
+   ]
+  },
+  {
+   "id": "c3-q82",
+   "explanation": "Watermarks hỗ trợ xử lý thông minh các bản ghi đến trễ mà không làm nghẽn luồng dữ liệu chính, nhờ đặt ngưỡng thời gian chờ hợp lý.",
+   "options": [
+    "Đóng dấu bản quyền lên dữ liệu trước khi đưa vào kho",
+    "Đánh dấu mực nước lưu trữ của Data Lake theo từng tầng",
+    "Mã hóa các bản ghi nhạy cảm trước khi truyền qua mạng",
+    "Xử lý thông minh bản ghi đến trễ mà không nghẽn luồng chính"
+   ]
+  },
+  {
+   "id": "c3-q83",
+   "explanation": "Fault Tolerance dựa trên Checkpointing: hệ thống lưu trạng thái xử lý để phục hồi ngay tại điểm xảy ra sự cố, thay vì chạy lại từ đầu.",
+   "options": [
+    "Ghi log vận hành ra một hệ thống lưu trữ bên ngoài",
+    "Sao lưu dữ liệu thủ công theo định kỳ hàng tuần",
+    "Checkpointing giúp phục hồi ngay tại điểm xảy ra sự cố ngừng",
+    "Khởi động lại toàn bộ luồng xử lý từ đầu mỗi khi gặp lỗi"
+   ]
+  },
+  {
+   "id": "c3-q84",
+   "explanation": "Unified API nghĩa là dùng chung một bộ thư viện lập trình cho cả quá trình xử lý batch và stream, nên code viết một lần dùng được cho cả hai chế độ.",
+   "options": [
+    "Dùng chung một bộ thư viện lập trình cho cả batch và stream",
+    "Một API duy nhất dùng được cho mọi ngôn ngữ lập trình",
+    "Hợp nhất mọi nền tảng Cloud khác nhau thành một nền tảng",
+    "API không yêu cầu xác thực mỗi khi được gọi từ ứng dụng"
+   ]
+  }
+ ]
+}

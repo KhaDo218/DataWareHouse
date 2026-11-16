@@ -1,0 +1,553 @@
+{
+ "chunk": "c5a",
+ "items": [
+  {
+   "id": "c5-q1",
+   "explanation": "Luật kết hợp là mối quan hệ thống kê giữa các tập item trong CSDL, dùng phát hiện mẫu hay quan hệ ẩn giữa sản phẩm, sự kiện.\n• Sắp xếp theo thời gian, làm sạch dữ liệu và dự báo chuỗi thời gian đều không phải luật kết hợp",
+   "options": [
+    "Mối quan hệ thống kê giữa các tập item để phát hiện mẫu ẩn",
+    "Thuật toán sắp xếp các item theo thứ tự thời gian xuất hiện",
+    "Quy trình làm sạch và chuẩn hóa dữ liệu trước khi nạp kho",
+    "Mô hình dự báo giá trị tương lai của chuỗi thời gian"
+   ]
+  },
+  {
+   "id": "c5-q2",
+   "explanation": "Trong luật X ⇒ Y, X là tiền đề (Antecedent) — tập item xuất hiện trước; Y là hậu đề (Consequent) — tập item xuất hiện sau."
+  },
+  {
+   "id": "c5-q3",
+   "explanation": "Trong luật X ⇒ Y, Y là hậu đề (Consequent) — tập item xuất hiện sau. Tiền đề (Antecedent) là X, không phải Y."
+  },
+  {
+   "id": "c5-q4",
+   "explanation": "Luật X ⇒ Y chỉ khẳng định khả năng: nếu X xảy ra thì Y cũng có khả năng xảy ra, không phải quan hệ nhân quả hay đồng thời tuyệt đối."
+  },
+  {
+   "id": "c5-q5",
+   "explanation": "Slide nêu luật kết hợp dùng phổ biến trong bán lẻ, ngân hàng và dịch vụ trực tuyến.\n• Sản xuất vi mạch bán dẫn không nằm trong danh sách lĩnh vực điển hình của khai phá luật kết hợp"
+  },
+  {
+   "id": "c5-q6",
+   "explanation": "Luật X ⇒ Y gồm đúng hai thành phần: tiền đề X (Antecedent) và hậu đề Y (Consequent).\n• Nhãn phân lớp thuộc bài toán phân lớp; ma trận khoảng cách thuộc phân cụm"
+  },
+  {
+   "id": "c5-q7",
+   "explanation": "Support đo tần suất xuất hiện của cả tiền đề lẫn hậu đề trong CSDL giao dịch, tức P(X∩Y), nhằm kiểm tra độ phổ biến của luật. Xác suất Y khi có X là Confidence, không phải Support.",
+   "options": [
+    "Xác suất hậu đề xảy ra khi tiền đề xảy ra",
+    "Tần suất xuất hiện của cả tiền đề và hậu đề",
+    "Mức độ phụ thuộc giữa tiền đề và hậu đề của luật",
+    "Số thuộc tính có mặt trong mỗi giao dịch của CSDL"
+   ]
+  },
+  {
+   "id": "c5-q8",
+   "explanation": "Sup(X ⇒ Y) = P(X∩Y) = Số giao dịch chứa cả X và Y / Tổng số giao dịch. Chia cho số giao dịch chứa X sẽ ra Confidence."
+  },
+  {
+   "id": "c5-q9",
+   "explanation": "Sup(L) = số giao dịch chứa cả tiền đề và hậu đề / tổng số giao dịch = 262/1000 = 0.262 → 26,2% giao dịch có đầy đủ các sản phẩm."
+  },
+  {
+   "id": "c5-q10",
+   "explanation": "Support tiến gần 1 nghĩa là luật xuất hiện phổ biến: gần như mọi giao dịch đều chứa cả tiền đề và hậu đề."
+  },
+  {
+   "id": "c5-q11",
+   "explanation": "Support tiến gần 0 nghĩa là luật xuất hiện hiếm. Support thấp không cho biết luật có đáng tin hay có Lift hay không."
+  },
+  {
+   "id": "c5-q12",
+   "explanation": "Sup = 100/400 = 0.25 → 25% giao dịch chứa cả A và B. Giá trị 0.50 là nhầm khi chia cho 200, 0.75 và 0.40 là sai số học."
+  },
+  {
+   "id": "c5-q13",
+   "explanation": "Sup(L) = 60/200 = 0.30 → 30% giao dịch chứa cả tiền đề lẫn hậu đề. 0.60 là quên chia cho số giao dịch."
+  },
+  {
+   "id": "c5-q14",
+   "explanation": "Confidence là xác suất hậu đề xảy ra khi tiền đề đã xảy ra, phản ánh mức độ chắc chắn của một luật kết hợp."
+  },
+  {
+   "id": "c5-q15",
+   "explanation": "Conf(X ⇒ Y) = Sup(X ∩ Y) / Sup(X) — xác suất Y xuất hiện trong số giao dịch đã có X.\n• P(X)×P(Y) là mẫu số của công thức Lift, không phải Confidence"
+  },
+  {
+   "id": "c5-q16",
+   "explanation": "Conf(L) = 262/283 ≈ 0.926 → 92,6% giao dịch có tiền đề cũng sở hữu hậu đề. 0.262 là Support, không phải Confidence."
+  },
+  {
+   "id": "c5-q17",
+   "explanation": "Conf = 100/125 = 0.80. Lấy 100/125 chứ không lấy 125/100; giá trị 1.25 chính là kết quả đảo tử số với mẫu số."
+  },
+  {
+   "id": "c5-q18",
+   "explanation": "Conf = 1 (100%) nghĩa là luật tuyệt đối đúng: mọi trường hợp có X đều có Y. Đây là mức cao nhất trong bảng đánh giá, không phải luật yếu.",
+   "options": [
+    "Luật rất yếu, ít đáng tin cậy trong thực tế",
+    "Luật tuyệt đối đúng, mọi trường hợp có X đều có Y",
+    "Tiền đề và hậu đề hoàn toàn độc lập với nhau",
+    "Luật cần bị loại bỏ ra khỏi tập kết quả sau khai phá"
+   ]
+  },
+  {
+   "id": "c5-q19",
+   "explanation": "Theo bảng đánh giá của slide: Conf < 0.5 là luật yếu, ít tin cậy; 0.5–0.9 là trung bình; 0.9–1 là rất mạnh."
+  },
+  {
+   "id": "c5-q20",
+   "explanation": "Conf(L) = 48/80 = 0.60 → 60% giao dịch có tiền đề cũng có hậu đề. 0.48 là Support dạng tỷ lệ nếu tổng CSDL là 100."
+  },
+  {
+   "id": "c5-q21",
+   "explanation": "Lift đo mức độ phụ thuộc giữa tiền đề và hậu đề: khả năng hậu đề xảy ra khi có tiền đề so với khi nó xảy ra ngẫu nhiên trong toàn dữ liệu."
+  },
+  {
+   "id": "c5-q22",
+   "explanation": "Lift(X ⇒ Y) = Conf(X ⇒ Y) / P(Y) = P(X∩Y) / (P(X)×P(Y)).\n• Sup(X ∩ Y)/Sup(X) là công thức Confidence, không phải Lift"
+  },
+  {
+   "id": "c5-q23",
+   "explanation": "Lift > 1: tiền đề làm tăng khả năng xảy ra hậu đề, tức quan hệ tích cực. Lift = 1 là độc lập, Lift < 1 là quan hệ tiêu cực.",
+   "options": [
+    "Tiền đề làm giảm khả năng xảy ra hậu đề",
+    "Tiền đề và hậu đề hoàn toàn độc lập nhau",
+    "Tiền đề làm tăng khả năng xảy ra hậu đề",
+    "Luật kết hợp chắc chắn sai, cần loại bỏ"
+   ]
+  },
+  {
+   "id": "c5-q24",
+   "explanation": "Lift = 1 nghĩa là tiền đề và hậu đề độc lập, không tác động lẫn nhau. Lift > 1 là tích cực, Lift < 1 là tiêu cực.",
+   "options": [
+    "Độc lập, không tác động lẫn nhau giữa hai vế",
+    "Quan hệ tích cực, tăng khả năng xảy ra hậu đề",
+    "Quan hệ tiêu cực, giảm khả năng xảy ra hậu đề",
+    "Luôn xảy ra đồng thời trong mọi giao dịch"
+   ]
+  },
+  {
+   "id": "c5-q25",
+   "explanation": "Lift < 1: tiền đề làm giảm khả năng xảy ra hậu đề, tức quan hệ tiêu cực. Muốn kết luận là tăng thì phải có Lift > 1.",
+   "options": [
+    "Tiền đề làm tăng khả năng xảy ra hậu đề",
+    "Tiền đề làm giảm khả năng xảy ra hậu đề",
+    "Tiền đề và hậu đề hoàn toàn độc lập",
+    "Luật tuyệt đối đúng, không có ngoại lệ"
+   ]
+  },
+  {
+   "id": "c5-q26",
+   "explanation": "Lift(L) = Conf(L)/P(Y) = 0.926/0.61 ≈ 1.52 → khả năng sở hữu hậu đề cao hơn 1,52 lần mức trung bình của toàn CSDL."
+  },
+  {
+   "id": "c5-q27",
+   "explanation": "Lift = Conf/P(Y) = 0.9/0.6 = 1.50. Tích 0.9 × 0.6 = 0.54 là phép nhân sai, không phải công thức Lift."
+  },
+  {
+   "id": "c5-q28",
+   "explanation": "Lift = P(X∩Y)/(P(X)×P(Y)) = 0.15/(0.3×0.5) = 0.15/0.15 = 1.0 ⇒ tiền đề và hậu đề độc lập, không tác động lẫn nhau."
+  },
+  {
+   "id": "c5-q29",
+   "explanation": "Sup(X) = 250/1000 = 0.25; Sup(Y) = 500/1000 = 0.5; P(X∩Y) = 200/1000 = 0.2.\n• Lift = 0.2/(0.25×0.5) = 0.2/0.125 = 1.6 ⇒ quan hệ tích cực"
+  },
+  {
+   "id": "c5-q30",
+   "explanation": "Lift > 1 là quan hệ tích cực, Lift = 1 là độc lập, Lift < 1 là quan hệ tiêu cực.\n• Lift không bị giới hạn trong [0,1] nên phát biểu \"luôn nằm trong khoảng 0 đến 1\" là sai"
+  },
+  {
+   "id": "c5-q31",
+   "explanation": "Slide nêu minsup thường được đặt ở 0.01 (1%) để loại bỏ các luật quá hiếm, tránh sinh ra lượng luật khổng lồ."
+  },
+  {
+   "id": "c5-q32",
+   "explanation": "Slide nêu minconf thường được đặt ở 0.8 (80%) — chỉ giữ lại các luật có độ tin cậy từ 80% trở lên."
+  },
+  {
+   "id": "c5-q33",
+   "explanation": "Một luật bị loại khi support < minsup hoặc confidence < minconf. Lift = 1 chỉ nói tiền đề và hậu đề độc lập, không phải điều kiện lọc.",
+   "options": [
+    "Khi độ nâng Lift của luật đúng bằng 1 (100%)",
+    "Khi số item trong luật lớn hơn 3 item",
+    "Khi support < minsup hoặc confidence < minconf",
+    "Khi tiền đề của luật chỉ gồm một item duy nhất"
+   ]
+  },
+  {
+   "id": "c5-q34",
+   "explanation": "Luật được giữ lại khi Support ≥ minsup và Confidence ≥ minconf.\n• Số giao dịch chẵn lẻ không liên quan; Lift = 1 thể hiện tính độc lập chứ không phải điều kiện để giữ luật"
+  },
+  {
+   "id": "c5-q35",
+   "explanation": "Conf = count({c,d,e})/count({c,d}) = 3/4 = 0.75. Lấy 3/8 = 0.375 là nhầm sang công thức Support của luật."
+  },
+  {
+   "id": "c5-q36",
+   "explanation": "Support = count({c,d,e})/tổng số giao dịch = 3/8 = 0.375. Giá trị 0.75 chính là Confidence 3/4 của luật cd → e."
+  },
+  {
+   "id": "c5-q37",
+   "explanation": "Lift = Conf(cd → e)/P(e) = 0.75/0.5 = 1.5 → tiền đề làm tăng 1,5 lần khả năng xuất hiện của e so với ngẫu nhiên."
+  },
+  {
+   "id": "c5-q38",
+   "explanation": "Tập phổ biến là tập item thường xuyên xuất hiện cùng nhau trong dữ liệu, dùng trong khai phá luật kết hợp để tìm mẫu phổ biến.",
+   "options": [
+    "Tập hợp các item thường xuyên xuất hiện cùng nhau",
+    "Tập hợp các item có độ tin cậy cao nhất trong CSDL",
+    "Tập hợp các giao dịch bị lỗi khi nạp vào kho dữ liệu",
+    "Tập hợp các thuộc tính khóa chính của bảng dữ liệu"
+   ]
+  },
+  {
+   "id": "c5-q39",
+   "explanation": "Itemset là tập phổ biến khi support ≥ minsup; nếu support < minsup thì bị loại ngay từ bước lọc đầu tiên."
+  },
+  {
+   "id": "c5-q40",
+   "explanation": "Minimum Support do người dùng đặt để lọc bỏ các itemset ít xuất hiện, vì itemset xuất hiện quá ít thường không mang ý nghĩa thống kê.",
+   "options": [
+    "Lọc bỏ các itemset ít xuất hiện, ít ý nghĩa",
+    "Tăng tốc độ ghi dữ liệu vào kho dữ liệu",
+    "Sắp xếp các item theo thứ tự bảng chữ cái",
+    "Xác định nhãn lớp cho mỗi giao dịch đầu vào"
+   ]
+  },
+  {
+   "id": "c5-q41",
+   "explanation": "Support = 2.000/10.000 = 20% ≥ minsup 15% ⇒ {Bảo hiểm xe máy, Bảo hiểm y tế} là tập phổ biến, không bị loại."
+  },
+  {
+   "id": "c5-q42",
+   "explanation": "Apriori do Agrawal đề xuất năm 1993, nhằm khám phá những mối quan hệ thú vị ẩn giấu trong cơ sở dữ liệu giao dịch."
+  },
+  {
+   "id": "c5-q43",
+   "explanation": "TID (Transaction ID) là mã định danh duy nhất của mỗi giao dịch; ví dụ giao dịch T2 có Transaction ID bằng 2."
+  },
+  {
+   "id": "c5-q44",
+   "explanation": "Một giao dịch là một tập hợp item, mỗi item có thể xuất hiện hoặc không, và thứ tự các item là không quan trọng.\n• Giao dịch không bắt buộc phải chứa toàn bộ item của CSDL"
+  },
+  {
+   "id": "c5-q45",
+   "explanation": "CSDL giao dịch biểu diễn được dưới dạng ma trận nhị phân: mỗi hàng là một giao dịch, mỗi cột là một item, ô ghi 1 hoặc 0."
+  },
+  {
+   "id": "c5-q46",
+   "explanation": "Số tập con khác rỗng = 2^|I| − 1 = 2^5 − 1 = 32 − 1 = 31. Giá trị 32 là quên trừ tập rỗng, 15 là nhầm với |I| = 4."
+  },
+  {
+   "id": "c5-q47",
+   "explanation": "2^|I| − 1 = 2^4 − 1 = 16 − 1 = 15. Giá trị 16 là quên trừ tập rỗng, 7 là nhầm sang 2^3 − 1."
+  },
+  {
+   "id": "c5-q48",
+   "explanation": "Itemset có kích thước k nghĩa là nó chứa đúng k item; k không liên quan tới số giao dịch chứa nó hay số tập con."
+  },
+  {
+   "id": "c5-q49",
+   "explanation": "Độ hỗ trợ (tần suất) của itemset X là số giao dịch chứa X: Sup(X) = |{T | X ⊆ T và T ∈ D}|."
+  },
+  {
+   "id": "c5-q50",
+   "explanation": "Sup tương đối = 3/4 = 0.75 = 75%, vì {pasta, orange} xuất hiện trong 3 trên 4 giao dịch của CSDL."
+  },
+  {
+   "id": "c5-q51",
+   "explanation": "Tính chất 1: nếu X ⊆ Y thì Sup(Y) ≤ Sup(X) — thêm item chỉ giữ nguyên hoặc làm giảm số giao dịch chứa tập đó."
+  },
+  {
+   "id": "c5-q52",
+   "explanation": "Tính chất 2 (phản đơn điệu): nếu tồn tại X ⊂ Y mà X không phổ biến thì Y cũng không phổ biến.\n• Chiều ngược lại không đúng: tập con phổ biến không bảo đảm tập cha phổ biến",
+   "options": [
+    "Nếu X ⊂ Y và X phổ biến thì Y luôn phổ biến",
+    "Nếu X ⊂ Y mà X không phổ biến thì Y cũng vậy",
+    "Mọi itemset có kích thước lớn đều phổ biến",
+    "Sup của tập cha luôn lớn hơn Sup tập con"
+   ]
+  },
+  {
+   "id": "c5-q53",
+   "explanation": "Vì {bread} ⊂ {bread, lemon} và {bread} không phổ biến, theo Tính chất 2 suy ra {bread, lemon} cũng không phổ biến."
+  },
+  {
+   "id": "c5-q54",
+   "explanation": "Apriori dựa trên: nếu X ⊆ Y thì Sup(Y) ≤ Sup(X), và nếu một tập con của Y không phổ biến thì Y cũng không phổ biến.\n• Không phải mọi itemset kích thước 1 đều phổ biến, và support giảm chứ không tăng khi thêm item"
+  },
+  {
+   "id": "c5-q55",
+   "explanation": "Apriori dựa trên hai tính chất chính: Sup(Y) ≤ Sup(X) khi X ⊆ Y, và tính phản đơn điệu của tập không phổ biến."
+  },
+  {
+   "id": "c5-q56",
+   "explanation": "Input của Apriori gồm ngưỡng minsup và một cơ sở dữ liệu giao dịch; output là tất cả itemset phổ biến."
+  },
+  {
+   "id": "c5-q57",
+   "explanation": "Output của Apriori là tất cả các itemset phổ biến, tức các itemset có độ hỗ trợ lớn hơn hoặc bằng minsup."
+  },
+  {
+   "id": "c5-q58",
+   "explanation": "Apriori bắt đầu bằng việc duyệt toàn bộ CSDL để tính support của mọi itemset kích thước 1, rồi loại các itemset không phổ biến.",
+   "options": [
+    "Sinh ra các itemset ứng viên kích thước 3",
+    "Duyệt CSDL tính support mọi itemset kích thước 1",
+    "Xây dựng cây FP-tree nén toàn bộ giao dịch vào bộ nhớ",
+    "Tính độ tin cậy của các luật vừa sinh ra"
+   ]
+  },
+  {
+   "id": "c5-q59",
+   "explanation": "Itemset ứng viên kích thước 2 được tạo bằng cách kết hợp các cặp item phổ biến kích thước 1 (bước 3 trong ví dụ slide)."
+  },
+  {
+   "id": "c5-q60",
+   "explanation": "Apriori dừng khi không còn ứng viên nào để sinh ra ở kích thước tiếp theo, tức tập phổ biến kích thước k bị rỗng.",
+   "options": [
+    "Khi độ tin cậy của mọi luật đạt 100%",
+    "Khi không còn ứng viên nào để sinh ra tiếp",
+    "Khi đã duyệt xong CSDL đúng 2 lần",
+    "Khi tìm được itemset phổ biến kích thước 2"
+   ]
+  },
+  {
+   "id": "c5-q61",
+   "explanation": "Theo Tính chất 2, Apriori loại ứng viên kích thước k nếu nó chứa một tập con kích thước k−1 không phổ biến — nhờ đó cắt rất nhiều nhánh."
+  },
+  {
+   "id": "c5-q62",
+   "explanation": "Mỗi vòng lặp Apriori: sinh ứng viên kích thước lớn hơn, duyệt CSDL tính support, rồi loại các itemset không phổ biến.\n• Mạng Bayes thuộc bài toán phân lớp xác suất, không có trong Apriori"
+  },
+  {
+   "id": "c5-q63",
+   "explanation": "FP-Growth là viết tắt của Frequent Pattern Growth — phát triển mẫu phổ biến dựa trên cây FP-tree nén dữ liệu."
+  },
+  {
+   "id": "c5-q64",
+   "explanation": "Apriori bị hạn chế vì quét CSDL quá nhiều lần và số ứng viên khổng lồ (n item phổ biến sinh khoảng n²/2 itemset 2 phần tử).\n• Apriori vẫn xử lý được dữ liệu giao dịch và không đòi hỏi chuẩn 3NF"
+  },
+  {
+   "id": "c5-q65",
+   "explanation": "Số itemset 2 phần tử sinh ra từ n item phổ biến xấp xỉ C(n,2) = n²/2 — đây chính là lý do số ứng viên bùng nổ."
+  },
+  {
+   "id": "c5-q66",
+   "explanation": "FP-Growth chỉ cần duyệt CSDL 2 lần: lần đầu đếm support từng item, lần hai xây FP-tree, sau đó khai phá trực tiếp trên cây."
+  },
+  {
+   "id": "c5-q67",
+   "explanation": "FP-Growth không sinh tập ứng viên, nén dữ liệu vào FP-tree để tiết kiệm bộ nhớ và chỉ quét CSDL 2 lần.\n• Quét nhiều lần hơn Apriori là nhược điểm của Apriori, không phải ưu điểm của FP-Growth"
+  },
+  {
+   "id": "c5-q68",
+   "explanation": "FP-tree là cấu trúc nén tập mục trong CSDL, lưu item trong bộ nhớ và lưu vết mối quan hệ giữa các item với nhau.",
+   "options": [
+    "Cấu trúc nén tập mục, lưu vết quan hệ các item",
+    "Bảng lưu toàn bộ luật kết hợp đã khai phá",
+    "Mô hình phân lớp dạng cây quyết định có nhãn lá",
+    "Ma trận khoảng cách giữa các giao dịch với nhau"
+   ]
+  },
+  {
+   "id": "c5-q69",
+   "explanation": "Condition Pattern Base là CSDL phụ gồm các đường dẫn tiền tố (prefix paths) trong FP-tree xuất hiện cùng với nút hậu tố (suffix).",
+   "options": [
+    "Danh sách toàn bộ item không phổ biến của CSDL",
+    "CSDL phụ gồm các prefix path cùng nút hậu tố",
+    "Ngưỡng minsup do người dùng đặt cho thuật toán",
+    "Tập các luật kết hợp mạnh có Lift lớn hơn 1"
+   ]
+  },
+  {
+   "id": "c5-q70",
+   "explanation": "Sup = support count / tổng số giao dịch = 2/3 ≈ 0.67 → khoảng 67% giao dịch có cả thẻ tín dụng và khoản vay."
+  },
+  {
+   "id": "c5-q71",
+   "explanation": "Support count (count) là số lần các item của itemset cùng xuất hiện trong một giao dịch, có thể đi kèm các sản phẩm khác.",
+   "options": [
+    "Số lần item cùng xuất hiện trong giao dịch",
+    "Số item khác nhau xuất hiện trong toàn CSDL",
+    "Tổng số giao dịch đang có trong CSDL",
+    "Độ tin cậy của itemset khi sinh luật kết hợp"
+   ]
+  },
+  {
+   "id": "c5-q72",
+   "explanation": "Trong FP-Growth, item được viết theo thứ tự giảm dần số giao dịch chứa nó, để mỗi itemset chỉ có một thứ tự hợp lệ duy nhất.",
+   "options": [
+    "Thứ tự bảng chữ cái tăng dần từ A đến Z",
+    "Thứ tự giảm dần theo số giao dịch chứa item",
+    "Thứ tự ngẫu nhiên do thuật toán tự lựa chọn",
+    "Thứ tự tăng dần theo mã số gán cho item"
+   ]
+  },
+  {
+   "id": "c5-q73",
+   "explanation": "Với minsupportcount = 3, chỉ F, C (count 4) và A, M, P, B (count 3) đạt ngưỡng; xếp giảm dần là F, C, A, B, M, P."
+  },
+  {
+   "id": "c5-q74",
+   "explanation": "Bước 1 của FP-Growth là xây dựng FP-tree từ CSDL đã lọc bỏ item dưới ngưỡng và sắp xếp theo support count giảm dần."
+  },
+  {
+   "id": "c5-q75",
+   "explanation": "Nếu một itemset phổ biến thì mọi tập con khác rỗng của nó cũng phổ biến; nếu không phổ biến thì mọi tập cha cũng không phổ biến.\n• Ví dụ {A,B,C,D} không phổ biến thì {A,B,C,D,E,F} cũng vậy, nên tập cha không thể phổ biến hơn tập con"
+  },
+  {
+   "id": "c5-q76",
+   "explanation": "Cây quyết định là kỹ thuật thuộc nhóm phân lớp (Classification), không phải phân cụm, khai thác luật kết hợp hay phát hiện ngoại lai."
+  },
+  {
+   "id": "c5-q77",
+   "explanation": "ID3 chọn thuộc tính phân nhánh theo Information Gain (độ lợi thông tin) lớn nhất; Gain Ratio là tiêu chí của C4.5.",
+   "options": [
+    "Gain Ratio (Tỷ lệ độ lợi thông tin)",
+    "Chỉ số Gini (Gini Index)",
+    "Khoảng cách Euclid giữa hai điểm",
+    "Information Gain (Độ lợi thông tin)"
+   ]
+  },
+  {
+   "id": "c5-q78",
+   "explanation": "C4.5 dùng Gain Ratio (tỷ lệ độ lợi) để khắc phục thiên vị của Information Gain với thuộc tính có nhiều giá trị phân biệt.",
+   "options": [
+    "Information Gain (Độ lợi thông tin)",
+    "Support (Độ hỗ trợ của itemset)",
+    "Confidence (Độ tin cậy của luật)",
+    "Gain Ratio (Tỷ lệ độ lợi thông tin)"
+   ]
+  },
+  {
+   "id": "c5-q79",
+   "explanation": "C4.5 xử lý được cả dữ liệu rời rạc lẫn dữ liệu liên tục (số), trong khi ID3 chỉ xử lý được dữ liệu rời rạc.",
+   "options": [
+    "Chỉ xử lý được dữ liệu rời rạc dạng nhóm",
+    "Chỉ xử lý được dữ liệu liên tục dạng số thực",
+    "Không xử lý được dữ liệu liên tục dạng số",
+    "Xử lý được cả dữ liệu rời rạc và liên tục"
+   ]
+  },
+  {
+   "id": "c5-q80",
+   "explanation": "Theo bảng so sánh ID3 và C4.5: ID3 không hỗ trợ giá trị Null (báo lỗi), còn C4.5 hỗ trợ bằng trọng số xác suất.",
+   "options": [
+    "Cả hai thuật toán đều không hỗ trợ giá trị thiếu",
+    "ID3 hỗ trợ bằng trọng số còn C4.5 báo lỗi",
+    "Cả hai đều hỗ trợ giá trị thiếu như nhau hoàn toàn",
+    "ID3 báo lỗi, C4.5 hỗ trợ bằng trọng số xác suất"
+   ]
+  },
+  {
+   "id": "c5-q81",
+   "explanation": "Theo bảng so sánh: ID3 không có cơ chế cắt tỉa, còn C4.5 có Post-pruning (cắt sau) giúp cây gọn và tổng quát hơn.",
+   "options": [
+    "Cả hai đều không có cơ chế cắt tỉa cây",
+    "ID3 có Post-pruning còn C4.5 thì không",
+    "Cả hai đều dùng Pre-pruning khi xây cây",
+    "ID3 không cắt tỉa, C4.5 có Post-pruning"
+   ]
+  },
+  {
+   "id": "c5-q82",
+   "explanation": "ID3 kiểm soát overfitting kém vì cây sâu, dễ quá khớp; C4.5 kiểm soát tốt nhờ cắt tỉa nên cây gọn, tính tổng quát cao.",
+   "options": [
+    "ID3 kiểm soát overfitting tốt hơn C4.5",
+    "Cả hai đều kiểm soát overfitting kém như nhau",
+    "Cả hai đều kiểm soát overfitting rất tốt",
+    "ID3 kiểm soát kém, C4.5 kiểm soát tốt hơn"
+   ]
+  },
+  {
+   "id": "c5-q83",
+   "explanation": "Entropy đo mức độ hỗn loạn/không thuần khiết của tập dữ liệu; giá trị càng cao thì tập càng trộn nhiều lớp, càng khó phân tách.",
+   "options": [
+    "Số nút lá của cây quyết định đã xây dựng",
+    "Khoảng cách hình học giữa hai điểm dữ liệu bất kỳ",
+    "Số thuộc tính có trong tập dữ liệu huấn luyện",
+    "Mức độ hỗn loạn/không thuần khiết của tập dữ liệu"
+   ]
+  },
+  {
+   "id": "c5-q84",
+   "explanation": "Tập chỉ có một nhãn lớp là thuần khiết nên Entropy = 0. Entropy lớn nhất (1 bit) xảy ra khi tập nhị phân chia đều 50-50."
+  },
+  {
+   "id": "c5-q85",
+   "explanation": "Entropy = −(0,5)log₂0,5 − (0,5)log₂0,5 = 0,5 + 0,5 = 1 bit, là mức hỗn loạn cao nhất của tập nhị phân."
+  },
+  {
+   "id": "c5-q86",
+   "explanation": "Entropy = −(9/14)log₂(9/14) − (5/14)log₂(5/14) ≈ 0,410 + 0,530 ≈ 0,940 bit. Các giá trị 0,643 và 0,357 chỉ là tỷ lệ hai lớp, chưa phải Entropy."
+  },
+  {
+   "id": "c5-q87",
+   "explanation": "Entropy = −(2/3)log₂(2/3) − (1/3)log₂(1/3) ≈ 0,390 + 0,528 ≈ 0,918 bit. 0,667 và 0,333 chỉ là tỷ lệ mẫu, còn 1,000 là Entropy của tập chia đều."
+  },
+  {
+   "id": "c5-q88",
+   "explanation": "Gain = Entropy(cha) − Entropy trung bình các nhánh con = 1,0 − 0 = 1,0, vì cả hai nhánh đều thuần khiết (Entropy = 0)."
+  },
+  {
+   "id": "c5-q89",
+   "explanation": "Gain = 1,0 − [(4/8)×0,811 + (4/8)×0,811] = 1,0 − 0,811 ≈ 0,189. Giá trị 0,811 là Entropy nhánh con, chưa phải Gain."
+  },
+  {
+   "id": "c5-q90",
+   "explanation": "ID3 chọn thuộc tính có Information Gain lớn nhất để phân nhánh, tức thuộc tính làm giảm Entropy nhiều nhất sau khi chia."
+  },
+  {
+   "id": "c5-q91",
+   "explanation": "Information Gain = Entropy(cha) − Entropy trung bình có trọng số của các nhánh con (trọng số là tỷ lệ số mẫu mỗi nhánh).",
+   "options": [
+    "Entropy của các nhánh con trừ Entropy của nút cha",
+    "Tổng Entropy của tất cả các nhánh con sau khi chia nhỏ",
+    "Entropy(nút cha) chia cho SplitInfo của thuộc tính",
+    "Entropy(nút cha) − Entropy trung bình các nhánh con"
+   ]
+  },
+  {
+   "id": "c5-q92",
+   "explanation": "Information Gain thiên vị thuộc tính có nhiều giá trị phân biệt; Gain Ratio chia thêm cho SplitInfo để khử thiên vị này.",
+   "options": [
+    "Không tính được với dữ liệu dạng số liên tục",
+    "Luôn cho kết quả bằng 0 với mọi thuộc tính",
+    "Không áp dụng được cho bài toán phân lớp dữ liệu",
+    "Thiên vị thuộc tính có nhiều giá trị phân biệt"
+   ]
+  },
+  {
+   "id": "c5-q93",
+   "explanation": "Gain Ratio = Information Gain / SplitInfo, với SplitInfo là thông tin phân tách của thuộc tính. Nhân hay đảo tử mẫu đều sai.",
+   "options": [
+    "Information Gain nhân với SplitInfo",
+    "SplitInfo chia cho Information Gain",
+    "Entropy của nút cha trừ đi SplitInfo",
+    "Information Gain chia cho SplitInfo"
+   ]
+  },
+  {
+   "id": "c5-q94",
+   "explanation": "Gain Ratio = Information Gain / SplitInfo = 0.3/1.5 = 0.20. Giá trị 0.45 là phép nhân, 5.00 là đảo tử số với mẫu số."
+  },
+  {
+   "id": "c5-q95",
+   "explanation": "Gini = 1 − Σp² = 1 − 1² = 0 với nút thuần khiết. Nút nhị phân chia đều 50-50 mới cho Gini cao nhất là 0.5."
+  },
+  {
+   "id": "c5-q96",
+   "explanation": "Gini = 1 − (0,5² + 0,5²) = 1 − 0,5 = 0.5 — mức hỗn loạn cao nhất của một nút hai lớp."
+  },
+  {
+   "id": "c5-q97",
+   "explanation": "Gini = 1 − ((4/6)² + (2/6)²) = 1 − (0,444 + 0,111) = 1 − 0,556 ≈ 0.444. Các giá trị 0,556 và 0,667 là tổng bình phương tỷ lệ, chưa lấy 1 trừ đi."
+  },
+  {
+   "id": "c5-q98",
+   "explanation": "Nút lá biểu diễn nhãn lớp (kết quả phân loại); nút trong biểu diễn thuộc tính và điều kiện kiểm tra để rẽ nhánh."
+  }
+ ]
+}

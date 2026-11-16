@@ -1,0 +1,513 @@
+{
+ "chunk": "c7b",
+ "items": [
+  {
+   "id": "c7-q70",
+   "explanation": "k-anonymity: mọi cá nhân trong bảng không thể bị phân biệt với ít nhất k−1 cá nhân khác cũng nằm trong bảng.\n• Mã hóa cột nhạy cảm hay số dòng của bảng không liên quan tới thuộc tính này",
+   "options": [
+    "Khi mọi cột nhạy cảm của bảng đều được mã hóa lặp lại đúng k lần",
+    "Khi mọi cá nhân trong bảng không thể bị phân biệt với ít nhất k-1 cá nhân khác trong bảng",
+    "Khi bảng dữ liệu sau khi ẩn danh chỉ còn lại đúng k dòng tương ứng k khách hàng",
+    "Khi có đúng k người dùng khác nhau cùng được cấp quyền truy cập vào bảng đó"
+   ]
+  },
+  {
+   "id": "c7-q71",
+   "explanation": "Quasi-identifiers là nhóm cột đơn lẻ KHÔNG nhạy cảm (Tuổi, Giới tính,…) nhưng kết hợp lại có thể giúp hacker Re-identification.\n• Mật khẩu và khóa mã hóa là bí mật trực tiếp, không phải quasi-identifier"
+  },
+  {
+   "id": "c7-q72",
+   "explanation": "Generalization biến số cụ thể thành khoảng, ví dụ 23 tuổi được nhóm thành 20-30 tuổi để nhiều bản ghi giống nhau hơn.\n• Xóa hẳn dòng là Suppression; hiển thị 091xxxx888 là Column-level Masking",
+   "options": [
+    "Xóa hẳn toàn bộ dòng dữ liệu của cá nhân quá dị biệt khỏi bảng",
+    "Hiển thị số điện thoại dạng 091xxxx888, giữ nguyên cấu trúc bảng",
+    "Biến số cụ thể thành khoảng: 23 tuổi được nhóm thành 20-30 tuổi",
+    "Trộn sai số ngẫu nhiên vào kết quả thống kê trước khi công bố"
+   ]
+  },
+  {
+   "id": "c7-q73",
+   "explanation": "Suppression xóa hẳn dòng dữ liệu của những cá nhân quá dị biệt để tránh bị lộ bí mật.\n• Chuyển giá trị cụ thể thành khoảng là Generalization, mã hóa cột nhạy cảm là CLM",
+   "options": [
+    "Xóa hẳn dòng dữ liệu của cá nhân quá dị biệt để tránh lộ bí mật",
+    "Chỉ xóa giá trị của cột định danh trực tiếp như họ tên, số CMND",
+    "Chuyển giá trị cụ thể thành một khoảng giá trị rộng hơn cho cả cột",
+    "Mã hóa toàn bộ cột dữ liệu nhạy cảm bằng thuật toán đối xứng"
+   ]
+  },
+  {
+   "id": "c7-q74",
+   "explanation": "Mỗi bản ghi giống hệt đúng 4 bản ghi khác, tức nhóm có 1 + 4 = 5 bản ghi.\n• Vậy k = 5: mỗi cá nhân không thể bị phân biệt với ít nhất k−1 = 4 người khác"
+  },
+  {
+   "id": "c7-q75",
+   "explanation": "k = 10 nghĩa là mỗi cá nhân không thể bị phân biệt với ít nhất 9 cá nhân khác (k−1 = 9) cũng nằm trong bảng.\n• Số dòng hay số cột Quasi-identifiers không quyết định giá trị k",
+   "options": [
+    "Bảng dữ liệu sau ẩn danh chỉ được chứa tối đa 10 dòng dữ liệu",
+    "Bảng phải có đúng 10 cột Quasi-identifiers được khái quát hóa",
+    "Mỗi cá nhân không thể bị phân biệt với ít nhất 9 cá nhân khác trong bảng",
+    "Mỗi cá nhân phải xuất hiện đúng 10 lần trong 10 bảng dữ liệu khác nhau"
+   ]
+  },
+  {
+   "id": "c7-q76",
+   "explanation": "Bản ghi quá dị biệt, không nhóm được với ai dù đã khái quát hóa thì phải Suppression – xóa hẳn dòng đó để tránh lộ bí mật.\n• Tăng Epsilon thuộc Differential Privacy, không xử lý được ca dị biệt",
+   "options": [
+    "Giữ nguyên bản ghi đó vì mọi dữ liệu thu thập đều quý như nhau",
+    "Tăng Epsilon lên thật cao để bảo vệ riêng bản ghi dị biệt đó",
+    "Sao chép bản ghi đó thành nhiều bản giống hệt để tạo thành nhóm",
+    "Dùng Suppression – xóa hẳn dòng dữ liệu của cá nhân quá dị biệt"
+   ]
+  },
+  {
+   "id": "c7-q77",
+   "explanation": "Re-identification là việc hacker kết hợp các Quasi-identifiers (tuổi, giới tính,…) để định danh lại khách hàng trong bảng đã ẩn danh.\n• Đăng nhập lại hay khôi phục backup không liên quan tới tái định danh",
+   "options": [
+    "Việc hacker kết hợp các Quasi-identifiers (tuổi, giới tính) để định danh lại khách hàng",
+    "Việc người dùng đăng nhập lại vào hệ thống sau khi phiên làm việc hết hạn",
+    "Việc gắn nhãn lại các cột PII trong AI Data Catalog của doanh nghiệp",
+    "Việc khôi phục lại dữ liệu gốc từ bản sao lưu định kỳ trên cloud"
+   ]
+  },
+  {
+   "id": "c7-q78",
+   "explanation": "Trên đồ thị Privacy Loss – Utility: Epsilon tiến về 0 thì quyền riêng tư đạt tối đa nhưng tính hữu dụng giảm mạnh.\n• Hệ quả: mô hình AI dự báo không còn chính xác nên báo cáo kinh doanh kém đi, không tốt hơn"
+  },
+  {
+   "id": "c7-q79",
+   "explanation": "Nhà quản trị dữ liệu phải tìm điểm Optimal Balance: vừa tuân thủ pháp luật bảo mật, vừa giữ đủ độ chính xác cho thuật toán Data Science.\n• Chọn cực đoan bảo mật tối đa hay hữu dụng tối đa đều phá vỡ cân bằng",
+   "options": [
+    "Luôn chọn mức bảo mật tối đa, bất chấp độ chính xác phân tích bị giảm",
+    "Luôn chọn mức hữu dụng tối đa, bất chấp rủi ro về quyền riêng tư",
+    "Loại bỏ hoàn toàn khái niệm trade-off bảo mật – hữu dụng khỏi hệ thống",
+    "Tìm điểm Optimal Balance để tuân thủ bảo mật mà vẫn giữ độ chính xác cho Data Science"
+   ]
+  },
+  {
+   "id": "c7-q80",
+   "explanation": "Hai kỹ thuật chính để đạt k-anonymity: Generalization (biến số cụ thể thành khoảng) và Suppression (xóa hẳn dòng quá dị biệt).\n• Resampling và Fairness Constraints là kỹ thuật khử Bias, không phải ẩn danh hóa"
+  },
+  {
+   "id": "c7-q81",
+   "explanation": "Data Swamps (vũng lầy dữ liệu): dữ liệu mở rộng quá nhanh khiến khó nhận biết dữ liệu sạch nằm ở nơi nào.\n• Đây là vấn đề tổ chức dữ liệu, không phải mã hóa hay sao chép trái phép"
+  },
+  {
+   "id": "c7-q82",
+   "explanation": "Giải pháp là AI-driven Data Catalog tự động thu thập và phân loại Metadata từ toàn bộ hệ thống, kể cả nhận diện cột PII.\n• Xóa bớt dữ liệu hay cấm tạo bảng không giải quyết gốc rễ Data Swamps",
+   "options": [
+    "Xóa bớt dữ liệu cũ theo định kỳ mỗi quý để giảm dung lượng lưu trữ",
+    "AI-driven Data Catalog tự động thu thập và phân loại Metadata từ toàn bộ hệ thống",
+    "Chuyển toàn bộ dữ liệu số về lưu trữ bằng giấy tờ vật lý tại văn phòng",
+    "Cấm nhân viên tự tạo thêm bảng dữ liệu mới trong hệ thống dữ liệu"
+   ]
+  },
+  {
+   "id": "c7-q83",
+   "explanation": "AI Data Catalog quét các thuộc tính mới tạo, nhận diện cột chứa email, số thẻ tín dụng (PII) để tự động gắn nhãn phân quyền bảo mật.\n• INT64 là kiểu dữ liệu, Trust Score là điểm chất lượng, đều không phải cột PII"
+  },
+  {
+   "id": "c7-q84",
+   "explanation": "Semantic Search cho chuyên viên phân tích dùng ngôn ngữ tự nhiên để tìm bảng dữ liệu, ví dụ nhập “Tìm bảng chứa doanh thu 2 năm trước” và AI tự tìm ra bảng đúng.",
+   "options": [
+    "Dùng ngôn ngữ tự nhiên để tìm bảng, ví dụ “Tìm bảng chứa doanh thu 2 năm trước”",
+    "Viết các câu lệnh SQL phức tạp nhanh gấp đôi so với làm thủ công",
+    "Mã hóa các bảng dữ liệu nhạy cảm bằng lệnh giọng nói của quản trị viên",
+    "Tự động phát hiện và xóa các bảng dữ liệu bị trùng lặp trong toàn kho dữ liệu"
+   ]
+  },
+  {
+   "id": "c7-q85",
+   "explanation": "Data Lineage Integration tích hợp trực tiếp sơ đồ truy vết luồng dữ liệu vào trang mô tả tài sản dữ liệu.\n• Nhờ đó thấy được bảng đến từ đâu và bị biến đổi bởi bước nào",
+   "options": [
+    "Tự động dịch toàn bộ tài liệu kỹ thuật sang nhiều ngôn ngữ khác nhau",
+    "Chấm điểm hiệu suất làm việc của từng kỹ sư dữ liệu trong nhóm",
+    "Sao chép sơ đồ dữ liệu sang hệ thống của đối tác để dùng chung",
+    "Tích hợp trực tiếp sơ đồ truy vết luồng dữ liệu vào trang mô tả tài sản dữ liệu"
+   ]
+  },
+  {
+   "id": "c7-q86",
+   "explanation": "Privacy Audit Trail theo dõi mức độ hao hụt ngân sách quyền riêng tư (Epsilon privacy budget loss) của doanh nghiệp theo thời gian.\n• Trust Score và Freshness thuộc nhóm đánh giá chất lượng bảng, không phải audit quyền riêng tư",
+   "options": [
+    "Tổng số lần đăng nhập sai liên tiếp của từng nhân viên trên hệ thống",
+    "Mức hao hụt ngân sách quyền riêng tư (Epsilon) của doanh nghiệp theo thời gian",
+    "Danh sách các bảng dữ liệu có điểm Trust Score thấp cần rà soát",
+    "Tần suất cập nhật dữ liệu (Freshness) của toàn bộ bảng trong kho"
+   ]
+  },
+  {
+   "id": "c7-q87",
+   "explanation": "Trust Score đánh giá chất lượng bảng dữ liệu dựa trên tần suất sử dụng và lịch sử kiểm định chất lượng tự động.\n• Chức danh người tạo bảng và dung lượng bảng không nằm trong tiêu chí này"
+  },
+  {
+   "id": "c7-q88",
+   "explanation": "Business Glossary do Governance Layer định nghĩa để thống nhất khái niệm kinh doanh giữa mọi phòng ban.\n• Technical Metadata mới do Data Engineer Layer quản lý"
+  },
+  {
+   "id": "c7-q89",
+   "explanation": "Ví dụ trên slide: Churn của ngân hàng là khách hàng không phát sinh giao dịch trên 90 ngày.\n• Định nghĩa này do Business Glossary (Governance Layer) quy định để mọi phòng ban hiểu giống nhau"
+  },
+  {
+   "id": "c7-q90",
+   "explanation": "Technical Metadata do Data Engineer Layer quản lý: kiểu dữ liệu, Schema, Freshness và Owner.\n• Business Glossary mới thuộc Governance Layer"
+  },
+  {
+   "id": "c7-q91",
+   "explanation": "Business Glossary do Governance Layer định nghĩa nên mọi phòng ban dùng chung một định nghĩa Churn, hết tranh cãi.\n• Technical Metadata chỉ tả kiểu dữ liệu; Trust Score chấm chất lượng; RLS phân quyền theo dòng",
+   "options": [
+    "Technical Metadata – vì lưu kiểu dữ liệu INT64/FLOAT64 và Schema bảng",
+    "Business Glossary – do Governance Layer định nghĩa để thống nhất ngôn ngữ chung",
+    "Trust Score – vì đánh giá chất lượng bảng theo lịch sử kiểm định",
+    "Row-level Security – vì phân quyền xem dữ liệu theo từng phòng ban"
+   ]
+  },
+  {
+   "id": "c7-q92",
+   "explanation": "Technical Metadata (Data Engineer Layer) lưu kiểu dữ liệu (INT64, FLOAT64), Schema bảng, Freshness và Owner.\n• Định nghĩa Churn là khái niệm nghiệp vụ, thuộc Business Glossary của Governance Layer"
+  },
+  {
+   "id": "c7-q93",
+   "explanation": "AI không tự sinh ra định kiến: định kiến nằm trong dữ liệu lịch sử con người thu thập, AI học rồi khuếch đại ở quy mô lớn hơn.\n• Vì vậy Bias là hệ quả thiếu Data Quality, không phải lỗi tính toán",
+   "options": [
+    "AI tự sinh ra định kiến ngay trong quá trình tính toán và tối ưu hóa mô hình",
+    "Định kiến chỉ xuất hiện khi hacker tấn công và chỉnh sửa tham số mô hình",
+    "Định kiến nằm trong dữ liệu lịch sử do con người thu thập, AI học rồi khuếch đại ở quy mô lớn",
+    "Định kiến chỉ tồn tại ở các mô hình AI mã nguồn mở dùng dữ liệu công khai"
+   ]
+  },
+  {
+   "id": "c7-q94",
+   "explanation": "Ví dụ trên slide: dữ liệu quá khứ của nhóm khách hàng vùng đó quá ít, thiếu tính đại diện, nên AI học và khuếch đại sự bất công bằng.\n• Không phải do hacker chỉnh tham số hay AI cố tình phân biệt đối xử",
+   "options": [
+    "Dữ liệu quá khứ của nhóm khách hàng vùng này quá ít, thiếu tính đại diện",
+    "Thuật toán đã bị hacker xâm nhập và chỉnh sửa tham số huấn luyện",
+    "Máy chủ đặt tại vùng địa lý khác nên hệ thống xử lý hồ sơ bị chậm",
+    "AI cố tình phân biệt đối xử nhóm khách hàng này để tối đa hóa lợi nhuận"
+   ]
+  },
+  {
+   "id": "c7-q95",
+   "explanation": "Pre-processing tác động vào tập dữ liệu Gold TRƯỚC khi học: lấy mẫu lại (Resampling) hoặc gán trọng số để cân bằng dữ liệu giữa các nhóm.\n• Fairness Constraints thuộc In-processing, Classification Threshold thuộc Post-processing"
+  },
+  {
+   "id": "c7-q96",
+   "explanation": "In-processing thay đổi thuật toán huấn luyện bằng cách thêm Fairness Constraints trực tiếp vào Loss Function.\n• Resampling là Pre-processing, chỉnh ngưỡng quyết định là Post-processing",
+   "options": [
+    "Lấy mẫu lại dữ liệu huấn luyện để cân bằng số mẫu giữa các nhóm trước khi học",
+    "Điều chỉnh kết quả đầu ra sau khi mô hình đã đưa ra dự báo cuối cùng",
+    "Xóa toàn bộ các cột nhạy cảm khỏi tập dữ liệu dùng để huấn luyện",
+    "Thay đổi thuật toán huấn luyện bằng cách thêm Fairness Constraints trực tiếp vào Loss Function"
+   ]
+  },
+  {
+   "id": "c7-q97",
+   "explanation": "Post-processing thay đổi kết quả đầu ra bằng cách điều chỉnh ngưỡng quyết định (Classification Threshold) tối ưu riêng cho từng nhóm thiểu số.",
+   "options": [
+    "Gán trọng số cho dữ liệu của từng nhóm trước khi đưa vào huấn luyện",
+    "Điều chỉnh lại ngưỡng quyết định (Classification Threshold) riêng cho từng nhóm thiểu số",
+    "Thêm ràng buộc công bằng (Fairness Constraints) trực tiếp vào hàm mất mát",
+    "Thu thập thêm dữ liệu thực tế cho nhóm thiểu số để cân bằng tập huấn luyện"
+   ]
+  },
+  {
+   "id": "c7-q98",
+   "explanation": "Resampling để cân bằng số mẫu giữa các nhóm được làm TRƯỚC khi huấn luyện nên đây là Pre-processing.\n• In-processing sửa Loss Function, Post-processing chỉnh ngưỡng sau khi mô hình đã dự báo"
+  },
+  {
+   "id": "c7-q99",
+   "explanation": "Thêm Fairness Constraints vào Loss Function là can thiệp TRONG lúc huấn luyện nên gọi là In-processing.\n• Pre-processing xử lý dữ liệu trước, Post-processing chỉnh ngưỡng sau; Suppression là ẩn danh hóa"
+  },
+  {
+   "id": "c7-q100",
+   "explanation": "Điều chỉnh Classification Threshold sau khi mô hình đã huấn luyện xong là Post-processing – can thiệp vào kết quả đầu ra.\n• Pre-processing làm trên dữ liệu, In-processing sửa hàm mất mát; Generalization là ẩn danh hóa"
+  },
+  {
+   "id": "c7-q101",
+   "explanation": "AI chỉ đóng vai trò hỗ trợ ra quyết định; quyết định ảnh hưởng quyền lợi công dân (bác đơn vay, từ chối hồ sơ) bắt buộc phải có con người phê duyệt.\n• Con người không chỉ can thiệp khi hệ thống sập",
+   "options": [
+    "Con người chỉ can thiệp khi hệ thống AI gặp sự cố kỹ thuật hoặc bị sập hoàn toàn",
+    "AI chỉ hỗ trợ ra quyết định; quyết định ảnh hưởng quyền lợi công dân phải có con người phê duyệt",
+    "AI được toàn quyền ra mọi quyết định thay con người để đảm bảo tính khách quan",
+    "Con người chỉ được xem báo cáo tổng hợp do AI tạo ra vào cuối mỗi quý"
+   ]
+  },
+  {
+   "id": "c7-q102",
+   "explanation": "Mô hình AI không được phép là hộp đen (Black-box); hệ thống phải giải trình được lý do của sự kiện theo ngữ cảnh.\n• Đây là yêu cầu về tính giải thích, không phải tốc độ hay tần suất huấn luyện lại",
+   "options": [
+    "Mô hình phải chạy nhanh hơn tốc độ phân tích thủ công của con người",
+    "Mô hình phải được huấn luyện lại toàn bộ định kỳ mỗi tuần một lần",
+    "Mô hình không được là hộp đen (Black-box); hệ thống phải giải trình được lý do theo ngữ cảnh",
+    "Mô hình chỉ được huấn luyện bằng dữ liệu công khai, không dùng dữ liệu nội bộ"
+   ]
+  },
+  {
+   "id": "c7-q103",
+   "explanation": "Audit truyền thống kiểm toán định kỳ hàng quý/năm bằng con người nên chậm trễ, tốn kém chi phí vận hành cao và dễ bỏ sót lỗi hệ thống.\n• Theo dõi hạ tầng 24/7 là ưu điểm của Continuous Auditing"
+  },
+  {
+   "id": "c7-q104",
+   "explanation": "Continuous Auditing dùng AI theo dõi toàn bộ hạ tầng 24/7 nên giảm phần lớn chi phí vận hành và phát hiện, ngăn chặn vi phạm ngay khi vừa xảy ra.\n• Nó thay cho kiểm toán định kỳ, không phải chỉ kiểm toán một lần mỗi quý"
+  },
+  {
+   "id": "c7-q105",
+   "explanation": "Thứ tự vận hành: Monitor (theo dõi truy vấn nhạy cảm) → Detect (Anomaly Detection) → Alert (báo động đỏ, khóa quyền) → Report (kết xuất Compliance Report)."
+  },
+  {
+   "id": "c7-q106",
+   "explanation": "Bước Detect dùng thuật toán Anomaly Detection; ví dụ tài khoản nhân viên tải hàng loạt dữ liệu khách hàng vào lúc 2 giờ đêm.\n• Nén dữ liệu, Resampling hay Generalization không phải thuật toán phát hiện bất thường",
+   "options": [
+    "Thuật toán nén dữ liệu; ví dụ: tệp dữ liệu có dung lượng vượt ngưỡng cho phép",
+    "Thuật toán Resampling; ví dụ: tập dữ liệu huấn luyện bị mất cân bằng nhóm",
+    "Thuật toán Generalization; ví dụ: cột tuổi khách hàng bị nhóm sai khoảng",
+    "Thuật toán Anomaly Detection; ví dụ: nhân viên tải hàng loạt dữ liệu khách hàng lúc 2 giờ đêm"
+   ]
+  },
+  {
+   "id": "c7-q107",
+   "explanation": "Bước Alert kích hoạt hệ thống báo động đỏ và tự động khóa quyền truy cập của tài khoản nghi vấn.\n• Gửi Compliance Report là bước Report; xóa nhật ký truy cập thì trái nguyên tắc audit"
+  },
+  {
+   "id": "c7-q108",
+   "explanation": "Bước Report tự động kết xuất Compliance Report gửi lên cơ quan quản lý theo đúng khung chuẩn AI Act.\n• Báo động đỏ và khóa quyền truy cập thuộc bước Alert, không phải bước Report",
+   "options": [
+    "Tự động kết xuất Compliance Report gửi cơ quan quản lý theo khung AI Act",
+    "Gửi email thông báo và cảm ơn đến toàn bộ nhân viên trong công ty",
+    "In báo cáo giấy và lưu trữ hồ sơ tại văn phòng của doanh nghiệp",
+    "Đăng toàn bộ kết quả kiểm toán lên trang mạng xã hội của công ty"
+   ]
+  },
+  {
+   "id": "c7-q110",
+   "explanation": "Ba thành phần: Data Audit Trail (sổ cái bất biến ai tạo/sửa/xóa/xem), Bias Reporting Dashboard (Fairness Metrics), Privacy Audit Trail (hao hụt Epsilon budget).\n• Semantic Search thuộc AI Data Catalog, không phải báo cáo tuân thủ"
+  },
+  {
+   "id": "b-c7-q1",
+   "explanation": "Data Governance là tập hợp quy tắc/quy trình/trách nhiệm kiểm soát toàn diện dữ liệu (thu thập→sử dụng), đảm bảo chính xác, an toàn, tuân thủ pháp luật. Từ 2026 bắt buộc theo AI Act.",
+   "options": [
+    "Kỹ thuật nén và mã hóa dữ liệu để giảm chi phí lưu trữ của kho dữ liệu doanh nghiệp",
+    "Tập hợp quy tắc, quy trình và trách nhiệm kiểm soát dữ liệu từ thu thập đến khi sử dụng",
+    "Thuật toán phân cụm dữ liệu không giám sát dùng để khai phá kho dữ liệu lớn",
+    "Cơ chế truy vấn liên kết dữ liệu giữa nhiều nền tảng lưu trữ đám mây khác nhau"
+   ]
+  },
+  {
+   "id": "b-c7-q2",
+   "explanation": "Ba trụ cột AI Act: Transparency (công khai cách AI ra quyết định), Human Oversight (con người giám sát), Data Quality (dữ liệu đầu vào đủ sạch, đại diện).",
+   "options": [
+    "Confidentiality, Integrity, Availability – bộ ba bảo mật thông tin",
+    "Transparency, Human Oversight và Data Quality của dữ liệu huấn luyện",
+    "Bronze, Silver, Gold – ba tầng trong kiến trúc Medallion của kho dữ liệu",
+    "Accuracy, Completeness, Consistency – ba tiêu chí chất lượng dữ liệu"
+   ]
+  },
+  {
+   "id": "b-c7-q3",
+   "explanation": "Unacceptable Risk bị CẤM hoàn toàn (chấm điểm công dân, thao túng hành vi tiềm thức). High Risk: kiểm soát nghiêm ngặt; Limited: dán nhãn; Minimal: tự do vận hành.",
+   "options": [
+    "Transparent / Limited Risk – nhóm rủi ro phải dán nhãn rõ ràng",
+    "Minimal Risk – nhóm được tự do vận hành trên thị trường",
+    "High Risk – nhóm bị kiểm soát nghiêm ngặt trước khi triển khai",
+    "Unacceptable Risk (ví dụ: chấm điểm công dân xã hội, AI thao túng hành vi)"
+   ]
+  },
+  {
+   "id": "b-c7-q4",
+   "explanation": "High Risk (kiểm soát nghiêm ngặt): AI điểm tín dụng Fintech, tuyển dụng, hạ tầng thiết yếu. Chatbot/Deepfake là Limited Risk; bộ lọc Spam/AI game là Minimal Risk."
+  },
+  {
+   "id": "b-c7-q5",
+   "explanation": "Chatbot và Deepfake thuộc Transparent/Limited Risk → bắt buộc dán nhãn rõ ràng (cho người dùng biết đang tương tác với AI/nội dung do AI tạo).",
+   "options": [
+    "High Risk – kiểm soát nghiêm ngặt trước khi đưa vào sử dụng",
+    "Transparent / Limited Risk – bắt buộc dán nhãn rõ ràng",
+    "Minimal Risk – tự do vận hành, không bị ràng buộc nghĩa vụ",
+    "Unacceptable Risk – bị cấm hoàn toàn trên toàn khối EU"
+   ]
+  },
+  {
+   "id": "b-c7-q6",
+   "explanation": "Traceability: tự động ghi nhật ký để theo dõi/kiểm toán vòng đời → tiền đề cho Automated Data Lineage. (Data Quality = dữ liệu đại diện; Technical Documentation = lưu kiến trúc.)"
+  },
+  {
+   "id": "b-c7-q7",
+   "explanation": "Data Lineage: quan sát/ghi nhận luồng dữ liệu từ nguồn → biến đổi → khi AI dùng. Khi tự động hóa → Automated Data Lineage, hiện thực hóa nghĩa vụ Traceability.",
+   "options": [
+    "Cơ chế chia sẻ dữ liệu không sao chép giữa các tổ chức thông qua metadata",
+    "Khả năng quan sát và ghi nhận luồng dữ liệu từ nguồn gốc đến khi mô hình AI sử dụng",
+    "Thuật toán phát hiện ngoại lai dựa trên khoảng cách giữa các điểm",
+    "Kỹ thuật che dấu dữ liệu nhạy cảm ở mức cột (Column-level Masking)"
+   ]
+  },
+  {
+   "id": "b-c7-q8",
+   "explanation": "4 điểm chốt: Data Source (metadata CRM/ERP/Web Logs), Transformation (trích SQL từ dbt/Spark), Data Quality Check (kết quả test), AI Consumption (nối đặc trưng với dự báo)."
+  },
+  {
+   "id": "b-c7-q9",
+   "explanation": "RLS: bộ lọc động theo User Context → mỗi người thấy tập DÒNG khác nhau (nhân viên vùng A chỉ thấy khách vùng A). CLM: ẩn/mã hóa một phần dữ liệu CỘT nhạy cảm (091xxxx888), cấu trúc bảng không đổi.",
+   "options": [
+    "Cả hai đều lọc các dòng dữ liệu theo danh tính của người truy cập hiện tại",
+    "RLS che dấu dữ liệu ở mức cột; CLM lọc các dòng dữ liệu theo người dùng",
+    "Cả hai đều che dấu các cột PII nhạy cảm, không đổi cấu trúc bảng",
+    "RLS lọc động theo danh tính (tập DÒNG khác nhau); CLM ẩn/mã hóa dữ liệu nhạy cảm ở CỘT"
+   ]
+  },
+  {
+   "id": "b-c7-q10",
+   "explanation": "Zero-copy Data Sharing: cấp quyền truy cập trực tiếp, đối tác xem in-place không sao chép byte nào; dừng hợp tác chỉ cần Revoke access → giải quyết triệt để mất kiểm soát sau chia sẻ.",
+   "options": [
+    "Mã hóa dữ liệu rồi gửi tệp qua email cho đối tác tự giải mã và lưu trữ",
+    "Tổ chức chủ quản cấp quyền truy cập trực tiếp; đối tác xem tại chỗ, không sao chép dữ liệu",
+    "Tạo bản sao vật lý riêng cho mỗi đối tác để cách ly dữ liệu tuyệt đối",
+    "Sao chép tệp dữ liệu ra bên ngoài qua ETL hoặc FTP theo lịch định kỳ"
+   ]
+  },
+  {
+   "id": "b-c7-q11",
+   "explanation": "ETL truyền thống: trễ (Batch/Schedule), rủi ro lộ file bản sao, tốn gấp đôi tài nguyên. Secure Data Sharing: Live (thời gian thực), kiểm soát tập trung qua IAM, tối ưu tài nguyên.",
+   "options": [
+    "Cả hai mô hình đều đạt được độ trễ thời gian thực như nhau",
+    "Cả hai mô hình đều bị trễ như nhau do phải chạy theo lô",
+    "ETL truyền thống bị trễ (Batch/Schedule); Secure Data Sharing đạt thời gian thực",
+    "ETL đạt thời gian thực; Secure Data Sharing vẫn bị trễ theo lô"
+   ]
+  },
+  {
+   "id": "b-c7-q12",
+   "explanation": "Differential Privacy bơm noise ngẫu nhiên để kết quả gần như không đổi dù có/không một cá nhân → không thể dịch ngược để định danh. (Nhóm giống nhau là K-Anonymity.)",
+   "options": [
+    "Chủ động bơm sai số ngẫu nhiên (noise) để kết quả gần như không đổi dù có/không một cá nhân",
+    "Mã hóa toàn bộ dữ liệu bằng thuật toán băm SHA-256 trước khi công bố báo cáo",
+    "Xóa hẳn toàn bộ dữ liệu cá nhân khỏi tập dữ liệu trước khi phân tích",
+    "Nhóm các cá nhân giống nhau thành các khoảng giá trị rộng hơn"
+   ]
+  },
+  {
+   "id": "b-c7-q13",
+   "explanation": "Epsilon THẤP: bảo mật tối đa nhưng độ chính xác giảm. Epsilon CAO: báo cáo chính xác hơn nhưng rủi ro bảo mật danh tính tăng. ε là ngân sách quyền riêng tư."
+  },
+  {
+   "id": "b-c7-q14",
+   "explanation": "D và D' chỉ khác nhau ĐÚNG MỘT cá nhân (D' = D bớt 1 khách hàng). Công thức giới hạn mức thay đổi kết quả khi có/không một cá nhân, chặn trên bởi e^ε."
+  },
+  {
+   "id": "b-c7-q15",
+   "explanation": "ε=0,1 → e^ε≈1,105 (kết quả chỉ được lớn hơn tối đa 1,105 lần). ε=5 → e^ε≈148,4. Vì 1,105 « 148,4, ε=0,1 an toàn hơn nhiều.",
+   "options": [
+    "Không thể so sánh vì hai giá trị ε thuộc hai thang đo khác nhau",
+    "ε = 0,1 an toàn hơn: e^0,1 ≈ 1,105 « e^5 ≈ 148,4 nên kết quả ít bị đổi hơn",
+    "ε = 5 an toàn hơn vì giá trị ε lớn hơn biểu thị mức bảo vệ cao hơn",
+    "Cả hai mức ε đều cho độ an toàn như nhau trên cùng một tập dữ liệu"
+   ]
+  },
+  {
+   "id": "b-c7-q17",
+   "explanation": "Quasi-identifiers: cột đơn lẻ không nhạy cảm (Tuổi, Giới tính...) nhưng kết hợp lại có thể định danh lại (Re-identification). Xử lý bằng Generalization và Suppression.",
+   "options": [
+    "Các cột chứa dữ liệu nhạy cảm trực tiếp như số CMND, số thẻ tín dụng",
+    "Khóa chính dùng để định danh duy nhất mỗi bản ghi trong bảng dữ liệu",
+    "Nhóm cột đơn lẻ không nhạy cảm (Tuổi, Giới tính) nhưng kết hợp có thể định danh lại",
+    "Các cột đã được mã hóa hoàn toàn nên không thể dịch ngược giá trị"
+   ]
+  },
+  {
+   "id": "b-c7-q18",
+   "explanation": "Generalization: khái quát hóa (23 tuổi → 20-30 tuổi). Suppression: triệt tiêu — xóa hẳn dòng của cá nhân quá dị biệt để tránh lộ.",
+   "options": [
+    "Roll-up và Drill-down dùng trong khai thác dữ liệu đa chiều của OLAP",
+    "Generalization (23 tuổi → nhóm 20-30 tuổi) và Suppression (xóa hẳn dòng quá dị biệt)",
+    "Encryption và Hashing để bảo vệ các cột dữ liệu nhạy cảm khi lưu trữ",
+    "Binning và Regression dùng trong bước tiền xử lý dữ liệu huấn luyện"
+   ]
+  },
+  {
+   "id": "b-c7-q19",
+   "explanation": "Nhóm theo Khu vực rồi khái quát Tuổi: (20-30, Q1) x2 và (40-55, Q3) x2. Mỗi tổ hợp xuất hiện ở đúng 2 bản ghi → không ai bị phân biệt với ít hơn k−1=1 người → đạt 2-anonymity.",
+   "options": [
+    "Bốn nhóm riêng biệt, mỗi bệnh nhân nằm trong một nhóm của riêng mình",
+    "Hai nhóm ('20-30 tuổi', Q1) x2 và ('40-55 tuổi', Q3) x2, mỗi tổ hợp đúng 2 bản ghi",
+    "Một nhóm duy nhất chứa toàn bộ 4 bệnh nhân sau khái quát hóa",
+    "Xóa hết cả 4 bản ghi vì không tổ hợp nào đủ lớn để gộp nhóm"
+   ]
+  },
+  {
+   "id": "b-c7-q20",
+   "explanation": "Data Swamps (vũng lầy dữ liệu): khó biết dữ liệu sạch ở đâu. Giải pháp là AI-driven Data Catalog tự động thu thập/phân loại Metadata và nhận diện cột PII.",
+   "options": [
+    "Data Warehouse được tối ưu hoàn hảo về cả lưu trữ và truy vấn",
+    "Golden Record duy nhất cho toàn bộ hệ thống quản trị dữ liệu",
+    "Zero-copy Data Sharing giữa các tổ chức mà không cần sao chép",
+    "Data Swamps (vũng lầy dữ liệu) – khó nhận biết dữ liệu sạch nằm ở đâu"
+   ]
+  },
+  {
+   "id": "b-c7-q21",
+   "explanation": "Business Glossary (Governance): định nghĩa nghiệp vụ (Churn = không giao dịch >90 ngày), trả lời 'khái niệm này nghĩa là gì?'. Technical Metadata (Data Engineer): kiểu dữ liệu, Schema, Freshness, Owner — 'dữ liệu lưu trữ/vận hành ra sao?'.",
+   "options": [
+    "Cả hai đều chỉ lưu các định nghĩa nghiệp vụ thống nhất cho mọi phòng ban dùng chung",
+    "Cả hai đều do Data Engineer Layer quản lý, cập nhật định kỳ hàng tháng cho toàn công ty",
+    "Business Glossary chỉ lưu kiểu dữ liệu, Schema bảng; còn Technical Metadata định nghĩa khái niệm kinh doanh",
+    "Business Glossary (Governance) thống nhất khái niệm kinh doanh; Technical Metadata (Data Engineer) lưu thông tin kỹ thuật"
+   ]
+  },
+  {
+   "id": "b-c7-q22",
+   "explanation": "Bias không tự sinh từ mô hình mà nằm trong DỮ LIỆU LỊCH SỬ do con người thu thập; nếu quá khứ có phân biệt đối xử, AI học và khuếch đại ở quy mô lớn — hệ quả của thiếu Data Quality.",
+   "options": [
+    "Do lỗi ngẫu nhiên phát sinh trong thuật toán tính toán của mô hình",
+    "Không sinh ra từ mô hình mà nằm trong dữ liệu lịch sử; AI học và khuếch đại nó",
+    "Do phần cứng máy chủ bị lỗi trong quá trình huấn luyện mô hình",
+    "Do người dùng cố tình nhập sai dữ liệu vào hệ thống thu thập"
+   ]
+  },
+  {
+   "id": "b-c7-q23",
+   "explanation": "In-processing: TRONG lúc huấn luyện (thêm Fairness Constraints vào Loss Function). Pre-processing: TRƯỚC (Resampling/gán trọng số). Post-processing: SAU (điều chỉnh Classification Threshold)."
+  },
+  {
+   "id": "b-c7-q24",
+   "explanation": "Post-processing: SAU khi có kết quả, điều chỉnh Classification Threshold riêng cho từng nhóm thiểu số. Đây là một trong ba kỹ thuật theo vòng đời mô hình.",
+   "options": [
+    "Mã hóa toàn bộ dữ liệu đầu ra bằng thuật toán băm SHA-256 trước khi công bố",
+    "Trong lúc huấn luyện, thêm ràng buộc công bằng trực tiếp vào Loss Function",
+    "Sau khi mô hình ra kết quả, điều chỉnh ngưỡng quyết định riêng cho từng nhóm thiểu số",
+    "Trước khi huấn luyện, gán trọng số để cân bằng dữ liệu giữa các nhóm"
+   ]
+  },
+  {
+   "id": "b-c7-q25",
+   "explanation": "Human-in-the-loop: AI chỉ là Decision Support System; quyết định cuối cùng ảnh hưởng quyền lợi công dân (bác đơn vay, từ chối hồ sơ) BẮT BUỘC phải có con người phê duyệt. Kèm Explainable AI (không hộp đen).",
+   "options": [
+    "AI tự động ra mọi quyết định quan trọng mà không cần con người phê duyệt",
+    "AI chỉ hỗ trợ ra quyết định; quyết định ảnh hưởng quyền lợi công dân phải có con người phê duyệt",
+    "Loại bỏ hoàn toàn vai trò con người khỏi quy trình để tăng tốc độ ra quyết định",
+    "Con người chỉ giám sát phần cứng mà không giám sát quyết định của AI"
+   ]
+  },
+  {
+   "id": "b-c7-q26",
+   "explanation": "Continuous Auditing: AI theo dõi 24/7 thời gian thực, giảm chi phí, phát hiện/ngăn vi phạm ngay khi xảy ra — thay cho audit truyền thống định kỳ (quý/năm) bằng con người, dễ bỏ sót.",
+   "options": [
+    "Chỉ kiểm toán khi có sự cố bảo mật nghiêm trọng xảy ra với hệ thống",
+    "Chỉ do con người thực hiện thủ công theo đúng lịch định kỳ hàng quý",
+    "Kiểm toán một lần duy nhất ngay khi khởi tạo xong hệ thống dữ liệu",
+    "Ứng dụng AI theo dõi toàn bộ hạ tầng 24/7 thay cho kiểm toán định kỳ bằng con người"
+   ]
+  },
+  {
+   "id": "b-c7-q27",
+   "explanation": "Monitor (theo dõi truy vấn nhạy cảm) → Detect (Anomaly Detection phát hiện bất thường) → Alert (báo động đỏ, khóa quyền) → Report (kết xuất Compliance Report theo AI Act)."
+  },
+  {
+   "id": "b-c7-q28",
+   "explanation": "Data Audit Trail: sổ cái bất biến (Immutable log) ghi ai tạo/sửa/xóa/xem dữ liệu. Bias Reporting Dashboard đo Fairness Metrics; Privacy Audit Trail theo dõi Epsilon budget loss.",
+   "options": [
+    "Theo dõi mức hao hụt ngân sách quyền riêng tư (Epsilon) theo thời gian",
+    "Sổ cái bất biến (Immutable log) ghi nhận ai đã tạo, sửa, xóa hoặc xem dữ liệu",
+    "Bản đồ trực quan quan hệ đầu vào – đầu ra của từng bảng dữ liệu",
+    "Báo cáo đo lường Fairness Metrics của các mô hình AI đang vận hành"
+   ]
+  }
+ ]
+}

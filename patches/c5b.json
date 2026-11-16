@@ -1,0 +1,711 @@
+{
+ "chunk": "c5b",
+ "items": [
+  {
+   "id": "c5-q99",
+   "explanation": "C4.5 cải tiến ID3 ở ba điểm:\n• Chọn thuộc tính bằng Gain Ratio thay cho Information Gain\n• Hỗ trợ cả dữ liệu rời rạc và liên tục\n• Có cơ chế Post-pruning (cắt sau)\nC4.5 xử lý giá trị Null bằng trọng số xác suất nên ý cuối là sai."
+  },
+  {
+   "id": "c5-q100",
+   "explanation": "ID3 có ba đặc điểm đúng:\n• Chọn thuộc tính theo Information Gain\n• Chỉ xử lý dữ liệu rời rạc (categorical)\n• Không có cơ chế cắt tỉa cây\nKhông cắt tỉa nên ID3 kiểm soát Overfitting kém, ý \"rất tốt\" là sai."
+  },
+  {
+   "id": "c5-q101",
+   "explanation": "Naive Bayes phân loại dựa trên Định lý Bayes trong lý thuyết xác suất thống kê: tính xác suất đối tượng rơi vào từng nhóm dựa trên các đặc trưng của nó.",
+   "options": [
+    "Lý thuyết đồ thị trong toán rời rạc",
+    "Đại số tuyến tính và ma trận",
+    "Logic mờ trong hệ chuyên gia",
+    "Định lý Bayes trong xác suất thống kê"
+   ]
+  },
+  {
+   "id": "c5-q102",
+   "explanation": "Giả định \"Naive\" là xem tất cả thuộc tính dữ liệu đều độc lập hoàn toàn với nhau khi đã biết nhãn lớp, nhờ đó P(X|C) chỉ cần nhân các xác suất thành phần.",
+   "options": [
+    "Các nhãn lớp phân bố đều nhau trong dữ liệu",
+    "Dữ liệu luôn tuân theo phân phối chuẩn Gaussian",
+    "Mọi thuộc tính đều có trọng số bằng nhau",
+    "Mọi thuộc tính độc lập hoàn toàn khi biết nhãn lớp"
+   ]
+  },
+  {
+   "id": "c5-q103",
+   "explanation": "Naive Bayes tính xác suất đối tượng rơi vào từng nhóm dựa trên các đặc trưng của nó, rồi xếp đối tượng vào nhóm có xác suất hậu nghiệm cao nhất."
+  },
+  {
+   "id": "c5-q104",
+   "explanation": "Định lý Bayes: P(C|X) = P(X|C) × P(C) / P(X), với P(C) là xác suất tiên nghiệm, P(X|C) là khả năng (likelihood) và P(X) là bằng chứng."
+  },
+  {
+   "id": "c5-q105",
+   "explanation": "Trong P(C|X) = P(X|C) × P(C) / P(X), thành phần P(C) là xác suất tiên nghiệm (prior) - xác suất của lớp C trước khi quan sát dữ liệu X."
+  },
+  {
+   "id": "c5-q106",
+   "explanation": "P(X|C) là khả năng (likelihood): xác suất quan sát được X khi đã biết đối tượng thuộc lớp C. P(C) là tiên nghiệm, P(C|X) là hậu nghiệm."
+  },
+  {
+   "id": "c5-q107",
+   "explanation": "P(Yes) = số mẫu Yes / tổng số mẫu = 9/14 ≈ 0,643. Đây là xác suất tiên nghiệm của lớp Yes trước khi xét bất kỳ thuộc tính nào."
+  },
+  {
+   "id": "c5-q108",
+   "explanation": "P(No) = số mẫu No / tổng số mẫu = 5/14 ≈ 0,357. Hai xác suất tiên nghiệm P(Yes) = 0,643 và P(No) = 0,357 cộng lại đúng bằng 1."
+  },
+  {
+   "id": "c5-q109",
+   "explanation": "P(X) có giá trị giống nhau cho mọi lớp nên khi so sánh P(C)×P(X|C) giữa các lớp, mẫu số chung này không làm đổi thứ tự; bỏ qua để tính nhanh hơn.",
+   "options": [
+    "Vì P(X) luôn bằng 0 với mọi lớp",
+    "Vì P(X) luôn bằng 1 với mọi lớp",
+    "Vì P(X) thay đổi khác nhau theo từng lớp",
+    "Vì P(X) giống nhau ở mọi lớp nên bỏ qua được"
+   ]
+  },
+  {
+   "id": "c5-q110",
+   "explanation": "Theo giả định độc lập, P(X|C) = P(x1|C) × P(x2|C) × P(x3|C): các thuộc tính được xem là độc lập khi biết lớp nên xác suất đồng thời bằng tích."
+  },
+  {
+   "id": "c5-q111",
+   "explanation": "Mạng Bayes là một cấu trúc đồ thị kết hợp lý thuyết xác suất, cho phép mô hình hóa hệ thống phức tạp có nhiều biến phụ thuộc lẫn nhau.",
+   "options": [
+    "Một bảng băm có khoá xác suất",
+    "Một cây nhị phân cân bằng tối ưu",
+    "Một danh sách liên kết đôi",
+    "Một đồ thị kết hợp lý thuyết xác suất"
+   ]
+  },
+  {
+   "id": "c5-q112",
+   "explanation": "Mạng Bayes dùng đồ thị có hướng để mô hình hóa sự phụ thuộc thực tế của các biến, khắc phục giả định \"Naive\"; đổi lại tính toán phức tạp hơn.",
+   "options": [
+    "Chạy nhanh hơn và tốn ít bộ nhớ hơn nhiều",
+    "Không cần dữ liệu huấn luyện vẫn chạy được",
+    "Luôn cho độ chính xác tuyệt đối 100%",
+    "Mô hình hóa được sự phụ thuộc giữa các biến số"
+   ]
+  },
+  {
+   "id": "c5-q113",
+   "explanation": "Tích chưa chuẩn hóa P(C)×P(X|C):\n• Yes: 0,643 × 0,02 ≈ 0,0129\n• No: 0,357 × 0,05 ≈ 0,0179\nVì 0,0179 > 0,0129 nên X được xếp vào lớp No dù P(Yes) lớn hơn.",
+   "options": [
+    "Lớp Yes vì 0.643 > 0.357 nên chắc chắn hơn",
+    "Không xác định được vì thiếu giá trị P(X)",
+    "Cả hai lớp bằng nhau vì tích đều rất nhỏ",
+    "Lớp No vì 0.357×0.05 ≈ 0.0179 > 0.0129"
+   ]
+  },
+  {
+   "id": "c5-q114",
+   "explanation": "Naive Bayes có ba đặc điểm đúng:\n• Nền tảng là định lý Bayes\n• Giả định các thuộc tính độc lập khi biết nhãn lớp\n• Chọn lớp có xác suất hậu nghiệm cao nhất\nÝ \"thuộc tính phụ thuộc mạnh\" trái với giả định nên sai."
+  },
+  {
+   "id": "c5-q115",
+   "explanation": "Naive Bayes học từ tập dữ liệu đã có nhãn lớp để dự đoán nhãn cho đối tượng mới, nên thuộc nhóm học có giám sát (supervised learning).",
+   "options": [
+    "Học không giám sát (unsupervised)",
+    "Học tăng cường (reinforcement)",
+    "Phân cụm (clustering)",
+    "Học có giám sát (supervised learning)"
+   ]
+  },
+  {
+   "id": "c5-q116",
+   "explanation": "Phân cụm chia dữ liệu thành các nhóm dựa trên sự tương đồng mà không dùng nhãn lớp, nên thuộc nhóm học không giám sát (unsupervised learning).",
+   "options": [
+    "Học có giám sát (supervised)",
+    "Học bán giám sát (semi-supervised)",
+    "Học tăng cường (reinforcement)",
+    "Học không giám sát (unsupervised learning)"
+   ]
+  },
+  {
+   "id": "c5-q117",
+   "explanation": "Trong K-Means, tham số k là số cụm cần phân chia do người dùng chọn trước; thuật toán lặp gán điểm vào tâm gần nhất rồi cập nhật tâm."
+  },
+  {
+   "id": "c5-q118",
+   "explanation": "Tâm cụm của K-Means là Mean - trọng tâm ảo tính bằng trung bình các điểm trong cụm, nên có thể không trùng với điểm dữ liệu nào."
+  },
+  {
+   "id": "c5-q119",
+   "explanation": "K-Medoids chọn Medoid làm tâm: một điểm dữ liệu có thật trong cụm, nên tâm luôn tồn tại trong dữ liệu và ít bị nhiễu chi phối.",
+   "options": [
+    "Giá trị trung bình ảo của các điểm",
+    "Một điểm ngẫu nhiên bất kỳ trong cụm",
+    "Trọng tâm hình học của toàn cụm",
+    "Medoid - một điểm dữ liệu thật trong cụm"
+   ]
+  },
+  {
+   "id": "c5-q120",
+   "explanation": "Vì tâm là Mean, một điểm ngoại lai lớn có thể kéo lệch tâm cụm rất nhiều; K-Means cũng chỉ dùng được cho dữ liệu số.",
+   "options": [
+    "Chạy rất chậm với dữ liệu lớn",
+    "Không dùng được cho dữ liệu số",
+    "Luôn cần biết trước nhãn lớp",
+    "Nhạy cảm với nhiễu và điểm ngoại lai"
+   ]
+  },
+  {
+   "id": "c5-q121",
+   "explanation": "Medoid là điểm thật trong cụm nên ít bị outlier kéo lệch, nhờ vậy K-Medoids chống nhiễu tốt hơn K-Means; đổi lại nó chạy chậm khi dữ liệu lớn."
+  },
+  {
+   "id": "c5-q122",
+   "explanation": "K-Medoids phải xét nhiều điểm thật làm medoid nên chạy rất chậm khi dữ liệu lớn; CLARA/CLARANS ra đời để khắc phục bằng cách lấy mẫu."
+  },
+  {
+   "id": "c5-q123",
+   "explanation": "Mean theo từng chiều: x = (0+2+0+2)/4 = 1 và y = (0+0+2+2)/4 = 1, nên tâm cụm là (1,1) - trọng tâm ảo, không trùng điểm dữ liệu nào."
+  },
+  {
+   "id": "c5-q124",
+   "explanation": "Trung bình từng chiều: x = (1+3+5)/3 = 3 và y = (2+4+6)/3 = 4, nên tâm cụm là (3,4). Tâm trùng điểm (3,4) chỉ là trùng hợp, Mean vẫn là điểm ảo."
+  },
+  {
+   "id": "c5-q125",
+   "explanation": "Khoảng cách Euclid d = √((3−0)² + (4−0)²) = √(9+16) = √25 = 5. Đáp án 7 là nhầm sang tổng 3+4, còn 12 là nhầm thành 3×4."
+  },
+  {
+   "id": "c5-q126",
+   "explanation": "d(P,C1) = √(1²+1²) = √2, d(P,C2) = √(4²+4²) = √32 nên C2 xa nhất. C3(2,2) cũng cách √2, đề chốt C1 là tâm gần nhất để gán.",
+   "options": [
+    "C2 vì khoảng cách √32 là xa nhất",
+    "Không cụm nào vì P nằm giữa ba tâm",
+    "C3 vì cùng dấu với điểm P",
+    "C1 vì khoảng cách √2 nhỏ nhất"
+   ]
+  },
+  {
+   "id": "c5-q127",
+   "explanation": "K-Means lặp hai bước: gán mỗi điểm vào tâm gần nhất, rồi cập nhật tâm bằng Mean của các điểm vừa gán, đến khi tâm không đổi.",
+   "options": [
+    "Xây dựng cây quyết định rồi cắt tỉa bớt các nhánh",
+    "Chia không gian thành các ô lưới rồi gom cụm",
+    "Tính Entropy và Information Gain cho từng thuộc tính",
+    "Gán điểm vào tâm gần nhất, rồi cập nhật lại tâm cụm"
+   ]
+  },
+  {
+   "id": "c5-q128",
+   "explanation": "K-Modes là bản K-Means dành riêng cho dữ liệu phân loại (categorical): thay phép tính Mean bằng Mode - giá trị xuất hiện nhiều nhất.",
+   "options": [
+    "Dữ liệu số liên tục nhiều chiều",
+    "Dữ liệu ảnh và văn bản phi cấu trúc",
+    "Dữ liệu chuỗi thời gian có nhãn",
+    "Dữ liệu phân loại, thay Mean bằng Mode"
+   ]
+  },
+  {
+   "id": "c5-q129",
+   "explanation": "Mini-Batch K-Means chạy trên từng nhóm mẫu nhỏ ngẫu nhiên thay vì toàn bộ dữ liệu, nhờ đó tăng tốc và tiết kiệm bộ nhớ cho Big Data.",
+   "options": [
+    "Tăng độ chính xác tuyệt đối cho mô hình",
+    "Xử lý được dữ liệu phân loại thay số",
+    "Loại bỏ hoàn toàn tham số k khi chạy",
+    "Tăng tốc và tiết kiệm bộ nhớ cho Big Data"
+   ]
+  },
+  {
+   "id": "c5-q130",
+   "explanation": "K-Prototypes là bản lai (hybrid) kết hợp K-Means và K-Modes, dùng cho dữ liệu hỗn hợp gồm cả thuộc tính số và thuộc tính phân loại.",
+   "options": [
+    "Chỉ dữ liệu số liên tục",
+    "Chỉ dữ liệu phân loại thuần",
+    "Chỉ dữ liệu ảnh và văn bản",
+    "Dữ liệu hỗn hợp (số và phân loại)"
+   ]
+  },
+  {
+   "id": "c5-q131",
+   "explanation": "CLARA/CLARANS là bản phân tách mẫu của K-Medoids, giúp thuật toán thực thi được trên dữ liệu lớn; DBSCAN và ID3 không cùng nhóm này."
+  },
+  {
+   "id": "c5-q132",
+   "explanation": "K-Means có ba đặc điểm đúng:\n• Tâm cụm là giá trị trung bình Mean\n• Chạy rất nhanh với dữ liệu lớn\n• Nhạy cảm với điểm ngoại lai\nTâm luôn là điểm dữ liệu thật lại là đặc điểm của K-Medoids."
+  },
+  {
+   "id": "c5-q133",
+   "explanation": "DBSCAN định nghĩa cụm là vùng có mật độ điểm dày đặc, ngăn cách bởi vùng mật độ thấp, nên thuộc nhóm dựa trên mật độ (Density-based)."
+  },
+  {
+   "id": "c5-q134",
+   "explanation": "DBSCAN không cần biết trước số cụm k và phát hiện được cụm hình dạng bất kỳ; K-Means thì phải cho trước k và chỉ tạo được cụm dạng cầu."
+  },
+  {
+   "id": "c5-q135",
+   "explanation": "Eps là bán kính lân cận (phạm vi quét quanh mỗi điểm); MinPts là số điểm tối thiểu trong bán kính đó để cấu thành một cụm."
+  },
+  {
+   "id": "c5-q136",
+   "explanation": "MinPts là số điểm tối thiểu trong bán kính Eps để vùng đủ \"dày đặc\" và cấu thành một cụm; còn Eps mới là bán kính quét.",
+   "options": [
+    "Bán kính vùng lân cận quanh mỗi điểm",
+    "Số cụm tối đa cần tìm ra",
+    "Kích thước ô lưới khi lượng tử hóa",
+    "Số điểm tối thiểu trong bán kính Eps"
+   ]
+  },
+  {
+   "id": "c5-q137",
+   "explanation": "Core point có ≥ MinPts điểm trong bán kính Eps và là nguồn phát triển (lan truyền) cụm; điểm biên và điểm nhiễu không đạt ngưỡng này."
+  },
+  {
+   "id": "c5-q138",
+   "explanation": "Border point nằm trong vùng Eps của một điểm lõi nhưng bản thân có < MinPts điểm lân cận, nên không tự phát triển cụm mà chỉ thuộc cụm của lõi.",
+   "options": [
+    "Có ≥ MinPts điểm nằm trong bán kính Eps của nó",
+    "Là điểm khởi nguồn lan truyền phát triển cụm mới",
+    "Bị loại bỏ hoàn toàn, không được gán vào cụm nào cả",
+    "Nằm trong vùng Eps của điểm lõi nhưng có < MinPts lân cận"
+   ]
+  },
+  {
+   "id": "c5-q139",
+   "explanation": "Noise point không phải điểm lõi cũng không phải điểm biên, tức không nằm trong vùng Eps của bất kỳ lõi nào; thuật toán loại bỏ và không gán cụm.",
+   "options": [
+    "Là điểm lõi của một cụm lớn, mật độ cao",
+    "Là điểm biên nằm sát vùng Eps của điểm lõi",
+    "Là tâm cụm chính được chọn làm medoid",
+    "Không là điểm lõi cũng không là điểm biên, bị loại"
+   ]
+  },
+  {
+   "id": "c5-q140",
+   "explanation": "P có 6 điểm lân cận trong bán kính Eps, mà 6 ≥ MinPts = 4, nên P là điểm lõi (Core). Điểm biên phải có ít hơn MinPts điểm lân cận."
+  },
+  {
+   "id": "c5-q141",
+   "explanation": "Q chỉ có 2 < MinPts = 5 điểm lân cận và không nằm trong vùng Eps của lõi nào, nên không là lõi cũng không là biên → là điểm nhiễu (Noise)."
+  },
+  {
+   "id": "c5-q142",
+   "explanation": "DBSCAN có ba đặc điểm đúng:\n• Không cần biết trước số cụm k\n• Dùng hai tham số Eps và MinPts\n• Phát hiện cụm hình dạng bất kỳ và loại bỏ nhiễu\nCụm hình cầu là đặc điểm của K-Means."
+  },
+  {
+   "id": "c5-q143",
+   "explanation": "Phân cụm phân cấp gộp dần các cụm nhỏ hoặc chia nhỏ cụm lớn, kết quả là Dendrogram - sơ đồ cây thể hiện cấu trúc phân cấp đa tầng bậc.",
+   "options": [
+    "Bảng băm (hash table)",
+    "Ma trận nhị phân 0/1",
+    "Cây quyết định phân loại",
+    "Dendrogram (sơ đồ cây phân cấp)"
+   ]
+  },
+  {
+   "id": "c5-q144",
+   "explanation": "Hierarchical có chi phí tính toán cao và các bước gộp/chia sai ở trước không thể đảo ngược - đó là nhược điểm lớn nhất; đổi lại nó rất trực quan.",
+   "options": [
+    "Không trực quan được cấu trúc đa tầng bậc rõ ràng",
+    "Không dùng được với dữ liệu số nhiều chiều phức tạp",
+    "Bắt buộc phải biết trước số cụm k khi chạy",
+    "Chi phí tính toán cao, bước gộp/chia sai không đảo ngược"
+   ]
+  },
+  {
+   "id": "c5-q145",
+   "explanation": "Grid-based chia không gian thành các ô lưới đã lượng tử hóa rồi gom cụm dựa trên các ô, nên tốc độ xử lý siêu nhanh, chuyên trị dữ liệu lớn."
+  },
+  {
+   "id": "c5-q146",
+   "explanation": "Grid-based chia không gian dữ liệu thành các ô lưới, tính toán và gom cụm dựa trên các ô này; chi phí phụ thuộc số ô chứ không phải số điểm.",
+   "options": [
+    "Gộp dần từng cặp cụm gần nhau nhất từ dưới lên",
+    "Lan truyền theo mật độ các điểm quanh mỗi lõi",
+    "Tính xác suất hậu nghiệm cho từng cụm ứng viên",
+    "Chia không gian thành các ô lưới rồi gom cụm theo ô"
+   ]
+  },
+  {
+   "id": "c5-q147",
+   "explanation": "Nhóm phân cấp gồm AGNES, DIANA, BIRCH và CURE:\n• AGNES gộp dần từ dưới lên\n• DIANA chia dần từ trên xuống\n• BIRCH xây cây đặc trưng\nSTING là Grid-based nên không chọn."
+  },
+  {
+   "id": "c5-q148",
+   "explanation": "Phát hiện ngoại lai tìm những điểm bất thường khác biệt hẳn so với số đông, phục vụ làm sạch dữ liệu và phát hiện gian lận; đây không phải phân cụm hay dự báo.",
+   "options": [
+    "Gộp các điểm giống nhau lại thành từng cụm",
+    "Dự báo nhãn lớp cho các mẫu dữ liệu mới hơn",
+    "Tính độ hỗ trợ và độ tin cậy của từng luật",
+    "Nhận diện điểm dữ liệu bất thường so với số đông"
+   ]
+  },
+  {
+   "id": "c5-q149",
+   "explanation": "Statistical-based giả định dữ liệu tuân theo một phân phối xác suất (thường là Gaussian) và coi các điểm ở hai đuôi, tức xác suất cực thấp, là ngoại lai.",
+   "options": [
+    "Đo khoảng cách hình học giữa các điểm trong không gian",
+    "Chia không gian dữ liệu thành các ô lưới đều nhau",
+    "Xây dựng cây quyết định từ tập dữ liệu huấn luyện",
+    "Giả định dữ liệu theo phân phối xác suất, thường Gaussian"
+   ]
+  },
+  {
+   "id": "c5-q150",
+   "explanation": "Distance-based không xét phân phối xác suất mà tập trung vào không gian hình học: điểm nằm cách xa hầu hết các điểm dữ liệu khác là ngoại lai.",
+   "options": [
+    "Xác suất tiên nghiệm của mỗi điểm dữ liệu",
+    "Phân phối chuẩn của toàn bộ tập dữ liệu",
+    "Tần suất xuất hiện của điểm trong giao dịch",
+    "Điểm nằm cách xa hầu hết các điểm dữ liệu khác"
+   ]
+  },
+  {
+   "id": "b-c5-q1",
+   "explanation": "X = Antecedent (Tiền đề, trước ⇒); Y = Consequent (Hậu đề, sau ⇒). Ý nghĩa: nếu X xảy ra thì Y có khả năng xảy ra.",
+   "options": [
+    "X là Antecedent (tiền đề); Y là Consequent (hậu đề)",
+    "X là tập phổ biến; Y là tập không phổ biến trong CSDL",
+    "X là Hậu đề (Consequent); Y là Tiền đề (Antecedent)",
+    "X là dữ liệu huấn luyện; Y là dữ liệu kiểm tra"
+   ]
+  },
+  {
+   "id": "b-c5-q2",
+   "explanation": "Support = P(X∩Y) = (số giao dịch chứa cả X và Y)/(tổng số giao dịch), phản ánh mức độ phổ biến của luật. Tiến gần 1 → phổ biến; gần 0 → hiếm.",
+   "options": [
+    "Xác suất Y xảy ra khi biết X đã xảy ra trước đó",
+    "Tỉ lệ giao dịch chứa cả X và Y: Sup = count(X∪Y)/N",
+    "Số lần Y xuất hiện độc lập trong toàn bộ dữ liệu",
+    "Mức độ X làm tăng khả năng xảy ra của Y thêm"
+   ]
+  },
+  {
+   "id": "b-c5-q3",
+   "explanation": "Confidence = Sup(X∩Y)/Sup(X): xác suất Y xảy ra khi biết X. Ví dụ Conf(L)=262/283≈0,926 → 92,6% khách có 2 sản phẩm cũng có thẻ tín dụng.",
+   "options": [
+    "Conf = Sup(X ∩ Y)/Sup(X), tức P(Y|X) khi có X",
+    "Conf = Conf(X ⇒ Y)/P(Y) – công thức của Lift",
+    "Conf = Sup(X ∩ Y)/(tổng số giao dịch)",
+    "Conf = Sup(X)/Sup(Y) – đảo ngược tử và mẫu"
+   ]
+  },
+  {
+   "id": "b-c5-q4",
+   "explanation": "Lift = Conf(X⇒Y)/P(Y) đo mức phụ thuộc THỰC SỰ giữa X và Y. Confidence cao vẫn có thể do Y quá phổ biến sẵn — Lift loại bỏ nhược điểm này.",
+   "options": [
+    "Số lượng luật mà thuật toán có thể sinh ra được",
+    "Mức độ chi tiết của từng dòng dữ liệu giao dịch",
+    "Tần suất xuất hiện đồng thời của X và Y trong CSDL",
+    "Liệu X có thật sự làm tăng khả năng xảy ra của Y"
+   ]
+  },
+  {
+   "id": "b-c5-q5",
+   "explanation": "Lift > 1: tiền đề làm TĂNG khả năng hậu đề (tích cực); Lift = 1: độc lập; Lift < 1: làm GIẢM khả năng (tiêu cực). Ví dụ Lift(L)≈1,52 → cao hơn 1,52 lần mức trung bình.",
+   "options": [
+    "Lift luôn nằm trong khoảng [0,1] với mọi luật",
+    "Lift > 1: tích cực; Lift = 1: độc lập; Lift < 1: tiêu cực",
+    "Lift > 1: tiêu cực; Lift = 1: độc lập; Lift < 1: tích cực",
+    "Lift càng cao thì luật càng hiếm gặp trong dữ liệu"
+   ]
+  },
+  {
+   "id": "b-c5-q6",
+   "explanation": "minsup (Support tối thiểu, ~0,01=1%) và minconf (Confidence tối thiểu, ~0,8=80%). Luật dưới ngưỡng bị loại để giảm số luật kém giá trị.",
+   "options": [
+    "Xác định độ rộng bin khi rời rạc hóa dữ liệu số",
+    "Loại luật có Support < minsup hoặc Confidence < minconf",
+    "Tính số chiều dữ liệu cần giảm xuống nhờ PCA",
+    "Xác định số cụm k cần chọn trong phân cụm K-Means"
+   ]
+  },
+  {
+   "id": "b-c5-q7",
+   "explanation": "Support = count({c,d,e})/8 = 3/8 = 0,375. Confidence = count({c,d,e})/count({c,d}) = 3/4 = 0,75. P(e)=4/8=0,5 → Lift = 0,75/0,5 = 1,5 (>1, mua c,d làm tăng khả năng mua e).",
+   "options": [
+    "Support = 0,75; Confidence = 0,375; Lift = 1,5",
+    "Support = 0,375; Confidence = 0,75; Lift = 1,5",
+    "Support = 0,5; Confidence = 0,75; Lift = 2,0",
+    "Support = 0,375; Confidence = 0,5; Lift = 0,75"
+   ]
+  },
+  {
+   "id": "b-c5-q8",
+   "explanation": "Apriori (Agrawal, 1993) tìm các tập phổ biến (Frequent Itemset) có Support ≥ minsup, làm nền tảng để khai phá luật kết hợp.",
+   "options": [
+    "Phân cụm dữ liệu mà không cần biết số cụm",
+    "Chuẩn hóa dữ liệu về cùng một thang đo",
+    "Xây dựng cây quyết định để phân loại",
+    "Tìm các tập phổ biến có Support ≥ minsup"
+   ]
+  },
+  {
+   "id": "b-c5-q9",
+   "explanation": "Số tập con không rỗng = 2^|I| − 1. Ví dụ |I|=5 → 2⁵−1 = 31. Đây là lý do Apriori cần chiến lược sinh ứng viên hiệu quả thay vì liệt kê vét cạn."
+  },
+  {
+   "id": "b-c5-q10",
+   "explanation": "Antimonotone: X⊆Y ⇒ Sup(Y)≤Sup(X). Thêm item vào tập chỉ làm Support GIẢM hoặc giữ nguyên, không bao giờ tăng.",
+   "options": [
+    "Support luôn tăng khi thêm item vào tập",
+    "Nếu X ⊆ Y thì Sup(Y) ≥ Sup(X) luôn đúng với mọi tập",
+    "Support của tập con luôn bằng Support tập cha",
+    "X ⊆ Y ⇒ Sup(Y) ≤ Sup(X): thêm item chỉ giảm Sup"
+   ]
+  },
+  {
+   "id": "b-c5-q11",
+   "explanation": "Tính chất 2: X không phổ biến ⇒ mọi tập cha Y⊇X cũng không phổ biến → cắt tỉa (pruning) sớm, tiết kiệm phép tính so với liệt kê vét cạn 2ⁿ−1.",
+   "options": [
+    "Loại bỏ item có Support cao nhất trong toàn bộ CSDL",
+    "X không phổ biến ⇒ mọi tập cha Y ⊇ X cũng không phổ biến",
+    "Nếu X phổ biến thì mọi tập con cũng luôn phổ biến",
+    "Tự động sinh ra tất cả ứng viên có thể có được"
+   ]
+  },
+  {
+   "id": "b-c5-q12",
+   "explanation": "Apriori: quét CSDL nhiều lần (mỗi kích thước k), sinh nhiều ứng viên (~n²/2 ở bước 2). FP-Growth: nén vào FP-Tree, chỉ quét 2 lần, KHÔNG sinh ứng viên.",
+   "options": [
+    "FP-Growth sinh ra nhiều ứng viên hơn hẳn Apriori",
+    "Apriori chỉ quét CSDL đúng 1 lần, FP-Growth quét nhiều lần",
+    "Apriori quét nhiều lần, sinh nhiều ứng viên; FP-Growth quét 2 lần",
+    "Apriori không dùng được với dữ liệu lớn, FP-Growth bỏ minsup"
+   ]
+  },
+  {
+   "id": "b-c5-q13",
+   "explanation": "FP-Growth: chỉ giữ item có support ≥ minsupportcount, viết itemset theo thứ tự GIẢM DẦN support count → các giao dịch chung item phổ biến dùng chung một nhánh, nén tối ưu.",
+   "options": [
+    "Viết theo thứ tự giảm dần của support count",
+    "Theo thứ tự xuất hiện trong giao dịch gốc",
+    "Theo thứ tự bảng chữ cái alphabet A→Z",
+    "Theo thứ tự tăng dần của support count"
+   ]
+  },
+  {
+   "id": "b-c5-q14",
+   "explanation": "Conditional Pattern Base: với mỗi item suffix, là tập các prefix path trong FP-Tree dẫn tới item đó (kèm count) → dùng để tạo Conditional FP-Tree và suy ra tập phổ biến.",
+   "options": [
+    "Bảng nhị phân 0/1 biểu diễn các giao dịch",
+    "Tập đường dẫn tiền tố trong FP-Tree tới item đó",
+    "Danh sách toàn bộ ứng viên kích thước k",
+    "Cây quyết định phân loại các tập phổ biến"
+   ]
+  },
+  {
+   "id": "b-c5-q15",
+   "explanation": "ID3: Information Gain. C4.5 (cải tiến của ID3): Gain Ratio. C4.5 còn hỗ trợ dữ liệu liên tục, giá trị Null, và Post-pruning."
+  },
+  {
+   "id": "b-c5-q16",
+   "explanation": "C4.5 có Post-pruning → cây gọn, chống Overfitting tốt. ID3 không có cắt tỉa (dễ quá khớp khi cây sâu), chỉ dùng dữ liệu rời rạc, không xử lý Null.",
+   "options": [
+    "ID3 xử lý được giá trị Null còn C4.5 thì không",
+    "C4.5 có Post-pruning tạo cây gọn; ID3 không cắt tỉa",
+    "C4.5 không hỗ trợ được dữ liệu liên tục",
+    "ID3 có Post-pruning còn C4.5 thì không"
+   ]
+  },
+  {
+   "id": "b-c5-q17",
+   "explanation": "'Naive' vì giả định mọi thuộc tính độc lập hoàn toàn khi biết nhãn lớp → tính toán đơn giản, nhanh, nhưng không đúng với hầu hết dữ liệu thực (thuộc tính thường có quan hệ).",
+   "options": [
+    "Vì nó không dựa trên xác suất thống kê nào cả",
+    "Vì nó luôn cho kết quả sai trên thực tế mọi lúc",
+    "Vì nó chỉ dùng được với dữ liệu rất nhỏ mà thôi",
+    "Vì giả định mọi thuộc tính độc lập khi biết nhãn lớp"
+   ]
+  },
+  {
+   "id": "b-c5-q18",
+   "explanation": "Bayesian Network dùng đồ thị có hướng + xác suất để mô hình hóa quan hệ phụ thuộc thực tế giữa các biến → khắc phục giả định độc lập 'Naive', chính xác hơn khi thuộc tính tương quan (đổi lại tính toán phức tạp hơn).",
+   "options": [
+    "Chỉ dùng được cho dữ liệu số nhiều chiều",
+    "Loại bỏ hoàn toàn nhu cầu về xác suất",
+    "Giảm độ phức tạp tính toán xuống thấp hơn",
+    "Mô hình hóa quan hệ phụ thuộc giữa các biến"
+   ]
+  },
+  {
+   "id": "b-c5-q19",
+   "explanation": "K-Means: tâm = Mean (trọng tâm ảo, có thể không tồn tại thật), nhanh nhưng nhạy nhiễu. K-Medoids: tâm = Medoid (điểm dữ liệu THẬT), chống nhiễu tốt nhưng chậm với dữ liệu lớn.",
+   "options": [
+    "K-Means dùng Mean (trọng tâm ảo); K-Medoids dùng Medoid (điểm thật)",
+    "K-Means dùng điểm thật; K-Medoids dùng trọng tâm ảo",
+    "K-Means dùng cho dữ liệu phân loại; K-Medoids cho dữ liệu số",
+    "Cả hai đều dùng Mean làm tâm cụm"
+   ]
+  },
+  {
+   "id": "b-c5-q20",
+   "explanation": "K-Means tính Mean → outlier lớn kéo lệch tâm. K-Medoids chọn điểm dữ liệu THẬT làm tâm → ít bị outlier chi phối (đổi lại chi phí tìm medoid cao hơn).",
+   "options": [
+    "Vì tâm K-Means là trung bình nên outlier lớn kéo lệch tâm",
+    "Vì K-Means không dùng khoảng cách tới tâm",
+    "Vì K-Medoids chạy nhanh hơn nên xử lý nhiễu tốt hơn",
+    "Vì K-Means chỉ dùng cho dữ liệu phân loại"
+   ]
+  },
+  {
+   "id": "b-c5-q21",
+   "explanation": "K-Modes: cho dữ liệu phân loại, thay Mean bằng Mode. Mini-Batch K-Means: tăng tốc Big Data; K-Prototypes: dữ liệu hỗn hợp; CLARA/CLARANS: bản sampling của K-Medoids.",
+   "options": [
+    "CLARA/CLARANS (lấy mẫu của K-Medoids)",
+    "Mini-Batch K-Means (chạy theo lô nhỏ)",
+    "K-Prototypes (hỗn hợp số và phân loại)",
+    "K-Modes (thay Mean bằng Mode)"
+   ]
+  },
+  {
+   "id": "b-c5-q22",
+   "explanation": "DBSCAN: cụm = vùng mật độ dày đặc, ngăn bởi vùng mật độ thấp. Ưu điểm: KHÔNG cần biết trước k (như K-Means) và phát hiện cụm hình dạng bất kỳ (không chỉ hình cầu).",
+   "options": [
+    "Cụm luôn có hình cầu và bắt buộc phải cho trước số cụm k",
+    "Cụm là vùng có mật độ điểm thấp và phải biết trước số cụm k",
+    "Cụm xác định bằng trọng tâm ảo Mean và không cần biết số cụm k",
+    "Cụm là vùng mật độ dày đặc, ngăn bởi vùng mật độ thấp, không cần k"
+   ]
+  },
+  {
+   "id": "b-c5-q23",
+   "explanation": "Core: có ≥ MinPts điểm trong bán kính Eps (nguồn lan cụm). Border: trong vùng Eps của Core nhưng < MinPts lân cận. Noise: không thuộc hai loại → bị loại, không gán cụm.",
+   "options": [
+    "Root, Branch và Leaf",
+    "Core, Border và Noise",
+    "Bronze, Silver và Gold",
+    "Antecedent, Consequent và Neutral"
+   ]
+  },
+  {
+   "id": "b-c5-q24",
+   "explanation": "DBSCAN có hai tham số: Eps (bán kính lân cận quét quanh mỗi điểm) và MinPts (số điểm tối thiểu trong Eps để một điểm được coi là Core).",
+   "options": [
+    "df (damping factor) và ε (ngưỡng hội tụ) của đồ thị",
+    "minsup (support) và minconf (confidence) của luật",
+    "k (số cụm) và Mean (trọng tâm ảo) của K-Means",
+    "Eps (bán kính lân cận) và MinPts (số điểm tối thiểu)"
+   ]
+  },
+  {
+   "id": "b-c5-q25",
+   "explanation": "Hierarchical: khả năng mở rộng RẤT KÉM (chi phí tính toán cao, gộp/chia sai không đảo ngược được). Grid-based: TỐT (chia ô lưới lượng tử hóa → tốc độ siêu nhanh cho dữ liệu lớn).",
+   "options": [
+    "Hierarchical rất kém; Grid-based tốt với dữ liệu lớn",
+    "Cả hai đều mở rộng tốt như nhau với dữ liệu lớn",
+    "Hierarchical tốt hơn Grid-based với dữ liệu lớn",
+    "Cả hai đều rất kém khi dữ liệu lớn lên"
+   ]
+  },
+  {
+   "id": "b-c5-q26",
+   "explanation": "Grid-based: STING, CLIQUE, WaveCluster. Hierarchical: AGNES, DIANA, BIRCH, CURE."
+  },
+  {
+   "id": "b-c5-q27",
+   "explanation": "Statistical-based: giả định phân phối xác suất (thường Gaussian), điểm ở hai đuôi (xác suất cực thấp) là ngoại lai. Nhanh, hợp dữ liệu đơn giản ít chiều. Distance-based dựa trên khoảng cách hình học, hợp dữ liệu đa chiều.",
+   "options": [
+    "Mật độ điểm dày đặc quanh mỗi điểm dữ liệu",
+    "Khoảng cách hình học giữa các cặp điểm dữ liệu",
+    "Giả định dữ liệu theo phân phối xác suất, thường Gaussian",
+    "Đồ thị có hướng mô tả các biến phụ thuộc lẫn nhau nhiều tầng"
+   ]
+  },
+  {
+   "id": "bs-c5-1",
+   "explanation": "{c,d,e} xuất hiện ở T2, T4 và T7 → 3 giao dịch. Sup(L) = count({c,d,e}) / tổng số giao dịch = 3/8 = 0.375."
+  },
+  {
+   "id": "bs-c5-2",
+   "explanation": "count({c}) = 7 (mọi giao dịch trừ T3). Conf = count({c,d,e})/count({c}) = 3/7 ≈ 0.429."
+  },
+  {
+   "id": "bs-c5-3",
+   "explanation": "P({d,e}) = 3/8 = 0.375 (T2, T4, T7). Lift = Conf/P(Y) = (3/7)/0.375 ≈ 1.14 > 1: quan hệ tích cực nhẹ."
+  },
+  {
+   "id": "bs-c5-4",
+   "explanation": "Sup(X∪Y) = 3/8 = 0.375; Sup(c) = 7/8 = 0.875; Sup(d,e) = 3/8 = 0.375. Leverage = 0.375 − 0.875×0.375 = 0.375 − 0.328 ≈ 0.047."
+  },
+  {
+   "id": "bs-c5-5",
+   "explanation": "Leverage đo chênh lệch giữa tần suất đồng xuất hiện thực tế và kỳ vọng nếu độc lập. = 0: độc lập (tương tự Lift = 1); > 0: tích cực; < 0: tiêu cực.",
+   "options": [
+    "X và Y độc lập, đúng bằng mức kỳ vọng ngẫu nhiên",
+    "X và Y không bao giờ cùng xuất hiện với nhau",
+    "X luôn luôn kéo theo Y trong mọi giao dịch",
+    "Luật có độ tin cậy tuyệt đối bằng 1 (100%)"
+   ]
+  },
+  {
+   "id": "bs-c5-6",
+   "explanation": "{b,c,d} xuất hiện trong T2 và T6 → support count = 2, tức Sup = 2/8 = 0.25 (tức 25% giao dịch)."
+  },
+  {
+   "id": "bs-c5-7",
+   "explanation": "Đếm: a=2, b=4, c=7, d=4, e=4. Loại a (2 < 4). Sắp giảm dần theo support: c(7), rồi b, d, e (cùng 4, xếp theo thứ tự chữ cái).",
+   "options": [
+    "c, b, d, e, a (giữ cả a)",
+    "a, b, c, d, e (giữ cả a)",
+    "e, d, b, c, a (giữ cả a)",
+    "c, b, d, e (đã loại a)"
+   ]
+  },
+  {
+   "id": "bs-c5-8",
+   "explanation": "Chỉ giữ các phần tử có count ≥ 4: X→{Y:4} cho {X,Y} (chứa X, loại). Z→{Y:4} cho {Y,Z}. T→{Y:4} cho {Y,T}. {Z,T} chỉ có count 3 < 4."
+  },
+  {
+   "id": "bs-c5-9",
+   "explanation": "Slide nêu số itemset 2 phần tử xấp xỉ n²/2 → 6²/2 = 18 ứng viên (giá trị chính xác là C(6,2) = 15)."
+  },
+  {
+   "id": "bs-c5-10",
+   "explanation": "Theo slide, ngưỡng hỗ trợ tối thiểu minsup thường chọn 0,01 (1%) và ngưỡng tin cậy minconf thường là 0,8 (80%); luật dưới ngưỡng bị loại bỏ."
+  },
+  {
+   "id": "bs-c5-11",
+   "explanation": "Đếm: Credit Card 5, Personal Loan 5, Fixed Deposit 4, Life Insurance 3, Car Insurance 1 < 2 → loại."
+  },
+  {
+   "id": "bs-c5-12",
+   "explanation": "Bộ ba {Credit Card, Personal Loan, Fixed Deposit} có mặt trong T1, T2, T3 và T5, nên support count = 4 (thỏa Minsup = 2)."
+  },
+  {
+   "id": "bs-c5-13",
+   "explanation": "Kết quả tổng hợp chỉ có tập phổ biến tới kích thước 3 ({pasta, lemon, orange}, {pasta, orange, cake}); ứng viên kích thước 4 bị loại nên không sinh được ứng viên kích thước 5.",
+   "options": [
+    "Được dùng để sinh ra các ứng viên kích thước 5",
+    "Được giữ lại làm tập phổ biến có kích thước lớn nhất",
+    "Bị loại vì chứa tập con kích thước 3 không phổ biến",
+    "Được tách thành các tập con kích thước 2 để xét"
+   ]
+  },
+  {
+   "id": "bs-c5-14",
+   "explanation": "Chỉ giữ item thuộc {F, C, A, B, M, P} và sắp theo thứ tự cố định F, C, A, B, M, P → C, B, P."
+  },
+  {
+   "id": "bs-c5-15",
+   "explanation": "Grid-based: STING, CLIQUE, WaveCluster. BIRCH (cùng AGNES, DIANA, CURE) thuộc Hierarchical."
+  },
+  {
+   "id": "bs-c5-16",
+   "explanation": "Grid-based nhanh, hợp dữ liệu lớn, nhưng độ chính xác ở biên phụ thuộc kích thước ô lưới. 'Không đảo ngược được bước sai' là nhược điểm của Hierarchical.",
+   "options": [
+    "Phải biết trước số cụm k khi chạy",
+    "Độ chính xác biên cụm phụ thuộc kích thước ô lưới",
+    "Không xử lý được dữ liệu lớn",
+    "Các bước gộp/chia sai không thể đảo ngược"
+   ]
+  },
+  {
+   "id": "bs-c5-17",
+   "explanation": "Distance-based không quan tâm phân phối, tập trung vào không gian hình học: tổng quát, hợp đa chiều, tốn tài nguyên. Statistical-based: nhanh, hợp dữ liệu đơn giản, giả định phân phối chuẩn."
+  },
+  {
+   "id": "bs-c5-18",
+   "explanation": "Mạng Bayes là đồ thị xác suất mô hình hóa các biến phụ thuộc lẫn nhau, khắc phục giả định 'Naive' của Naive Bayes.",
+   "options": [
+    "Đồ thị kết hợp lý thuyết xác suất, mô hình hóa biến phụ thuộc",
+    "Một dạng cây quyết định chọn thuộc tính bằng Gain Ratio",
+    "Thuật toán giả định mọi thuộc tính đều độc lập hoàn toàn",
+    "Một thuật toán phân cụm dựa trên mật độ các điểm"
+   ]
+  }
+ ]
+}

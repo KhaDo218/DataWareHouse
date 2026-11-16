@@ -1,0 +1,505 @@
+{
+ "chunk": "c7a",
+ "items": [
+  {
+   "id": "c7-q1",
+   "explanation": "Slide nêu bối cảnh: AI Act chính thức áp dụng toàn diện từ năm 2026, đồng thời phân cấp các hệ thống AI thành 4 mức rủi ro nhằm bảo vệ người dùng."
+  },
+  {
+   "id": "c7-q2",
+   "explanation": "AI Act chia hệ thống AI thành 4 mức rủi ro: Unacceptable (cấm hoàn toàn), High (kiểm soát nghiêm ngặt), Transparent/Limited (dán nhãn) và Minimal (tự do vận hành)."
+  },
+  {
+   "id": "c7-q3",
+   "explanation": "Ba trụ cột bắt buộc của khung Data Governance theo AI Act:\n• Kiểm soát tính minh bạch (Transparency)\n• Giám sát tối đa yếu tố con người (Human Oversight)\n• Đảm bảo chất lượng dữ liệu huấn luyện (Data Quality)"
+  },
+  {
+   "id": "c7-q4",
+   "explanation": "Unacceptable Risk là mức cao nhất nên bị cấm hoàn toàn; ví dụ chấm điểm công dân xã hội hay AI thao túng hành vi dưới ngưỡng nhận thức. Các mức còn lại mới được vận hành kèm điều kiện.",
+   "options": [
+    "Bị cấm hoàn toàn, không được phép triển khai",
+    "Được kiểm soát nghiêm ngặt nhưng vẫn được vận hành",
+    "Chỉ cần dán nhãn rõ ràng cho người dùng cuối",
+    "Được tự do vận hành, không kèm nghĩa vụ nào"
+   ]
+  },
+  {
+   "id": "c7-q5",
+   "explanation": "Chấm điểm công dân xã hội (Social Scoring) bị xếp vào Unacceptable Risk nên bị cấm hoàn toàn, cùng nhóm với AI thao túng hành vi dưới ngưỡng nhận thức.",
+   "options": [
+    "Minimal Risk – tự do vận hành",
+    "High Risk – kiểm soát nghiêm ngặt",
+    "Transparent/Limited Risk – phải dán nhãn",
+    "Unacceptable Risk – bị cấm hoàn toàn"
+   ]
+  },
+  {
+   "id": "c7-q6",
+   "explanation": "AI đánh giá điểm tín dụng trong Fintech thuộc High Risk, phải kiểm soát nghiêm ngặt; cùng nhóm với tuyển dụng nhân sự và quản trị cơ sở hạ tầng thiết yếu.",
+   "options": [
+    "Unacceptable Risk – bị cấm hoàn toàn",
+    "High Risk – kiểm soát nghiêm ngặt",
+    "Transparent/Limited Risk – phải dán nhãn",
+    "Minimal Risk – tự do vận hành"
+   ]
+  },
+  {
+   "id": "c7-q7",
+   "explanation": "Chatbot thuộc Transparent/Limited Risk: người dùng phải biết mình đang tương tác với AI nên nghĩa vụ là dán nhãn rõ ràng, không bị cấm cũng không bị kiểm soát nặng.",
+   "options": [
+    "Unacceptable Risk – bị cấm hoàn toàn",
+    "High Risk – kiểm soát nghiêm ngặt",
+    "Transparent/Limited Risk – phải dán nhãn",
+    "Minimal Risk – tự do vận hành"
+   ]
+  },
+  {
+   "id": "c7-q8",
+   "explanation": "Bộ lọc Spam thuộc Minimal Risk nên được tự do vận hành, không kèm nghĩa vụ tuân thủ đặc biệt; dán nhãn hay cấm hoàn toàn là yêu cầu của mức rủi ro khác."
+  },
+  {
+   "id": "c7-q9",
+   "explanation": "Với Transparent/Limited Risk (Chatbots, ảnh Deepfake), nghĩa vụ duy nhất là dán nhãn rõ ràng để người dùng nhận biết; cấm hoàn toàn hay cấp phép là của mức khác."
+  },
+  {
+   "id": "c7-q10",
+   "explanation": "High Risk gồm AI chấm điểm tín dụng Fintech, AI tuyển dụng nhân sự và AI quản trị cơ sở hạ tầng thiết yếu; bộ lọc Spam chỉ là Minimal Risk."
+  },
+  {
+   "id": "c7-q11",
+   "explanation": "Data Quality với AI rủi ro cao đòi hỏi bộ dữ liệu huấn luyện, kiểm thử:\n• Có tính đại diện\n• Không chứa sai sót hệ thống\n• Kiểm soát được định kiến (Bias)\nDung lượng lớn không thay thế các tiêu chí này."
+  },
+  {
+   "id": "c7-q12",
+   "explanation": "Technical Documentation buộc lưu trữ toàn bộ kiến trúc hệ thống và luồng dữ liệu để phục vụ thanh tra bất cứ lúc nào, không chỉ tài liệu hướng dẫn cho người dùng cuối.",
+   "options": [
+    "Xóa toàn bộ tài liệu kỹ thuật ngay sau khi triển khai mô hình",
+    "Lưu trữ toàn bộ kiến trúc hệ thống và luồng dữ liệu để thanh tra",
+    "Chỉ lưu tài liệu hướng dẫn sử dụng cho người dùng cuối cùng",
+    "Công khai toàn bộ mã nguồn của mô hình AI lên Internet"
+   ]
+  },
+  {
+   "id": "c7-q13",
+   "explanation": "Traceability yêu cầu hệ thống tự động ghi nhật ký để theo dõi và kiểm toán toàn bộ vòng đời vận hành; xóa nhật ký định kỳ là làm ngược yêu cầu.",
+   "options": [
+    "Hệ thống phải chạy hoàn toàn trên máy chủ nội bộ của doanh nghiệp",
+    "Hệ thống phải xóa nhật ký định kỳ để tiết kiệm dung lượng lưu trữ",
+    "Hệ thống phải tự ghi nhật ký để kiểm toán toàn bộ vòng đời vận hành",
+    "Hệ thống phải thuê kiểm toán viên bên ngoài rà soát hằng tuần"
+   ]
+  },
+  {
+   "id": "c7-q14",
+   "explanation": "Thao túng hành vi người dùng dưới ngưỡng nhận thức nằm trong nhóm Unacceptable Risk nên bị cấm hoàn toàn, cùng nhóm với chấm điểm công dân xã hội."
+  },
+  {
+   "id": "c7-q15",
+   "explanation": "Tuyển dụng nhân sự (sàng lọc hồ sơ ứng viên) là lĩnh vực được slide xếp vào High Risk, nên hệ thống phải kiểm soát nghiêm ngặt chứ không chỉ dán nhãn.",
+   "options": [
+    "Minimal Risk vì chỉ là công cụ nội bộ của doanh nghiệp",
+    "Unacceptable Risk vì liên quan trực tiếp đến con người",
+    "Limited Risk vì chỉ cần dán nhãn cho người dùng",
+    "High Risk vì thuộc lĩnh vực tuyển dụng nhân sự"
+   ]
+  },
+  {
+   "id": "c7-q16",
+   "explanation": "Ảnh Deepfake thuộc Transparent/Limited Risk nên nghĩa vụ kèm theo là dán nhãn rõ ràng; Technical Documentation là nghĩa vụ của mức High Risk."
+  },
+  {
+   "id": "c7-q17",
+   "explanation": "AI trong trò chơi điện tử là ví dụ điển hình của Minimal Risk nên được tự do vận hành, không phải dán nhãn hay kiểm soát nghiêm ngặt."
+  },
+  {
+   "id": "c7-q18",
+   "explanation": "Quản trị cơ sở hạ tầng thiết yếu (lưới điện quốc gia) thuộc High Risk, phải kiểm soát nghiêm ngặt cùng nhóm với chấm điểm tín dụng và tuyển dụng nhân sự."
+  },
+  {
+   "id": "c7-q19",
+   "explanation": "Yêu cầu cốt lõi với khối MIS & Fintech là quản trị dữ liệu nghiêm ngặt từ khâu nạp dữ liệu (Ingestion) đến khâu vận hành, không giới hạn ở một khâu riêng lẻ.",
+   "options": [
+    "Chỉ ở khâu huấn luyện mô hình AI trước khi triển khai",
+    "Chỉ ở khâu lưu trữ dữ liệu trong kho dữ liệu dùng chung",
+    "Chỉ ở khâu báo cáo tuân thủ định kỳ cuối kỳ",
+    "Từ khâu nạp dữ liệu (Ingestion) đến khâu vận hành"
+   ]
+  },
+  {
+   "id": "c7-q20",
+   "explanation": "Ngân hàng chạy AI chấm điểm tín dụng (High Risk) phải:\n• Data Quality: dữ liệu đại diện, không sai sót, kiểm soát Bias\n• Technical Documentation: lưu kiến trúc, luồng dữ liệu để thanh tra\n• Traceability: ghi nhật ký kiểm toán vòng đời\nHệ thống không bị cấm."
+  },
+  {
+   "id": "c7-q21",
+   "explanation": "Automated Data Lineage là khả năng quan sát và ghi nhận toàn diện luồng dữ liệu từ nguồn gốc ban đầu, qua các bước biến đổi, đến mô hình AI cuối cùng; nén hay sao lưu là việc khác.",
+   "options": [
+    "Kỹ thuật nén dữ liệu để giảm chi phí lưu trữ trong kho dữ liệu dùng chung của doanh nghiệp",
+    "Khả năng quan sát và ghi nhận toàn diện luồng dữ liệu từ nguồn gốc đến mô hình AI cuối cùng",
+    "Công cụ mã hóa dữ liệu nhạy cảm trước khi đưa vào kho dữ liệu dùng chung của doanh nghiệp",
+    "Phương pháp sao lưu dữ liệu tự động theo lịch trình định sẵn của hệ thống thông tin"
+   ]
+  },
+  {
+   "id": "c7-q22",
+   "explanation": "Trong kiến trúc Medallion, Bronze Layer là tầng dữ liệu thô; Silver làm sạch dữ liệu và Gold tính toán đặc trưng cho mô hình AI."
+  },
+  {
+   "id": "c7-q23",
+   "explanation": "Silver Layer là tầng làm sạch dữ liệu, nằm giữa Bronze (thô) và Gold (tính toán đặc trưng); Raw Layer không phải tên một tầng trong Medallion."
+  },
+  {
+   "id": "c7-q24",
+   "explanation": "Gold Layer là tầng tính toán đặc trưng (Feature) phục vụ mô hình AI; Bronze giữ dữ liệu thô còn Silver làm sạch dữ liệu."
+  },
+  {
+   "id": "c7-q25",
+   "explanation": "Lineage theo dõi dòng chảy Bronze (thô) → Silver (làm sạch) → Gold (tính đặc trưng); đảo chiều hoặc nhảy cóc đều sai thứ tự."
+  },
+  {
+   "id": "c7-q26",
+   "explanation": "Giá trị cốt lõi của lineage là giúp kiểm toán viên và kỹ sư dữ liệu trả lời: mô hình AI lấy dữ liệu từ đâu và bị biến đổi bởi câu lệnh SQL nào.",
+   "options": [
+    "“Mô hình AI lấy dữ liệu từ đâu, bị biến đổi bởi câu lệnh SQL nào?”",
+    "“Mô hình AI có lợi nhuận bao nhiêu mỗi quý và chi phí vận hành thế nào?”",
+    "“Máy chủ nào đang tiêu thụ nhiều điện năng nhất trong trung tâm dữ liệu?”",
+    "“Nhân viên nào làm việc hiệu quả nhất trong tháng và được thưởng bao nhiêu?”"
+   ]
+  },
+  {
+   "id": "c7-q27",
+   "explanation": "Bước Data Source ghi nhận metadata từ:\n• CRM\n• ERP\n• Web Logs\nLoss Function thuộc quá trình huấn luyện mô hình, không phải nguồn dữ liệu."
+  },
+  {
+   "id": "c7-q28",
+   "explanation": "Transformation trích xuất mã SQL từ các công cụ biên dịch như dbt hoặc Spark để xem logic làm sạch; CRM/ERP thuộc bước Data Source.",
+   "options": [
+    "Excel hoặc Word",
+    "Tableau hoặc Power BI",
+    "dbt hoặc Spark",
+    "CRM hoặc ERP"
+   ]
+  },
+  {
+   "id": "c7-q29",
+   "explanation": "Data Quality Check ghi nhận các bài test:\n• Đúng định dạng\n• Không Null\n• Không trùng lặp\nĐo lường lợi nhuận của mô hình không phải bài test dữ liệu."
+  },
+  {
+   "id": "c7-q30",
+   "explanation": "AI Consumption kết nối trực tiếp đặc trưng dữ liệu với kết quả dự báo của mô hình Machine Learning, khép lại luồng quan sát 360 độ của pipeline.",
+   "options": [
+    "Xóa các đặc trưng dữ liệu không còn dùng đến khỏi kho dữ liệu dùng chung của công ty",
+    "Mã hóa toàn bộ kết quả dự báo trước khi lưu trữ vào kho dữ liệu tập trung",
+    "Sao chép toàn bộ dữ liệu sang hệ thống của đối tác theo lịch định kỳ hằng đêm",
+    "Kết nối trực tiếp đặc trưng dữ liệu với kết quả dự báo của mô hình Machine Learning"
+   ]
+  },
+  {
+   "id": "c7-q31",
+   "explanation": "Impact Analysis: khi một bảng ở tầng Bronze đổi cấu trúc (Schema), hệ thống tự động cảnh báo các model AI ở tầng Gold sẽ bị ảnh hưởng, nhờ đó khoanh vùng lỗi nhanh.",
+   "options": [
+    "Bảng Bronze đổi Schema thì hệ thống tự động cảnh báo các model AI ở tầng Gold",
+    "Tự động xóa các bảng dữ liệu không còn được sử dụng trong kho dữ liệu",
+    "Đo lường tác động tài chính của từng truy vấn SQL phát sinh trong ngày",
+    "Tự động huấn luyện lại mô hình AI ngay khi có dữ liệu mới đổ về"
+   ]
+  },
+  {
+   "id": "c7-q32",
+   "explanation": "Theo slide, lineage giúp giảm 90% thời gian rà soát mã nguồn thủ công khi mô hình AI trả về kết quả sai lệch."
+  },
+  {
+   "id": "c7-q33",
+   "explanation": "Data Trust nghĩa là pipeline tốt phải chứng minh được tính nguyên bản và sạch của dữ liệu trước khi đưa vào mô hình học máy; cam kết bảo mật hay mã hóa không phải nội dung này.",
+   "options": [
+    "Người dùng phải ký cam kết bảo mật trước khi được cấp quyền truy cập dữ liệu doanh nghiệp",
+    "Pipeline tốt phải chứng minh tính nguyên bản và sạch của dữ liệu trước khi đưa vào mô hình",
+    "Dữ liệu chỉ được tin cậy khi có lãnh đạo phê duyệt cho từng lần khai thác dữ liệu",
+    "Mọi dữ liệu đều phải được mã hóa hai lớp trước khi đưa vào kho dữ liệu dùng chung"
+   ]
+  },
+  {
+   "id": "c7-q34",
+   "explanation": "Luồng quan sát 360 độ gồm:\n• Data Source: metadata từ CRM, ERP, Web Logs\n• Transformation: trích mã SQL từ dbt hoặc Spark\n• AI Consumption: nối đặc trưng dữ liệu với kết quả dự báo\nRevoke Access là thao tác thu hồi quyền."
+  },
+  {
+   "id": "c7-q35",
+   "explanation": "Impact Analysis chính là cơ chế cảnh báo tự động khi bảng Bronze đổi Schema, chỉ ra các model AI ở tầng Gold bị ảnh hưởng; Semantic Search, CLM, Differential Privacy giải bài toán khác.",
+   "options": [
+    "Semantic Search trong Data Catalog – tìm bảng bằng ngôn ngữ tự nhiên",
+    "Column-level Masking – che một phần giá trị của cột PII",
+    "Differential Privacy – bơm nhiễu ngẫu nhiên vào kết quả phân tích",
+    "Impact Analysis tự động cảnh báo các model AI ở tầng Gold bị ảnh hưởng"
+   ]
+  },
+  {
+   "id": "c7-q36",
+   "explanation": "RLS dùng bộ lọc động dựa trên danh tính người truy cập (User Context) nên mỗi người thấy tập DÒNG khác nhau; che một phần giá trị cột là CLM.",
+   "options": [
+    "Mã hóa toàn bộ bảng dữ liệu bằng duy nhất một khóa bí mật",
+    "Xóa vĩnh viễn các dòng dữ liệu nhạy cảm ra khỏi bảng dữ liệu",
+    "Bộ lọc động dựa trên danh tính người truy cập (User Context)",
+    "Che một phần giá trị trong cột dữ liệu nhạy cảm của bảng"
+   ]
+  },
+  {
+   "id": "c7-q37",
+   "explanation": "RLS lọc theo dòng: nhân viên vùng A chỉ thấy khách hàng vùng A, cấp quản lý thấy toàn bộ. Ba phương án còn lại là CLM (che số điện thoại), Generalization (nhóm tuổi) hay Zero-copy.",
+   "options": [
+    "Nhân viên vùng A chỉ xem dữ liệu khách hàng vùng A, quản lý xem toàn bộ",
+    "Số điện thoại hiển thị dạng 091xxxx888 khi tra cứu",
+    "Dữ liệu tuổi 23 được nhóm thành khoảng 20-30 tuổi khi thống kê",
+    "Đối tác truy cập dữ liệu qua metadata mà không cần sao chép byte nào"
+   ]
+  },
+  {
+   "id": "c7-q38",
+   "explanation": "CLM ẩn hoặc mã hóa một phần dữ liệu nhạy cảm (PII) mà không làm thay đổi cấu trúc bảng; lọc theo vùng là RLS, xóa cả cột là phá cấu trúc.",
+   "options": [
+    "Lọc các dòng dữ liệu theo vùng địa lý và chi nhánh của người đang truy cập",
+    "Ẩn hoặc mã hóa một phần dữ liệu nhạy cảm (PII) mà không đổi cấu trúc bảng",
+    "Xóa hoàn toàn cột dữ liệu nhạy cảm ra khỏi cấu trúc bảng của kho dữ liệu",
+    "Sao chép bảng sang một schema riêng cho từng phòng ban tự quản lý"
+   ]
+  },
+  {
+   "id": "c7-q39",
+   "explanation": "Số điện thoại dạng 091xxxx888 là che một phần giá trị của cột PII, tức Column-level Masking (CLM); RLS lọc dòng còn Differential Privacy bơm nhiễu."
+  },
+  {
+   "id": "c7-q41",
+   "explanation": "Lọc theo chi nhánh trên cùng một bảng đúng bản chất RLS với bộ lọc động theo User Context; CLM che cột, còn K-Anonymity và Differential Privacy xử lý ẩn danh hóa.",
+   "options": [
+    "Row-level Security (RLS) với bộ lọc động theo User Context",
+    "Column-level Masking (CLM) che một phần cột tên khách hàng",
+    "K-Anonymity với kỹ thuật Generalization theo vùng địa lý",
+    "Differential Privacy với ngân sách Epsilon đặt rất thấp"
+   ]
+  },
+  {
+   "id": "c7-q42",
+   "explanation": "Cần che một phần số điện thoại mà giữ nguyên cấu trúc bảng nên dùng CLM; RLS lọc dòng, Suppression xóa dòng, Zero-copy là mô hình chia sẻ dữ liệu."
+  },
+  {
+   "id": "c7-q43",
+   "explanation": "Hai yêu cầu khác tầng nên phải kết hợp:\n• RLS lọc dòng theo vùng của người truy cập\n• CLM che một phần cột PII\nChỉ một kỹ thuật không đáp ứng đủ cả hai.",
+   "options": [
+    "Chỉ cần RLS vì RLS đã lọc dữ liệu theo vùng của nhân viên",
+    "Chỉ cần CLM vì CLM đã che toàn bộ cột PII nhạy cảm",
+    "Dùng Differential Privacy thay cho cả RLS và CLM",
+    "Kết hợp cả RLS (lọc dòng theo vùng) và CLM (che cột PII)"
+   ]
+  },
+  {
+   "id": "c7-q44",
+   "explanation": "Case Study trong slide: mã hóa các bảng dữ liệu lớn khiến hệ thống bị chậm, độ trễ truy vấn cao – đây chính là trade-off giữa bảo mật và hiệu năng.",
+   "options": [
+    "Hệ thống bị chậm, độ trễ truy vấn cao",
+    "Dữ liệu tự động bị xóa ngay sau khi mã hóa",
+    "Cấu trúc bảng bị thay đổi hoàn toàn",
+    "Chi phí lưu trữ giảm mạnh sau khi mã hóa"
+   ]
+  },
+  {
+   "id": "c7-q45",
+   "explanation": "Nghiên cứu được trích là “Enhancing the Time Performance of Encrypting and Decrypting Large Tabular Data”, hướng tới tối ưu hiệu năng mã hóa/giải mã dữ liệu dạng bảng.",
+   "options": [
+    "“Improving Data Quality and Governance in Large Enterprise Data Warehouses”",
+    "“Zero-copy Data Sharing Architectures for Modern Cloud Data Warehouses”",
+    "“Enhancing the Time Performance of Encrypting and Decrypting Large Tabular Data”",
+    "“Differential Privacy for Machine Learning Models at Scale in Cloud Systems”"
+   ]
+  },
+  {
+   "id": "c7-q46",
+   "explanation": "Bài học cho MIS: bảo mật dữ liệu không được phép đánh đổi bằng hiệu năng vận hành thời gian thực của hệ thống thông tin doanh nghiệp, nên phải tối ưu chứ không bỏ mã hóa.",
+   "options": [
+    "Nên bỏ mã hóa để hệ thống chạy nhanh nhất có thể",
+    "Bảo mật dữ liệu không được đánh đổi bằng hiệu năng vận hành thời gian thực",
+    "Hiệu năng luôn quan trọng hơn bảo mật trong mọi tình huống thực tế",
+    "Chỉ mã hóa dữ liệu vào cuối tuần khi hệ thống ít người dùng"
+   ]
+  },
+  {
+   "id": "c7-q47",
+   "explanation": "CLM có hai đặc điểm:\n• Ẩn hoặc mã hóa một phần dữ liệu nhạy cảm (PII)\n• Không làm thay đổi cấu trúc bảng\nXóa dòng dị biệt là Suppression, lọc dòng theo vùng là RLS."
+  },
+  {
+   "id": "c7-q48",
+   "explanation": "Giải pháp nghiên cứu nhắm tối ưu hiệu năng thời gian (Time Performance) của quá trình mã hóa/giải mã cấu trúc dữ liệu dạng bảng, không cắt bớt cột hay bỏ bước giải mã.",
+   "options": [
+    "Giảm số cột trong bảng để quá trình mã hóa diễn ra nhanh hơn",
+    "Chuyển toàn bộ dữ liệu về dạng văn bản thuần để dễ đọc và phân tích",
+    "Bỏ qua bước giải mã khi thực hiện phân tích dữ liệu trực tiếp",
+    "Tối ưu hiệu năng thời gian của quá trình mã hóa/giải mã dữ liệu dạng bảng"
+   ]
+  },
+  {
+   "id": "c7-q49",
+   "explanation": "Mô hình truyền thống sao chép file dữ liệu ra bên ngoài qua ETL/FTP, kéo theo tốn dung lượng lưu trữ và nguy cơ lộ bí mật dữ liệu từ các bản sao rất cao."
+  },
+  {
+   "id": "c7-q50",
+   "explanation": "Nhược điểm của ETL/FTP:\n• Tốn dung lượng lưu trữ do phải nhân bản dữ liệu\n• Nguy cơ lộ bí mật rất cao từ các bản sao\nDữ liệu không thời gian thực và quyền không kiểm soát tập trung bằng IAM."
+  },
+  {
+   "id": "c7-q51",
+   "explanation": "Zero-copy Data Sharing được slide gắn với BigQuery và Snowflake; FTP Server là mô hình truyền thống, còn dbt là công cụ biến đổi dữ liệu, không phải nền tảng chia sẻ."
+  },
+  {
+   "id": "c7-q52",
+   "explanation": "Zero-copy cho phép nhiều hệ thống hoặc người dùng cùng truy cập, truy vấn và phân tích dữ liệu tại một nguồn duy nhất thông qua metadata, không sinh bản sao.",
+   "options": [
+    "Metadata của nguồn dữ liệu gốc",
+    "Bản sao dữ liệu định kỳ hằng đêm",
+    "Email đính kèm file dữ liệu",
+    "Ổ cứng vật lý chuyển giao"
+   ]
+  },
+  {
+   "id": "c7-q53",
+   "explanation": "Đối tác được cấp quyền truy cập trực tiếp vào vùng dữ liệu chỉ định và xem dữ liệu tại chỗ, không cần sao chép bất kỳ byte dữ liệu nào.",
+   "options": [
+    "Tải toàn bộ dữ liệu về máy chủ riêng để phân tích ngoại tuyến",
+    "Nhận bản sao dữ liệu đầy đủ qua FTP vào mỗi đêm theo lịch đặt trước",
+    "Xem dữ liệu tại chỗ, không cần sao chép bất kỳ byte dữ liệu nào",
+    "Chụp ảnh màn hình các báo cáo do tổ chức chủ quản xuất ra"
+   ]
+  },
+  {
+   "id": "c7-q54",
+   "explanation": "Triết lý quản trị của Zero-copy: dữ liệu là tài sản duy nhất tăng giá trị khi được chia sẻ đúng cách, nhưng rủi ro nhất khi bị nhân bản hàng loạt."
+  },
+  {
+   "id": "c7-q55",
+   "explanation": "Kiểm soát quyền tối cao của Zero-copy: khi dừng hợp tác chỉ cần Revoke access trên Cloud, đối tác lập tức không còn thấy dữ liệu nào, không phụ thuộc thiện chí xóa file.",
+   "options": [
+    "Yêu cầu đối tác tự giác xóa các file dữ liệu đã nhận từ trước",
+    "Đổi tên toàn bộ các bảng dữ liệu đang chia sẻ trên hệ thống",
+    "Chuyển toàn bộ dữ liệu sang một máy chủ khác rồi chia sẻ lại",
+    "Revoke access trên Cloud – đối tác lập tức mất quyền xem dữ liệu"
+   ]
+  },
+  {
+   "id": "c7-q56",
+   "explanation": "Theo bảng so sánh, ETL truyền thống bị trễ theo lô (Batch/Schedule) còn Zero-copy là thời gian thực (Live) vì truy vấn trực tiếp trên nguồn dữ liệu.",
+   "options": [
+    "Cả hai đều truyền dữ liệu theo thời gian thực",
+    "ETL bị trễ (Batch), còn Zero-copy là thời gian thực (Live)",
+    "ETL là thời gian thực, còn Zero-copy bị trễ theo lịch",
+    "Cả hai đều bị trễ theo lô với độ trễ như nhau"
+   ]
+  },
+  {
+   "id": "c7-q57",
+   "explanation": "Zero-copy kiểm soát quyền tập trung bằng chính sách IAM trên Cloud, thay vì mỗi đối tác giữ một bản sao riêng và phải tự bảo vệ.",
+   "options": [
+    "Không cần bất kỳ cơ chế phân quyền nào khi chia sẻ",
+    "Dữ liệu được in ra giấy để lưu trữ an toàn tại chỗ",
+    "Kiểm soát quyền tập trung bằng chính sách IAM trên Cloud",
+    "Mỗi đối tác giữ một bản sao riêng để tự bảo vệ dữ liệu"
+   ]
+  },
+  {
+   "id": "c7-q58",
+   "explanation": "Về chi phí hạ tầng, ETL truyền thống tốn gấp đôi tài nguyên do nhân bản cả chi phí lưu trữ lẫn tính toán; Zero-copy dùng chung không gian lưu trữ gốc.",
+   "options": [
+    "Tốn gấp đôi tài nguyên do nhân bản chi phí lưu trữ và tính toán",
+    "Chi phí hạ tầng bằng không vì chỉ dùng công cụ mã nguồn mở",
+    "Chỉ tốn thêm chi phí băng thông mạng khi truyền dữ liệu đi",
+    "Chi phí thấp hơn Zero-copy vì không cần dùng dịch vụ Cloud"
+   ]
+  },
+  {
+   "id": "c7-q59",
+   "explanation": "Zero-copy không sinh bản sao nên khi kết thúc hợp đồng chỉ cần Revoke access trên Cloud là đối tác mất quyền xem ngay, giải quyết triệt để mất kiểm soát dữ liệu.",
+   "options": [
+    "Vì dữ liệu sẽ tự động hủy sau 30 ngày trong mọi trường hợp",
+    "Vì đối tác chỉ nhận được dữ liệu đã được mã hóa vĩnh viễn",
+    "Vì hợp đồng pháp lý sẽ thay thế hoàn toàn biện pháp kỹ thuật bảo vệ",
+    "Vì chỉ cần Revoke access trên Cloud là đối tác mất quyền xem dữ liệu ngay"
+   ]
+  },
+  {
+   "id": "c7-q60",
+   "explanation": "Bias Reporting Dashboard báo cáo định kỳ tự động, đo lường Fairness Metrics của các mô hình AI đang thực thi thực tế; ghi ai tạo/sửa/xóa là Data Audit Trail.",
+   "options": [
+    "Ghi nhận ai đã tạo, sửa, xóa hoặc xem dữ liệu trong kho dữ liệu chung",
+    "Báo cáo định kỳ đo lường Fairness Metrics của các mô hình AI đang thực thi",
+    "Theo dõi mức hao hụt ngân sách quyền riêng tư Epsilon theo thời gian",
+    "Tìm kiếm bảng dữ liệu bằng ngôn ngữ tự nhiên của chuyên viên phân tích"
+   ]
+  },
+  {
+   "id": "c7-q61",
+   "explanation": "Ưu điểm của Secure Data Sharing:\n• Tối ưu chi phí: dùng chung không gian lưu trữ gốc, không sinh bản sao\n• Kiểm soát quyền tập trung bằng chính sách IAM trên Cloud\n• Truy cập dữ liệu thời gian thực (Live)"
+  },
+  {
+   "id": "c7-q62",
+   "explanation": "FTP hàng đêm vi phạm cả ba tiêu chí: trễ theo lô, rủi ro lộ lọt từ bản sao lưu lạc và tốn gấp đôi tài nguyên lưu trữ/tính toán so với Zero-copy.",
+   "options": [
+    "Chỉ có hạn chế duy nhất là tốc độ đường truyền mạng khi gửi file",
+    "Không có hạn chế nào nếu các file gửi đi đều được đặt mật khẩu",
+    "Trễ theo lô, rủi ro lộ lọt từ bản sao lưu lạc, tốn gấp đôi tài nguyên",
+    "Chỉ tốn thêm chi phí hạ tầng nhưng bảo mật tốt hơn Zero-copy"
+   ]
+  },
+  {
+   "id": "c7-q63",
+   "explanation": "Triết lý Differential Privacy: kết quả phân tích gần như không đổi dù có hay không có dữ liệu của một cá nhân, nên hacker không thể dịch ngược báo cáo để định danh ai.",
+   "options": [
+    "Kết quả phân tích gần như không đổi dù có hay không có dữ liệu của một cá nhân",
+    "Mọi dữ liệu cá nhân phải bị xóa hoàn toàn trước khi đem ra phân tích thống kê",
+    "Chỉ nhà quản trị cấp cao mới được xem kết quả phân tích chi tiết của hệ thống",
+    "Dữ liệu phải được mã hóa hai lớp trước khi chia sẻ ra ngoài doanh nghiệp"
+   ]
+  },
+  {
+   "id": "c7-q64",
+   "explanation": "Cơ chế cốt lõi là chủ động bơm “nhiễu”: thuật toán trộn thêm sai số ngẫu nhiên để hòa lẫn thông tin cá nhân vào cộng đồng; xóa dòng là Suppression, che cột là CLM.",
+   "options": [
+    "Xóa các dòng dữ liệu của những cá nhân quá dị biệt ra khỏi bảng dữ liệu",
+    "Che một phần giá trị của những cột dữ liệu nhạy cảm trong bảng dữ liệu",
+    "Lọc các dòng dữ liệu theo danh tính của người đang truy cập hệ thống",
+    "Chủ động trộn thêm sai số ngẫu nhiên (bơm “nhiễu”) để hòa lẫn thông tin cá nhân"
+   ]
+  },
+  {
+   "id": "c7-q65",
+   "explanation": "Epsilon là ngân sách quyền riêng tư, giúp kiểm soát và đo lường sự đánh đổi giữa mức độ an toàn thông tin và giá trị phân tích kinh doanh.",
+   "options": [
+    "Hệ số nén dữ liệu khi lưu trữ trong kho dữ liệu dùng chung của doanh nghiệp",
+    "Ngân sách quyền riêng tư – đo lường đánh đổi giữa an toàn và giá trị phân tích",
+    "Tốc độ truy vấn tối đa mà hệ thống phân tích cho phép đạt tới trong ngày",
+    "Số lượng bản sao dữ liệu được phép tạo ra cho mỗi bảng nguồn dữ liệu"
+   ]
+  },
+  {
+   "id": "c7-q66",
+   "explanation": "Hạ Epsilon xuống thấp:\n• Bảo mật đạt mức tối đa\n• Độ chính xác của kết quả phân tích giảm\nNgược lại Epsilon cao cho báo cáo tốt hơn nhưng rủi ro danh tính tăng."
+  },
+  {
+   "id": "c7-q67",
+   "explanation": "Đưa Epsilon lên cao thì báo cáo tốt (chính xác cao) nhưng rủi ro về bảo mật danh tính tăng, vì lượng nhiễu được bơm vào ít đi."
+  },
+  {
+   "id": "c7-q68",
+   "explanation": "Dữ liệu HIV cần ưu tiên ẩn danh tuyệt đối nên chọn Epsilon thấp: bảo mật tối đa, chấp nhận độ chính xác phân tích giảm; Epsilon cao hay bỏ nhiễu đều nguy hiểm.",
+   "options": [
+    "Epsilon thấp – bảo mật tối đa, chấp nhận giảm độ chính xác của phân tích",
+    "Epsilon cao – để báo cáo đạt độ chính xác cao nhất cho phân tích",
+    "Epsilon bằng vô cùng – loại bỏ hoàn toàn nhiễu bơm vào kết quả",
+    "Không dùng Epsilon vì dữ liệu y tế được miễn trừ hoàn toàn theo luật"
+   ]
+  },
+  {
+   "id": "c7-q69",
+   "explanation": "Dữ liệu tổng hợp ít nhạy cảm nên chấp nhận Epsilon cao hơn để giữ độ chính xác, đổi lại rủi ro bảo mật danh tính tăng – cần tìm điểm cân bằng.",
+   "options": [
+    "Epsilon thấp nhất có thể để đảm bảo an toàn tuyệt đối cho khách hàng",
+    "Không phân tích dữ liệu để tránh mọi rủi ro có thể xảy ra với khách",
+    "Xóa toàn bộ dữ liệu sau mỗi lần thực hiện phân tích tổng hợp",
+    "Chấp nhận Epsilon cao hơn để giữ độ chính xác, đổi lại rủi ro bảo mật"
+   ]
+  }
+ ]
+}

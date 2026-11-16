@@ -1,0 +1,519 @@
+{
+ "chunk": "c4b",
+ "items": [
+  {
+   "id": "c4-q87",
+   "explanation": "Multi-level Mining khai phá luật kết hợp ở nhiều mức trừu tượng khác nhau như sản phẩm → nhóm hàng → ngành hàng, nhờ Concept Hierarchy tổ chức thuộc tính từ cụ thể đến tổng quát."
+  },
+  {
+   "id": "c4-q88",
+   "explanation": "Concept Hierarchy cho phép người dùng drill-down từ mức tổng quát xuống mức chi tiết để truy nguyên nguyên nhân gốc rễ; roll-back hay sao lưu chỉ là thao tác vận hành hệ thống."
+  },
+  {
+   "id": "c4-q89",
+   "explanation": "• Slide nêu 4 nhóm số dư: [Standard], [Silver], [Gold], [Diamond]\n• Platinum không nằm trong ví dụ phân khúc của chương"
+  },
+  {
+   "id": "c4-q90",
+   "explanation": "Trong ví dụ, rời rạc hóa chuyển số dư thành 4 nhóm Standard/Silver/Gold/Diamond, còn phân cấp khái niệm là nhóm các chi nhánh ngân hàng theo khu vực."
+  },
+  {
+   "id": "c4-q91",
+   "explanation": "• Mục tiêu: giảm số lượng giá trị của thuộc tính\n• Đồng thời hỗ trợ các thuật toán khai phá dữ liệu\n• Tăng số chiều là mục tiêu của PCA, không phải Discretization"
+  },
+  {
+   "id": "c4-q92",
+   "explanation": "Width = (90 − 10)/4 = 20 ⇒ các bin 10–30, 30–50, 50–70, 70–90. Giá trị 66 rơi vào bin 50–70 nên thuộc Bin 3."
+  },
+  {
+   "id": "c4-q93",
+   "explanation": "Min-Max Normalization ánh xạ dữ liệu về một khoảng cố định, thường là [0, 1], tương ứng new_min = 0 và new_max = 1."
+  },
+  {
+   "id": "c4-q94",
+   "explanation": "Min-Max chuẩn hóa v theo (v − min)/(max − min) rồi co giãn về (new_max − new_min) và cộng new_min. Các phương án khác đảo tử/mẫu hoặc lẫn σ của Z-Score.",
+   "options": [
+    "v' = (v − min) / σ × (new_max − new_min) + new_min",
+    "v' = (v − min) / (max − min) × (new_max − new_min) + new_min",
+    "v' = (v − min) / (max − min) × (new_min − new_max) + new_min",
+    "v' = (max − v) / (max − min) × (new_max − new_min) + new_min"
+   ]
+  },
+  {
+   "id": "c4-q95",
+   "explanation": "v' = [(60 − 10)/(110 − 10)] × (1 − 0) + 0 = 50/100 = 0.5, đúng trung điểm vì 60 nằm chính giữa min 10 và max 110."
+  },
+  {
+   "id": "c4-q96",
+   "explanation": "v' = (45 − 20)/(120 − 20) = 25/100 = 0.25. Giá trị nằm gần min nên kết quả tiến sát 0."
+  },
+  {
+   "id": "c4-q97",
+   "explanation": "v' = [(15 − 5)/(25 − 5)] × (10 − 0) + 0 = (10/20) × 10 = 5, đúng trung điểm của khoảng mới [0, 10]."
+  },
+  {
+   "id": "c4-q98",
+   "explanation": "v' = [(40 − 10)/(50 − 10)] × (1 − (−1)) + (−1) = (30/40) × 2 − 1 = 1.5 − 1 = 0.5."
+  },
+  {
+   "id": "c4-q99",
+   "explanation": "Decimal Scaling chọn j nhỏ nhất để max|v|/10ʲ < 1, tức dịch dấu thập phân sang trái vừa đủ cho mọi giá trị nằm trong (−1, 1); j không liên quan số bin hay số vòng lặp.",
+   "options": [
+    "j là số bin N của kỹ thuật Equal-width Binning",
+    "j luôn bằng số chữ số của giá trị nhỏ nhất trong thuộc tính",
+    "j là số chữ số để giá trị tuyệt đối lớn nhất sau chia nhỏ hơn 1",
+    "j là số lần lặp của thuật toán chuẩn hóa Decimal Scaling"
+   ]
+  },
+  {
+   "id": "c4-q100",
+   "explanation": "Giá trị tuyệt đối lớn nhất = 3.500.000; 10⁶ = 1.000.000 chưa đủ, 10⁷ = 10.000.000 > 3.500.000 ⇒ j = 7."
+  },
+  {
+   "id": "c4-q101",
+   "explanation": "max|v| = 986 < 1000 nên j = 3 (986/10³ = 0.986 < 1). Vậy 500 sau chuẩn hóa = 500/10³ = 0.5."
+  },
+  {
+   "id": "c4-q102",
+   "explanation": "Giá trị tuyệt đối lớn nhất = 8.200; 10³ = 1.000 chưa đủ, 10⁴ = 10.000 cho 8.200/10⁴ = 0.82 < 1 ⇒ j = 4."
+  },
+  {
+   "id": "c4-q103",
+   "explanation": "• Sau chuẩn hóa Z-Score, dữ liệu có μ = 0 và σ = 1\n• Dữ liệu không bị ép vào [0, 1] và vẫn có thể nhận giá trị âm"
+  },
+  {
+   "id": "c4-q104",
+   "explanation": "• Slide nêu ưu điểm: cực kỳ hiệu quả khi dữ liệu có nhiều ngoại lai hoặc khi không biết trước Min/Max\n• Z-Score không ép về [0, 1] và vẫn cần tính μ, σ"
+  },
+  {
+   "id": "c4-q105",
+   "explanation": "Z-Score đưa các biến khác đơn vị về cùng thang đo thống kê, nên thuật toán dựa trên khoảng cách như KNN hay K-means không bị biến có độ lớn lớn chi phối."
+  },
+  {
+   "id": "c4-q106",
+   "explanation": "Dự trữ ngoại hối tính bằng tỷ USD có giá trị tuyệt đối lớn hơn Lãi suất hàng triệu lần nên mô hình bị lệch; Z-Score đưa cả hai về cùng thang đo thống kê μ = 0, σ = 1.",
+   "options": [
+    "Vì hai biến có đơn vị tiền tệ khác nhau nên phải quy đổi hết về USD",
+    "Vì dự trữ ngoại hối lớn hơn lãi suất hàng triệu lần, làm mô hình bị lệch",
+    "Vì Z-Score giúp loại bỏ hoàn toàn các bản ghi bị thiếu dữ liệu",
+    "Vì mô hình AI chỉ chấp nhận đầu vào là các giá trị nguyên dương"
+   ]
+  },
+  {
+   "id": "c4-q107",
+   "explanation": "z = (120 − 100)/8 = 20/8 = 2.5. Kết quả dương vì 120 lớn hơn trung bình μ = 100."
+  },
+  {
+   "id": "c4-q108",
+   "explanation": "• Ba phương pháp chuẩn hóa của chương: Min-Max, Z-Score, Decimal Scaling\n• Equal-frequency Binning thuộc Discretization, không phải Normalization"
+  },
+  {
+   "id": "c4-q109",
+   "explanation": "• Slide nêu BMI, LTV cho Feature Construction; case study nợ xấu tạo thêm DTI và Utilization Rate\n• Vector riêng của Covariance Matrix thuộc PCA (Data Reduction)"
+  },
+  {
+   "id": "c4-q110",
+   "explanation": "Feature Selection dùng các độ đo như Information Gain để giữ lại thuộc tính có sức mạnh phân loại tốt nhất; Jaccard đo trùng lặp tập hợp, Moving Average dùng làm mượt."
+  },
+  {
+   "id": "c4-q111",
+   "explanation": "Info(D) = −Σ pi × log2(pi) với pi là xác suất một bản ghi thuộc lớp Ci. Dấu trừ giữ Entropy không âm; Entropy càng nhỏ thì tập càng thuần nhất."
+  },
+  {
+   "id": "c4-q112",
+   "explanation": "Information Gain là mức giảm entropy sau khi phân hoạch D theo A: Gain(A) = Info(D) − Info_A(D). Thuộc tính có Gain lớn nhất được chọn làm nút phân tách."
+  },
+  {
+   "id": "c4-q113",
+   "explanation": "Info_A(D) là entropy kỳ vọng có trọng số: mỗi tập con Dj góp Info(Dj) nhân với tỷ lệ |Dj|/|D|, rồi cộng lại trên toàn bộ các phân hoạch."
+  },
+  {
+   "id": "c4-q114",
+   "explanation": "Slide khẳng định sự thành công của Mining tri thức phụ thuộc nhiều vào Domain Knowledge, tức thiết kế đặc trưng đúng ngữ nghĩa nghiệp vụ.",
+   "options": [
+    "Domain Knowledge — thiết kế đặc trưng đúng ngữ nghĩa",
+    "Số lượng máy chủ của Warehouse và tốc độ mạng nội bộ",
+    "Tốc độ mạng khi tải dữ liệu thô lên tầng Bronze",
+    "Số lượng biểu đồ được vẽ trong báo cáo phân tích"
+   ]
+  },
+  {
+   "id": "c4-q115",
+   "explanation": "p = 4/8 = 0.5 cho mỗi lớp: Info(D) = −0.5·log₂0.5 − 0.5·log₂0.5 = 0.5 + 0.5 = 1 bit, mức hỗn loạn tối đa."
+  },
+  {
+   "id": "c4-q116",
+   "explanation": "Gain(A) = Info(D) − Info_A(D); Credit History có Gain ≈ 0.5488 lớn nhất nên giảm entropy nhiều nhất và được chọn làm nút gốc của cây quyết định."
+  },
+  {
+   "id": "c4-q117",
+   "explanation": "Gain càng nhỏ thì phân hoạch càng ít làm giảm entropy, sức phân loại càng yếu. Income có Gain ≈ 0.06128, thấp nhất so với 0.1887 và 0.5488."
+  },
+  {
+   "id": "c4-q118",
+   "explanation": "p = 5/10 = 0.5 cho mỗi lớp: Info(D) = −0.5·log₂0.5 − 0.5·log₂0.5 = 1 bit. Tập càng chia đều giữa các lớp thì entropy càng cao."
+  },
+  {
+   "id": "c4-q119",
+   "explanation": "Info(D) = −4 × 0.25·log₂0.25 = −4 × 0.25 × (−2) = 2 bit, đúng bằng log₂4 vì bốn lớp chia đều nhau."
+  },
+  {
+   "id": "c4-q120",
+   "explanation": "Info(D) = −(6/8)log₂(6/8) − (2/8)log₂(2/8) = 0.75×0.415 + 0.25×2 ≈ 0.311 + 0.5 = 0.811."
+  },
+  {
+   "id": "c4-q121",
+   "explanation": "Info_A(D) = Σ (|Dj|/|D|) × Info(Dj) = 0 vì mọi tập con đều thuần nhất (Entropy = 0). Gain(A) = Info(D) − 0 = 1, mức giảm entropy tối đa."
+  },
+  {
+   "id": "c4-q122",
+   "explanation": "Info_A(D) = (4/8)×0.811 + (4/8)×0.811 = 0.811 ⇒ Gain(A) = 1 − 0.811 = 0.189."
+  },
+  {
+   "id": "c4-q123",
+   "explanation": "• Slide: Sentiment & Topic chuyển văn bản thô thành cột số về sắc thái và chủ đề\n• Đường MA-50 và trị riêng của Covariance Matrix thuộc làm mượt và PCA"
+  },
+  {
+   "id": "c4-q124",
+   "explanation": "Embeddings biểu diễn thực thể rời rạc (từ, khách hàng, sản phẩm) thành vector trong không gian đa chiều để tính độ tương đồng, nhờ đó AI khai phá được quan hệ ngữ nghĩa.",
+   "options": [
+    "Kỹ thuật chia bin sao cho mỗi bin chứa số bản ghi bằng nhau",
+    "Chuyển thực thể rời rạc thành vector đa chiều để tính độ tương đồng",
+    "Phương pháp lấy giá trị mới nhất khi hai nguồn xung đột dữ liệu",
+    "Kỹ thuật nén dữ liệu bằng cách dịch dấu thập phân sang trái"
+   ]
+  },
+  {
+   "id": "c4-q125",
+   "explanation": "Hệ thống kết hợp đặc trưng số (DTI tăng cao) với đặc trưng AI (sắc thái lo lắng, giận dữ từ chat hỗ trợ) rồi dán nhãn 'Rủi ro cao' để xử lý sớm.",
+   "options": [
+    "Khi thu nhập của khách hàng tăng nhanh một cách bất thường",
+    "Khi khách hàng không sử dụng hết hạn mức thẻ tín dụng được cấp",
+    "Khi DTI tăng cao kết hợp sắc thái tiêu cực trích từ lịch sử chat hỗ trợ",
+    "Khi khách hàng chuyển toàn bộ giao dịch sang chi nhánh khác"
+   ]
+  },
+  {
+   "id": "b-c4-q1",
+   "explanation": "4 khía cạnh chất lượng dữ liệu: Accuracy (mô tả đúng thực thể), Completeness (tỷ lệ không khuyết), Consistency (đồng bộ logic/định dạng), Timeliness (độ trễ dữ liệu).",
+   "options": [
+    "Bronze, Silver, Gold, Platinum của kiến trúc Medallion",
+    "Freshness, Volume, Schema, Lineage của data governance",
+    "Accuracy, Completeness, Consistency, Timeliness",
+    "Support, Confidence, Lift, Leverage của luật kết hợp"
+   ]
+  },
+  {
+   "id": "b-c4-q2",
+   "explanation": "Completeness = tỷ lệ dữ liệu không khuyết (Null/Missing). Accuracy = mô tả đúng; Consistency = đồng bộ logic; Timeliness = độ trễ."
+  },
+  {
+   "id": "b-c4-q3",
+   "explanation": "Cross-field Validation áp dụng quy tắc logic liên thuộc tính để phát hiện mâu thuẫn, hỗ trợ Consistency (cùng với Kiểm tra Schema qua Metadata).",
+   "options": [
+    "Việc nén dữ liệu cho tối ưu dung lượng lưu trữ",
+    "Tốc độ nạp dữ liệu thô vào tầng Bronze của kho",
+    "Tính chính xác của từng giá trị đơn lẻ trong một cột",
+    "Áp dụng quy tắc logic liên thuộc tính để phát hiện mâu thuẫn"
+   ]
+  },
+  {
+   "id": "b-c4-q4",
+   "explanation": "Noise = sai số ngẫu nhiên ẩn tín hiệu → làm mượt để loại. Outliers = điểm bất thường, có thể là lỗi HOẶC tín hiệu quan trọng (gian lận) → phát hiện và đánh giá trước khi quyết định.",
+   "options": [
+    "Cả hai đều là sai số ngẫu nhiên nên phải xóa ngay lập tức",
+    "Noise là sai số ngẫu nhiên cần làm mượt; Outliers là điểm bất thường cần đánh giá trước",
+    "Noise là điểm bất thường cần đánh giá; Outliers là sai số ngẫu nhiên cần làm mượt",
+    "Cả hai đều là tín hiệu quan trọng nên luôn phải giữ lại"
+   ]
+  },
+  {
+   "id": "b-c4-q5",
+   "explanation": "Binning chia dữ liệu thành các bin và thay giá trị bằng trung bình bin để làm mượt. Regression dùng hàm toán học để khớp và loại nhiễu.",
+   "options": [
+    "Nhận diện điểm nằm ngoài ngưỡng 3 lần độ lệch chuẩn",
+    "Chia dữ liệu thành các bin rồi thay giá trị bằng trung bình bin",
+    "Xóa hẳn các dòng dữ liệu có giá trị dị biệt khỏi bảng",
+    "Dùng hàm toán học khớp dữ liệu để loại bỏ thành phần nhiễu"
+   ]
+  },
+  {
+   "id": "b-c4-q7",
+   "explanation": "IQR: ngưỡng Outlier là điểm ngoài [Q1 − 1,5×IQR, Q3 + 1,5×IQR], với IQR = Q3 − Q1. IQR ít bị ảnh hưởng bởi Outlier cực đoan, phù hợp dữ liệu lệch (skewed)."
+  },
+  {
+   "id": "b-c4-q8",
+   "explanation": "IQR dùng phân vị → ít bị Outlier cực đoan chi phối → hợp dữ liệu lệch. Z-Score dùng mean/độ lệch chuẩn → nhạy với phân phối chuẩn (Gaussian).",
+   "options": [
+    "IQR không cần dùng số liệu, Z-Score thì bắt buộc phải có",
+    "IQR tính toán nhanh hơn Z-Score trên mọi kích thước dữ liệu",
+    "IQR dựa trên phân vị nên ít bị Outlier cực đoan chi phối, Z-Score dựa trên μ và σ",
+    "IQR luôn cho kết quả chính xác hơn Z-Score trong mọi trường hợp"
+   ]
+  },
+  {
+   "id": "b-c4-q9",
+   "explanation": "Entity Resolution: xác định bản ghi từ nhiều nguồn cùng mô tả MỘT thực thể. Metadata Resolution: đối chiếu thuộc tính khác tên nhưng cùng ý nghĩa."
+  },
+  {
+   "id": "b-c4-q10",
+   "explanation": "Jaccard J(A,B) = |A∩B| / |A∪B|. Càng gần 1 → hai tập càng tương đồng; càng gần 0 → càng khác biệt.",
+   "options": [
+    "J(A,B) = |A ∪ B| / |A ∩ B| (tổng chia số phần tử chung)",
+    "J(A,B) = |A ∩ B| / (|A| × |B|) (tích của hai kích thước tập)",
+    "J(A,B) = |A ∩ B| / |A ∪ B| (phần tử chung chia tổng phần tử)",
+    "J(A,B) = |A| + |B| − |A ∩ B| (tổng trừ phần giao hai tập)"
+   ]
+  },
+  {
+   "id": "b-c4-q11",
+   "explanation": "A∩B = {Python, SQL} → 2 phần tử. A∪B = {Python, SQL, Tableau, Power BI, Excel, R} → 6 phần tử. J = 2/6 ≈ 0,333 (tương đồng thấp)."
+  },
+  {
+   "id": "b-c4-q12",
+   "explanation": "Deduplication loại bản ghi trùng để tạo Golden Record duy nhất. Conflict Handling xử lý xung đột giá trị bằng Source Authority hoặc Latest timestamp."
+  },
+  {
+   "id": "b-c4-q13",
+   "explanation": "Smoothing = làm mượt biến động ngắn hạn (ví dụ Moving Average). Aggregation = tập hợp dữ liệu chi tiết thành tóm tắt cấp cao (doanh thu ngày → tháng).",
+   "options": [
+    "Cả hai đều là kỹ thuật chuẩn hóa thang đo dữ liệu số",
+    "Smoothing tập hợp dữ liệu lên cấp cao; Aggregation làm mượt biến động",
+    "Smoothing làm mượt biến động ngắn hạn; Aggregation tổng hợp lên mức tóm tắt cấp cao",
+    "Cả hai đều là kỹ thuật giảm số chiều của dữ liệu"
+   ]
+  },
+  {
+   "id": "b-c4-q14",
+   "explanation": "SMA = (1/k) × Σ pᵢ (từ i = n−k+1 đến n): trung bình của k giá trị gần nhất trong cửa sổ trượt → khử biến động ngắn hạn.",
+   "options": [
+    "SMA = (1/k) × tổng k giá trị gần nhất tính ngược từ thời điểm hiện tại",
+    "SMA = (v − min)/(max − min) × (1/k) của cả chuỗi dữ liệu",
+    "SMA = (giá trị lớn nhất − giá trị nhỏ nhất) chia cho k",
+    "SMA = tổng toàn bộ chuỗi dữ liệu chia cho số ngày quan sát"
+   ]
+  },
+  {
+   "id": "b-c4-q15",
+   "explanation": "SMA Ngày 3 = (Ngày1 + Ngày2 + Ngày3)/3 = (80+86+82)/3 = 248/3 ≈ 82,7."
+  },
+  {
+   "id": "b-c4-q16",
+   "explanation": "Roll-up = tổng hợp LÊN mức cao hơn (ngày→tháng); Drill-down = chi tiết hóa XUỐNG mức thấp hơn. Granularity là mức độ chi tiết cần cân bằng."
+  },
+  {
+   "id": "b-c4-q17",
+   "explanation": "Data Reduction: Dimensionality Reduction (giảm số CHIỀU – cột/thuộc tính) và Numerosity Reduction (giảm số LƯỢNG – dòng/bản ghi).",
+   "options": [
+    "Smoothing (làm mượt) và Aggregation (tập hợp dữ liệu)",
+    "Binning (chia khoảng) và Regression (khớp hàm toán học)",
+    "Dimensionality Reduction (giảm cột) và Numerosity Reduction (giảm dòng)",
+    "Normalization (chuẩn hóa) và Discretization (rời rạc hóa)"
+   ]
+  },
+  {
+   "id": "b-c4-q18",
+   "explanation": "PCA là phép biến đổi tuyến tính giữ tối đa phương sai; thành phần chính = vector riêng ứng trị riêng lớn nhất của ma trận hiệp phương sai → giải quyết Curse of Dimensionality.",
+   "options": [
+    "Các thuộc tính có tương quan cao nhất với nhau trong bảng",
+    "Toàn bộ dữ liệu ngoại lai và các giá trị khuyết của bảng",
+    "Tối đa phương sai qua các vector riêng ứng trị riêng lớn nhất",
+    "Tối đa số lượng thuộc tính gốc được giữ lại trong bảng"
+   ]
+  },
+  {
+   "id": "b-c4-q19",
+   "explanation": "Sampling chọn tập con đại diện (Stratified Sampling = lấy mẫu phân tầng). Các kỹ thuật khác: Regression Models, Histograms (phân phối tần suất), Clustering (dùng Centroid đại diện)."
+  },
+  {
+   "id": "b-c4-q22",
+   "explanation": "Width = (70 − 10)/3 = 20 triệu. Ba nhóm: [10–30] Thấp, [30–50] Trung bình, [50–70] Cao — mỗi nhóm rộng 20 triệu."
+  },
+  {
+   "id": "b-c4-q23",
+   "explanation": "Equal-width: chia đều theo ĐỘ RỘNG giá trị (bin có thể chứa ít/nhiều bản ghi khác nhau). Equal-frequency: mỗi bin chứa SỐ BẢN GHI bằng nhau (độ rộng bin khác nhau), tốt cho dữ liệu lệch.",
+   "options": [
+    "Cả hai chia bin theo đúng một tiêu chí nên cho kết quả giống hệt",
+    "Equal-width chia theo số bản ghi; Equal-frequency chia theo độ rộng",
+    "Equal-width dùng cho dữ liệu văn bản; Equal-frequency cho dữ liệu số",
+    "Equal-width chia đều độ rộng giá trị; Equal-frequency mỗi bin cùng số bản ghi"
+   ]
+  },
+  {
+   "id": "b-c4-q24",
+   "explanation": "Concept Hierarchy tổ chức thuộc tính theo tầng bậc từ cụ thể→tổng quát (ví dụ chi nhánh→khu vực), cho phép khai phá luật kết hợp ở nhiều mức trừu tượng (Multi-level Mining).",
+   "options": [
+    "Theo giá trị Jaccard giảm dần giữa các thực thể",
+    "Theo tầng bậc từ cụ thể đến tổng quát, hỗ trợ Multi-level Mining",
+    "Theo số lượng bản ghi tăng dần trong mỗi nhóm khái niệm",
+    "Theo thứ tự thời gian tăng dần của các giao dịch"
+   ]
+  },
+  {
+   "id": "b-c4-q25",
+   "explanation": "Normalization đưa các thuộc tính về cùng thang đo → thuật toán dựa trên khoảng cách không bị thiên lệch giữa các biến có đơn vị/độ lớn khác nhau.",
+   "options": [
+    "Chia thuộc tính liên tục thành các khoảng rời rạc có nhãn",
+    "Đưa các thuộc tính về cùng thang đo cho thuật toán dựa trên khoảng cách",
+    "Nhóm các bản ghi tương tự nhau vào cùng một cụm dữ liệu",
+    "Giảm số chiều dữ liệu bằng các vector riêng của ma trận"
+   ]
+  },
+  {
+   "id": "b-c4-q26",
+   "explanation": "Min-Max: v' = [(v − min)/(max − min)] × (new_max − new_min) + new_min. Ánh xạ về khoảng cố định, thường [0,1].",
+   "options": [
+    "v' = [(v − min)/(max − min)] × (new_max − new_min) + new_min",
+    "v' = (v − μ)/σ × (new_max − new_min) + new_min",
+    "v' = v / 10^j × (new_max − new_min) + new_min",
+    "v' = (v − min)/(max − min) × σ + new_min"
+   ]
+  },
+  {
+   "id": "b-c4-q27",
+   "explanation": "v' = [(60−10)/(110−10)]×(1−0)+0 = (50/100)×1 = 0,5. Đúng giữa khoảng [0,1] vì 60 nằm giữa [10,110]."
+  },
+  {
+   "id": "b-c4-q28",
+   "explanation": "Decimal Scaling: v' = v/10ʲ, j nhỏ nhất sao cho giá trị tuyệt đối lớn nhất sau chia < 1. Dựa trên giá trị tuyệt đối lớn nhất, giữ nguyên dấu âm/dương.",
+   "options": [
+    "Số lượng bản ghi hiện có trong tập dữ liệu",
+    "Khoảng min và max của thuộc tính cần chuẩn hóa",
+    "Giá trị tuyệt đối lớn nhất, chọn j nhỏ nhất sao cho max|v|/10ʲ < 1",
+    "Giá trị trung bình μ và độ lệch chuẩn σ của thuộc tính"
+   ]
+  },
+  {
+   "id": "b-c4-q29",
+   "explanation": "Giá trị tuyệt đối lớn nhất = 3.500.000. Cần 10ʲ ≥ 3.500.000: 10⁶=1.000.000 (chưa đủ), 10⁷=10.000.000 (đủ) → j = 7.",
+   "options": [
+    "j = 6",
+    "j = 7",
+    "j = 5",
+    "j = 3"
+   ]
+  },
+  {
+   "id": "b-c4-q30",
+   "explanation": "Z-score chuẩn hóa dựa trên μ và σ (dữ liệu sau có μ=0, σ=1). Hiệu quả khi có nhiều ngoại lai hoặc không biết Min/Max. Min-Max hợp khi biết Min/Max và ít ngoại lai."
+  },
+  {
+   "id": "b-c4-q31",
+   "explanation": "Min-Max nhạy cảm với Outliers (phụ thuộc min/max). Z-score không đưa về khoảng cố định; Decimal Scaling không phản ánh phân phối thống kê."
+  },
+  {
+   "id": "b-c4-q32",
+   "explanation": "Feature Selection dùng Information Gain (lý thuyết thông tin của Claude Shannon) để giữ thuộc tính có sức phân loại tốt. Feature Construction tạo thuộc tính mới (BMI, LTV)."
+  },
+  {
+   "id": "b-c4-q33",
+   "explanation": "Info(D) = − Σ pᵢ·log₂(pᵢ), với pᵢ là xác suất một bộ dữ liệu thuộc lớp Cᵢ. Dùng log₂ vì thông tin mã hóa theo bit; Entropy càng nhỏ thì độ tinh khiết (purity) càng cao."
+  },
+  {
+   "id": "b-c4-q34",
+   "explanation": "Gain(A) = Info(D) − Info_A(D): mức giảm entropy nhờ phân hoạch theo A. Thuộc tính có Gain LỚN NHẤT được chọn làm nút phân tách (nút gốc cây quyết định).",
+   "options": [
+    "Gain(A) = Info_A(D) − Info(D) (mức giảm entropy theo A)",
+    "Gain(A) = Info(D) − Info_A(D) (mức giảm entropy theo A)",
+    "Gain(A) = Info(D) × Info_A(D) (tích entropy trước và sau)",
+    "Gain(A) = Info(D) / Info_A(D) (tỷ số entropy trước và sau)"
+   ]
+  },
+  {
+   "id": "b-c4-q35",
+   "explanation": "Gain = 1 − Info_A(D): Income = 0,06128; Loan Amount = 0,1887; Credit History = 0,5488 (lớn nhất) → chọn Credit History làm nút gốc vì giảm entropy nhiều nhất.",
+   "options": [
+    "Loan Amount (Gain ≈ 0,1887 – ở mức trung bình)",
+    "Credit History (Gain ≈ 0,5488 – lớn nhất)",
+    "Cả ba thuộc tính có Gain xấp xỉ bằng nhau",
+    "Income (Gain ≈ 0,06128 – nhỏ nhất)"
+   ]
+  },
+  {
+   "id": "b-c4-q36",
+   "explanation": "Embeddings chuyển thực thể rời rạc thành vector đa chiều để tính độ tương đồng. Sentiment&Topic chuyển văn bản thành cột số về sắc thái/chủ đề.",
+   "options": [
+    "Chuyển thực thể rời rạc thành vector đa chiều để tính độ tương đồng",
+    "Nhóm các bản ghi tương tự vào cùng cụm dựa trên Centroid",
+    "Ước lượng và điền giá trị Null còn thiếu bằng mô hình",
+    "Chia thuộc tính liên tục thành các khoảng rời rạc có nhãn"
+   ]
+  },
+  {
+   "id": "bs-c4-1",
+   "explanation": "Info(D) = −0.6·log2(0.6) − 0.4·log2(0.4) = 0.6·0.737 + 0.4·1.322 ≈ 0.442 + 0.529 = 0.971."
+  },
+  {
+   "id": "bs-c4-2",
+   "explanation": "v' = (8 − 5)/(10 − 5) × (1 − 0) + 0 = 3/5 = 0.6. Giá trị 8 nằm trong khoảng [5, 10] nên kết quả thuộc [0, 1]."
+  },
+  {
+   "id": "bs-c4-3",
+   "explanation": "Width = (700 − 100)/3 = 200. Nhóm 1: 100–300; Nhóm 2: 300–500; Nhóm 3: 500–700."
+  },
+  {
+   "id": "bs-c4-4",
+   "explanation": "SMA Ngày 4 = trung bình 3 ngày gần nhất (ngày 2, 3, 4) = (78 + 76 + 80)/3 = 78."
+  },
+  {
+   "id": "bs-c4-5",
+   "explanation": "SMA Ngày 6 = (80 + 82 + 81)/3 = 243/3 = 81, lấy 3 giá trị gần nhất là ngày 4, 5, 6."
+  },
+  {
+   "id": "bs-c4-6",
+   "explanation": "Info_A(D) là Entropy kỳ vọng (có trọng số) sau khi chia D theo A thành v tập con; |Dj|/|D| là trọng số của tập con j, Info(Dj) là Entropy của nó.",
+   "options": [
+    "Trọng số: tỷ lệ số bản ghi của tập con j trên tổng số bản ghi",
+    "Số lớp nhãn hiện có trong toàn bộ tập dữ liệu D",
+    "Entropy của tập con thứ j sau khi phân hoạch",
+    "Information Gain của thuộc tính A sau phân hoạch"
+   ]
+  },
+  {
+   "id": "bs-c4-7",
+   "explanation": "Info(D) là Entropy: lượng thông tin trung bình cần để xác định lớp của một bản ghi trong D; pi = |Ci,D|/|D|.",
+   "options": [
+    "Mức hỗn loạn của tập D có m lớp, pi là xác suất bản ghi thuộc lớp i",
+    "Trung bình trượt của chuỗi thời gian theo cửa sổ k",
+    "Độ tương đồng giữa hai tập hợp thuộc tính của thực thể",
+    "Số chiều còn lại của dữ liệu sau khi giảm bằng PCA"
+   ]
+  },
+  {
+   "id": "bs-c4-8",
+   "explanation": "Equal-frequency: số bản ghi mỗi bin bằng nhau → tốt cho dữ liệu lệch. Equal-width: độ rộng bằng nhau.",
+   "options": [
+    "Số bin luôn bằng 2 và độ rộng mỗi bin bằng nhau",
+    "Mỗi bin chứa số bản ghi bằng nhau; tốt cho dữ liệu lệch",
+    "Thay mỗi giá trị bằng giá trị lớn nhất của bin chứa nó",
+    "Mỗi bin có độ rộng khoảng giá trị hoàn toàn bằng nhau"
+   ]
+  },
+  {
+   "id": "bs-c4-9",
+   "explanation": "12 giá trị / 3 bin = 4 giá trị mỗi bin (đã sắp xếp): Bin1 = 3,4,5,6; Bin2 = 8,9,12,15; Bin3 = 20,40,80,150."
+  },
+  {
+   "id": "bs-c4-10",
+   "explanation": "j nhỏ nhất sao cho max|v'| < 1 → 4500/10^4 = 0.45 < 1 ⇒ j = 4. v' = 1200/10^4 = 0.12."
+  },
+  {
+   "id": "bs-c4-11",
+   "explanation": "z = (12.5 − 20)/5 = −7.5/5 = −1.5, dấu âm cho thấy thu nhập thấp hơn trung bình 1,5 lần độ lệch chuẩn."
+  },
+  {
+   "id": "bs-c4-12",
+   "explanation": "PCA là phép biến đổi tuyến tính; các thành phần chính là vector riêng ứng với trị riêng lớn nhất của ma trận hiệp phương sai."
+  },
+  {
+   "id": "bs-c4-13",
+   "explanation": "Multi-level Mining dựa trên Concept Hierarchy cho phép khai phá luật kết hợp ở nhiều mức trừu tượng (vd: sản phẩm → nhóm hàng → ngành hàng).",
+   "options": [
+    "Phân cụm DBSCAN trên dữ liệu không gian nhiều chiều",
+    "Dự báo chuỗi thời gian bằng trung bình trượt SMA k điểm",
+    "Khai phá luật kết hợp ở nhiều mức trừu tượng nhờ Concept Hierarchy",
+    "Phát hiện ngoại lai bằng ngưỡng IQR và Z-Score 3σ"
+   ]
+  }
+ ]
+}

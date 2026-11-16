@@ -1,0 +1,10 @@
+node_modules/
+.DS_Store
+__MACOSX/
+._*
+Thumbs.db
+
+# PDF ngoài thư mục slides/ (slides/ là tài nguyên của web, phải commit)
+/*.pdf
+*.pdf
+!slides/*.pdf

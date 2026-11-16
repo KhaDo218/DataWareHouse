@@ -1,0 +1,641 @@
+{
+  "chunk": "c3b",
+  "items": [
+    {
+      "id": "c3-q85",
+      "explanation": "Lambda duy trì song song hai luồng: Batch tính toán lại toàn bộ để đảm bảo chính xác và Speed/Streaming xử lý nhanh, rồi hợp nhất tại Serving Layer.\n• Chỉ một luồng Streaming duy nhất là đặc trưng của Kappa, không phải Lambda",
+      "options": [
+        "Chỉ sử dụng duy nhất một luồng Streaming để xử lý mọi dữ liệu",
+        "Song song hai luồng: Batch xử lý chính xác và Speed/Streaming xử lý nhanh",
+        "Chỉ dùng các hàm serverless AWS Lambda để xử lý từng sự kiện phát sinh",
+        "Chỉ xử lý dữ liệu lịch sử bằng Batch, bỏ qua dữ liệu thời gian thực"
+      ]
+    },
+    {
+      "id": "c3-q86",
+      "explanation": "Kappa đơn giản hóa kiến trúc bằng cách chỉ dùng duy nhất một luồng Streaming để xử lý cả dữ liệu thời gian thực lẫn dữ liệu lịch sử.\n• Nhờ một codebase duy nhất nên dễ bảo trì và dữ liệu luôn nhất quán",
+      "options": [
+        "Duy trì hai codebase riêng biệt cho luồng batch và luồng stream",
+        "Chỉ xử lý dữ liệu lịch sử, bỏ qua dữ liệu thời gian thực",
+        "Chỉ dùng một luồng Streaming duy nhất xử lý cả dữ liệu thực và lịch sử",
+        "Duy trì ba luồng xử lý chạy song song: Batch, Speed và Serving"
+      ]
+    },
+    {
+      "id": "c3-q87",
+      "explanation": "• Bảo trì cực lớn vì phải viết, kiểm thử và duy trì hai bộ mã nguồn cho hai luồng\n• Rủi ro sai lệch giữa luồng Batch (tính lại từ đầu) và luồng Speed (tính nhanh)\n• Lambda đang dần nhường chỗ cho các kiến trúc đơn giản hơn"
+    },
+    {
+      "id": "c3-q88",
+      "explanation": "• Dễ bảo trì vì chỉ một luồng xử lý và một codebase duy nhất\n• Nhất quán cao: dữ liệu thời gian thực và lịch sử luôn khớp nhau\n• Là xu hướng chủ đạo khi công nghệ làm mờ ranh giới Batch và Stream"
+    },
+    {
+      "id": "c3-q89",
+      "explanation": "dbt giúp Data Engineer làm việc bài bản như một Software Engineer: quản lý phiên bản, kiểm thử, tài liệu và CI/CD.\n• dbt chỉ biến đổi dữ liệu bằng SQL, không quản lý hạ tầng máy chủ",
+      "options": [
+        "Thay thế hoàn toàn SQL bằng giao diện kéo thả trực quan",
+        "Quản lý hạ tầng máy chủ vật lý cho kho dữ liệu",
+        "Giúp Data Engineer làm việc bài bản như một Software Engineer",
+        "Tự động dựng toàn bộ dashboard BI và báo cáo cho doanh nghiệp"
+      ]
+    },
+    {
+      "id": "c3-q90",
+      "explanation": "dbt theo triết lý SQL-first: chuyển đổi toàn bộ logic nghiệp vụ phức tạp bằng SQL thuần túy nên dễ tiếp cận.\n• dbt không phải công cụ no-code và không đòi viết toàn bộ pipeline bằng Python",
+      "options": [
+        "Python-first: mọi logic nghiệp vụ đều viết bằng Python",
+        "SQL-first: chuyển hóa logic nghiệp vụ phức tạp bằng SQL thuần túy",
+        "No-code: hoàn toàn không cần viết mã, chỉ kéo thả",
+        "Java-first: tối ưu riêng cho hệ sinh thái JVM và Spark"
+      ]
+    },
+    {
+      "id": "c3-q91",
+      "explanation": "dbt tích hợp chặt chẽ với Git để quản lý thay đổi mã nguồn và làm việc nhóm, đúng tinh thần làm việc bài bản như một Software Engineer."
+    },
+    {
+      "id": "c3-q92",
+      "explanation": "dbt module hóa theo chuẩn DRY (Don't Repeat Yourself): chia nhỏ logic thành các file model kế thừa và tái sử dụng.\n• SOLID, ACID, CAP lần lượt thuộc thiết kế phần mềm, giao dịch CSDL và hệ phân tán",
+      "options": [
+        "SOLID: năm nguyên lý thiết kế hướng đối tượng cho mã nguồn",
+        "ACID: bốn tính chất bắt buộc của một giao dịch cơ sở dữ liệu",
+        "CAP: định lý về nhất quán, khả dụng và chịu phân vùng",
+        "DRY: chia nhỏ logic thành file model để kế thừa và tái sử dụng"
+      ]
+    },
+    {
+      "id": "c3-q93",
+      "explanation": "• Trình biên dịch mạnh chuyển đổi mã dbt linh hoạt, tối ưu hiệu năng cho Data Warehouse\n• Tích hợp chặt chẽ với Git để quản lý thay đổi mã nguồn\n• dbt là công cụ mã mở dùng SQL, không phải kéo thả độc quyền hay Python-first"
+    },
+    {
+      "id": "c3-q94",
+      "explanation": "Jinja là templating engine, bổ sung biến, vòng lặp và cấu trúc điều khiển vào câu lệnh SQL tĩnh để sinh SQL động.\n• Jinja không phải cơ sở dữ liệu, công cụ BI hay trình quản lý gói",
+      "options": [
+        "Templating Engine: bổ sung cấu trúc điều khiển vào SQL tĩnh",
+        "Một cơ sở dữ liệu NoSQL lưu trữ tài liệu hiệu năng cao",
+        "Công cụ trực quan hóa dữ liệu phục vụ báo cáo BI",
+        "Trình quản lý gói và phụ thuộc chính thức của Python"
+      ]
+    },
+    {
+      "id": "c3-q95",
+      "explanation": "Macros đóng gói các đoạn mã SQL thường xuyên lặp lại thành hàm (function) để gọi tự động, giảm trùng lặp code.\n• Nhờ đó Jinja giảm hơn 50% số dòng code dư thừa so với cách viết truyền thống",
+      "options": [
+        "Ghi lại thao tác chuột và bàn phím của người dùng",
+        "Tăng tốc phần cứng máy chủ khi chạy truy vấn nặng",
+        "Đóng gói các đoạn SQL lặp lại thành hàm để gọi tự động",
+        "Chụp ảnh màn hình dashboard theo lịch định kỳ"
+      ]
+    },
+    {
+      "id": "c3-q96",
+      "explanation": "Jinja tự động thay đổi tên bảng, schema tùy thuộc môi trường Dev/Test/Prod, giúp cùng một model chạy đúng ở từng môi trường.\n• Jinja không tạo máy ảo riêng cho từng kỹ sư",
+      "options": [
+        "Tạo máy ảo riêng cho từng kỹ sư theo môi trường làm việc",
+        "Tự động thay đổi tên bảng, schema theo từng môi trường Dev/Test/Prod",
+        "Khóa vĩnh viễn môi trường Production để tránh ghi nhầm dữ liệu",
+        "Chỉ cho phép tồn tại duy nhất một môi trường cho toàn bộ dự án"
+      ]
+    },
+    {
+      "id": "c3-q97",
+      "explanation": "Theo slide, Jinja và Dynamic SQL giảm thiểu hơn 50% số dòng code dư thừa so với cách viết truyền thống nhờ trừu tượng hóa JOIN, Pivot nhiều lớp.",
+      "options": [
+        "Giảm khoảng 5% số dòng code so với cách viết thường",
+        "Làm tăng gấp đôi số dòng code mà đội ngũ phải bảo trì",
+        "Không làm thay đổi lượng code nhưng câu lệnh dễ đọc hơn",
+        "Giảm thiểu hơn 50% số dòng code dư thừa so với cách viết cũ"
+      ]
+    },
+    {
+      "id": "c3-q98",
+      "explanation": "Schema Tests tự động xác thực các điều kiện cơ bản như cột rỗng (not null) hay trùng lặp (unique) ngay trong quá trình chạy dbt.\n• Quy tắc nghiệp vụ đặc thù phải dùng Singular Tests",
+      "options": [
+        "Tốc độ đường truyền mạng từ warehouse tới máy người dùng",
+        "Các điều kiện cơ bản như cột rỗng (null) hay trùng lặp (unique)",
+        "Chi phí thực thi của từng truy vấn chạy trên warehouse",
+        "Quyền truy cập của người dùng vào từng bảng dữ liệu"
+      ]
+    },
+    {
+      "id": "c3-q99",
+      "explanation": "Singular Tests là các câu lệnh SQL riêng biệt để kiểm tra những quy tắc nghiệp vụ đặc thù mà Schema Tests không bao phủ.\n• Bài test vẫn chạy lại mỗi lần build, không phải chỉ chạy một lần",
+      "options": [
+        "Bài test chỉ được phép chạy đúng một lần duy nhất trong dự án",
+        "Bài test do AI tự động sinh ra từ lược đồ của bảng nguồn",
+        "Câu lệnh SQL riêng biệt để kiểm tra quy tắc nghiệp vụ đặc thù",
+        "Bài test kiểm tra kết nối mạng giữa pipeline và warehouse"
+      ]
+    },
+    {
+      "id": "c3-q100",
+      "explanation": "• Data Contracts thiết lập ràng buộc giữa đội cung cấp và đội phân tích\n• CI/CD chỉ đưa code vào vận hành khi toàn bộ bài test báo pass\n• Khoanh vùng ngay lỗi số liệu do dữ liệu nguồn hay do mã biến đổi\n• Test chạy tự động trước Production, không chỉ chạy tay sau đó"
+    },
+    {
+      "id": "c3-q101",
+      "explanation": "• Auto-Docs tự trích xuất comment trong mã nguồn để tạo Webpage tài liệu\n• Visual Lineage vẽ bản đồ quan hệ đầu vào - đầu ra, giúp phân tích tác động khi đổi bảng gốc\n• Tài liệu do hệ thống sinh, không viết tay hoàn toàn"
+    },
+    {
+      "id": "c3-q102",
+      "explanation": "Schema Drift là sự thay đổi cấu trúc đột ngột ở dữ liệu nguồn như thêm, xóa cột hoặc đổi định dạng kiểu dữ liệu.\n• Hậu quả: gián đoạn Downstream Pipeline, Silent Loss và mất thời gian sửa thủ công",
+      "options": [
+        "Kỹ thuật tối ưu chỉ mục của bảng để tăng tốc truy vấn",
+        "Sự thay đổi cấu trúc đột ngột ở dữ liệu nguồn: thêm, xóa cột, đổi kiểu",
+        "Việc di chuyển schema giữa hai kho dữ liệu khác nhau",
+        "Quá trình nén schema định kỳ để tiết kiệm dung lượng lưu trữ"
+      ]
+    },
+    {
+      "id": "c3-q103",
+      "explanation": "• Làm gián đoạn Downstream Pipeline, khiến báo cáo hoặc Dashboard ngừng hoạt động\n• Lãng phí nguồn lực vì mất nhiều thời gian cập nhật lại cấu trúc bảng thủ công\n• Tăng hiệu năng hay giảm chi phí lưu trữ là lợi ích, không phải hậu quả"
+    },
+    {
+      "id": "c3-q104",
+      "explanation": "Silent Loss: dữ liệu mới xuất hiện nhưng bị loại bỏ ngầm vì kho dữ liệu không nhận diện được cột mới.\n• Đây là hậu quả nguy hiểm của Schema Drift vì hoàn toàn không báo lỗi",
+      "options": [
+        "Dữ liệu mới bị loại bỏ ngầm vì kho không nhận diện được cột mới",
+        "Dữ liệu bị tin tặc xóa một cách âm thầm, không để lại dấu vết",
+        "Mất âm thanh trong các file đa phương tiện khi chuyển định dạng",
+        "Log hệ thống bị ghi đè nên mất toàn bộ dấu vết kiểm toán"
+      ]
+    },
+    {
+      "id": "c3-q105",
+      "explanation": "Slide nêu rõ mô hình dự báo AI sẽ fail nếu dữ liệu đầu vào bị thay đổi - đây là thách thức Machine Learning do Schema Drift gây ra.\n• Vendor Lock-in, Data Downtime hay Overfitting không liên quan tới đổi cấu trúc nguồn",
+      "options": [
+        "Vendor Lock-in do phụ thuộc vào một nhà cung cấp Cloud",
+        "Data Downtime do mất điện tại trung tâm dữ liệu",
+        "Overfitting của mô hình dự báo trong quá trình huấn luyện",
+        "Schema Drift làm dữ liệu đầu vào thay đổi khiến mô hình fail"
+      ]
+    },
+    {
+      "id": "c3-q106",
+      "explanation": "Schema Evolution dùng chuẩn JSON hoặc VARIANT để bao bọc mọi thay đổi cấu trúc chưa lường trước.\n• INTEGER, FLOAT, CHAR hay BOOLEAN đều là kiểu cố định, không chứa được thay đổi linh hoạt"
+    },
+    {
+      "id": "c3-q107",
+      "explanation": "Auto-column addition tự động nhận diện và mở rộng thêm cột nếu nguồn phát sinh thuộc tính mới.\n• Nâng cấp kiểu dữ liệu là Type Coercion; xóa hay đổi tên cột không thuộc cơ chế này",
+      "options": [
+        "Tự động nhận diện và mở rộng thêm cột khi nguồn có thuộc tính mới",
+        "Tự động xóa các cột ít được sử dụng để giải phóng dung lượng",
+        "Tự động đổi tên toàn bộ các cột theo chuẩn đặt tên mới",
+        "Tự động gộp các cột trùng nhau thành một cột duy nhất"
+      ]
+    },
+    {
+      "id": "c3-q108",
+      "explanation": "• Type Coercion: tự động nâng cấp kiểu dữ liệu khi nguồn thay đổi\n• Triển khai an toàn: chỉ áp dụng thay đổi không phá vỡ logic truy vấn hiện tại\n• Cảnh báo sớm: chủ động thông báo khi cấu trúc quan trọng thay đổi\n• Tự động xóa cột cũ là hành vi không an toàn, không thuộc cơ chế này"
+    },
+    {
+      "id": "c3-q109",
+      "explanation": "Backward Compatibility đảm bảo code xử lý cũ vẫn có khả năng đọc được cấu trúc dữ liệu mới.\n• Cấu trúc dữ liệu cũ hoạt động với code mới là Forward Compatibility"
+    },
+    {
+      "id": "c3-q110",
+      "explanation": "Forward Compatibility đảm bảo cấu trúc dữ liệu cũ vẫn hoạt động trơn tru với các phiên bản code mới.\n• Backward Compatibility là chiều ngược lại: code cũ đọc được dữ liệu mới",
+      "options": [
+        "Code xử lý cũ vẫn đọc được cấu trúc dữ liệu mới",
+        "Dữ liệu chỉ được chuyển tiếp theo một chiều cố định",
+        "Chặn mọi phiên bản code mới truy cập vào dữ liệu cũ",
+        "Cấu trúc dữ liệu cũ vẫn hoạt động trơn tru với phiên bản code mới"
+      ]
+    },
+    {
+      "id": "c3-q111",
+      "explanation": "Full Compatibility là tiêu chuẩn cao nhất, kết hợp cả tương thích ngược (code cũ đọc dữ liệu mới) và xuôi (dữ liệu cũ chạy với code mới).\n• Chỉ một chiều tương thích không bảo vệ được toàn bộ luồng dữ liệu",
+      "options": [
+        "Full Compatibility: kết hợp cả tương thích ngược và xuôi để bảo vệ luồng dữ liệu",
+        "Chỉ cần Backward Compatibility là đủ để bảo vệ luồng dữ liệu",
+        "Chỉ cần Forward Compatibility là đủ để bảo vệ luồng dữ liệu",
+        "Không cần đạt tiêu chuẩn tương thích nào, chỉ cần kiểm thử thủ công"
+      ]
+    },
+    {
+      "id": "c3-q112",
+      "explanation": "Schema Versioning lưu trữ lịch sử các phiên bản của cấu trúc để có thể Rollback dữ liệu khi cần.\n• Nó không nhằm tăng tốc truy vấn hay giảm chi phí lưu trữ",
+      "options": [
+        "Tăng tốc độ thực thi truy vấn trên kho dữ liệu",
+        "Giảm chi phí lưu trữ dữ liệu của kho dữ liệu",
+        "Lưu trữ lịch sử các phiên bản cấu trúc để có thể Rollback khi cần",
+        "Ẩn cấu trúc schema khỏi người dùng cuối và các công cụ BI"
+      ]
+    },
+    {
+      "id": "c3-q113",
+      "explanation": "• Apache Iceberg, Delta Lake: đổi cấu trúc bảng không cần ghi lại toàn bộ bảng\n• Schema Registry: quản lý tập trung thay đổi cấu trúc cho Kafka Streaming\n• AWS Glue Crawler: scan và cập nhật thay đổi lên Data Catalog\n• Snowflake Evolution tự điều chỉnh bảng ngay khi chạy COPY, nên phát biểu phủ định là sai"
+    },
+    {
+      "id": "c3-q114",
+      "explanation": "Data Observability là khả năng theo dõi và hiểu sức khỏe của hệ sinh thái dữ liệu từ đầu nguồn đến đích.\n• Nó vượt xa Monitoring: giải thích vì sao lỗi và lỗi ở đâu, chủ động cô lập dữ liệu sai",
+      "options": [
+        "Việc nhân viên quan sát màn hình dashboard cả ngày để tìm lỗi",
+        "Kỹ thuật nén log của hệ thống để tiết kiệm dung lượng lưu trữ",
+        "Khả năng theo dõi và hiểu sức khỏe hệ sinh thái dữ liệu từ nguồn đến đích",
+        "Công cụ vẽ biểu đồ tự động phục vụ báo cáo BI"
+      ]
+    },
+    {
+      "id": "c3-q115",
+      "explanation": "Monitoring chỉ báo động khi hệ thống lỗi, còn Data Observability giải thích vì sao lỗi và lỗi ở nơi đâu.\n• Observability còn chủ động cô lập dữ liệu sai trước khi chúng tới dashboard"
+    },
+    {
+      "id": "c3-q116",
+      "explanation": "• Chủ động phát hiện và cô lập dữ liệu sai lệch trước khi tiếp cận dashboard\n• Giảm thiểu Data Downtime - thời gian dữ liệu không khả dụng hoặc bị sai\n• Xây dựng niềm tin (Trust) để ra quyết định theo hướng Data-driven\n• Chỉ báo động khi lỗi là hạn chế của Monitoring truyền thống"
+    },
+    {
+      "id": "c3-q117",
+      "explanation": "Năm trụ cột là Freshness, Volume, Distribution, Schema và Lineage.\n• Latency chỉ là thước đo độ trễ nói chung, không nằm trong năm trụ cột này"
+    },
+    {
+      "id": "c3-q118",
+      "explanation": "Freshness kiểm tra dữ liệu có được cập nhật đúng hạn theo SLA hay không; dashboard thiếu dữ liệu hôm qua dù cam kết trước 6 giờ sáng là vi phạm.\n• Volume xét số bản ghi, Schema xét cấu trúc, Distribution xét tham số thống kê",
+      "options": [
+        "Distribution - phân bố giá trị bất thường so với lịch sử",
+        "Freshness - dữ liệu không được cập nhật đúng hạn theo SLA",
+        "Schema - cấu trúc bảng bị thay đổi hoặc mất thuộc tính",
+        "Volume - số lượng bản ghi nạp vào tăng giảm bất thường"
+      ]
+    },
+    {
+      "id": "c3-q119",
+      "explanation": "Volume so sánh số bản ghi nạp vào với mức trung bình lịch sử, nên 1 triệu bản ghi/ngày tụt còn 100 nghìn là bất thường rõ rệt.\n• Freshness xét độ đúng hạn, Distribution xét tham số thống kê, Schema xét cấu trúc",
+      "options": [
+        "Freshness - dữ liệu chưa được cập nhật đúng hạn theo SLA",
+        "Lineage - không truy vết được nguồn gốc của bản ghi lỗi",
+        "Volume - số bản ghi nạp vào giảm đột ngột so với mức trung bình",
+        "Schema - cấu trúc bảng bị thay đổi hoặc mất thuộc tính"
+      ]
+    },
+    {
+      "id": "c3-q120",
+      "explanation": "Distribution kiểm tra các tham số thống kê (trung bình, độ lệch, phân bố) của tập dữ liệu có nằm trong ngưỡng an toàn không.\n• Ở đây số bản ghi vẫn bình thường nên không phải Volume",
+      "options": [
+        "Distribution - tham số thống kê của tập dữ liệu vượt ngưỡng an toàn",
+        "Volume - số lượng bản ghi nạp vào tăng giảm bất thường",
+        "Freshness - dữ liệu không được cập nhật đúng hạn theo SLA",
+        "Lineage - không truy vết được nguồn phát sinh bản ghi lỗi"
+      ]
+    },
+    {
+      "id": "c3-q121",
+      "explanation": "Schema giám sát cấu trúc định nghĩa bảng có bị thay đổi trái phép hoặc vô tình xóa mất thuộc tính hay không; pipeline gãy vì thiếu thuộc tính là dấu hiệu này.\n• Các trụ cột còn lại chỉ xét độ mới, số bản ghi và phân bố giá trị",
+      "options": [
+        "Freshness - dữ liệu chưa được cập nhật đúng hạn theo SLA",
+        "Volume - số lượng bản ghi nạp vào thay đổi bất thường",
+        "Distribution - tham số thống kê vượt ngưỡng an toàn",
+        "Schema - cấu trúc bảng bị thay đổi hoặc vô tình xóa mất thuộc tính"
+      ]
+    },
+    {
+      "id": "c3-q122",
+      "explanation": "Lineage cho phép truy vết chính xác nguồn phát sinh ra bản ghi lỗi khi có sự cố trên báo cáo.\n• Freshness, Volume, Distribution chỉ phát hiện bất thường chứ không chỉ ra nguồn gốc lỗi",
+      "options": [
+        "Volume - số lượng bản ghi nạp vào thay đổi bất thường",
+        "Lineage - truy vết chính xác nguồn phát sinh ra lỗi",
+        "Freshness - dữ liệu không được cập nhật đúng hạn theo SLA",
+        "Distribution - tham số thống kê vượt ngưỡng an toàn"
+      ]
+    },
+    {
+      "id": "c3-q123",
+      "explanation": "• Dùng ML học mẫu bình thường và tự nhận diện mẫu bất thường\n• Tự đánh giá, phân cấp mức độ nghiêm trọng của sự cố\n• Tự gửi thông báo kèm file logs tới Slack, MS Teams hoặc PagerDuty\n• AI hỗ trợ phát hiện và cảnh báo, không tự sửa toàn bộ dữ liệu sai"
+    },
+    {
+      "id": "c3-q124",
+      "explanation": "• Hệ thống thu nhận phản hồi để giảm thiểu cảnh báo giả\n• Chuẩn hóa quy trình nội bộ từ tiếp nhận, theo dõi tiến độ đến khi khắc phục\n• Cảnh báo được phân cấp ưu tiên và gửi qua kênh tích hợp, không dồn mức như nhau"
+    },
+    {
+      "id": "c3-q125",
+      "explanation": "• Tiết kiệm đến 80% thời gian rà soát thủ công các luồng mã nguồn\n• Rút ngắn MTTR từ vài ngày xuống chỉ còn vài phút\n• Observability cung cấp bằng chứng kiểm toán, không loại bỏ nhu cầu kiểm toán"
+    },
+    {
+      "id": "b-c3-q1",
+      "explanation": "ETL: Extract → Transform (máy chủ trung gian) → Load. ELT: Extract → Load (nạp thô vào kho) → Transform (biến đổi sau, ngay trên Cloud, tận dụng tính toán song song).",
+      "options": [
+        "ETL biến đổi trên máy chủ trung gian trước rồi mới nạp; ELT nạp thô rồi biến đổi",
+        "ETL và ELT giống hệt nhau về bản chất, chỉ khác tên gọi và nhà cung cấp",
+        "ETL chuyên cho dữ liệu streaming; ELT chuyên cho dữ liệu dạng batch",
+        "ETL nạp dữ liệu thô vào kho trước rồi biến đổi; ELT biến đổi trên máy chủ trung gian trước khi nạp"
+      ]
+    },
+    {
+      "id": "b-c3-q2",
+      "explanation": "Schema-on-read: cấu trúc chỉ định nghĩa lúc truy vấn (khác Schema-on-write của ETL/RDBMS cũ vốn cố định trước khi nạp).",
+      "options": [
+        "Cấu trúc dữ liệu chỉ được định nghĩa tại thời điểm truy vấn, không cố định trước",
+        "Dữ liệu chỉ có thể đọc mà không thể ghi vào kho dữ liệu đám mây",
+        "Cấu trúc dữ liệu phải được cố định nghiêm ngặt trước khi nạp vào kho",
+        "Schema tự động được tạo lại sau mỗi lần chạy truy vấn trên kho dữ liệu"
+      ]
+    },
+    {
+      "id": "b-c3-q3",
+      "explanation": "Bronze = dữ liệu thô nguyên bản; Silver = đã chuẩn hóa/làm sạch; Gold = đã tổng hợp cho BI. Cấu trúc này cho phép re-run pipeline từ Bronze khi lỗi."
+    },
+    {
+      "id": "b-c3-q4",
+      "explanation": "CDC nhận diện và nắm bắt thay đổi (INSERT/UPDATE/DELETE) ở nguồn và truyền tới đích gần như tức thì. Cơ chế phổ biến nhất là Log-based CDC (đọc Redo logs).",
+      "options": [
+        "Chia bảng thành các Micro-partition để tăng tốc độ truy vấn trên kho",
+        "Nhận diện và nắm bắt thay đổi (INSERT, UPDATE, DELETE) ở nguồn rồi truyền tới đích ngay",
+        "Nén dữ liệu trước khi lưu để giảm chi phí lưu trữ của kho",
+        "Chuẩn hóa dữ liệu nguồn về dạng 3NF trước khi nạp vào kho"
+      ]
+    },
+    {
+      "id": "b-c3-q5",
+      "explanation": "Log-based (đọc Redo logs) ghi nhận Hard Delete tức thì và chính xác; Query-based (quét bảng định kỳ) rất khó phát hiện bản ghi đã bị xóa cứng giữa các chu kỳ.",
+      "options": [
+        "Log-based ghi nhận xóa tức thì, chính xác; Query-based khó phát hiện xóa cứng",
+        "Cả hai cơ chế đều phát hiện Hard Delete nhanh và chính xác như nhau",
+        "Query-based ghi nhận xóa tức thì; Log-based hoàn toàn không phát hiện được",
+        "Cả hai cơ chế đều không phát hiện được bản ghi bị Hard Delete"
+      ]
+    },
+    {
+      "id": "b-c3-q6",
+      "explanation": "Log-based CDC đạt Real-time (mili giây) và tải hệ thống cực nhẹ; Query-based bị trễ theo chu kỳ lên lịch và tải nặng hơn do phải quét bảng liên tục."
+    },
+    {
+      "id": "b-c3-q7",
+      "explanation": "Debezium là nền tảng CDC mã nguồn mở dựa trên Apache Kafka Connect. Fivetran/AWS DMS/Qlik Replicate là giải pháp thương mại; Snowflake Streams theo dõi thay đổi bên trong Snowflake."
+    },
+    {
+      "id": "b-c3-q8",
+      "explanation": "Zero-ETL tích hợp trực tiếp nguồn↔đích, không cần pipeline code trung gian; dựa trên Proprietary Connectors, Metadata Sharing & Storage Mirroring.",
+      "options": [
+        "Chỉ hoạt động hiệu quả với dữ liệu bẩn cần làm sạch và biến đổi phức tạp",
+        "Vẫn phải viết code pipeline trung gian nhưng tốc độ chạy nhanh hơn",
+        "Tích hợp trực tiếp nguồn và đích, không cần pipeline trung gian bằng code",
+        "Bắt buộc phải sao chép toàn bộ dữ liệu thủ công sang kho đích"
+      ]
+    },
+    {
+      "id": "b-c3-q9",
+      "explanation": "Hạn chế Zero-ETL: không phù hợp dữ liệu bẩn cần biến đổi phức tạp; rủi ro Vendor Lock-in và chi phí ẩn khi truyền dữ liệu lớn; rào cản với hệ thống On-premise.",
+      "options": [
+        "Độ trễ cực cao nên không thể đạt yêu cầu thời gian thực",
+        "Không phù hợp dữ liệu bẩn cần biến đổi phức tạp; rủi ro Vendor Lock-in",
+        "Không thể tích hợp dữ liệu giữa các nhà cung cấp Cloud khác nhau",
+        "Yêu cầu viết nhiều code Python phức tạp để tự cấu hình luồng"
+      ]
+    },
+    {
+      "id": "b-c3-q10",
+      "explanation": "Orchestration điều phối các tác vụ như nhạc trưởng: đúng trình tự, tự Retry, cảnh báo lỗi, ghi lịch sử thực thi (ai kích hoạt, khi nào) phục vụ kiểm toán.",
+      "options": [
+        "Mã hóa dữ liệu khi di chuyển qua mạng giữa các hệ thống",
+        "Như 'nhạc trưởng' điều khiển tác vụ đúng trình tự, tự Retry khi lỗi",
+        "Chia bảng thành các Micro-partition để tăng tốc truy vấn",
+        "Biến đổi và làm sạch dữ liệu trên máy chủ trung gian trước khi nạp"
+      ]
+    },
+    {
+      "id": "b-c3-q11",
+      "explanation": "DAG = Directed (một chiều từ đầu vào đến đầu ra) + Acyclic (không vòng lặp, tránh treo). Ví dụ: lớp Gold chỉ chạy sau khi Silver hoàn tất.",
+      "options": [
+        "Directed (một chiều từ đầu vào đến đầu ra) và Acyclic (không vòng lặp)",
+        "Distributed (phân tán trên nhiều máy) và Cyclic (có vòng lặp vô hạn)",
+        "Denormalized (phi chuẩn hóa bảng) và Aggregated (tổng hợp dữ liệu)",
+        "Dynamic (động theo thời gian) và Atomic (nguyên tử, không chia nhỏ)"
+      ]
+    },
+    {
+      "id": "b-c3-q12",
+      "explanation": "Task-centric (Airflow): giám sát tác vụ đang chạy. Asset-centric (Dagster): quản lý tài sản dữ liệu tạo ra, ưu tiên Lineage, hỗ trợ local testing và CI/CD tốt hơn.",
+      "options": [
+        "Task-centric quản lý tài sản dữ liệu; Asset-centric giám sát tác vụ đang chạy",
+        "Task-centric giám sát tác vụ đang chạy; Asset-centric quản lý tài sản dữ liệu",
+        "Task-centric dùng cho streaming; Asset-centric chỉ dùng cho batch",
+        "Cả hai đều chỉ giám sát tác vụ, khác nhau ở ngôn ngữ lập trình"
+      ]
+    },
+    {
+      "id": "b-c3-q13",
+      "explanation": "Apache Airflow là tiêu chuẩn công nghiệp (Task-centric). Dagster/Prefect là thế hệ mới Asset-centric; Step Functions/Google Workflows là dịch vụ Cloud Native Serverless."
+    },
+    {
+      "id": "b-c3-q14",
+      "explanation": "Batch: tiết kiệm (tính toán ngắn hạn theo chu kỳ). Streaming: tốn kém hơn (duy trì tài nguyên 24/7) nhưng bắt buộc cho hệ thống độ trễ cực thấp (chống gian lận thẻ).",
+      "options": [
+        "Streaming tiết kiệm hơn Batch vì mỗi lần chỉ xử lý ít dữ liệu",
+        "Batch tiết kiệm nhờ tính toán ngắn; Streaming tốn hơn vì chạy liên tục 24/7",
+        "Cả hai cơ chế có chi phí hạ tầng và vận hành như nhau",
+        "Batch tốn kém hơn vì phải duy trì tài nguyên chạy liên tục 24/7"
+      ]
+    },
+    {
+      "id": "b-c3-q15",
+      "explanation": "Snowpipe (batch): nạp file tự động khi xuất hiện trên Cloud Storage, mở rộng >10 triệu file/>10TB mỗi giờ, loại trùng theo file. Snowpipe Streaming (insertRows) mới cho luồng real-time.",
+      "options": [
+        "Nạp file dạng batch, tự mở rộng (>10 triệu file/>10TB mỗi giờ), loại trùng theo file",
+        "Huấn luyện mô hình Machine Learning trực tiếp bằng câu lệnh SQL",
+        "Biến đổi dữ liệu trong kho bằng Jinja templating và macro",
+        "Xử lý luồng real-time có tần suất biến động qua hàm insertRows()"
+      ]
+    },
+    {
+      "id": "b-c3-q16",
+      "explanation": "Spark Structured Streaming đảm bảo Exactly-once (không lặp, không mất). Kèm Windowing & Watermarks (xử lý bản ghi đến trễ) và Fault Tolerance bằng Checkpointing."
+    },
+    {
+      "id": "b-c3-q17",
+      "explanation": "Lambda: 2 luồng song song (Batch chính xác + Speed nhanh), hợp nhất tại Serving Layer, gánh nặng 2 codebase. Kappa: 1 luồng Streaming duy nhất → dễ bảo trì, nhất quán cao.",
+      "options": [
+        "Lambda chỉ dùng một luồng; Kappa duy trì hai luồng song song",
+        "Lambda dành cho dữ liệu quan hệ; Kappa dành cho dữ liệu đồ thị",
+        "Cả hai kiến trúc đều chỉ xử lý dữ liệu theo lô batch",
+        "Lambda chạy song song Batch và Speed; Kappa chỉ một luồng Streaming duy nhất"
+      ]
+    },
+    {
+      "id": "b-c3-q18",
+      "explanation": "Lambda có rủi ro sai lệch giữa luồng Batch và Speed (2 codebase khác biệt). Kappa đảm bảo nhất quán cao vì chỉ một luồng xử lý, đang trở thành xu hướng chủ đạo."
+    },
+    {
+      "id": "b-c3-q19",
+      "explanation": "dbt theo triết lý 'SQL-first': dùng SQL thuần chuyển đổi logic, tích hợp Git, module hóa theo nguyên tắc DRY (Don't Repeat Yourself).",
+      "options": [
+        "'SQL-first': biến đổi logic nghiệp vụ bằng SQL thuần túy, tích hợp Git",
+        "'Python-first': viết toàn bộ pipeline và logic bằng Python",
+        "'Streaming-first': mọi biến đổi dữ liệu đều diễn ra real-time",
+        "'No-code': chỉ dùng giao diện kéo-thả, không cần viết mã"
+      ]
+    },
+    {
+      "id": "b-c3-q20",
+      "explanation": "Jinja là templating engine, thêm biến/vòng lặp/điều kiện vào SQL tĩnh → SQL động. Kèm Macros (đóng gói SQL lặp lại) và quản lý môi trường Dev/Test/Production.",
+      "options": [
+        "Là ngôn ngữ truy vấn đồ thị dùng thay thế cho Cypher",
+        "Là công cụ nén dữ liệu trong từng Micro-partition của bảng",
+        "Là giao thức đọc Redo logs phục vụ cơ chế Log-based CDC",
+        "Templating engine thêm biến, vòng lặp, điều kiện vào SQL tĩnh"
+      ]
+    },
+    {
+      "id": "b-c3-q21",
+      "explanation": "Schema Tests: xác thực điều kiện cơ bản (null, trùng lặp). Singular Tests: SQL riêng cho quy tắc nghiệp vụ đặc thù. Visual Lineage vẽ quan hệ; Auto-Docs tạo tài liệu."
+    },
+    {
+      "id": "b-c3-q23",
+      "explanation": "Silent Loss: dữ liệu mới bị loại bỏ NGẦM (không báo lỗi) vì kho không nhận diện cột mới → nguy hiểm vì khó phát hiện.",
+      "options": [
+        "Toàn bộ pipeline dừng hoạt động và báo lỗi rõ ràng ra màn hình",
+        "Mô hình AI dự báo báo lỗi (fail) ngay lập tức khi chạy",
+        "Dữ liệu bị mã hóa nhầm nên không đọc được khi chạy truy vấn",
+        "Dữ liệu mới xuất hiện nhưng bị loại bỏ ngầm vì kho không nhận diện được cột mới"
+      ]
+    },
+    {
+      "id": "b-c3-q24",
+      "explanation": "Backward Compatibility: code CŨ đọc được dữ liệu MỚI. Forward Compatibility: dữ liệu CŨ hoạt động với code MỚI. Full Compatibility kết hợp cả hai."
+    },
+    {
+      "id": "b-c3-q25",
+      "explanation": "Monitoring chỉ báo động khi lỗi; Data Observability giải thích VÌ SAO và Ở ĐÂU lỗi, chủ động cô lập dữ liệu sai trước khi đến dashboard, giảm Data Downtime.",
+      "options": [
+        "Observability chỉ báo động; Monitoring giải thích nguyên nhân lỗi",
+        "Monitoring chỉ báo động khi lỗi; Observability giải thích vì sao và ở đâu",
+        "Cả hai đều chỉ báo động khi hệ thống lỗi, không giải thích nguyên nhân",
+        "Monitoring chạy bằng AI; Observability do con người vận hành thủ công"
+      ]
+    },
+    {
+      "id": "b-c3-q26",
+      "explanation": "5 trụ cột Observability: Freshness (cập nhật đúng hạn), Volume (số bản ghi bất thường?), Distribution (tham số thống kê an toàn?), Schema (cấu trúc bị đổi?), Lineage (truy vết nguồn lỗi)."
+    },
+    {
+      "id": "b-c3-q27",
+      "explanation": "MTTR (Mean Time To Repair): Observability rút ngắn thời gian phục hồi sự cố từ vài ngày xuống vài phút; đồng thời tiết kiệm ~80% thời gian rà soát thủ công.",
+      "options": [
+        "Kéo dài thời gian rà soát mã nguồn thủ công mỗi khi có sự cố",
+        "Giảm số lượng người dùng truy vấn đồng thời vào kho dữ liệu",
+        "Tăng tổng chi phí sở hữu hệ thống (TCO) của doanh nghiệp",
+        "Rút ngắn MTTR - thời gian phục hồi sự cố từ vài ngày xuống vài phút"
+      ]
+    },
+    {
+      "id": "bs-c3-1",
+      "explanation": "Snowflake Evolution: tự điều chỉnh bảng khi COPY. Fivetran Auto-sync: đồng bộ trường mới. Schema Registry: Kafka. AWS Glue Crawler: scan cập nhật Catalog.",
+      "options": [
+        "Kho dữ liệu tự động điều chỉnh cấu trúc bảng ngay khi chạy lệnh COPY",
+        "Quản lý tập trung và kiểm soát thay đổi cấu trúc của Kafka Streaming",
+        "Tự động phát hiện trường mới ở nguồn và đồng bộ thay đổi vào đích",
+        "Tự động scan và cập nhật thay đổi cấu trúc lên Data Catalog"
+      ]
+    },
+    {
+      "id": "bs-c3-2",
+      "explanation": "Data Catalog Crawlers: dùng AWS Glue Crawler để tự động scan và cập nhật danh mục.",
+      "options": [
+        "Mage.ai - điều phối pipeline có tích hợp AI",
+        "AWS Glue Crawler - quét và cập nhật Data Catalog",
+        "Snowpipe - nạp file tự động từ Cloud Storage",
+        "Debezium - CDC mã nguồn mở trên Kafka Connect"
+      ]
+    },
+    {
+      "id": "bs-c3-3",
+      "explanation": "Schema Registry quản lý/kiểm soát thay đổi schema cho luồng Kafka.",
+      "options": [
+        "Mã hóa dữ liệu trên đường truyền giữa các hệ thống",
+        "Tự động tạo dashboard BI từ dữ liệu trong kho",
+        "Quản lý tập trung, kiểm soát thay đổi cấu trúc Kafka Streaming",
+        "Lập lịch chạy pipeline theo đúng thứ tự phụ thuộc"
+      ]
+    },
+    {
+      "id": "bs-c3-4",
+      "explanation": "Type Coercion = tự nâng cấp kiểu dữ liệu (vd INT → FLOAT). Thêm cột là Auto-column addition.",
+      "options": [
+        "Tự động xóa các cột không còn được sử dụng trong bảng",
+        "Gửi cảnh báo sớm khi cấu trúc bảng thay đổi quan trọng",
+        "Tự động nâng cấp kiểu dữ liệu khi nguồn thay đổi",
+        "Tự động thêm cột mới khi nguồn phát sinh thuộc tính"
+      ]
+    },
+    {
+      "id": "bs-c3-5",
+      "explanation": "Data Contracts = cam kết/ràng buộc giữa bên cung cấp và bên dùng dữ liệu. Singular Tests = SQL riêng; Schema Tests = rỗng/trùng; Auto-Docs = tài liệu."
+    },
+    {
+      "id": "bs-c3-6",
+      "explanation": "Schema Tests kiểm tra điều kiện cơ bản như cột rỗng, trùng lặp. Quy tắc nghiệp vụ riêng là Singular Tests."
+    },
+    {
+      "id": "bs-c3-7",
+      "explanation": "Slide: 'Pipeline sẽ chỉ đưa code vào vận hành nếu toàn bộ các bài test đều báo pass'."
+    },
+    {
+      "id": "bs-c3-8",
+      "explanation": "Unified Control Plane = một bảng điều khiển duy nhất. Storage Mirroring = nhân bản vật lý; Metadata Sharing = chia sẻ siêu dữ liệu; Serverless Scaling = tự mở rộng.",
+      "options": [
+        "Nhân bản dữ liệu tự động ở tầng hệ thống vật lý",
+        "Chia sẻ siêu dữ liệu cấu trúc ở cấp độ lưu trữ",
+        "Giám sát, quản lý toàn bộ luồng tích hợp trên một bảng điều khiển duy nhất",
+        "Hạ tầng tự động mở rộng khi khối lượng dữ liệu tăng cao"
+      ]
+    },
+    {
+      "id": "bs-c3-9",
+      "explanation": "Serverless Scaling: nền tảng tự mở rộng năng lực đồng bộ, người dùng không quản lý máy chủ.",
+      "options": [
+        "Kỹ sư phải tự cấu hình thêm máy chủ khi dữ liệu tăng",
+        "Hạ tầng tự động mở rộng năng lực đồng bộ khi khối lượng tăng cao",
+        "Hệ thống chỉ đồng bộ dữ liệu vào ban đêm theo lịch đặt trước",
+        "Dữ liệu được nén lại trước khi đồng bộ sang hệ thống đích"
+      ]
+    },
+    {
+      "id": "bs-c3-10",
+      "explanation": "Tối ưu TCO: giảm đáng kể tổng chi phí sở hữu, đặc biệt là chi phí nhân sự kỹ thuật.",
+      "options": [
+        "Chi phí nhân sự kỹ thuật xây dựng và bảo trì pipeline",
+        "Chi phí đào tạo nghiệp vụ cho đội ngũ phân tích dữ liệu",
+        "Chi phí phần cứng thiết bị của người dùng cuối",
+        "Chi phí bản quyền phần mềm Excel của các phòng ban"
+      ]
+    },
+    {
+      "id": "bs-c3-11",
+      "explanation": "Snowflake Streams theo dõi thay đổi trong kho. AWS DMS = dịch vụ của Amazon; Qlik Replicate = Legacy data; Debezium = mã nguồn mở trên Kafka Connect."
+    },
+    {
+      "id": "bs-c3-12",
+      "explanation": "Qlik Replicate: quy mô doanh nghiệp, hỗ trợ nhiều hệ thống Legacy."
+    },
+    {
+      "id": "bs-c3-13",
+      "explanation": "Mage.ai tích hợp AI sinh mã và dự đoán lỗi. Airflow là tiêu chuẩn công nghiệp; Step Functions/Google Workflows cho hệ thống Serverless."
+    },
+    {
+      "id": "bs-c3-14",
+      "explanation": "Slide: 'Cloud Native Services: AWS Step Functions hoặc Google Workflows cho các hệ thống Serverless'.",
+      "options": [
+        "Snowpipe và Debezium cho luồng nạp dữ liệu liên tục",
+        "Dagster và Prefect cho điều phối hướng tài sản dữ liệu",
+        "Tableau và Looker cho trực quan hóa và báo cáo BI",
+        "AWS Step Functions hoặc Google Workflows cho Serverless"
+      ]
+    },
+    {
+      "id": "bs-c3-15",
+      "explanation": "Slide: 'Cải thiện tốc độ phục hồi: Rút ngắn MTTR từ mức vài ngày xuống chỉ còn vài phút'. Ngoài ra tiết kiệm đến 80% thời gian rà soát thủ công."
+    },
+    {
+      "id": "bs-c3-16",
+      "explanation": "Slide: 'tiết kiệm đến 80% thời gian phải ngồi rà soát thủ công'. (Lưu ý: con số 90% thuộc Automated Lineage ở chương 7.)"
+    },
+    {
+      "id": "bs-c3-17",
+      "explanation": "Slide nêu tích hợp đa kênh: tự động gửi thông báo kèm file logs tới Slack, MS Teams hoặc PagerDuty.\n• Đây là bước cuối của quy trình quản lý sự cố thông minh dựa trên AI",
+      "options": [
+        "Chỉ gửi qua tin nhắn SMS tới số điện thoại trực ca",
+        "Slack, MS Teams hoặc PagerDuty theo tích hợp đa kênh",
+        "Chỉ gửi qua email nội bộ cho trưởng nhóm dữ liệu",
+        "Không gửi thông báo mà chỉ ghi log hệ thống"
+      ]
+    }
+  ]
+}
