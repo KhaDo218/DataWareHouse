@@ -1,13 +1,17 @@
 # Ôn thi Nhà Kho Dữ Liệu & Tích Hợp
-https://khado218.github.io/DataWareHouse/on-tap-bao-ve.html
+
+Web ôn thi trắc nghiệm cho môn Nhà kho dữ liệu và tích hợp (UEL, TS. Nguyễn Thôn Dã). Đây là trang tĩnh thuần HTML/CSS/JS nên deploy thẳng lên GitHub Pages, không cần cài gì.
 
 ## Có gì trong web
 
 - **1433 câu hỏi** chia theo 9 chương lý thuyết và 1 phần thực hành (BigQuery, dbt, Medallion).
 - **Luyện tập**: lọc theo chương, độ khó, nguồn đề, trạng thái (chưa làm / làm sai / làm đúng) và tìm theo từ khóa (gõ không dấu cũng được). Câu một đáp án được chấm ngay khi chọn; câu nhiều đáp án thì bấm "Kiểm tra".
-- **Thi thử**: chọn số câu, thời gian, độ khó và các chương. Câu hỏi và thứ tự đáp án được xáo ngẫu nhiên; có điểm theo từng chương.
+- **Thi thử**: chọn số câu, thời gian, độ khó và các chương. Câu hỏi và thứ tự đáp án được xáo ngẫu nhiên; có điểm theo từng chương. Kèm **bảng số câu** bên phải để nhảy nhanh và **đánh dấu** câu cần xem lại.
 - **Câu làm sai**: tự gom các câu bạn từng làm sai để ôn lại.
-- Tiến độ được lưu trên trình duyệt (localStorage) và có giao diện tối theo cài đặt máy.
+- **Tài liệu**: tải về file `giai-cau-hoi-chan-doan.html` — bản giải chi tiết 41 câu hỏi chẩn đoán kiến thức (16 sơ đồ SVG, bảng tính từng bước, 48 câu biến thể). File tự chứa, mở offline được.
+- **Sao lưu tiến độ**: xuất/nhập tiến độ học ra file `.json` để mang sang máy khác.
+- **Bàn phím**: ở tab Luyện tập, bấm `1`–`4` chọn đáp án, `Enter` kiểm tra, `J`/`K` chuyển câu.
+- **Giao diện**: có nút đổi sáng/tối, mặc định theo cài đặt máy. Tiến độ lưu trên trình duyệt (localStorage).
 
 ## Nguồn câu hỏi
 
@@ -21,20 +25,21 @@ https://khado218.github.io/DataWareHouse/on-tap-bao-ve.html
 
 ```
 web-on-thi/
-├── index.html              # Trang chính
+├── index.html                      # Trang chính
+├── giai-cau-hoi-chan-doan.html     # Tài liệu giải chi tiết (nút tải trong tab Tài liệu)
 ├── assets/
 │   ├── style.css
-│   └── app.js              # Toàn bộ logic: luyện tập, thi thử, câu sai
+│   └── app.js                      # Toàn bộ logic: luyện tập, thi thử, câu sai, tài liệu
 ├── data/
-│   └── questions.js        # TỰ SINH từ bank/ — không sửa tay
-├── bank/                   # Nơi soạn và sửa câu hỏi
+│   └── questions.js                # TỰ SINH từ bank/ — không sửa tay
+├── bank/                           # Nơi soạn và sửa câu hỏi
 │   ├── questions_c1.js … questions_c9.js
 │   ├── questions_bo2.js
 │   └── questions_bosung.js
 ├── tools/
-│   ├── merge_questions.js  # Gộp bank/ -> data/questions.js và kiểm tra lỗi
-│   └── server.js           # Server xem thử ở máy
-├── .github/workflows/pages.yml  # Tự deploy lên GitHub Pages
+│   ├── merge_questions.js          # Gộp bank/ -> data/questions.js và kiểm tra lỗi
+│   └── server.js                   # Server xem thử ở máy
+├── .github/workflows/pages.yml     # Tự deploy lên GitHub Pages
 ├── .nojekyll
 └── package.json
 ```

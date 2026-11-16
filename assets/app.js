@@ -22,10 +22,54 @@
   const LETTERS = "ABCD";
   const PAGE_SIZE = 20;
   const STORE_KEY = "nkdl_onthi_v2";
+  const THEME_KEY = "nkdl_theme";
 
   const $ = (s, c) => (c || document).querySelector(s);
   const $$ = (s, c) => Array.from((c || document).querySelectorAll(s));
   const byId = new Map(QUESTIONS.map((q) => [q.id, q]));
+
+  // ---------------------------------------------------------------- theme
+  const themeBtn = $("#theme-btn");
+  function currentTheme() {
+    const set = document.documentElement.getAttribute("data-theme");
+    if (set) return set;
+    return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  }
+  function applyTheme(t) {
+    document.documentElement.setAttribute("data-theme", t);
+    if (themeBtn) {
+      themeBtn.textContent = t === "dark" ? "Sáng" : "Tối";
+      themeBtn.title = t === "dark" ? "Chuyển sang giao diện sáng" : "Chuyển sang giao diện tối";
+    }
+  }
+  try {
+    const saved = localStorage.getItem(THEME_KEY);
+    if (saved === "dark" || saved === "light") applyTheme(saved);
+    else applyTheme(currentTheme());
+  } catch (e) { applyTheme(currentTheme()); }
+  if (themeBtn) {
+    themeBtn.addEventListener("click", () => {
+      const next = currentTheme() === "dark" ? "light" : "dark";
+      applyTheme(next);
+      try { localStorage.setItem(THEME_KEY, next); } catch (e) { /* bỏ qua */ }
+    });
+  }
+
+  // ---------------------------------------------------------------- toast
+  let toastEl = null;
+  let toastTimer = null;
+  function toast(msg) {
+    if (!toastEl) {
+      toastEl = el("div", "toast");
+      document.body.append(toastEl);
+    }
+    toastEl.textContent = msg;
+    // ép reflow để transition chạy lại khi bấm liên tiếp
+    void toastEl.offsetWidth;
+    toastEl.classList.add("show");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toastEl.classList.remove("show"), 2200);
+  }
 
   // ---------------------------------------------------------------- storage
   let store = { answered: {}, wrong: [] };
@@ -100,6 +144,7 @@
         $$(".option", opts).forEach((o) => o.classList.toggle("selected", $("input", o).checked));
         if (mode === "practice" && q.type === "single") check();
         if (mode === "exam") updateExamProgress();
+        if (mode === "exam" && typeof window.__examSyncNav === "function") window.__examSyncNav();
         if (mode === "practice" && q.type === "multiple") btn.disabled = selected().length === 0;
       });
       opts.append(lab);
@@ -113,6 +158,21 @@
     if (mode === "practice") {
       if (q.type === "multiple") { btn.disabled = true; foot.append(btn); }
       foot.append(redo);
+    }
+    let flagBtn = null;
+    if (mode === "exam") {
+      flagBtn = el("button", "flag-btn", "Đánh dấu");
+      flagBtn.type = "button";
+      flagBtn.setAttribute("aria-pressed", "false");
+      flagBtn.addEventListener("click", () => {
+        const on = !flagBtn.classList.contains("on");
+        flagBtn.classList.toggle("on", on);
+        flagBtn.textContent = on ? "Đã đánh dấu" : "Đánh dấu";
+        flagBtn.setAttribute("aria-pressed", String(on));
+        card.dataset.flagged = on ? "1" : "";
+        if (typeof window.__examSyncNav === "function") window.__examSyncNav();
+      });
+      foot.append(flagBtn);
     }
     foot.append(verdict);
     card.append(foot);
@@ -286,11 +346,13 @@
       box.append(c);
       return c;
     });
+    buildExamNav();
     $("#exam-setup").classList.add("hidden");
     $("#exam-running").classList.remove("hidden");
     $("#exam-summary").classList.add("hidden");
     $("#retry-exam-btn").classList.add("hidden");
     $("#submit-exam-btn").classList.remove("hidden");
+    $("#exam-nav").classList.remove("hidden");
     secondsLeft = minutes * 60;
     tick();
     clearInterval(timer);
@@ -298,6 +360,34 @@
     updateExamProgress();
     window.scrollTo({ top: 0 });
   });
+
+  // Bảng số câu: nhảy nhanh + hiện câu đã làm / đã đánh dấu
+  function buildExamNav() {
+    const grid = $("#exam-nav-grid");
+    grid.innerHTML = "";
+    examCards.forEach((card, i) => {
+      const b = el("button", "nav-cell", String(i + 1));
+      b.type = "button";
+      b.addEventListener("click", () => {
+        card.scrollIntoView({ behavior: "smooth", block: "center" });
+        const first = $("input", card);
+        if (first) setTimeout(() => first.focus({ preventScroll: true }), 260);
+      });
+      grid.append(b);
+    });
+    syncExamNav();
+  }
+  function syncExamNav() {
+    const grid = $("#exam-nav-grid");
+    if (!grid) return;
+    Array.from(grid.children).forEach((b, i) => {
+      const card = examCards[i];
+      if (!card) return;
+      b.classList.toggle("done", card._answered());
+      b.classList.toggle("flag", card.dataset.flagged === "1");
+    });
+  }
+  window.__examSyncNav = syncExamNav;
 
   function tick() {
     const m = Math.floor(secondsLeft / 60), s = secondsLeft % 60;
@@ -314,7 +404,10 @@
   function submitExam(auto) {
     if (!auto) {
       const left = examCards.filter((c) => !c._answered()).length;
-      if (left && !confirm("Còn " + left + " câu chưa trả lời. Vẫn nộp bài?")) return;
+      const flagged = examCards.filter((c) => c.dataset.flagged === "1").length;
+      let msg = "Còn " + left + " câu chưa trả lời.";
+      if (flagged) msg += "\nCó " + flagged + " câu đang đánh dấu.";
+      if ((left || flagged) && !confirm(msg + "\nVẫn nộp bài?")) return;
     }
     clearInterval(timer);
     const byCh = {};
@@ -347,6 +440,7 @@
     sum.append(tb);
     $("#submit-exam-btn").classList.add("hidden");
     $("#retry-exam-btn").classList.remove("hidden");
+    $("#exam-nav").classList.add("hidden");
     $("#exam-progress").textContent = "Đã nộp bài";
     window.scrollTo({ top: 0, behavior: "smooth" });
     updatePracticeStats();
@@ -379,6 +473,132 @@
     save();
     updateWrongCount();
     renderReview();
+  });
+
+  // ---------------------------------------------------------------- tài liệu
+  const DOC_FILE = "giai-cau-hoi-chan-doan.html";
+  const docStatus = $("#doc-status");
+  function setDocStatus(msg, kind) {
+    if (!docStatus) return;
+    docStatus.textContent = msg;
+    docStatus.className = "doc-status " + (kind || "muted");
+  }
+  // Kiểm tra file tài liệu có sẵn cạnh trang không (chỉ hoạt động khi chạy qua http(s))
+  if (location.protocol === "file:") {
+    setDocStatus("Đang mở bằng file:// — nút tải vẫn dùng được, chỉ không kiểm tra trước được dung lượng.");
+  } else {
+    fetch(DOC_FILE, { method: "HEAD" })
+      .then((r) => {
+        if (!r.ok) throw new Error("HTTP " + r.status);
+        const len = r.headers.get("content-length");
+        const kb = len ? Math.round(parseInt(len, 10) / 1024) : null;
+        setDocStatus(kb ? "Sẵn sàng (" + kb + " KB)" : "Sẵn sàng tải về", "ok");
+      })
+      .catch(() => setDocStatus("Không tìm thấy file tài liệu trên máy chủ.", "err"));
+  }
+  const dl = $("#doc-download");
+  if (dl) dl.addEventListener("click", () => toast("Đang tải " + DOC_FILE + " …"));
+
+  // ---------------------------------------------------------------- sao lưu tiến độ
+  $("#export-progress-btn").addEventListener("click", () => {
+    const payload = {
+      app: "nkdl-on-thi",
+      version: 2,
+      exportedAt: new Date().toISOString(),
+      total: QUESTIONS.length,
+      answered: store.answered,
+      wrong: store.wrong
+    };
+    const blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    const stamp = new Date().toISOString().slice(0, 10);
+    a.href = url;
+    a.download = "tien-do-on-thi-" + stamp + ".json";
+    document.body.append(a);
+    a.click();
+    a.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+    toast("Đã xuất tiến độ: " + Object.keys(store.answered).length + " câu đã làm");
+  });
+
+  const importFile = $("#import-progress-file");
+  $("#import-progress-btn").addEventListener("click", () => importFile.click());
+  importFile.addEventListener("change", () => {
+    const f = importFile.files && importFile.files[0];
+    if (!f) return;
+    const reader = new FileReader();
+    reader.onload = () => {
+      try {
+        const data = JSON.parse(String(reader.result));
+        if (!data || typeof data !== "object" || typeof data.answered !== "object" || data.answered === null) {
+          throw new Error("Sai cấu trúc file");
+        }
+        const known = Object.keys(data.answered).filter((id) => byId.has(id));
+        if (!known.length) throw new Error("Không có câu nào khớp ngân hàng hiện tại");
+        if (!confirm("Nhập " + known.length + " câu đã làm từ file?\nTiến độ hiện tại sẽ được gộp thêm (không mất).")) return;
+        const merged = Object.assign({}, store.answered);
+        known.forEach((id) => { merged[id] = !!data.answered[id]; });
+        const wrong = Array.isArray(data.wrong) ? data.wrong.filter((id) => byId.has(id)) : [];
+        const set = new Set(store.wrong.concat(wrong));
+        const answered = merged;
+        store.answered = answered;
+        store.wrong = Array.from(set).filter((id) => answered[id] === false);
+        save();
+        updateWrongCount();
+        applyFilters();
+        toast("Đã nhập " + known.length + " câu từ file sao lưu");
+      } catch (err) {
+        alert("File không hợp lệ: " + err.message);
+      } finally {
+        importFile.value = "";
+      }
+    };
+    reader.readAsText(f, "utf-8");
+  });
+
+  // ---------------------------------------------------------------- bàn phím
+  // Chỉ áp dụng cho tab Luyện tập và khi không gõ trong ô nhập liệu.
+  document.addEventListener("keydown", (e) => {
+    if (e.ctrlKey || e.metaKey || e.altKey) return;
+    const t = e.target;
+    if (t && (t.tagName === "INPUT" || t.tagName === "TEXTAREA" || t.tagName === "SELECT" || t.isContentEditable)) return;
+    if (!$("#practice-tab").classList.contains("active")) return;
+    if (!$("#exam-running").classList.contains("hidden")) return;
+
+    const cards = $$(".q-card", $("#practice-list"));
+    if (!cards.length) return;
+    const viewMid = window.innerHeight / 2;
+    let idx = cards.findIndex((c) => {
+      const r = c.getBoundingClientRect();
+      return r.top <= viewMid && r.bottom >= viewMid;
+    });
+    if (idx < 0) idx = 0;
+    const card = cards[idx];
+
+    if (/^[1-4]$/.test(e.key)) {
+      const opts = $$(".option", card);
+      const target = opts[+e.key - 1];
+      if (!target || card.classList.contains("locked")) return;
+      e.preventDefault();
+      const input = $("input", target);
+      if (input && !input.disabled) { input.click(); }
+      return;
+    }
+    if (e.key === "Enter") {
+      const locked = card.classList.contains("locked");
+      if (locked) return;
+      const chk = $$(".q-foot .btn.primary", card)[0];
+      if (chk && !chk.classList.contains("hidden") && !chk.disabled) {
+        e.preventDefault();
+        chk.click();
+      }
+      return;
+    }
+    if (e.key === "j" || e.key === "J" || e.key === "k" || e.key === "K") {
+      const go = e.key.toLowerCase() === "j" ? cards[idx + 1] : cards[idx - 1];
+      if (go) { e.preventDefault(); go.scrollIntoView({ behavior: "smooth", block: "center" }); }
+    }
   });
 
   // ---------------------------------------------------------------- init

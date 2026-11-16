@@ -22,6 +22,8 @@
       <button class="tab-btn active" data-tab="practice" role="tab">Luyện tập</button>
       <button class="tab-btn" data-tab="exam" role="tab">Thi thử</button>
       <button class="tab-btn" data-tab="review" role="tab">Câu làm sai <span id="wrong-count" class="pill">0</span></button>
+      <button class="tab-btn" data-tab="docs" role="tab">Tài liệu</button>
+      <button id="theme-btn" class="tab-btn theme-btn" type="button" title="Đổi giao diện sáng/tối" aria-label="Đổi giao diện sáng/tối">Tối</button>
     </nav>
   </div>
 </header>
@@ -113,9 +115,22 @@
         <button id="submit-exam-btn" class="btn primary">Nộp bài</button>
       </div>
       <div id="exam-summary" class="hidden"></div>
-      <div id="exam-list"></div>
-      <div class="center">
-        <button id="retry-exam-btn" class="btn ghost hidden">Làm bài thi khác</button>
+      <div class="exam-layout">
+        <div class="exam-main">
+          <div id="exam-list"></div>
+          <div class="center">
+            <button id="retry-exam-btn" class="btn ghost hidden">Làm bài thi khác</button>
+          </div>
+        </div>
+        <aside class="exam-nav card" id="exam-nav">
+          <h3>Bảng câu hỏi</h3>
+          <div class="exam-nav-grid" id="exam-nav-grid"></div>
+          <div class="exam-nav-legend muted">
+            <span><i class="lg lg-done"></i>Đã làm</span>
+            <span><i class="lg lg-flag"></i>Đánh dấu</span>
+            <span><i class="lg"></i>Chưa làm</span>
+          </div>
+        </aside>
       </div>
     </div>
   </section>
@@ -129,10 +144,58 @@
     <div id="review-list"></div>
   </section>
 
+  <!-- ===================== TÀI LIỆU ===================== -->
+  <section id="docs-tab" class="tab-content">
+    <div class="doc-card">
+      <div class="doc-head">
+        <div class="doc-icon" aria-hidden="true">HTML</div>
+        <div class="doc-title">
+          <h2>Giải 40 câu hỏi chẩn đoán kiến thức</h2>
+          <p class="muted">Tài liệu ôn thi chi tiết: giải đủ 41 câu, 16 sơ đồ SVG, bảng tính từng bước, 48 câu hỏi biến thể, bảng công thức và thuật ngữ Anh&ndash;Việt. Là một file HTML tự chứa &mdash; mở bằng trình duyệt là đọc được, không cần mạng.</p>
+          <div class="doc-meta">
+            <span class="tag">41 câu giải chi tiết</span>
+            <span class="tag">16 sơ đồ SVG</span>
+            <span class="tag">68 bảng</span>
+            <span class="tag">1 file duy nhất</span>
+          </div>
+        </div>
+      </div>
+      <div class="doc-actions">
+        <a id="doc-download" class="btn primary" href="giai-cau-hoi-chan-doan.html" download="giai-cau-hoi-chan-doan.html">Tải về máy (.html)</a>
+        <a id="doc-preview" class="btn ghost" href="giai-cau-hoi-chan-doan.html" target="_blank" rel="noopener">Mở xem trước</a>
+        <span id="doc-status" class="doc-status muted"></span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="toolbar-row" style="margin-top:0">
+        <div>
+          <strong>Sao lưu tiến độ học</strong>
+          <div class="muted">Tiến độ đang lưu trên trình duyệt này. Xuất ra file để mang sang máy khác, hoặc nhập lại khi cần.</div>
+        </div>
+        <div class="actions">
+          <button id="export-progress-btn" class="btn ghost" type="button">Xuất tiến độ (.json)</button>
+          <button id="import-progress-btn" class="btn ghost" type="button">Nhập tiến độ</button>
+          <input type="file" id="import-progress-file" accept="application/json,.json" class="hidden">
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <strong>Cách dùng nhanh</strong>
+      <ul class="doc-tips">
+        <li><b>Luyện tập</b>: bấm phím <kbd>1</kbd>&ndash;<kbd>4</kbd> để chọn đáp án, <kbd>Enter</kbd> để kiểm tra, <kbd>J</kbd>/<kbd>K</kbd> để sang câu kế/trước.</li>
+        <li><b>Thi thử</b>: bảng số câu bên phải giúp nhảy nhanh và đánh dấu câu cần xem lại.</li>
+        <li>Tìm kiếm gõ <b>không dấu</b> vẫn ra kết quả (vd: <i>kho du lieu</i>).</li>
+      </ul>
+    </div>
+  </section>
+
 </main>
 
 <footer class="app-footer wrap">
   Tổng hợp từ slide môn Nhà kho dữ liệu và tích hợp (TS. Nguyễn Thôn Dã), bộ đề của anh chị khóa trước và câu hỏi bổ sung.
+  <br>Tài liệu giải chi tiết: <a href="giai-cau-hoi-chan-doan.html" download="giai-cau-hoi-chan-doan.html">tải về máy</a>.
 </footer>
 
 <script src="data/questions.js"></script>

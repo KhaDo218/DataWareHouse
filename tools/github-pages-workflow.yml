@@ -27,6 +27,9 @@ jobs:
         run: |
           mkdir -p _site
           cp -r index.html assets data .nojekyll _site/
+          # Tài liệu ôn thi (file HTML tự chứa) — bắt buộc phải có để nút tải hoạt động
+          cp -r *.html _site/
+          ls -la _site
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site

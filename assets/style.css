@@ -17,9 +17,30 @@
   --radius: 12px;
   --shadow: 0 1px 2px rgba(16, 24, 40, .06), 0 1px 3px rgba(16, 24, 40, .08);
   --font: "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
+  color-scheme: light;
+}
+/* Bảng màu tối — áp khi người dùng chọn tay hoặc máy đang ở chế độ tối */
+:root[data-theme="dark"] {
+  --bg: #0f141d;
+  --card: #182030;
+  --ink: #e8edf5;
+  --ink-2: #b6c0d1;
+  --muted: #8a96aa;
+  --line: #2a3446;
+  --primary: #6b9cf0;
+  --primary-ink: #0d1422;
+  --primary-soft: #1d2b45;
+  --green: #4fd08f;
+  --green-bg: #13301f;
+  --red: #ff8a7f;
+  --red-bg: #3a1714;
+  --amber: #f0b45a;
+  --amber-bg: #34260f;
+  --shadow: none;
+  color-scheme: dark;
 }
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     --bg: #0f141d;
     --card: #182030;
     --ink: #e8edf5;
@@ -36,6 +57,7 @@
     --amber: #f0b45a;
     --amber-bg: #34260f;
     --shadow: none;
+    color-scheme: dark;
   }
 }
 
@@ -167,12 +189,90 @@ select, input[type=search], input[type=number] {
 .score td, .score th { padding: 4px 10px; border-bottom: 1px solid var(--line); text-align: left; }
 
 .app-footer { color: var(--muted); font-size: .8rem; text-align: center; padding-top: 10px; padding-bottom: 28px; }
+.app-footer a { color: var(--primary); }
+
+/* ---------- Theme toggle ---------- */
+.theme-btn { margin-left: 4px; border: 1px solid var(--line); background: var(--card); }
+
+/* ---------- Tài liệu (docs tab) ---------- */
+.doc-card {
+  background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+  box-shadow: var(--shadow); padding: 18px; margin-bottom: 14px;
+}
+.doc-head { display: flex; gap: 16px; align-items: flex-start; }
+.doc-icon {
+  flex-shrink: 0; width: 56px; height: 56px; border-radius: 12px;
+  display: grid; place-items: center;
+  background: var(--primary); color: var(--primary-ink);
+  font-weight: 800; font-size: .72rem; letter-spacing: .5px;
+}
+.doc-title { min-width: 0; }
+.doc-title h2 { margin: 0 0 6px; font-size: 1.15rem; }
+.doc-title p { margin: 0 0 10px; }
+.doc-meta { display: flex; flex-wrap: wrap; gap: 6px; }
+.doc-actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-top: 16px; }
+.doc-actions .btn { text-decoration: none; display: inline-block; }
+.doc-status { font-size: .85rem; }
+.doc-status.ok { color: var(--green); }
+.doc-status.err { color: var(--red); }
+.doc-tips { margin: 8px 0 0; padding-left: 20px; font-size: .92rem; color: var(--ink-2); }
+.doc-tips li { margin: 5px 0; }
+kbd {
+  font: inherit; font-size: .82em; font-weight: 700; padding: 1px 6px; border-radius: 5px;
+  border: 1px solid var(--line); background: var(--bg); color: var(--ink);
+}
+
+/* ---------- Exam navigator ---------- */
+.exam-layout { display: grid; grid-template-columns: minmax(0, 1fr); gap: 14px; }
+@media (min-width: 940px) {
+  .exam-layout { grid-template-columns: minmax(0, 1fr) 210px; align-items: start; }
+  .exam-nav { position: sticky; top: 150px; }
+}
+.exam-main { min-width: 0; }
+.exam-nav { padding: 12px 14px; }
+.exam-nav h3 { margin: 0 0 10px; font-size: .82rem; text-transform: uppercase; letter-spacing: .4px; color: var(--muted); }
+.exam-nav-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(34px, 1fr)); gap: 6px; }
+.nav-cell {
+  font: inherit; font-size: .82rem; font-weight: 700;
+  padding: 6px 0; border-radius: 8px; cursor: pointer; text-align: center;
+  border: 1px solid var(--line); background: var(--card); color: var(--ink-2);
+}
+.nav-cell:hover { border-color: var(--primary); }
+.nav-cell.done { background: var(--primary-soft); color: var(--primary); border-color: var(--primary); }
+.nav-cell.flag { background: var(--amber-bg); color: var(--amber); border-color: var(--amber); }
+.exam-nav-legend { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; font-size: .78rem; }
+.exam-nav-legend span { display: inline-flex; align-items: center; gap: 5px; }
+.lg { width: 12px; height: 12px; border-radius: 4px; border: 1px solid var(--line); background: var(--card); display: inline-block; }
+.lg-done { background: var(--primary-soft); border-color: var(--primary); }
+.lg-flag { background: var(--amber-bg); border-color: var(--amber); }
+
+/* Nút đánh dấu câu */
+.flag-btn {
+  font: inherit; font-size: .82rem; font-weight: 600; cursor: pointer;
+  padding: 5px 10px; border-radius: 999px; border: 1px solid var(--line);
+  background: transparent; color: var(--ink-2);
+}
+.flag-btn:hover { border-color: var(--amber); color: var(--amber); }
+.flag-btn.on { background: var(--amber-bg); border-color: var(--amber); color: var(--amber); }
+
+/* ---------- Toast ---------- */
+.toast {
+  position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%) translateY(12px);
+  background: var(--ink); color: var(--card);
+  padding: 10px 16px; border-radius: 10px; font-size: .9rem; font-weight: 600;
+  opacity: 0; pointer-events: none; transition: opacity .2s, transform .2s; z-index: 60;
+  max-width: calc(100vw - 32px);
+}
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 
 @media (max-width: 640px) {
-  .tabs { width: 100%; }
+  .tabs { width: 100%; flex-wrap: wrap; }
   .tab-btn { flex: 1; padding: 8px 6px; font-size: .85rem; }
+  .theme-btn { flex: 0 0 auto; }
   .filters label { flex: 1 1 45%; }
   .filters label:first-child { flex-basis: 100%; }
   #f-chapter { max-width: none; }
   .exam-bar { top: 112px; }
+  .doc-head { flex-direction: column; gap: 12px; }
+  .doc-actions .btn { flex: 1 1 100%; text-align: center; }
 }
