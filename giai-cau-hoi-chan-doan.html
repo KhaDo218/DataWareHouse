@@ -1657,11 +1657,20 @@ hr{border:0;border-top:1px solid var(--line);margin:24px 0}
       <figure class="dg" data-zoom="read">
     <div class="figtools"><button type="button" data-figzoom="fit" aria-pressed="false">Vừa khung</button><button type="button" data-figzoom="read" aria-pressed="true">Chữ to</button><button type="button" data-figzoom="big" aria-pressed="false">Rất to</button><span class="hint">vuốt ngang nếu sơ đồ rộng hơn màn hình</span></div>
     <div class="scroll">
-<svg viewBox="0 0 900 581.11" width="900" height="581.11" role="img" aria-label="Một mẫu Jinja dùng vòng lặp for được biên dịch thành câu SQL dài gồm ba khối select nối bằng union all">
+<svg viewBox="0 0 900 501.08" width="900" height="501.08" role="img" aria-label="Một mẫu Jinja dùng vòng lặp for được biên dịch thành câu SQL dài gồm ba khối select nối bằng union all">
 <defs><marker id="mkC1121F" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#C1121F"/></marker></defs>
 <text class="hd" x="24" y="26">MẪU JINJA — VIẾT MỘT LẦN</text>
-<text class="hd" x="414" y="26">SQL THỰC THI — SAU KHI BIÊN DỊCH</text>
-<rect class="bx" x="24" y="46" width="302" height="184.07" rx="8"/>
+<text class="hd" x="424" y="26">SQL THỰC THI — SAU KHI BIÊN DỊCH</text>
+<rect class="bx acc" x="424" y="46" width="452" height="206.07999999999998" rx="8"/>
+<text class="m" x="439" y="75.26" style="font-size:15.5px">select '1' as thang, sum(revenue) ...</text>
+<text class="m" x="439" y="97.27" style="font-size:15.5px">  from mart_sales where month = 1</text>
+<text class="m" x="439" y="119.27999999999999" style="font-size:15.5px">union all</text>
+<text class="m" x="439" y="141.28999999999996" style="font-size:15.5px">select '2' as thang, sum(revenue) ...</text>
+<text class="m" x="439" y="163.29999999999995" style="font-size:15.5px">  from mart_sales where month = 2</text>
+<text class="m" x="439" y="185.30999999999995" style="font-size:15.5px">union all</text>
+<text class="m" x="439" y="207.31999999999994" style="font-size:15.5px">select '3' as thang, sum(revenue) ...</text>
+<text class="m" x="439" y="229.32999999999993" style="font-size:15.5px">  from mart_sales where month = 3</text>
+<rect class="bx" x="24" y="46" width="286" height="206.07999999999998" rx="8"/>
 <text class="m" x="39" y="75.26" style="font-size:15.5px">{% for m in range(1, 4) %}</text>
 <text class="m" x="39" y="97.27" style="font-size:15.5px">select</text>
 <text class="m" x="39" y="119.27999999999999" style="font-size:15.5px">  '{{ m }}' as thang,</text>
@@ -1669,45 +1678,33 @@ hr{border:0;border-top:1px solid var(--line);margin:24px 0}
 <text class="m" x="39" y="163.29999999999995" style="font-size:15.5px">from {{ ref('mart_sales') }}</text>
 <text class="m" x="39" y="185.30999999999995" style="font-size:15.5px">where month = {{ m }}</text>
 <text class="m" x="39" y="207.31999999999994" style="font-size:15.5px">{% endfor %}</text>
-<rect class="bx acc" x="414" y="46" width="462" height="272.11" rx="8"/>
-<text class="m" x="429" y="75.26" style="font-size:15.5px">select '1' as thang,</text>
-<text class="m" x="429" y="97.27" style="font-size:15.5px">       sum(revenue) as doanh_thu</text>
-<text class="m" x="429" y="119.27999999999999" style="font-size:15.5px">  from mart_sales where month = 1</text>
-<text class="m" x="429" y="141.28999999999996" style="font-size:15.5px">union all</text>
-<text class="m" x="429" y="163.29999999999995" style="font-size:15.5px">select '2' as thang,</text>
-<text class="m" x="429" y="185.30999999999995" style="font-size:15.5px">       sum(revenue) as doanh_thu</text>
-<text class="m" x="429" y="207.31999999999994" style="font-size:15.5px">  from mart_sales where month = 2</text>
-<text class="m" x="429" y="229.32999999999993" style="font-size:15.5px">union all</text>
-<text class="m" x="429" y="251.33999999999992" style="font-size:15.5px">select '3' as thang,</text>
-<text class="m" x="429" y="273.3499999999999" style="font-size:15.5px">       sum(revenue) as doanh_thu</text>
-<text class="m" x="429" y="295.3599999999999" style="font-size:15.5px">  from mart_sales where month = 3</text>
-<path class="ar hl" d="M 331 152.035 L 408 152.035" marker-end="url(#mkC1121F)"/>
-<text class="ts acc" x="369.5" y="130.035" text-anchor="middle" style="font-size:15px">biên dịch</text>
-<text class="ts" x="369.5" y="182.035" text-anchor="middle" style="font-size:15px">3 vòng lặp</text>
-<text class="ts" x="369.5" y="202.035" text-anchor="middle" style="font-size:15px">→ 3 khối</text>
-<text class="hd" x="24" y="374.11">CẦN NHỚ VỀ JINJA</text>
-<rect class="bx" x="24" y="392.11" width="272" height="163" rx="8"/>
-<text class="tt" x="160" y="420.86" text-anchor="middle" style="font-size:17.5px">Nó là gì</text>
-<text class="ts acc" x="160" y="449.28000000000003" text-anchor="middle" style="font-size:16px">Templating engine viết bằng</text>
-<text class="ts acc" x="160" y="470.72" text-anchor="middle" style="font-size:16px">Python, chạy TRƯỚC khi câu SQL</text>
-<text class="ts acc" x="160" y="492.16" text-anchor="middle" style="font-size:16px">tới database.</text>
-<text class="ts" x="160" y="513.6" text-anchor="middle" style="font-size:16px">Sinh mã — không phải ngôn ngữ</text>
-<text class="ts" x="160" y="535.0400000000001" text-anchor="middle" style="font-size:16px">truy vấn.</text>
-<rect class="bx gold" x="314" y="392.11" width="272" height="163" rx="8"/>
-<text class="tt" x="450" y="420.86" text-anchor="middle" style="font-size:17.5px">Lợi ích thật</text>
-<text class="ts acc" x="450" y="449.28000000000003" text-anchor="middle" style="font-size:16px">Giảm hơn 50% số dòng code dư</text>
-<text class="ts acc" x="450" y="470.72" text-anchor="middle" style="font-size:16px">thừa so với viết tay.</text>
-<text class="ts" x="450" y="492.16" text-anchor="middle" style="font-size:16px">Không còn lỗi copy-paste khi</text>
-<text class="ts" x="450" y="513.6" text-anchor="middle" style="font-size:16px">nhân bản khối SQL.</text>
-<rect class="bx red" x="604" y="392.11" width="272" height="163" rx="8"/>
-<text class="tt" x="740" y="420.86" text-anchor="middle" style="font-size:17.5px">Lạm dụng thì SAI</text>
-<text class="ts acc" x="740" y="449.28000000000003" text-anchor="middle" style="font-size:16px">Nhồi logic nghiệp vụ phức tạp vào</text>
-<text class="ts acc" x="740" y="470.72" text-anchor="middle" style="font-size:16px">template → khó đọc, khó test.</text>
-<text class="ts" x="740" y="492.16" text-anchor="middle" style="font-size:16px">Nên để logic trong SQL, chỉ dùng</text>
-<text class="ts" x="740" y="513.6" text-anchor="middle" style="font-size:16px">Jinja để sinh lặp.</text>
+<path class="ar hl" d="M 316 149.04 L 416 149.04" marker-end="url(#mkC1121F)"/>
+<text class="ts acc" x="366" y="135.04" text-anchor="middle" style="font-size:15px">biên dịch</text>
+<text class="ts" x="366" y="181.04" text-anchor="middle" style="font-size:15px">3 vòng</text>
+<text class="ts" x="366" y="201.04" text-anchor="middle" style="font-size:15px">→ 3 khối</text>
+<text class="hd" x="24" y="294.08">CẦN NHỚ VỀ JINJA</text>
+<rect class="bx" x="24" y="312.08" width="272" height="163" rx="8"/>
+<text class="tt" x="160" y="340.83" text-anchor="middle" style="font-size:17.5px">Nó là gì</text>
+<text class="ts acc" x="160" y="369.25" text-anchor="middle" style="font-size:16px">Templating engine viết bằng</text>
+<text class="ts acc" x="160" y="390.69" text-anchor="middle" style="font-size:16px">Python, chạy TRƯỚC khi câu SQL</text>
+<text class="ts acc" x="160" y="412.13" text-anchor="middle" style="font-size:16px">tới database.</text>
+<text class="ts" x="160" y="433.57" text-anchor="middle" style="font-size:16px">Sinh mã — không phải ngôn ngữ</text>
+<text class="ts" x="160" y="455.01" text-anchor="middle" style="font-size:16px">truy vấn.</text>
+<rect class="bx gold" x="314" y="312.08" width="272" height="163" rx="8"/>
+<text class="tt" x="450" y="340.83" text-anchor="middle" style="font-size:17.5px">Lợi ích thật</text>
+<text class="ts acc" x="450" y="369.25" text-anchor="middle" style="font-size:16px">Giảm hơn 50% số dòng code dư</text>
+<text class="ts acc" x="450" y="390.69" text-anchor="middle" style="font-size:16px">thừa so với viết tay.</text>
+<text class="ts" x="450" y="412.13" text-anchor="middle" style="font-size:16px">Không còn lỗi copy-paste khi</text>
+<text class="ts" x="450" y="433.57" text-anchor="middle" style="font-size:16px">nhân bản khối SQL.</text>
+<rect class="bx red" x="604" y="312.08" width="272" height="163" rx="8"/>
+<text class="tt" x="740" y="340.83" text-anchor="middle" style="font-size:17.5px">Lạm dụng thì SAI</text>
+<text class="ts acc" x="740" y="369.25" text-anchor="middle" style="font-size:16px">Nhồi logic nghiệp vụ phức tạp vào</text>
+<text class="ts acc" x="740" y="390.69" text-anchor="middle" style="font-size:16px">template → khó đọc, khó test.</text>
+<text class="ts" x="740" y="412.13" text-anchor="middle" style="font-size:16px">Nên để logic trong SQL, chỉ dùng</text>
+<text class="ts" x="740" y="433.57" text-anchor="middle" style="font-size:16px">Jinja để sinh lặp.</text>
 </svg>
     </div>
-    <figcaption>Jinja <b>không phải ngôn ngữ truy vấn</b> — nó là lớp sinh mã chạy trước khi câu lệnh tới database. Database không bao giờ thấy <code>{% for %}</code>; nó chỉ nhận chuỗi <b>union all</b> đã biên dịch xong. Điểm thi nằm ở chỗ: cùng một mẫu bảy dòng sinh ra mười một dòng SQL, và khi danh sách tháng đổi từ 3 lên 12 thì <b>không phải sửa một dòng SQL nào</b> — đây chính là lý do dbt dùng Jinja làm lớp biến đổi.</figcaption>
+    <figcaption>Jinja <b>không phải ngôn ngữ truy vấn</b> — nó là lớp sinh mã chạy trước khi câu lệnh tới database. Database không bao giờ thấy <code>{% for %}</code>; nó chỉ nhận chuỗi <b>union all</b> đã biên dịch xong. Điểm thi nằm ở chỗ: cùng một mẫu bảy dòng sinh ra tám dòng SQL, và khi danh sách tháng đổi từ 3 lên 12 thì <b>không phải sửa một dòng SQL nào</b> — đây chính là lý do dbt dùng Jinja làm lớp biến đổi.</figcaption>
   </figure>
 
       <h5>Năm chức năng của Jinja theo slide</h5>
@@ -1828,69 +1825,71 @@ hr{border:0;border-top:1px solid var(--line);margin:24px 0}
       <figure class="dg" data-zoom="read">
     <div class="figtools"><button type="button" data-figzoom="fit" aria-pressed="false">Vừa khung</button><button type="button" data-figzoom="read" aria-pressed="true">Chữ to</button><button type="button" data-figzoom="big" aria-pressed="false">Rất to</button><span class="hint">vuốt ngang nếu sơ đồ rộng hơn màn hình</span></div>
     <div class="scroll">
-<svg viewBox="0 0 900 868" width="900" height="868" role="img" aria-label="Kiến trúc sáu tầng của Modern Data Warehouse và bốn nguyên lý thiết kế">
+<svg viewBox="0 0 900 723" width="900" height="723" role="img" aria-label="DAG của Airflow cho pipeline Medallion: ingest_bronze chạy trước, hai model silver chạy song song, rồi gold_dims và gold_facts, cuối cùng là dbt test và export parquet">
 <defs><marker id="mk9A9A9A" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#9A9A9A"/></marker></defs>
-<text class="hd" x="24" y="26">LUỒNG DỮ LIỆU ĐI LÊN — MỖI TẦNG MỘT NHIỆM VỤ</text>
-<text class="hd" x="520" y="26">BỐN NGUYÊN LÝ XUYÊN SUỐT</text>
-<rect class="bx" x="24" y="44" width="468" height="104" rx="8"/>
-<text class="tt" x="258" y="75" text-anchor="middle" style="font-size:20px">1. Nguồn dữ liệu — Data Sources</text>
-<text class="ts" x="258" y="104.98" text-anchor="middle" style="font-size:16.5px">ERP · CRM · Web/App logs · File CSV · API · IoT · hệ giao</text>
-<text class="ts" x="258" y="127.09" text-anchor="middle" style="font-size:16.5px">dịch (OLTP)</text>
-<rect class="bx" x="24" y="178" width="468" height="104" rx="8"/>
-<text class="tt" x="258" y="209" text-anchor="middle" style="font-size:20px">2. Tích hợp — Integration</text>
-<text class="ts" x="258" y="238.98000000000002" text-anchor="middle" style="font-size:16.5px">Batch · Streaming · CDC · Zero-ETL · Orchestration</text>
-<text class="ts" x="258" y="261.09000000000003" text-anchor="middle" style="font-size:16.5px">(Airflow / Dagster)</text>
-<rect class="bx acc" x="24" y="312" width="468" height="104" rx="8"/>
-<text class="tt" x="258" y="343" text-anchor="middle" style="font-size:20px">3. Lưu trữ — Object Storage</text>
-<text class="ts" x="258" y="372.98" text-anchor="middle" style="font-size:16.5px">S3 / ADLS / GCS · cột Parquet, ORC · Iceberg</text>
-<text class="ts acc" x="258" y="395.09000000000003" text-anchor="middle" style="font-size:16.5px">micro-partition 50–500 MB nén, lưu Min/Max từng cột</text>
-<rect class="bx" x="24" y="446" width="468" height="104" rx="8"/>
-<text class="tt" x="258" y="477" text-anchor="middle" style="font-size:20px">4. Tính toán — Compute</text>
-<text class="ts" x="258" y="506.98" text-anchor="middle" style="font-size:16.5px">Warehouse A (kế toán) · B (CEO) · C (AI) — độc lập</text>
-<text class="ts acc" x="258" y="529.0899999999999" text-anchor="middle" style="font-size:16.5px">Auto-suspend · Caching · Multi-cluster scaling</text>
-<rect class="bx" x="24" y="580" width="468" height="104" rx="8"/>
-<text class="tt" x="258" y="611" text-anchor="middle" style="font-size:20px">5. Biến đổi — Transformation (ELT)</text>
-<text class="ts" x="258" y="640.9799999999999" text-anchor="middle" style="font-size:16.5px">SQL + Jinja · dbt (model, macro, ref)</text>
-<text class="ts" x="258" y="663.0899999999999" text-anchor="middle" style="font-size:16.5px">Schema Tests · Auto-docs &amp; Data Lineage</text>
-<rect class="bx gold" x="24" y="714" width="468" height="126" rx="8"/>
-<text class="tt" x="258" y="745" text-anchor="middle" style="font-size:20px">6. Khai thác — Semantic Layer</text>
-<text class="ts" x="258" y="774.9799999999999" text-anchor="middle" style="font-size:16.5px">Metric Catalog / Headless BI · Dashboard</text>
-<text class="ts" x="258" y="797.0899999999999" text-anchor="middle" style="font-size:16.5px">AI/ML (In-DB ML, Cortex, BigQuery ML) · Vector Search &amp;</text>
-<text class="ts" x="258" y="819.1999999999999" text-anchor="middle" style="font-size:16.5px">RAG · Federated</text>
-<path class="ar" d="M 258 151 L 258 175" marker-end="url(#mk9A9A9A)"/>
-<path class="ar" d="M 258 285 L 258 309" marker-end="url(#mk9A9A9A)"/>
-<path class="ar" d="M 258 419 L 258 443" marker-end="url(#mk9A9A9A)"/>
-<path class="ar" d="M 258 553 L 258 577" marker-end="url(#mk9A9A9A)"/>
-<path class="ar" d="M 258 687 L 258 711" marker-end="url(#mk9A9A9A)"/>
-<text class="ts acc" x="484" y="436" text-anchor="end" style="font-size:15px">tách rời storage  ↔  compute</text>
-<rect class="bx dark" x="520" y="44" width="356" height="142" rx="8"/>
-<text class="tt" x="698" y="73.2" text-anchor="middle" style="font-size:18px">1. Tách rời Compute ↔ Storage</text>
-<text class="ts" x="698" y="101.84" text-anchor="middle" style="font-size:16px">Coupled: CPU gắn ổ cứng → lãng phí.</text>
-<text class="ts" x="698" y="123.28" text-anchor="middle" style="font-size:16px">Decoupled: tăng 1000 CPU không cần mua</text>
-<text class="ts" x="698" y="144.72" text-anchor="middle" style="font-size:16px">thêm 1 GB đĩa.</text>
-<text class="ts acc" x="698" y="166.16" text-anchor="middle" style="font-size:16px">→ Mở rộng độc lập, trả tiền theo dùng.</text>
-<rect class="bx dark" x="520" y="200" width="356" height="164" rx="8"/>
-<text class="tt" x="698" y="229.2" text-anchor="middle" style="font-size:18px">2. Quản lý chi phí</text>
-<text class="ts" x="698" y="257.84000000000003" text-anchor="middle" style="font-size:16px">Auto-suspend · chọn size cluster</text>
-<text class="ts" x="698" y="279.28000000000003" text-anchor="middle" style="font-size:16px">Phân tầng lưu trữ (Archive tier)</text>
-<text class="ts acc" x="698" y="300.72" text-anchor="middle" style="font-size:16px">Caching — không tính lại kết quả cũ</text>
-<text class="ts" x="698" y="322.16" text-anchor="middle" style="font-size:16px">Budget Alerts · nén Parquet/ORC · Lineage</text>
-<text class="ts" x="698" y="343.6" text-anchor="middle" style="font-size:16px">chi phí</text>
-<rect class="bx dark" x="520" y="378" width="356" height="142" rx="8"/>
-<text class="tt" x="698" y="407.2" text-anchor="middle" style="font-size:18px">3. Tăng tốc truy vấn</text>
-<text class="ts" x="698" y="435.84000000000003" text-anchor="middle" style="font-size:16px">Micro-partition → Data Pruning</text>
-<text class="ts" x="698" y="457.28000000000003" text-anchor="middle" style="font-size:16px">Clustering → partition không chồng lấn</text>
-<text class="ts" x="698" y="478.72" text-anchor="middle" style="font-size:16px">Clustering Depth thấp = nhanh</text>
-<text class="ts" x="698" y="500.16" text-anchor="middle" style="font-size:16px">Re-clustering tự động ngầm</text>
-<rect class="bx dark" x="520" y="534" width="356" height="142" rx="8"/>
-<text class="tt" x="698" y="563.2" text-anchor="middle" style="font-size:18px">4. Quản trị &amp; bảo mật</text>
-<text class="ts" x="698" y="591.84" text-anchor="middle" style="font-size:16px">IAM Policies (theo danh tính)</text>
-<text class="ts" x="698" y="613.2800000000001" text-anchor="middle" style="font-size:16px">Bucket Policies (theo container)</text>
-<text class="ts" x="698" y="634.7200000000001" text-anchor="middle" style="font-size:16px">Mã hoá at-rest / in-transit · Versioning</text>
-<text class="ts" x="698" y="656.1600000000002" text-anchor="middle" style="font-size:16px">Object Lock · Logging &amp; Monitoring</text>
+<text class="hd" x="24" y="26">DAG — DIRECTED ACYCLIC GRAPH (CÓ HƯỚNG, KHÔNG CHU TRÌNH)</text>
+<text class="hd" x="34" y="58" style="font-size:15px">BẬC 1 — nạp thô</text>
+<text class="hd" x="252" y="58" style="font-size:15px">BẬC 2 — độc lập</text>
+<text class="hd" x="450" y="58" style="font-size:15px">BẬC 3 — chờ cả hai</text>
+<text class="hd" x="648" y="58" style="font-size:15px">BẬC 4 — cửa ra</text>
+<rect class="bx acc" x="34" y="119" width="176" height="64" rx="7"/>
+<text class="tt" x="122" y="147" text-anchor="middle" style="font-size:17.5px">ingest_bronze</text>
+<text class="ts" x="122" y="170" text-anchor="middle" style="font-size:15.5px">nạp dữ liệu thô</text>
+<rect class="bx" x="252" y="72" width="156" height="64" rx="7"/>
+<text class="tt" x="330" y="100" text-anchor="middle" style="font-size:17.5px">silver_a</text>
+<text class="ts" x="330" y="123" text-anchor="middle" style="font-size:15.5px">model nhánh 1</text>
+<rect class="bx" x="252" y="166" width="156" height="64" rx="7"/>
+<text class="tt" x="330" y="194" text-anchor="middle" style="font-size:17.5px">silver_b</text>
+<text class="ts" x="330" y="217" text-anchor="middle" style="font-size:15.5px">model nhánh 2</text>
+<rect class="bx" x="450" y="72" width="158" height="64" rx="7"/>
+<text class="tt" x="529" y="100" text-anchor="middle" style="font-size:17.5px">gold_dims</text>
+<text class="ts" x="529" y="123" text-anchor="middle" style="font-size:15.5px">bảng chiều</text>
+<rect class="bx" x="450" y="166" width="158" height="64" rx="7"/>
+<text class="tt" x="529" y="194" text-anchor="middle" style="font-size:17.5px">gold_facts</text>
+<text class="ts" x="529" y="217" text-anchor="middle" style="font-size:15.5px">bảng sự kiện</text>
+<rect class="bx gold" x="648" y="72" width="176" height="64" rx="7"/>
+<text class="tt" x="736" y="100" text-anchor="middle" style="font-size:17.5px">dbt test</text>
+<text class="ts" x="736" y="123" text-anchor="middle" style="font-size:15.5px">kiểm thử dữ liệu</text>
+<rect class="bx gold" x="648" y="166" width="176" height="64" rx="7"/>
+<text class="tt" x="736" y="194" text-anchor="middle" style="font-size:17.5px">export parquet</text>
+<text class="ts" x="736" y="217" text-anchor="middle" style="font-size:15.5px">xuất cho BI</text>
+<path class="ar" d="M 215 151 L 231 151 L 231 92 L 247 92" marker-end="url(#mk9A9A9A)"/>
+<path class="ar" d="M 215 151 L 231 151 L 231 186 L 247 186" marker-end="url(#mk9A9A9A)"/>
+<path class="ar" d="M 413 104 L 429 104 L 429 92 L 445 92" marker-end="url(#mk9A9A9A)"/>
+<path class="ar" d="M 413 198 L 429 198 L 429 186 L 445 186" marker-end="url(#mk9A9A9A)"/>
+<path class="ar" d="M 613 104 L 628 104 L 628 92 L 643 92" marker-end="url(#mk9A9A9A)"/>
+<path class="ar" d="M 613 198 L 628 198 L 628 186 L 643 186" marker-end="url(#mk9A9A9A)"/>
+<rect class="bx gold" x="24" y="264" width="852" height="69" rx="8"/>
+<text class="ts acc" x="37" y="291.72" style="font-size:16px">silver_a và silver_b cùng bậc → Airflow xếp chạy SONG SONG. gold_dims / gold_facts chỉ khởi động khi CẢ HAI</text>
+<text class="ts acc" x="37" y="313.16" style="font-size:16px">nhánh silver đã xong.</text>
+<text class="hd" x="24" y="373">VÌ SAO LÀ DAG CHỨ KHÔNG PHẢI DANH SÁCH TUYẾN TÍNH</text>
+<rect class="bx" x="24" y="389" width="272" height="142" rx="8"/>
+<text class="tt" x="160" y="417.75" text-anchor="middle" style="font-size:17.5px">Directed — có hướng</text>
+<text class="ts acc" x="160" y="446.17" text-anchor="middle" style="font-size:16px">Mũi tên chỉ một chiều: task con</text>
+<text class="ts acc" x="160" y="467.61" text-anchor="middle" style="font-size:16px">chạy sau task cha.</text>
+<text class="ts" x="160" y="489.05" text-anchor="middle" style="font-size:16px">Thứ tự xác định, không nhập</text>
+<text class="ts" x="160" y="510.49" text-anchor="middle" style="font-size:16px">nhằng.</text>
+<rect class="bx" x="314" y="389" width="272" height="142" rx="8"/>
+<text class="tt" x="450" y="417.75" text-anchor="middle" style="font-size:17.5px">Acyclic — không chu trình</text>
+<text class="ts acc" x="450" y="446.17" text-anchor="middle" style="font-size:16px">Không có vòng lặp ngược về task</text>
+<text class="ts acc" x="450" y="467.61" text-anchor="middle" style="font-size:16px">cũ.</text>
+<text class="ts" x="450" y="489.05" text-anchor="middle" style="font-size:16px">Pipeline không treo vì chờ chính</text>
+<text class="ts" x="450" y="510.49" text-anchor="middle" style="font-size:16px">nó.</text>
+<rect class="bx gold" x="604" y="389" width="272" height="142" rx="8"/>
+<text class="tt" x="740" y="417.75" text-anchor="middle" style="font-size:17.5px">Hệ quả: song song hoá</text>
+<text class="ts acc" x="740" y="446.17" text-anchor="middle" style="font-size:16px">Task độc lập được chạy đồng</text>
+<text class="ts acc" x="740" y="467.61" text-anchor="middle" style="font-size:16px">thời.</text>
+<text class="ts" x="740" y="489.05" text-anchor="middle" style="font-size:16px">Hai nhánh silver → gần nửa thời</text>
+<text class="ts" x="740" y="510.49" text-anchor="middle" style="font-size:16px">gian.</text>
+<rect class="bx dark" x="24" y="555" width="852" height="142" rx="8"/>
+<text class="tt" x="37" y="583.75" style="font-size:17.5px">NẾU NỐI TUYẾN TÍNH THÌ SAO?</text>
+<text class="ts" x="37" y="612.1700000000001" style="font-size:16px">in → silver_a → silver_b → gold_dims → gold_facts → test → export: nhánh silver thứ hai phải chờ nhánh đầu xong</text>
+<text class="ts" x="37" y="633.6100000000001" style="font-size:16px">dù hai nhánh không liên quan gì nhau.</text>
+<text class="ts acc" x="37" y="655.0500000000002" style="font-size:16px">DAG cho Airflow biết chính xác task nào đang chờ task nào, nhờ đó retry đúng task hỏng mà không chạy lại cả</text>
+<text class="ts acc" x="37" y="676.4900000000002" style="font-size:16px">pipeline.</text>
 </svg>
     </div>
-    <figcaption>Kiến trúc sáu tầng của một Modern Data Warehouse và bốn nguyên lý chi phối toàn bộ thiết kế. Hai khái niệm <b>micro-partition</b> (câu 6) và <b>clustering key</b> (câu 7) nằm ở tầng 3; <b>caching</b> (câu 2) nằm ở tầng 4; <b>bucket policies</b> (câu 5) nằm ở nguyên lý 4.</figcaption>
+    <figcaption>Airflow không tự nghĩ ra thứ tự chạy — nó <b>đọc DAG</b>. <b>Directed</b> cho biết chiều phụ thuộc, <b>Acyclic</b> bảo đảm không có vòng lặp treo hệ thống. Lợi ích thực tế nằm ở chỗ Airflow nhận ra <b>silver_a và silver_b độc lập</b> nên chạy song song, còn <b>gold chỉ khởi động khi cả hai nhánh đã xong</b> — đúng ngữ nghĩa Medallion: tầng vàng không bao giờ đọc dữ liệu bạc còn đang dở.</figcaption>
   </figure>
 
       <h5>Sức mạnh của DAG — năm đặc điểm</h5>
@@ -2349,73 +2348,106 @@ hr{border:0;border-top:1px solid var(--line);margin:24px 0}
       <figure class="dg" data-zoom="read">
     <div class="figtools"><button type="button" data-figzoom="fit" aria-pressed="false">Vừa khung</button><button type="button" data-figzoom="read" aria-pressed="true">Chữ to</button><button type="button" data-figzoom="big" aria-pressed="false">Rất to</button><span class="hint">vuốt ngang nếu sơ đồ rộng hơn màn hình</span></div>
     <div class="scroll">
-<svg viewBox="0 0 900 697" width="900" height="697" role="img" aria-label="Một bảng lớn chia thành 5 micro-partition 50 đến 500 MB nén, mỗi partition lưu Min Max; truy vấn lọc theo khoảng chỉ đọc 1 partition">
-<defs><marker id="mkC1121F" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#C1121F"/></marker></defs>
-<defs><marker id="mk9A9A9A" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#9A9A9A"/></marker></defs>
-<text class="hd" x="24" y="26">MICRO-PARTITIONING — BẢNG LỚN TỰ CHIA THÀNH CÁC KHỐI 50–500 MB NÉN, LƯU DẠNG CỘT</text>
-<text class="ts" x="24" y="52" style="font-size:16.5px">Một bảng rất lớn (ví dụ 1 tỷ dòng) được hệ thống tự chia nhỏ — người dùng</text>
-<text class="ts" x="24" y="74.11" style="font-size:16.5px">không khai báo partition.</text>
-<rect class="bx dim" x="24" y="82" width="160" height="104" rx="8"/>
-<text class="tt" x="104" y="113" text-anchor="middle" style="font-size:20px">P1</text>
-<text class="ts" x="104" y="142.98" text-anchor="middle" style="font-size:16.5px">min 2017-01</text>
-<text class="ts" x="104" y="165.09" text-anchor="middle" style="font-size:16.5px">max 2017-03</text>
-<rect class="bx dim" x="196" y="82" width="160" height="104" rx="8"/>
-<text class="tt" x="276" y="113" text-anchor="middle" style="font-size:20px">P2</text>
-<text class="ts" x="276" y="142.98" text-anchor="middle" style="font-size:16.5px">min 2017-03</text>
-<text class="ts" x="276" y="165.09" text-anchor="middle" style="font-size:16.5px">max 2017-06</text>
-<rect class="bx acc" x="368" y="82" width="160" height="104" rx="8"/>
-<text class="tt" x="448" y="113" text-anchor="middle" style="font-size:20px">P3</text>
-<text class="ts" x="448" y="142.98" text-anchor="middle" style="font-size:16.5px">min 2017-06</text>
-<text class="ts" x="448" y="165.09" text-anchor="middle" style="font-size:16.5px">max 2017-09</text>
-<rect class="bx dim" x="540" y="82" width="160" height="104" rx="8"/>
-<text class="tt" x="620" y="113" text-anchor="middle" style="font-size:20px">P4</text>
-<text class="ts" x="620" y="142.98" text-anchor="middle" style="font-size:16.5px">min 2017-09</text>
-<text class="ts" x="620" y="165.09" text-anchor="middle" style="font-size:16.5px">max 2018-01</text>
-<rect class="bx dim" x="712" y="82" width="160" height="104" rx="8"/>
-<text class="tt" x="792" y="113" text-anchor="middle" style="font-size:20px">P5</text>
-<text class="ts" x="792" y="142.98" text-anchor="middle" style="font-size:16.5px">min 2018-01</text>
-<text class="ts" x="792" y="165.09" text-anchor="middle" style="font-size:16.5px">max 2018-08</text>
-<rect class="bx dim" x="24" y="232" width="160" height="49" rx="8"/>
-<text class="ts" x="104" y="260.18" text-anchor="middle" style="font-size:16.5px">bỏ qua</text>
-<rect class="bx dim" x="196" y="232" width="160" height="49" rx="8"/>
-<text class="ts" x="276" y="260.18" text-anchor="middle" style="font-size:16.5px">bỏ qua</text>
-<rect class="bx acc" x="368" y="232" width="160" height="49" rx="8"/>
-<text class="ts" x="448" y="260.18" text-anchor="middle" style="font-size:16.5px">ĐỌC</text>
-<rect class="bx dim" x="540" y="232" width="160" height="49" rx="8"/>
-<text class="ts" x="620" y="260.18" text-anchor="middle" style="font-size:16.5px">bỏ qua</text>
-<rect class="bx dim" x="712" y="232" width="160" height="49" rx="8"/>
-<text class="ts" x="792" y="260.18" text-anchor="middle" style="font-size:16.5px">bỏ qua</text>
-<path class="ar" d="M 104 191 L 104 227" marker-end="url(#mk9A9A9A)"/>
-<path class="ar" d="M 276 191 L 276 227" marker-end="url(#mk9A9A9A)"/>
-<path class="ar hl" d="M 448 191 L 448 227" marker-end="url(#mkC1121F)"/>
-<path class="ar" d="M 620 191 L 620 227" marker-end="url(#mk9A9A9A)"/>
-<path class="ar" d="M 792 191 L 792 227" marker-end="url(#mk9A9A9A)"/>
-<rect class="bx dark" x="24" y="337" width="420" height="104" rx="8"/>
-<text class="tt" x="37" y="368" style="font-size:20px">Truy vấn lọc theo khoảng ngày</text>
-<text class="ts" x="37" y="397.98" style="font-size:16.5px">WHERE order_date</text>
-<text class="ts" x="37" y="420.09000000000003" style="font-size:16.5px">BETWEEN '2017-07-01' AND '2017-08-31'</text>
-<path class="ar hl" d="M 448 331 L 448 287" marker-end="url(#mkC1121F)"/>
-<text class="ts acc" x="462" y="315" style="font-size:15px">đối chiếu Min/Max</text>
-<rect class="bx acc" x="464" y="337" width="412" height="126" rx="8"/>
-<text class="tt" x="670" y="368" text-anchor="middle" style="font-size:20px">Data Pruning</text>
-<text class="ts" x="670" y="397.98" text-anchor="middle" style="font-size:16.5px">Đọc metadata Min/Max của từng partition</text>
-<text class="ts" x="670" y="420.09000000000003" text-anchor="middle" style="font-size:16.5px">→ chỉ P3 giao với khoảng cần tìm</text>
-<text class="ts acc" x="670" y="442.20000000000005" text-anchor="middle" style="font-size:16.5px">→ đọc 1/5 dữ liệu</text>
-<text class="hd" x="24" y="527">HỆ QUẢ CỦA DATA PRUNING</text>
-<text class="hd" x="474" y="527">KHI NÀO PRUNING HIỆU QUẢ NHẤT</text>
-<rect class="bx gold" x="24" y="543" width="411" height="126" rx="8"/>
-<text class="tt" x="37" y="574" style="font-size:20px">Chi phí và tốc độ</text>
-<text class="ts" x="37" y="603.9799999999999" style="font-size:16.5px">↓ khối lượng đọc từ storage về CPU</text>
-<text class="ts" x="37" y="626.0899999999999" style="font-size:16.5px">↓ Compute credit — trả tiền ít hơn</text>
-<text class="ts acc" x="37" y="648.1999999999999" style="font-size:16.5px">↑ tốc độ phản hồi báo cáo, dù dữ liệu rất lớn</text>
-<rect class="bx" x="465" y="543" width="411" height="126" rx="8"/>
-<text class="tt" x="478" y="574" style="font-size:20px">Điều kiện cần</text>
-<text class="ts" x="478" y="603.9799999999999" style="font-size:16.5px">Dữ liệu sắp xếp tốt theo cột hay lọc</text>
-<text class="ts acc" x="478" y="626.0899999999999" style="font-size:16.5px">→ dẫn tới câu 7: Clustering key</text>
-<text class="ts" x="478" y="648.1999999999999" style="font-size:16.5px">Partition không chồng lấn → depth thấp</text>
+<svg viewBox="0 0 900 791" width="900" height="791" role="img" aria-label="Hai histogram của cùng dữ liệu lệch: Equal-width chia trục giá trị thành bốn khúc bằng nhau nên bin đầu chứa 62% bản ghi còn hai bin cuối gần rỗng; Equal-frequency chia sao cho mỗi bin đúng 25% bản ghi nên ba bin đầu rất hẹp">
+<text class="hd" x="24" y="26">DỮ LIỆU LỆCH — 90% KHÁCH HÀNG DỒN Ở HẠN MỨC THẤP, 10% RẢI ĐẾN RẤT CAO</text>
+<text class="ts" x="24" y="52" style="font-size:16px">Mỗi cột là một khoảng hạn mức tín dụng, chiều cao cột là số khách hàng trong khoảng đó. Cùng một dữ liệu, hai cách</text>
+<text class="ts" x="24" y="73.44" style="font-size:16px">chia bin cho hai kết quả rất khác nhau.</text>
+<text class="hd" x="24" y="138" style="font-size:15px">EQUAL-WIDTH — CHIA ĐỀU TRỤC GIÁ TRỊ</text>
+<text class="ts" x="24" y="160" style="font-size:15px">Bốn khúc cùng độ rộng → bin không đều số bản ghi</text>
+<rect class="bx acc" x="25.6" y="220.0" width="16.6" height="120.0" rx="1.5"/>
+<rect class="bx acc" x="45.4" y="272.5" width="16.6" height="67.5" rx="1.5"/>
+<rect class="bx acc" x="65.2" y="235.0" width="16.6" height="105.0" rx="1.5"/>
+<rect class="bx acc" x="85.0" y="257.5" width="16.6" height="82.5" rx="1.5"/>
+<rect class="bx acc" x="104.8" y="246.3" width="16.6" height="93.8" rx="1.5"/>
+<rect class="bx" x="124.6" y="246.3" width="16.6" height="93.8" rx="1.5"/>
+<rect class="bx" x="144.4" y="295.0" width="16.6" height="45.0" rx="1.5"/>
+<rect class="bx" x="164.2" y="302.5" width="16.6" height="37.5" rx="1.5"/>
+<rect class="bx" x="184.0" y="310.0" width="16.6" height="30.0" rx="1.5"/>
+<rect class="bx" x="203.8" y="317.5" width="16.6" height="22.5" rx="1.5"/>
+<rect class="bx" x="223.6" y="322.0" width="16.6" height="18.0" rx="1.5"/>
+<rect class="bx" x="243.4" y="326.5" width="16.6" height="13.5" rx="1.5"/>
+<rect class="bx" x="263.2" y="330.3" width="16.6" height="9.8" rx="1.5"/>
+<rect class="bx" x="283.0" y="333.3" width="16.6" height="6.8" rx="1.5"/>
+<rect class="bx" x="302.8" y="335.1" width="16.6" height="4.9" rx="1.5"/>
+<rect class="bx dim" x="322.6" y="336.6" width="16.6" height="3.4" rx="1.5"/>
+<rect class="bx dim" x="342.4" y="337.8" width="16.6" height="2.3" rx="1.5"/>
+<rect class="bx dim" x="362.2" y="338.4" width="16.6" height="1.6" rx="1.5"/>
+<rect class="bx dim" x="382.0" y="338.8" width="16.6" height="1.2" rx="1.5"/>
+<rect class="bx dim" x="401.8" y="339.1" width="16.6" height="0.9" rx="1.5"/>
+<path class="ar dash" d="M 123.0 212 L 123.0 340"/>
+<path class="ar dash" d="M 222.0 212 L 222.0 340"/>
+<path class="ar dash" d="M 321.0 212 L 321.0 340"/>
+<path class="ar" d="M 24 340 L 424 340"/>
+<rect class="bx acc" x="25.0" y="350" width="97.0" height="34" rx="4"/>
+<text class="ts acc" x="73.5" y="373" text-anchor="middle" style="font-size:15px">B1 · 61.7%</text>
+<rect class="bx dark" x="124.0" y="350" width="97.0" height="34" rx="4"/>
+<text class="ts" x="172.5" y="373" text-anchor="middle" style="font-size:15px">B2 · 30.1%</text>
+<rect class="bx dark" x="223.0" y="350" width="97.0" height="34" rx="4"/>
+<text class="ts" x="271.5" y="373" text-anchor="middle" style="font-size:15px">B3 · 7%</text>
+<rect class="bx dark" x="322.0" y="350" width="97.0" height="34" rx="4"/>
+<text class="ts" x="370.5" y="373" text-anchor="middle" style="font-size:15px">B4 · 1.2%</text>
+<text class="lbl" x="24" y="404" style="font-size:14px">hạn mức thấp</text>
+<text class="lbl" x="424" y="404" text-anchor="end" style="font-size:14px">cao →</text>
+<text class="hd" x="480" y="138" style="font-size:15px">EQUAL-FREQUENCY — CHIA ĐỀU BẢN GHI</text>
+<text class="ts" x="480" y="160" style="font-size:15px">Mỗi bin đúng 25% → bin rộng hẹp rất khác nhau</text>
+<rect class="bx acc" x="481.6" y="220.0" width="16.6" height="120.0" rx="1.5"/>
+<rect class="bx acc" x="501.4" y="272.5" width="16.6" height="67.5" rx="1.5"/>
+<rect class="bx" x="521.2" y="235.0" width="16.6" height="105.0" rx="1.5"/>
+<rect class="bx" x="541.0" y="257.5" width="16.6" height="82.5" rx="1.5"/>
+<rect class="bx" x="560.8" y="246.3" width="16.6" height="93.8" rx="1.5"/>
+<rect class="bx" x="580.6" y="246.3" width="16.6" height="93.8" rx="1.5"/>
+<rect class="bx dim" x="600.4" y="295.0" width="16.6" height="45.0" rx="1.5"/>
+<rect class="bx dim" x="620.2" y="302.5" width="16.6" height="37.5" rx="1.5"/>
+<rect class="bx dim" x="640.0" y="310.0" width="16.6" height="30.0" rx="1.5"/>
+<rect class="bx dim" x="659.8" y="317.5" width="16.6" height="22.5" rx="1.5"/>
+<rect class="bx dim" x="679.6" y="322.0" width="16.6" height="18.0" rx="1.5"/>
+<rect class="bx dim" x="699.4" y="326.5" width="16.6" height="13.5" rx="1.5"/>
+<rect class="bx dim" x="719.2" y="330.3" width="16.6" height="9.8" rx="1.5"/>
+<rect class="bx dim" x="739.0" y="333.3" width="16.6" height="6.8" rx="1.5"/>
+<rect class="bx dim" x="758.8" y="335.1" width="16.6" height="4.9" rx="1.5"/>
+<rect class="bx dim" x="778.6" y="336.6" width="16.6" height="3.4" rx="1.5"/>
+<rect class="bx dim" x="798.4" y="337.8" width="16.6" height="2.3" rx="1.5"/>
+<rect class="bx dim" x="818.2" y="338.4" width="16.6" height="1.6" rx="1.5"/>
+<rect class="bx dim" x="838.0" y="338.8" width="16.6" height="1.2" rx="1.5"/>
+<rect class="bx dim" x="857.8" y="339.1" width="16.6" height="0.9" rx="1.5"/>
+<path class="ar dash" d="M 519.6 212 L 519.6 340"/>
+<path class="ar dash" d="M 559.2 212 L 559.2 340"/>
+<path class="ar dash" d="M 598.8 212 L 598.8 340"/>
+<path class="ar" d="M 480 340 L 880 340"/>
+<rect class="bx acc" x="481.0" y="350" width="37.6" height="34" rx="4"/>
+<text class="ts acc" x="499.8" y="373" text-anchor="middle" style="font-size:15px">B1</text>
+<rect class="bx dark" x="520.6" y="350" width="37.6" height="34" rx="4"/>
+<text class="ts" x="539.4" y="373" text-anchor="middle" style="font-size:15px">B2</text>
+<rect class="bx dark" x="560.2" y="350" width="37.6" height="34" rx="4"/>
+<text class="ts" x="579" y="373" text-anchor="middle" style="font-size:15px">B3</text>
+<rect class="bx dark" x="599.8" y="350" width="275.2" height="34" rx="4"/>
+<text class="ts" x="737.4" y="373" text-anchor="middle" style="font-size:15px">B4</text>
+<text class="lbl" x="480" y="404" style="font-size:14px">hạn mức thấp</text>
+<text class="lbl" x="880" y="404" text-anchor="end" style="font-size:14px">cao →</text>
+<rect class="bx red" x="24" y="434" width="416" height="185" rx="8"/>
+<text class="tt" x="232" y="462.75" text-anchor="middle" style="font-size:17.5px">Equal-width — bin rỗng hoặc quá đông</text>
+<text class="ts acc" x="232" y="491.17" text-anchor="middle" style="font-size:16px">B1 nuốt 61.7% số khách, còn B3 và B4 chỉ có 7% và</text>
+<text class="ts acc" x="232" y="512.61" text-anchor="middle" style="font-size:16px">1.2%.</text>
+<text class="ts" x="232" y="534.0500000000001" text-anchor="middle" style="font-size:16px">Ranh giới chia theo trục giá trị nên khúc nào cũng</text>
+<text class="ts" x="232" y="555.4900000000001" text-anchor="middle" style="font-size:16px">rộng bằng nhau, bất kể chứa bao nhiêu bản ghi.</text>
+<text class="ts" x="232" y="576.9300000000002" text-anchor="middle" style="font-size:16px">Hệ quả: bin gần rỗng thì thống kê vô nghĩa, bin quá</text>
+<text class="ts" x="232" y="598.3700000000002" text-anchor="middle" style="font-size:16px">đông thì không phân biệt được khách.</text>
+<rect class="bx gold" x="460" y="434" width="416" height="185" rx="8"/>
+<text class="tt" x="668" y="462.75" text-anchor="middle" style="font-size:17.5px">Equal-frequency — bin đều số bản ghi</text>
+<text class="ts acc" x="668" y="491.17" text-anchor="middle" style="font-size:16px">Mỗi bin đúng 25% số bản ghi nên bin nào cũng đủ dữ</text>
+<text class="ts acc" x="668" y="512.61" text-anchor="middle" style="font-size:16px">liệu để tính.</text>
+<text class="ts" x="668" y="534.0500000000001" text-anchor="middle" style="font-size:16px">B1–B3 rất hẹp vì dữ liệu dồn ở hạn mức thấp; B4 trải</text>
+<text class="ts" x="668" y="555.4900000000001" text-anchor="middle" style="font-size:16px">rộng vì thưa người.</text>
+<text class="ts" x="668" y="576.9300000000002" text-anchor="middle" style="font-size:16px">Hệ quả: mọi bin đều so sánh được — lựa chọn đúng cho</text>
+<text class="ts" x="668" y="598.3700000000002" text-anchor="middle" style="font-size:16px">dữ liệu lệch.</text>
+<rect class="bx dark" x="24" y="645" width="852" height="120" rx="8"/>
+<text class="tt" x="37" y="673.75" style="font-size:17.5px">CÂU CHỐT ĐỂ NHỚ</text>
+<text class="ts" x="37" y="702.1700000000001" style="font-size:16px">Equal-width hỏi "chia TRỤC GIÁ TRỊ cho đều". Equal-frequency hỏi "chia SỐ BẢN GHI cho đều".</text>
+<text class="ts acc" x="37" y="723.6100000000001" style="font-size:16px">Dữ liệu lệch → chọn Equal-frequency. Dữ liệu gần chuẩn và cần ranh giới dễ giải thích (0–10, 10–20 triệu) →</text>
+<text class="ts acc" x="37" y="745.0500000000002" style="font-size:16px">Equal-width.</text>
 </svg>
     </div>
-    <figcaption>Micro-partition có metadata <b>Min/Max</b> cho từng cột. Câu truy vấn lọc theo khoảng chỉ cần đọc những partition giao với khoảng đó — đây chính là <b>Data Pruning</b>. Đây là lý do micro-partitioning được coi là <b>nền tảng cho khả năng quét dữ liệu cực nhanh trên Cloud</b>: cùng một bảng 1 tỷ dòng, câu truy vấn vẫn chỉ chạm vào phần dữ liệu thật sự liên quan.</figcaption>
+    <figcaption>Với dữ liệu lệch, <b>Equal-width</b> tạo ra bin rỗng hoặc quá đông nên gần như vô dụng cho phân tích: một bin nuốt 61.7% khách hàng, hai bin cuối chỉ còn 7% và 1.2%. <b>Equal-frequency</b> chia sao cho mỗi bin đúng <b>25% số bản ghi</b>, nên mọi bin đều đủ dữ liệu — đổi lại ranh giới không tròn số và ba bin đầu nén rất hẹp. Câu hỏi thi thường gài đúng chỗ này: <b>tiêu chí chia là số bản ghi hay độ rộng giá trị</b>.</figcaption>
   </figure>
 
       <div class="two">
@@ -2457,95 +2489,90 @@ hr{border:0;border-top:1px solid var(--line);margin:24px 0}
       <figure class="dg" data-zoom="read">
     <div class="figtools"><button type="button" data-figzoom="fit" aria-pressed="false">Vừa khung</button><button type="button" data-figzoom="read" aria-pressed="true">Chữ to</button><button type="button" data-figzoom="big" aria-pressed="false">Rất to</button><span class="hint">vuốt ngang nếu sơ đồ rộng hơn màn hình</span></div>
     <div class="scroll">
-<svg viewBox="0 0 900 803" width="900" height="803" role="img" aria-label="So sánh Transaction Fact ghi ba dòng cho một đơn hàng với Accumulating Snapshot chỉ một dòng và cập nhật dần các cột ngày">
-<defs><marker id="mk9A9A9A" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#9A9A9A"/></marker></defs>
-<text class="hd" x="24" y="26">TRANSACTION FACT — MỖI BƯỚC SINH MỘT DÒNG MỚI, KHÔNG BAO GIỜ SỬA</text>
-<text class="ts" x="24" y="52" style="font-size:16.5px">Ghi sự kiện thô: đặt hàng, đóng gói, giao hàng là ba sự kiện riêng → ba dòng cho cùng một đơn.</text>
-<rect class="bx dark" x="24" y="72" width="171.87755102040813" height="32" rx="3"/>
-<text class="lbl" x="109.93877551020407" y="93" text-anchor="middle" style="font-size:14.5px">order_id</text>
-<rect class="bx dark" x="197.87755102040813" y="72" width="224.04081632653063" height="32" rx="3"/>
-<text class="lbl" x="309.89795918367344" y="93" text-anchor="middle" style="font-size:14.5px">event</text>
-<rect class="bx dark" x="423.9183673469388" y="72" width="258.81632653061223" height="32" rx="3"/>
-<text class="lbl" x="553.3265306122449" y="93" text-anchor="middle" style="font-size:14.5px">event_date</text>
-<rect class="bx dark" x="684.7346938775511" y="72" width="189.26530612244898" height="32" rx="3"/>
-<text class="lbl" x="779.3673469387755" y="93" text-anchor="middle" style="font-size:14.5px">amount</text>
-<rect class="bx" x="24" y="110" width="171.87755102040813" height="32" rx="3"/>
-<text class="m" x="109.93877551020407" y="131" text-anchor="middle" style="font-size:16px">1001</text>
-<rect class="bx" x="197.87755102040813" y="110" width="224.04081632653063" height="32" rx="3"/>
-<text class="m" x="309.89795918367344" y="131" text-anchor="middle" style="font-size:16px">purchase</text>
-<rect class="bx" x="423.9183673469388" y="110" width="258.81632653061223" height="32" rx="3"/>
-<text class="m" x="553.3265306122449" y="131" text-anchor="middle" style="font-size:16px">2017-05-02</text>
-<rect class="bx" x="684.7346938775511" y="110" width="189.26530612244898" height="32" rx="3"/>
-<text class="m" x="779.3673469387755" y="131" text-anchor="middle" style="font-size:16px">120,00</text>
-<rect class="bx" x="24" y="148" width="171.87755102040813" height="32" rx="3"/>
-<text class="m" x="109.93877551020407" y="169" text-anchor="middle" style="font-size:16px">1001</text>
-<rect class="bx" x="197.87755102040813" y="148" width="224.04081632653063" height="32" rx="3"/>
-<text class="m" x="309.89795918367344" y="169" text-anchor="middle" style="font-size:16px">ship</text>
-<rect class="bx" x="423.9183673469388" y="148" width="258.81632653061223" height="32" rx="3"/>
-<text class="m" x="553.3265306122449" y="169" text-anchor="middle" style="font-size:16px">2017-05-04</text>
-<rect class="bx" x="684.7346938775511" y="148" width="189.26530612244898" height="32" rx="3"/>
-<text class="ts" x="779.3673469387755" y="169" text-anchor="middle" style="font-size:16px">—</text>
-<rect class="bx" x="24" y="186" width="171.87755102040813" height="32" rx="3"/>
-<text class="m" x="109.93877551020407" y="207" text-anchor="middle" style="font-size:16px">1001</text>
-<rect class="bx" x="197.87755102040813" y="186" width="224.04081632653063" height="32" rx="3"/>
-<text class="m" x="309.89795918367344" y="207" text-anchor="middle" style="font-size:16px">deliver</text>
-<rect class="bx" x="423.9183673469388" y="186" width="258.81632653061223" height="32" rx="3"/>
-<text class="m" x="553.3265306122449" y="207" text-anchor="middle" style="font-size:16px">2017-05-11</text>
-<rect class="bx" x="684.7346938775511" y="186" width="189.26530612244898" height="32" rx="3"/>
-<text class="ts" x="779.3673469387755" y="207" text-anchor="middle" style="font-size:16px">—</text>
-<rect class="bx red" x="24" y="236" width="852" height="49" rx="8"/>
-<text class="ts" x="37" y="264.64" style="font-size:17px">SAI nếu cần lead time ngay: phải JOIN ba dòng rồi trừ ngày — tốn một phép join, dễ sai khi thiếu dòng.</text>
-<text class="hd" x="24" y="325">ACCUMULATING SNAPSHOT — MỘT DÒNG DUY NHẤT, CÁC CỘT NGÀY ĐIỀN DẦN THEO TIẾN ĐỘ</text>
-<rect class="bx dark" x="24" y="347" width="153.65384615384616" height="32" rx="3"/>
-<text class="lbl" x="100.82692307692308" y="368" text-anchor="middle" style="font-size:14.5px">order_id</text>
-<rect class="bx dark" x="179.65384615384616" y="347" width="227.38461538461542" height="32" rx="3"/>
-<text class="lbl" x="293.34615384615387" y="368" text-anchor="middle" style="font-size:14.5px">ngay_dat</text>
-<rect class="bx dark" x="409.03846153846155" y="347" width="235.5769230769231" height="32" rx="3"/>
-<text class="lbl" x="526.8269230769231" y="368" text-anchor="middle" style="font-size:14.5px">ngay_dong_goi</text>
-<rect class="bx dark" x="646.6153846153846" y="347" width="227.38461538461542" height="32" rx="3"/>
-<text class="lbl" x="760.3076923076924" y="368" text-anchor="middle" style="font-size:14.5px">ngay_giao</text>
-<rect class="bx" x="24" y="385" width="153.65384615384616" height="32" rx="3"/>
-<text class="m" x="100.82692307692308" y="406" text-anchor="middle" style="font-size:16px">1001</text>
-<rect class="bx" x="179.65384615384616" y="385" width="227.38461538461542" height="32" rx="3"/>
-<text class="m" x="293.34615384615387" y="406" text-anchor="middle" style="font-size:16px">2017-05-02</text>
-<rect class="bx" x="409.03846153846155" y="385" width="235.5769230769231" height="32" rx="3"/>
-<text class="ts" x="526.8269230769231" y="406" text-anchor="middle" style="font-size:16px">NULL</text>
-<rect class="bx" x="646.6153846153846" y="385" width="227.38461538461542" height="32" rx="3"/>
-<text class="ts" x="760.3076923076924" y="406" text-anchor="middle" style="font-size:16px">NULL</text>
-<rect class="bx" x="24" y="423" width="153.65384615384616" height="32" rx="3"/>
-<text class="m" x="100.82692307692308" y="444" text-anchor="middle" style="font-size:16px">1001</text>
-<rect class="bx" x="179.65384615384616" y="423" width="227.38461538461542" height="32" rx="3"/>
-<text class="m" x="293.34615384615387" y="444" text-anchor="middle" style="font-size:16px">2017-05-02</text>
-<rect class="bx" x="409.03846153846155" y="423" width="235.5769230769231" height="32" rx="3"/>
-<text class="m" x="526.8269230769231" y="444" text-anchor="middle" style="font-size:16px">2017-05-04</text>
-<rect class="bx" x="646.6153846153846" y="423" width="227.38461538461542" height="32" rx="3"/>
-<text class="ts" x="760.3076923076924" y="444" text-anchor="middle" style="font-size:16px">NULL</text>
-<rect class="bx" x="24" y="461" width="153.65384615384616" height="32" rx="3"/>
-<text class="m" x="100.82692307692308" y="482" text-anchor="middle" style="font-size:16px">1001</text>
-<rect class="bx" x="179.65384615384616" y="461" width="227.38461538461542" height="32" rx="3"/>
-<text class="m" x="293.34615384615387" y="482" text-anchor="middle" style="font-size:16px">2017-05-02</text>
-<rect class="bx" x="409.03846153846155" y="461" width="235.5769230769231" height="32" rx="3"/>
-<text class="m" x="526.8269230769231" y="482" text-anchor="middle" style="font-size:16px">2017-05-04</text>
-<rect class="bx" x="646.6153846153846" y="461" width="227.38461538461542" height="32" rx="3"/>
-<text class="m" x="760.3076923076924" y="482" text-anchor="middle" style="font-size:16px">2017-05-11</text>
-<rect class="bx gold" x="24" y="511" width="852" height="72" rx="8"/>
-<text class="ts" x="37" y="539.64" style="font-size:17px">ĐÚNG cho bài toán lead time: lead = ngay_giao − ngay_dat = 11/05 − 02/05 = 9 ngày. Một phép trừ, không</text>
-<text class="ts" x="37" y="562.42" style="font-size:17px">JOIN.</text>
-<rect class="zone" x="24" y="645" width="852" height="132" rx="10"/>
-<text class="hd" x="40" y="669">CÙNG MỘT QUY TRÌNH — HAI CÁCH GHI KHÁC NHAU</text>
-<path class="ar" d="M 70 713 L 830 713" marker-end="url(#mk9A9A9A)"/>
-<circle cx="170" cy="713" r="7" fill="#C1121F"/>
-<text class="ts" x="170" y="693" text-anchor="middle" style="font-size:16.5px">đặt hàng</text>
-<circle cx="430" cy="713" r="7" fill="#C1121F"/>
-<text class="ts" x="430" y="693" text-anchor="middle" style="font-size:16.5px">đóng gói / giao vận</text>
-<circle cx="700" cy="713" r="7" fill="#C1121F"/>
-<text class="ts" x="700" y="693" text-anchor="middle" style="font-size:16.5px">giao xong</text>
-<text class="ts acc" x="300" y="739" text-anchor="middle" style="font-size:16px">lead time 1</text>
-<text class="ts acc" x="565" y="739" text-anchor="middle" style="font-size:16px">lead time 2</text>
-<text class="ts acc" x="430" y="763" text-anchor="middle" style="font-size:16.5px">tổng lead time = 9 ngày</text>
+<svg viewBox="0 0 900 954" width="900" height="954" role="img" aria-label="Rời rạc hoá biến số dư liên tục thành bốn nhãn Standard, Silver, Gold, Diamond và phân cấp khái niệm từ chi nhánh Quận 1 lên TP.HCM, Miền Nam, Việt Nam">
+<rect class="zone" x="24" y="434" width="852.1" height="352" rx="10"/>
+<defs><marker id="mkC1121F" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#C1121F"/></marker></defs>
+<text class="hd" x="24" y="26">PHẦN 1 — RỜI RẠC HOÁ: TỪ SỐ LIÊN TỤC SANG NHÃN</text>
+<rect class="bx dark" x="24" y="44" width="304.5771081276379" height="36" rx="3"/>
+<text class="lbl" x="176.28855406381896" y="67" text-anchor="middle" style="font-size:15px">Số dư (triệu đồng) — liên tục</text>
+<rect class="bx dark" x="331.5771081276379" y="44" width="177.01262087434333" height="36" rx="3"/>
+<text class="lbl" x="420.08341856480956" y="67" text-anchor="middle" style="font-size:15px">Khoảng giá trị</text>
+<rect class="bx dark" x="511.58972900198125" y="44" width="153.56326659984063" height="36" rx="3"/>
+<text class="lbl" x="588.3713623019016" y="67" text-anchor="middle" style="font-size:15px">Nhãn rời rạc</text>
+<rect class="bx dark" x="668.1529956018219" y="44" width="204.84700439817803" height="36" rx="3"/>
+<text class="lbl" x="770.5764978009109" y="67" text-anchor="middle" style="font-size:15px">Ý nghĩa</text>
+<rect class="bx" x="24" y="83" width="304.5771081276379" height="36" rx="3"/>
+<text class="m" x="176.28855406381896" y="106" text-anchor="middle" style="font-size:15px">1,2 · 8,5</text>
+<rect class="bx" x="331.5771081276379" y="83" width="177.01262087434333" height="36" rx="3"/>
+<text class="m" x="420.08341856480956" y="106" text-anchor="middle" style="font-size:15px">&lt; 10</text>
+<rect class="bx acc" x="511.58972900198125" y="83" width="153.56326659984063" height="36" rx="3"/>
+<text class="ts acc" x="588.3713623019016" y="106" text-anchor="middle" style="font-size:15.5px">Standard</text>
+<rect class="bx" x="668.1529956018219" y="83" width="204.84700439817803" height="36" rx="3"/>
+<text class="ts" x="770.5764978009109" y="106" text-anchor="middle" style="font-size:15.5px">khách phổ thông</text>
+<rect class="bx" x="24" y="122" width="304.5771081276379" height="36" rx="3"/>
+<text class="m" x="176.28855406381896" y="145" text-anchor="middle" style="font-size:15px">25 · 48</text>
+<rect class="bx" x="331.5771081276379" y="122" width="177.01262087434333" height="36" rx="3"/>
+<text class="m" x="420.08341856480956" y="145" text-anchor="middle" style="font-size:15px">10 – 50</text>
+<rect class="bx acc" x="511.58972900198125" y="122" width="153.56326659984063" height="36" rx="3"/>
+<text class="ts acc" x="588.3713623019016" y="145" text-anchor="middle" style="font-size:15.5px">Silver</text>
+<rect class="bx" x="668.1529956018219" y="122" width="204.84700439817803" height="36" rx="3"/>
+<text class="ts" x="770.5764978009109" y="145" text-anchor="middle" style="font-size:15.5px">khách thân thiết</text>
+<rect class="bx" x="24" y="161" width="304.5771081276379" height="36" rx="3"/>
+<text class="m" x="176.28855406381896" y="184" text-anchor="middle" style="font-size:15px">92 · 140</text>
+<rect class="bx" x="331.5771081276379" y="161" width="177.01262087434333" height="36" rx="3"/>
+<text class="m" x="420.08341856480956" y="184" text-anchor="middle" style="font-size:15px">50 – 200</text>
+<rect class="bx acc" x="511.58972900198125" y="161" width="153.56326659984063" height="36" rx="3"/>
+<text class="ts acc" x="588.3713623019016" y="184" text-anchor="middle" style="font-size:15.5px">Gold</text>
+<rect class="bx" x="668.1529956018219" y="161" width="204.84700439817803" height="36" rx="3"/>
+<text class="ts" x="770.5764978009109" y="184" text-anchor="middle" style="font-size:15.5px">khách cao cấp</text>
+<rect class="bx" x="24" y="200" width="304.5771081276379" height="36" rx="3"/>
+<text class="m" x="176.28855406381896" y="223" text-anchor="middle" style="font-size:15px">380 · 1.050</text>
+<rect class="bx" x="331.5771081276379" y="200" width="177.01262087434333" height="36" rx="3"/>
+<text class="m" x="420.08341856480956" y="223" text-anchor="middle" style="font-size:15px">≥ 200</text>
+<rect class="bx acc" x="511.58972900198125" y="200" width="153.56326659984063" height="36" rx="3"/>
+<text class="ts acc" x="588.3713623019016" y="223" text-anchor="middle" style="font-size:15.5px">Diamond</text>
+<rect class="bx" x="668.1529956018219" y="200" width="204.84700439817803" height="36" rx="3"/>
+<text class="ts" x="770.5764978009109" y="223" text-anchor="middle" style="font-size:15.5px">khách VIP</text>
+<rect class="bx dark" x="24" y="256" width="852" height="120" rx="8"/>
+<text class="tt" x="37" y="284.75" style="font-size:17.5px">VÌ SAO PHẢI RỜI RẠC HOÁ</text>
+<text class="ts" x="37" y="313.17" style="font-size:16px">Số dư là biến liên tục gần như không trùng nhau — mỗi khách một giá trị riêng. Đổi thành 4 nhãn thì:</text>
+<text class="ts acc" x="37" y="334.61" style="font-size:16px">Giảm số giá trị phân biệt → thuật toán chạy nhanh hơn, luật kết hợp và cây quyết định mới dùng được.</text>
+<text class="ts" x="37" y="356.05" style="font-size:16px">Mỗi nhãn là một khái niệm đọc hiểu được: báo cáo nói "Gold chiếm 12%" thay vì liệt kê từng số dư.</text>
+<text class="hd" x="24" y="418">PHẦN 2 — PHÂN CẤP KHÁI NIỆM (CONCEPT HIERARCHY): CÀNG LÊN CÀNG TỔNG QUÁT</text>
+<rect class="bx" x="28" y="724" width="196" height="40" rx="6"/>
+<text class="ts" x="126" y="750" text-anchor="middle" font-weight="700" style="font-size:15.5px">Chi nhánh Quận 1</text>
+<rect class="bx" x="232" y="724" width="196" height="40" rx="6"/>
+<text class="ts" x="330" y="750" text-anchor="middle" font-weight="700" style="font-size:15.5px">Chi nhánh Quận 7</text>
+<rect class="bx" x="562" y="724" width="196" height="40" rx="6"/>
+<text class="ts" x="660" y="750" text-anchor="middle" font-weight="700" style="font-size:15.5px">Chi nhánh Hải Châu</text>
+<rect class="bx acc" x="58" y="648" width="340" height="40" rx="6"/>
+<text class="ts" x="228" y="674" text-anchor="middle" font-weight="700" style="font-size:15.5px">TP. Hồ Chí Minh</text>
+<rect class="bx acc" x="490" y="648" width="340" height="40" rx="6"/>
+<text class="ts" x="660" y="674" text-anchor="middle" font-weight="700" style="font-size:15.5px">Đà Nẵng</text>
+<rect class="bx" x="58" y="572" width="340" height="40" rx="6"/>
+<text class="ts" x="228" y="598" text-anchor="middle" font-weight="700" style="font-size:15.5px">Miền Nam</text>
+<rect class="bx" x="490" y="572" width="340" height="40" rx="6"/>
+<text class="ts" x="660" y="598" text-anchor="middle" font-weight="700" style="font-size:15.5px">Miền Trung</text>
+<rect class="bx gold" x="274" y="496" width="340" height="40" rx="6"/>
+<text class="ts" x="444" y="522" text-anchor="middle" font-weight="700" style="font-size:17.5px">VIỆT NAM</text>
+<path class="ar hl" d="M 126 719 L 126 706 L 228 706 L 228 693" marker-end="url(#mkC1121F)"/>
+<path class="ar hl" d="M 330 719 L 330 706 L 228 706 L 228 693" marker-end="url(#mkC1121F)"/>
+<path class="ar hl" d="M 660 719 L 660 706 L 660 706 L 660 693" marker-end="url(#mkC1121F)"/>
+<path class="ar hl" d="M 228 643 L 228 630 L 228 630 L 228 617" marker-end="url(#mkC1121F)"/>
+<path class="ar hl" d="M 660 643 L 660 630 L 660 630 L 660 617" marker-end="url(#mkC1121F)"/>
+<path class="ar hl" d="M 228 567 L 228 554 L 444 554 L 444 541" marker-end="url(#mkC1121F)"/>
+<path class="ar hl" d="M 660 567 L 660 554 L 444 554 L 444 541" marker-end="url(#mkC1121F)"/>
+<text class="hd" x="40" y="458"> </text>
+<text class="hd" x="40" y="460" style="font-size:15px">BỐN CẤP — MỖI BƯỚC LÊN LÀ MỘT BƯỚC TỔNG QUÁT HOÁ</text>
+<text class="lbl" x="876" y="460" text-anchor="end" style="font-size:14px">đi lên = tổng quát hoá · đi xuống = chi tiết hoá</text>
+<rect class="bx dark" x="24" y="808" width="852" height="120" rx="8"/>
+<text class="tt" x="37" y="836.75" style="font-size:17.5px">PHÂN CẤP ĐỂ LÀM GÌ</text>
+<text class="ts acc" x="37" y="865.1700000000001" style="font-size:16px">Cuộn lên: gộp số liệu chi tiết thành con số tổng hợp (doanh thu Quận 1 → TP.HCM → Miền Nam → cả nước).</text>
+<text class="ts" x="37" y="886.6100000000001" style="font-size:16px">Cuộn xuống: từ một con số tổng hợp, khoan sâu vào đơn vị chi tiết để tìm nguyên nhân.</text>
+<text class="ts" x="37" y="908.0500000000002" style="font-size:16px">Đây chính là cơ chế drill-down / roll-up trong OLAP — và cũng là nghĩa "đa cấp" ở câu 39.</text>
 </svg>
     </div>
-    <figcaption>Điểm mấu chốt của câu 8: Accumulating Snapshot <b>chứa nhiều cột ngày ứng với nhiều cột mốc nghiệp vụ</b> và cập nhật dần các cột đó khi quy trình tiến triển — nhờ vậy tính lead time bằng <b>một phép trừ</b>. Transaction Fact thì mỗi bước là một dòng riêng: chi tiết nhất nhưng muốn tính lead time phải JOIN nhiều dòng. Đề hay hỏi đúng chỗ này — <b>chọn loại fact nào là do câu hỏi phân tích quyết định</b>, không phải do dữ liệu.</figcaption>
+    <figcaption><b>Rời rạc hoá</b> biến số liên tục thành nhãn: số dư 8,5 triệu và 25 triệu vốn là hai con số khác nhau, sau khi chia khoảng thì cùng thuộc một nhóm đọc hiểu được. <b>Phân cấp khái niệm</b> đi xa hơn một bước: tổ chức các giá trị thành tầng bậc từ <b>chi nhánh Quận 1 → TP.HCM → Miền Nam → Việt Nam</b>. Cả hai đều nhằm <b>giảm số giá trị phân biệt</b> để thuật toán khai phá chạy được và kết quả diễn giải được — đó là lý do câu 24 và câu 39 thường được hỏi cùng nhau.</figcaption>
   </figure>
 
       <h5>Vì sao phải rời rạc hoá — bốn lý do</h5>
@@ -2596,58 +2623,75 @@ hr{border:0;border-top:1px solid var(--line);margin:24px 0}
       <figure class="dg" data-zoom="read">
     <div class="figtools"><button type="button" data-figzoom="fit" aria-pressed="false">Vừa khung</button><button type="button" data-figzoom="read" aria-pressed="true">Chữ to</button><button type="button" data-figzoom="big" aria-pressed="false">Rất to</button><span class="hint">vuốt ngang nếu sơ đồ rộng hơn màn hình</span></div>
     <div class="scroll">
-<svg viewBox="0 0 900 740" width="900" height="740" role="img" aria-label="Bridge Table biến quan hệ nhiều nhiều giữa đơn hàng và sản phẩm thành hai quan hệ một nhiều, kèm cảnh báo bùng nổ số dòng">
-<defs><marker id="mkC1121F" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#C1121F"/></marker></defs>
+<svg viewBox="0 0 900 742" width="900" height="742" role="img" aria-label="PCA tìm trục PC1 có phương sai lớn nhất để chiếu dữ liệu hai chiều xuống một chiều, kèm ví dụ rút gọn 1.000 mã cổ phiếu thành 10 thành phần chính cho mô hình VaR">
 <defs><marker id="mk9A9A9A" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#9A9A9A"/></marker></defs>
-<text class="hd" x="24" y="26">NỐI THẲNG — SAI</text>
-<text class="ts" x="24" y="52" style="font-size:16.5px">Một đơn hàng có nhiều sản phẩm, một sản phẩm nằm trong nhiều đơn → quan hệ nhiều-nhiều (N–N).</text>
-<rect class="bx dim" x="24" y="74" width="240" height="148" rx="8"/>
-<text class="tt" x="144" y="105" text-anchor="middle" style="font-size:20px">Đơn hàng</text>
-<text class="ts" x="144" y="134.98" text-anchor="middle" style="font-size:16.5px">1 đơn · 3 sản phẩm</text>
-<rect class="bx dim" x="330" y="74" width="240" height="148" rx="8"/>
-<text class="tt" x="450" y="105" text-anchor="middle" style="font-size:20px">Sản phẩm</text>
-<text class="ts" x="450" y="134.98" text-anchor="middle" style="font-size:16.5px">3 sản phẩm · N đơn</text>
-<rect class="bx red" x="636" y="74" width="240" height="148" rx="8"/>
-<text class="tt" x="649" y="105" style="font-size:20px">Hệ quả</text>
-<text class="ts" x="649" y="134.98" style="font-size:16.5px">Mỗi dòng fact bị nhân bản</text>
-<text class="ts" x="649" y="157.09" style="font-size:16.5px">theo số sản phẩm</text>
-<text class="ts acc" x="649" y="179.20000000000002" style="font-size:16.5px">→ doanh thu bị đếm trùng</text>
-<text class="ts" x="649" y="201.31000000000003" style="font-size:16.5px">SUM(amount) sai gấp ba lần</text>
-<path class="ar" d="M 270 143 L 324 143" marker-end="url(#mk9A9A9A)"/>
-<path class="ar" d="M 324 169 L 270 169" marker-end="url(#mk9A9A9A)"/>
-<text class="ts warn" x="297" y="126" text-anchor="middle" style="font-size:15px">N–N</text>
-<text class="hd" x="24" y="270">DÙNG BRIDGE TABLE — ĐÚNG</text>
-<text class="ts" x="24" y="296" style="font-size:16.5px">Chèn bảng trung gian: mỗi dòng là một cặp (order_id, product_id) → hai quan hệ 1–N thay cho một N–N.</text>
-<rect class="bx" x="24" y="322" width="234" height="106" rx="8"/>
-<text class="tt" x="141" y="353" text-anchor="middle" style="font-size:20px">Đơn hàng</text>
-<text class="ts" x="141" y="382.98" text-anchor="middle" style="font-size:16.5px">order_id</text>
-<rect class="bx acc" x="332" y="322" width="234" height="106" rx="8"/>
-<text class="tt" x="449" y="353" text-anchor="middle" style="font-size:20px">BRIDGE</text>
-<text class="ts" x="449" y="382.98" text-anchor="middle" style="font-size:16.5px">order_id + product_id</text>
-<text class="ts acc" x="449" y="405.09000000000003" text-anchor="middle" style="font-size:16.5px">mỗi dòng = 1 cặp</text>
-<rect class="bx" x="640" y="322" width="234" height="106" rx="8"/>
-<text class="tt" x="757" y="353" text-anchor="middle" style="font-size:20px">Sản phẩm</text>
-<text class="ts" x="757" y="382.98" text-anchor="middle" style="font-size:16.5px">product_id</text>
-<path class="ar hl" d="M 264 375 L 326 375" marker-end="url(#mkC1121F)"/>
-<path class="ar hl" d="M 572 375 L 634 375" marker-end="url(#mkC1121F)"/>
-<text class="ts acc" x="295" y="363" text-anchor="middle" style="font-size:15px">1–N</text>
-<text class="ts acc" x="603" y="363" text-anchor="middle" style="font-size:15px">1–N</text>
-<rect class="bx dark" x="24" y="454" width="411" height="104" rx="8"/>
-<text class="tt" x="37" y="485" style="font-size:20px">Số dòng bridge</text>
-<text class="ts" x="37" y="514.98" style="font-size:16.5px">= số cặp liên kết thật sự</text>
-<text class="ts" x="37" y="537.0899999999999" style="font-size:16.5px">1 đơn × 3 sản phẩm → 3 dòng</text>
-<rect class="bx gold" x="465" y="454" width="411" height="104" rx="8"/>
-<text class="tt" x="478" y="485" style="font-size:20px">Muốn SUM doanh thu?</text>
-<text class="ts" x="478" y="514.98" style="font-size:16.5px">Fact lưu ở mức đơn hàng, bridge chỉ để lọc/nối</text>
-<text class="ts acc" x="478" y="537.0899999999999" style="font-size:16.5px">→ không nhân bản dòng fact</text>
-<rect class="bx red" x="24" y="588" width="852" height="126" rx="8"/>
-<text class="tt" x="37" y="619" style="font-size:20px">LƯU Ý: Bridge Table có thể gây BÙNG NỔ DỮ LIỆU</text>
-<text class="ts" x="37" y="648.9799999999999" style="font-size:16.5px">Số dòng bằng số cặp liên kết. Với bảng lớn, số cặp tăng theo cấp số nhân — 1 triệu đơn × 50 sản phẩm = 50</text>
-<text class="ts" x="37" y="671.0899999999999" style="font-size:16.5px">triệu dòng bridge.</text>
-<text class="ts acc" x="37" y="693.1999999999999" style="font-size:16.5px">Slide xếp Bridge Table vào nhóm kỹ thuật nâng cao cho yêu cầu phức tạp, phải cân nhắc chi phí.</text>
+<text class="hd" x="24" y="26">PCA KHÔNG CHỌN CỘT — NÓ TẠO TRỤC MỚI</text>
+<path class="ar dash" d="M 78 378 L 78 128"/>
+<path class="ar dash" d="M 78 378 L 398 378"/>
+<path class="ar dash" d="M 184.66666666666669 378 L 184.66666666666669 128"/>
+<path class="ar dash" d="M 78 294.6666666666667 L 398 294.6666666666667"/>
+<path class="ar dash" d="M 291.33333333333337 378 L 291.33333333333337 128"/>
+<path class="ar dash" d="M 78 211.33333333333334 L 398 211.33333333333334"/>
+<path class="ar dash" d="M 398 378 L 398 128"/>
+<path class="ar dash" d="M 78 128 L 398 128"/>
+<path class="ar" d="M 78 378 L 414 378" marker-end="url(#mk9A9A9A)"/>
+<path class="ar" d="M 78 378 L 78 114" marker-end="url(#mk9A9A9A)"/>
+<text class="m" x="406" y="402" text-anchor="middle" style="font-size:16px">x₁</text>
+<text class="m" x="60" y="124" text-anchor="middle" style="font-size:16px">x₂</text>
+<circle cx="122.8" cy="338.0" r="4.6" fill="#C1121F" opacity="0.85"/>
+<circle cx="154.8" cy="323.0" r="4.6" fill="#C1121F" opacity="0.85"/>
+<circle cx="183.6" cy="300.5" r="4.6" fill="#C1121F" opacity="0.85"/>
+<circle cx="209.2" cy="283.0" r="4.6" fill="#C1121F" opacity="0.85"/>
+<circle cx="238.0" cy="260.5" r="4.6" fill="#C1121F" opacity="0.85"/>
+<circle cx="263.6" cy="240.5" r="4.6" fill="#C1121F" opacity="0.85"/>
+<circle cx="292.4" cy="220.5" r="4.6" fill="#C1121F" opacity="0.85"/>
+<circle cx="318.0" cy="203.0" r="4.6" fill="#C1121F" opacity="0.85"/>
+<circle cx="346.8" cy="178.0" r="4.6" fill="#C1121F" opacity="0.85"/>
+<circle cx="372.4" cy="158.0" r="4.6" fill="#C1121F" opacity="0.85"/>
+<circle cx="167.6" cy="293.0" r="4.6" fill="#C1121F" opacity="0.85"/>
+<circle cx="225.2" cy="278.0" r="4.6" fill="#C1121F" opacity="0.85"/>
+<circle cx="276.4" cy="208.0" r="4.6" fill="#C1121F" opacity="0.85"/>
+<circle cx="305.2" cy="228.0" r="4.6" fill="#C1121F" opacity="0.85"/>
+<circle cx="199.6" cy="318.0" r="4.6" fill="#C1121F" opacity="0.85"/>
+<circle cx="334.0" cy="198.0" r="4.6" fill="#C1121F" opacity="0.85"/>
+<path class="ar hl" d="M 90.8 370.5 L 391.6 135.5" stroke-width="2.6"/>
+<text class="ts acc" x="387.6" y="161.5" text-anchor="end" style="font-size:15.5px">PC1 — giữ lại</text>
+<path class="ar" stroke-dasharray="6 4" stroke="#B07010" stroke-width="1.8" fill="none" d="M 246 349 L 358 237"/>
+<text class="ts warn" x="246" y="371" style="font-size:15px">PC2 — bỏ được</text>
+<text class="lbl" x="66" y="402" style="font-size:14px">0</text>
+<rect class="bx" x="24" y="424" width="408" height="142" rx="8"/>
+<text class="tt" x="37" y="452.75" style="font-size:17.5px">Đọc hình thế nào</text>
+<text class="ts acc" x="37" y="481.17" style="font-size:16px">PC1 là hướng dữ liệu trải dài nhất — chiếu mọi điểm</text>
+<text class="ts acc" x="37" y="502.61" style="font-size:16px">lên PC1 thì mất ít thông tin nhất.</text>
+<text class="ts" x="37" y="524.05" style="font-size:16px">PC2 vuông góc với PC1 nên chỉ hứng phần phương</text>
+<text class="ts" x="37" y="545.49" style="font-size:16px">sai rất nhỏ → bỏ được, số chiều từ 2 xuống 1.</text>
+<text class="hd" x="452" y="26">VÍ DỤ TRONG SLIDE — RỦI RO DANH MỤC</text>
+<rect class="bx dark" x="452" y="44" width="424" height="120" rx="8"/>
+<text class="tt" x="664" y="72.75" text-anchor="middle" style="font-size:17.5px">Bài toán</text>
+<text class="ts" x="664" y="101.17" text-anchor="middle" style="font-size:16px">Danh mục 1.000 mã cổ phiếu → 1.000 biến số.</text>
+<text class="ts" x="664" y="122.61" text-anchor="middle" style="font-size:16px">Mô hình VaR phải mô phỏng quá nhiều chiều nên chạy</text>
+<text class="ts" x="664" y="144.05" text-anchor="middle" style="font-size:16px">rất chậm.</text>
+<rect class="bx acc" x="452" y="178" width="424" height="120" rx="8"/>
+<text class="tt" x="664" y="206.75" text-anchor="middle" style="font-size:17.5px">PCA làm gì</text>
+<text class="ts acc" x="664" y="235.17" text-anchor="middle" style="font-size:16px">1.000 biến → 10 thành phần chính.</text>
+<text class="ts" x="664" y="256.61" text-anchor="middle" style="font-size:16px">10 thành phần này đại diện cho các yếu tố vĩ mô</text>
+<text class="ts" x="664" y="278.05" text-anchor="middle" style="font-size:16px">chung (lãi suất, tỷ giá, chỉ số thị trường).</text>
+<rect class="bx" x="452" y="312" width="424" height="99" rx="8"/>
+<text class="tt" x="664" y="340.75" text-anchor="middle" style="font-size:17.5px">Kết hợp Sampling phân tầng</text>
+<text class="ts" x="664" y="369.17" text-anchor="middle" style="font-size:16px">Chọn các kịch bản tiêu biểu thay vì mô phỏng mọi tổ</text>
+<text class="ts" x="664" y="390.61" text-anchor="middle" style="font-size:16px">hợp — giảm tiếp số tình huống phải tính.</text>
+<rect class="bx gold" x="452" y="425" width="424" height="99" rx="8"/>
+<text class="tt" x="664" y="453.75" text-anchor="middle" style="font-size:17.5px">Kết quả</text>
+<text class="ts acc" x="664" y="482.17" text-anchor="middle" style="font-size:16px">Mô hình VaR chạy nhanh hơn khoảng 100 lần mà vẫn</text>
+<text class="ts acc" x="664" y="503.61" text-anchor="middle" style="font-size:16px">đảm bảo độ tin cậy cao.</text>
+<rect class="bx dark" x="24" y="596" width="852" height="120" rx="8"/>
+<text class="tt" x="37" y="624.75" style="font-size:17.5px">PCA KHÁC FEATURE SELECTION Ở CHỖ NÀO — CÂU HỎI HAY BỊ GÀI</text>
+<text class="ts" x="37" y="653.1700000000001" style="font-size:16px">Feature Selection: bỏ hẳn một số cột, giữ nguyên nghĩa từng cột còn lại (chọn 10 trong 1.000 mã).</text>
+<text class="ts acc" x="37" y="674.6100000000001" style="font-size:16px">PCA: tạo 10 TRỤC MỚI, mỗi trục là tổ hợp tuyến tính của cả 1.000 cột — không trục nào ứng với một mã cụ thể.</text>
+<text class="ts" x="37" y="696.0500000000002" style="font-size:16px">Đánh đổi: PCA giữ được nhiều thông tin hơn nhưng mất khả năng diễn giải trực tiếp ("thành phần 1" là gì?).</text>
 </svg>
     </div>
-    <figcaption>Bridge Table biến quan hệ <b>N–N</b> thành hai quan hệ <b>1–N</b>, nhờ đó mỗi dòng fact không bị nhân bản và phép SUM doanh thu không còn đếm trùng. Cái giá phải trả là <b>số dòng tăng nhanh</b> — nên slide xếp nó vào nhóm <b>kỹ thuật nâng cao cho yêu cầu phức tạp</b> kèm cảnh báo bùng nổ dữ liệu.</figcaption>
+    <figcaption>PCA không đi tìm cột quan trọng nhất — nó <b>tạo trục mới</b> là tổ hợp tuyến tính của các cột cũ, sao cho phương sai trên trục đó lớn nhất. Chiếu 16 điểm hai chiều xuống PC1 thì gần như không mất gì, vì dữ liệu vốn đã trải dài theo hướng đó; bỏ PC2 chỉ mất phần biến thiên rất nhỏ. Đây chính là điểm khác <b>Feature Selection</b> — và là lý do câu 25 hay hỏi "PCA có chọn cột không?".</figcaption>
   </figure>
 
       <h5>Phân biệt với các kỹ thuật giảm dữ liệu khác (dễ hỏi lẫn)</h5>
@@ -3201,57 +3245,53 @@ hr{border:0;border-top:1px solid var(--line);margin:24px 0}
   <figure class="dg" data-zoom="read">
     <div class="figtools"><button type="button" data-figzoom="fit" aria-pressed="false">Vừa khung</button><button type="button" data-figzoom="read" aria-pressed="true">Chữ to</button><button type="button" data-figzoom="big" aria-pressed="false">Rất to</button><span class="hint">vuốt ngang nếu sơ đồ rộng hơn màn hình</span></div>
     <div class="scroll">
-<svg viewBox="0 0 900 691" width="900" height="691" role="img" aria-label="Pipeline ELT gồm bốn chặng Extract and Load, Orchestration bằng Airflow, Transform bằng dbt và Jinja, Data Testing; ba loại kiểm thử Schema Tests, Singular Tests, Data Contracts">
-<defs><marker id="mkC1121F" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#C1121F"/></marker></defs>
-<text class="hd" x="24" y="26">PIPELINE ELT — BỐN CHẶNG NỐI TIẾP</text>
-<rect class="bx" x="24" y="46" width="400" height="142" rx="8"/>
-<text class="tt" x="224" y="74.75" text-anchor="middle" style="font-size:17.5px">1. Extract &amp; Load</text>
-<text class="ts" x="224" y="103.17" text-anchor="middle" style="font-size:16px">Batch · Streaming · CDC</text>
-<text class="ts" x="224" y="124.61" text-anchor="middle" style="font-size:16px">Zero-ETL: Storage Mirroring (câu 15) · Metadata</text>
-<text class="ts" x="224" y="146.05" text-anchor="middle" style="font-size:16px">Sharing</text>
-<text class="ts acc" x="224" y="167.49" text-anchor="middle" style="font-size:16px">→ dữ liệu thô vào tầng Bronze / Raw</text>
-<rect class="bx" x="24" y="226" width="400" height="142" rx="8"/>
-<text class="tt" x="224" y="254.75" text-anchor="middle" style="font-size:17.5px">2. Orchestration</text>
-<text class="ts acc" x="224" y="283.17" text-anchor="middle" style="font-size:16px">Apache Airflow (câu 14)</text>
-<text class="ts" x="224" y="304.61" text-anchor="middle" style="font-size:16px">DAG Directed + Acyclic quyết định thứ tự task</text>
-<text class="ts" x="224" y="326.05" text-anchor="middle" style="font-size:16px">Retry · cảnh báo · audit log</text>
-<text class="ts acc" x="224" y="347.49" text-anchor="middle" style="font-size:16px">Task độc lập → chạy song song</text>
-<rect class="bx acc" x="24" y="406" width="400" height="120" rx="8"/>
-<text class="tt" x="224" y="434.75" text-anchor="middle" style="font-size:17.5px">3. Transform — dbt + Jinja (câu 13)</text>
-<text class="ts" x="224" y="463.17" text-anchor="middle" style="font-size:16px">Viết SQL một lần, biến đổi hàng loạt model</text>
-<text class="ts" x="224" y="484.61" text-anchor="middle" style="font-size:16px">Macro · SQL động · ref() tự tạo DAG</text>
-<text class="ts" x="224" y="506.05" text-anchor="middle" style="font-size:16px">Quản lý môi trường Dev / Test / Prod</text>
-<rect class="bx gold" x="24" y="564" width="400" height="99" rx="8"/>
-<text class="tt" x="224" y="592.75" text-anchor="middle" style="font-size:17.5px">4. Data Testing — gác cửa</text>
-<text class="ts" x="224" y="621.1700000000001" text-anchor="middle" style="font-size:16px">Chạy test trước khi cho phép ghi ra production</text>
-<text class="ts acc" x="224" y="642.6100000000001" text-anchor="middle" style="font-size:16px">Test hỏng → dừng pipeline, không giao dữ liệu sai</text>
-<path class="ar hl" d="M 224 192 L 224 221" marker-end="url(#mkC1121F)"/>
-<path class="ar hl" d="M 224 372 L 224 401" marker-end="url(#mkC1121F)"/>
-<path class="ar hl" d="M 224 530 L 224 559" marker-end="url(#mkC1121F)"/>
-<text class="hd" x="462" y="26">BA LOẠI KIỂM THỬ — CHI TIẾT CỦA CHẶNG 4</text>
-<rect class="bx" x="462" y="46" width="414" height="120" rx="8"/>
-<text class="tt" x="669" y="74.75" text-anchor="middle" style="font-size:17.5px">Schema Tests</text>
-<text class="ts" x="669" y="103.17" text-anchor="middle" style="font-size:16px">Khai báo bằng YAML cho từng cột:</text>
-<text class="ts acc" x="669" y="124.61" text-anchor="middle" style="font-size:16px">not null · unique · accepted values · relationships</text>
-<text class="ts" x="669" y="146.05" text-anchor="middle" style="font-size:16px">Kiểm tra cấu trúc, chạy lại được nhiều lần</text>
-<rect class="bx" x="462" y="188" width="414" height="120" rx="8"/>
-<text class="tt" x="669" y="216.75" text-anchor="middle" style="font-size:17.5px">Singular Tests</text>
-<text class="ts" x="669" y="245.17" text-anchor="middle" style="font-size:16px">Mỗi quy tắc viết một câu SQL riêng</text>
-<text class="ts acc" x="669" y="266.61" text-anchor="middle" style="font-size:16px">Kiểm tra quy tắc nghiệp vụ đặc thù</text>
-<text class="ts" x="669" y="288.05" text-anchor="middle" style="font-size:16px">SQL trả về 0 dòng nghĩa là đạt</text>
-<rect class="bx" x="462" y="330" width="414" height="120" rx="8"/>
-<text class="tt" x="669" y="358.75" text-anchor="middle" style="font-size:17.5px">Data Contracts</text>
-<text class="ts" x="669" y="387.17" text-anchor="middle" style="font-size:16px">Ràng buộc giữa đội cung cấp dữ liệu và đội phân tích</text>
-<text class="ts acc" x="669" y="408.61" text-anchor="middle" style="font-size:16px">Chốt schema + kiểu dữ liệu trước khi bàn giao</text>
-<text class="ts" x="669" y="430.05" text-anchor="middle" style="font-size:16px">Đổi contract phải báo trước, không sửa lặng lẽ</text>
-<rect class="bx red" x="462" y="476" width="414" height="120" rx="8"/>
-<text class="tt" x="475" y="504.75" style="font-size:17.5px">LƯU Ý — BA VAI KHÁC NHAU</text>
-<text class="ts" x="475" y="533.1700000000001" style="font-size:16px">Airflow KHÔNG biến đổi dữ liệu — nó chỉ ra lệnh chạy.</text>
-<text class="ts" x="475" y="554.6100000000001" style="font-size:16px">dbt KHÔNG lập lịch — nó chỉ viết và sinh SQL.</text>
-<text class="ts" x="475" y="576.0500000000002" style="font-size:16px">Test KHÔNG sửa dữ liệu — nó chỉ chặn cửa.</text>
+<svg viewBox="0 0 900 490" width="900" height="490" role="img" aria-label="Đồ thị 5 trang có hướng dùng cho bài PageRank, kèm out-degree và in-link">
+<defs><marker id="mk9A9A9A" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#9A9A9A"/></marker></defs>
+<text class="hd" x="24" y="26">ĐỒ THỊ 5 TRANG — MŨI TÊN LÀ CHIỀU LIÊN KẾT</text>
+<text class="hd" x="500" y="26">ĐỌC ĐỒ THỊ TRƯỚC KHI TÍNH</text>
+<path class="ar" d="M 201.89513910454417 145.03397245277563 L 340.114847647404 135.24850636124575" marker-end="url(#mk9A9A9A)"/>
+<path class="ar" d="M 386 174 L 386 348" marker-end="url(#mk9A9A9A)"/>
+<path class="ar" d="M 243.1379870974202 239.88935416030654 L 190.8620129025798 182.11064583969346" marker-end="url(#mk9A9A9A)"/>
+<path class="ar" d="M 302.48714064873326 237.88237524892745 L 357.51285935126674 168.11762475107255" marker-end="url(#mk9A9A9A)"/>
+<path class="ar" d="M 235.2166672173539 298.7356645002823 Q 192.2873197052198 326.1156202979782 189.7991281814282 329.24753711375274" marker-end="url(#mk9A9A9A)"/>
+<path class="ar" d="M 298.3720124790686 313.01288258665494 Q 318.3031157081141 344.9170920057602 321.54149685538295 347.26504591182686" marker-end="url(#mk9A9A9A)"/>
+<path class="ar" d="M 167.410869062416 379.41526284756833 Q 213.7126802947802 349.8843797020218 216.2008718185718 346.75246288624726" marker-end="url(#mk9A9A9A)"/>
+<path class="ar" d="M 173.81545918898576 405.9328580973978 Q 259.5036872404302 413.9920698836588 263.45464779189194 413.36764156848307" marker-end="url(#mk9A9A9A)"/>
+<path class="ar" d="M 344.18454081101424 390.0671419026022 Q 258.4963127595698 382.0079301163412 254.54535220810806 382.63235843151693" marker-end="url(#mk9A9A9A)"/>
+<path class="ar" d="M 363.74729295389386 358.37954198609765 Q 341.6968842918859 323.0829079942398 338.45850314461705 320.73495408817314" marker-end="url(#mk9A9A9A)"/>
+<circle class="nd" cx="160" cy="148" r="42"/>
+<text class="mb" x="160" y="150" text-anchor="middle" style="font-size:26px">1</text>
+<circle class="nd" cx="386" cy="132" r="42"/>
+<text class="mb" x="386" y="134" text-anchor="middle" style="font-size:26px">2</text>
+<circle class="nd hi" cx="274" cy="274" r="46"/>
+<text class="mb" x="274" y="276" text-anchor="middle" style="font-size:26px">3</text>
+<circle class="nd" cx="132" cy="402" r="42"/>
+<text class="mb" x="132" y="404" text-anchor="middle" style="font-size:26px">4</text>
+<circle class="nd" cx="386" cy="394" r="42"/>
+<text class="mb" x="386" y="396" text-anchor="middle" style="font-size:26px">5</text>
+<text class="ts acc" x="160" y="88" text-anchor="middle" style="font-size:15.5px">C(1) = 1</text>
+<text class="ts acc" x="386" y="68" text-anchor="middle" style="font-size:15.5px">C(2) = 1</text>
+<text class="ts acc" x="274" y="350" text-anchor="middle" style="font-size:15.5px">C(3) = 4</text>
+<text class="ts acc" x="58" y="348" text-anchor="middle" style="font-size:15.5px">C(4) = 2</text>
+<text class="ts acc" x="386" y="344" text-anchor="middle" style="font-size:15.5px">C(5) = 2</text>
+<text class="ts" x="24" y="468" style="font-size:15px">Page 3 quan trọng nhất về mặt truyền giá trị: nó trỏ ra 4 nơi nên mỗi liên kết chỉ truyền 1/4 giá trị của nó.</text>
+<rect class="bx dark" x="500" y="44" width="376" height="160" rx="8"/>
+<text class="tt" x="688" y="73.2" text-anchor="middle" style="font-size:18px">Ai trỏ TỚI mỗi trang (in-link)?</text>
+<text class="ts" x="688" y="101.38000000000001" text-anchor="middle" style="font-size:15.5px">Page 1 ← chỉ từ 3</text>
+<text class="ts" x="688" y="122.15" text-anchor="middle" style="font-size:15.5px">Page 2 ← từ 1 và 3</text>
+<text class="ts" x="688" y="142.92" text-anchor="middle" style="font-size:15.5px">Page 3 ← từ 4 và 5</text>
+<text class="ts" x="688" y="163.69" text-anchor="middle" style="font-size:15.5px">Page 4 ← từ 3 và 5</text>
+<text class="ts" x="688" y="184.46" text-anchor="middle" style="font-size:15.5px">Page 5 ← từ 2, 3, 4</text>
+<rect class="bx acc" x="500" y="240" width="376" height="160" rx="8"/>
+<text class="tt" x="688" y="269.2" text-anchor="middle" style="font-size:18px">Công thức</text>
+<text class="ts acc" x="688" y="297.38" text-anchor="middle" style="font-size:15.5px">PR(n) = 1 − d + d · Σ PR(m)/C(m)</text>
+<text class="ts" x="688" y="318.15" text-anchor="middle" style="font-size:15.5px">m là mọi trang trỏ tới n</text>
+<text class="ts" x="688" y="338.91999999999996" text-anchor="middle" style="font-size:15.5px">C(m) là số liên kết ĐI RA từ m</text>
+<text class="ts acc" x="688" y="359.68999999999994" text-anchor="middle" style="font-size:15.5px">d = 0,85 → 1 − d = 0,15</text>
+<text class="ts" x="688" y="380.4599999999999" text-anchor="middle" style="font-size:15.5px">Khởi tạo: PR = 1 cho mọi trang</text>
 </svg>
     </div>
-    <figcaption>Bốn câu 12–15 nằm ở bốn chặng của <b>cùng một pipeline</b>: Airflow <b>điều phối</b> thứ tự, dbt/Jinja <b>sinh</b> SQL, Data Testing <b>gác cửa</b>, Zero-ETL <b>nạp</b> dữ liệu vào Bronze. Chỗ đề hay gài: <b>Schema Tests</b> kiểm tra điều kiện cấu trúc khai báo bằng YAML, còn <b>Singular Tests</b> là câu SQL tự viết cho quy tắc nghiệp vụ riêng; <b>Data Contracts</b> ràng buộc <b>giữa hai đội</b> chứ không phải giữa hai bảng. Ba lớp này bổ sung chứ không thay thế nhau.</figcaption>
+    <figcaption>Phải đọc đúng <b>chiều mũi tên</b> — đây là chỗ sai nhiều nhất. Page 3 có <b>out-degree = 4</b> (trỏ ra 4 nơi) nên mỗi liên kết từ 3 chỉ truyền <b>1/4</b> giá trị của nó. Công thức chỉ cộng các trang <b>trỏ tới</b> n, không phải các trang n trỏ tới.</figcaption>
   </figure>
 
   <div class="formula">
@@ -3359,54 +3399,149 @@ hr{border:0;border-top:1px solid var(--line);margin:24px 0}
       <figure class="dg" data-zoom="read">
     <div class="figtools"><button type="button" data-figzoom="fit" aria-pressed="false">Vừa khung</button><button type="button" data-figzoom="read" aria-pressed="true">Chữ to</button><button type="button" data-figzoom="big" aria-pressed="false">Rất to</button><span class="hint">vuốt ngang nếu sơ đồ rộng hơn màn hình</span></div>
     <div class="scroll">
-<svg viewBox="0 0 900 501.08" width="900" height="501.08" role="img" aria-label="Một mẫu Jinja dùng vòng lặp for được biên dịch thành câu SQL dài gồm ba khối select nối bằng union all">
-<defs><marker id="mkC1121F" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#C1121F"/></marker></defs>
-<text class="hd" x="24" y="26">MẪU JINJA — VIẾT MỘT LẦN</text>
-<text class="hd" x="424" y="26">SQL THỰC THI — SAU KHI BIÊN DỊCH</text>
-<rect class="bx acc" x="424" y="46" width="452" height="206.07999999999998" rx="8"/>
-<text class="m" x="439" y="75.26" style="font-size:15.5px">select '1' as thang, sum(revenue) ...</text>
-<text class="m" x="439" y="97.27" style="font-size:15.5px">  from mart_sales where month = 1</text>
-<text class="m" x="439" y="119.27999999999999" style="font-size:15.5px">union all</text>
-<text class="m" x="439" y="141.28999999999996" style="font-size:15.5px">select '2' as thang, sum(revenue) ...</text>
-<text class="m" x="439" y="163.29999999999995" style="font-size:15.5px">  from mart_sales where month = 2</text>
-<text class="m" x="439" y="185.30999999999995" style="font-size:15.5px">union all</text>
-<text class="m" x="439" y="207.31999999999994" style="font-size:15.5px">select '3' as thang, sum(revenue) ...</text>
-<text class="m" x="439" y="229.32999999999993" style="font-size:15.5px">  from mart_sales where month = 3</text>
-<rect class="bx" x="24" y="46" width="286" height="206.07999999999998" rx="8"/>
-<text class="m" x="39" y="75.26" style="font-size:15.5px">{% for m in range(1, 4) %}</text>
-<text class="m" x="39" y="97.27" style="font-size:15.5px">select</text>
-<text class="m" x="39" y="119.27999999999999" style="font-size:15.5px">  '{{ m }}' as thang,</text>
-<text class="m" x="39" y="141.28999999999996" style="font-size:15.5px">  sum(revenue) as doanh_thu</text>
-<text class="m" x="39" y="163.29999999999995" style="font-size:15.5px">from {{ ref('mart_sales') }}</text>
-<text class="m" x="39" y="185.30999999999995" style="font-size:15.5px">where month = {{ m }}</text>
-<text class="m" x="39" y="207.31999999999994" style="font-size:15.5px">{% endfor %}</text>
-<path class="ar hl" d="M 316 149.04 L 416 149.04" marker-end="url(#mkC1121F)"/>
-<text class="ts acc" x="366" y="135.04" text-anchor="middle" style="font-size:15px">biên dịch</text>
-<text class="ts" x="366" y="181.04" text-anchor="middle" style="font-size:15px">3 vòng</text>
-<text class="ts" x="366" y="201.04" text-anchor="middle" style="font-size:15px">→ 3 khối</text>
-<text class="hd" x="24" y="294.08">CẦN NHỚ VỀ JINJA</text>
-<rect class="bx" x="24" y="312.08" width="272" height="163" rx="8"/>
-<text class="tt" x="160" y="340.83" text-anchor="middle" style="font-size:17.5px">Nó là gì</text>
-<text class="ts acc" x="160" y="369.25" text-anchor="middle" style="font-size:16px">Templating engine viết bằng</text>
-<text class="ts acc" x="160" y="390.69" text-anchor="middle" style="font-size:16px">Python, chạy TRƯỚC khi câu SQL</text>
-<text class="ts acc" x="160" y="412.13" text-anchor="middle" style="font-size:16px">tới database.</text>
-<text class="ts" x="160" y="433.57" text-anchor="middle" style="font-size:16px">Sinh mã — không phải ngôn ngữ</text>
-<text class="ts" x="160" y="455.01" text-anchor="middle" style="font-size:16px">truy vấn.</text>
-<rect class="bx gold" x="314" y="312.08" width="272" height="163" rx="8"/>
-<text class="tt" x="450" y="340.83" text-anchor="middle" style="font-size:17.5px">Lợi ích thật</text>
-<text class="ts acc" x="450" y="369.25" text-anchor="middle" style="font-size:16px">Giảm hơn 50% số dòng code dư</text>
-<text class="ts acc" x="450" y="390.69" text-anchor="middle" style="font-size:16px">thừa so với viết tay.</text>
-<text class="ts" x="450" y="412.13" text-anchor="middle" style="font-size:16px">Không còn lỗi copy-paste khi</text>
-<text class="ts" x="450" y="433.57" text-anchor="middle" style="font-size:16px">nhân bản khối SQL.</text>
-<rect class="bx red" x="604" y="312.08" width="272" height="163" rx="8"/>
-<text class="tt" x="740" y="340.83" text-anchor="middle" style="font-size:17.5px">Lạm dụng thì SAI</text>
-<text class="ts acc" x="740" y="369.25" text-anchor="middle" style="font-size:16px">Nhồi logic nghiệp vụ phức tạp vào</text>
-<text class="ts acc" x="740" y="390.69" text-anchor="middle" style="font-size:16px">template → khó đọc, khó test.</text>
-<text class="ts" x="740" y="412.13" text-anchor="middle" style="font-size:16px">Nên để logic trong SQL, chỉ dùng</text>
-<text class="ts" x="740" y="433.57" text-anchor="middle" style="font-size:16px">Jinja để sinh lặp.</text>
+<svg viewBox="0 0 900 600" width="900" height="600" role="img" aria-label="Cấu trúc CPT gồm Prediction Tree, Inverted Index và Lookup Table">
+<defs><marker id="mk5F8A3E" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#5F8A3E"/></marker></defs>
+<text class="hd" x="24" y="26">1. PREDICTION TREE — NÉN CHUỖI THÀNH CÂY TIỀN TỐ</text>
+<text class="hd" x="520" y="26">2. INVERTED INDEX</text>
+<path class="ar g" d="M 260 97 L 90 139" marker-end="url(#mk5F8A3E)"/>
+<path class="ar g" d="M 260 97 L 205 139" marker-end="url(#mk5F8A3E)"/>
+<path class="ar g" d="M 260 97 L 320 139" marker-end="url(#mk5F8A3E)"/>
+<path class="ar g" d="M 260 97 L 430 139" marker-end="url(#mk5F8A3E)"/>
+<path class="ar g" d="M 90 177 L 90 219" marker-end="url(#mk5F8A3E)"/>
+<path class="ar g" d="M 205 177 L 205 219" marker-end="url(#mk5F8A3E)"/>
+<path class="ar g" d="M 320 177 L 320 219" marker-end="url(#mk5F8A3E)"/>
+<path class="ar g" d="M 430 177 L 430 219" marker-end="url(#mk5F8A3E)"/>
+<path class="ar g" d="M 90 257 L 90 299" marker-end="url(#mk5F8A3E)"/>
+<path class="ar g" d="M 205 257 L 205 299" marker-end="url(#mk5F8A3E)"/>
+<path class="ar g" d="M 320 257 L 320 299" marker-end="url(#mk5F8A3E)"/>
+<path class="ar g" d="M 430 257 L 430 299" marker-end="url(#mk5F8A3E)"/>
+<ellipse class="nd" cx="260" cy="78" rx="30" ry="17"/>
+<text class="ts" x="260" y="83" text-anchor="middle" style="font-size:16px">root</text>
+<ellipse class="nd" cx="90" cy="158" rx="30" ry="17"/>
+<text class="ts" x="90" y="163" text-anchor="middle" style="font-size:16px">A</text>
+<ellipse class="nd" cx="205" cy="158" rx="30" ry="17"/>
+<text class="ts" x="205" y="163" text-anchor="middle" style="font-size:16px">D</text>
+<ellipse class="nd" cx="320" cy="158" rx="30" ry="17"/>
+<text class="ts" x="320" y="163" text-anchor="middle" style="font-size:16px">E</text>
+<ellipse class="nd" cx="430" cy="158" rx="30" ry="17"/>
+<text class="ts" x="430" y="163" text-anchor="middle" style="font-size:16px">E</text>
+<ellipse class="nd" cx="90" cy="238" rx="30" ry="17"/>
+<text class="ts" x="90" y="243" text-anchor="middle" style="font-size:16px">B</text>
+<ellipse class="nd" cx="205" cy="238" rx="30" ry="17"/>
+<text class="ts" x="205" y="243" text-anchor="middle" style="font-size:16px">C</text>
+<ellipse class="nd hi" cx="320" cy="238" rx="30" ry="17"/>
+<text class="ts" x="320" y="243" text-anchor="middle" style="font-size:16px">A</text>
+<ellipse class="nd" cx="430" cy="238" rx="30" ry="17"/>
+<text class="ts" x="430" y="243" text-anchor="middle" style="font-size:16px">G</text>
+<ellipse class="nd" cx="90" cy="318" rx="30" ry="17"/>
+<text class="ts" x="90" y="323" text-anchor="middle" style="font-size:16px">C</text>
+<ellipse class="nd" cx="205" cy="318" rx="30" ry="17"/>
+<text class="ts" x="205" y="323" text-anchor="middle" style="font-size:16px">B</text>
+<ellipse class="nd" cx="320" cy="318" rx="30" ry="17"/>
+<text class="ts" x="320" y="323" text-anchor="middle" style="font-size:16px">D</text>
+<ellipse class="nd" cx="430" cy="318" rx="30" ry="17"/>
+<text class="ts" x="430" y="323" text-anchor="middle" style="font-size:16px">A</text>
+<text class="ts" x="24" y="380" style="font-size:15px">Mỗi nhánh root → lá là một chuỗi.</text>
+<text class="ts" x="24" y="400" style="font-size:15px">Tiền tố chung được chia sẻ nên cây gọn hơn danh sách chuỗi.</text>
+<rect class="bx dark" x="520" y="48" width="57.333333333333336" height="30" rx="3"/>
+<text class="ts" x="548.6666666666666" y="69" text-anchor="middle" style="font-size:15px">item</text>
+<rect class="bx dark" x="579.3333333333334" y="48" width="57.333333333333336" height="30" rx="3"/>
+<text class="ts" x="608" y="69" text-anchor="middle" style="font-size:15px">s1</text>
+<rect class="bx dark" x="638.6666666666666" y="48" width="57.333333333333336" height="30" rx="3"/>
+<text class="ts" x="667.3333333333333" y="69" text-anchor="middle" style="font-size:15px">s2</text>
+<rect class="bx dark" x="698" y="48" width="57.333333333333336" height="30" rx="3"/>
+<text class="ts" x="726.6666666666666" y="69" text-anchor="middle" style="font-size:15px">s3</text>
+<rect class="bx dark" x="757.3333333333334" y="48" width="57.333333333333336" height="30" rx="3"/>
+<text class="ts" x="786" y="69" text-anchor="middle" style="font-size:15px">s4</text>
+<rect class="bx dark" x="816.6666666666667" y="48" width="57.333333333333336" height="30" rx="3"/>
+<text class="ts" x="845.3333333333334" y="69" text-anchor="middle" style="font-size:15px">s5</text>
+<rect class="bx" x="520" y="81" width="57.333333333333336" height="30" rx="3"/>
+<text class="ts" x="548.6666666666666" y="102" text-anchor="middle" style="font-size:15px">A</text>
+<rect class="bx acc" x="579.3333333333334" y="81" width="57.333333333333336" height="30" rx="3"/>
+<text class="ts acc" x="608" y="102" text-anchor="middle" style="font-size:15px">1</text>
+<rect class="bx acc" x="638.6666666666666" y="81" width="57.333333333333336" height="30" rx="3"/>
+<text class="ts acc" x="667.3333333333333" y="102" text-anchor="middle" style="font-size:15px">1</text>
+<rect class="bx acc" x="698" y="81" width="57.333333333333336" height="30" rx="3"/>
+<text class="ts acc" x="726.6666666666666" y="102" text-anchor="middle" style="font-size:15px">1</text>
+<rect class="bx" x="757.3333333333334" y="81" width="57.333333333333336" height="30" rx="3"/>
+<text class="ts" x="786" y="102" text-anchor="middle" style="font-size:15px">0</text>
+<rect class="bx acc" x="816.6666666666667" y="81" width="57.333333333333336" height="30" rx="3"/>
+<text class="ts acc" x="845.3333333333334" y="102" text-anchor="middle" style="font-size:15px">1</text>
+<rect class="bx" x="520" y="114" width="57.333333333333336" height="30" rx="3"/>
+<text class="ts" x="548.6666666666666" y="135" text-anchor="middle" style="font-size:15px">B</text>
+<rect class="bx acc" x="579.3333333333334" y="114" width="57.333333333333336" height="30" rx="3"/>
+<text class="ts acc" x="608" y="135" text-anchor="middle" style="font-size:15px">1</text>
+<rect class="bx acc" x="638.6666666666666" y="114" width="57.333333333333336" height="30" rx="3"/>
+<text class="ts acc" x="667.3333333333333" y="135" text-anchor="middle" style="font-size:15px">1</text>
+<rect class="bx acc" x="698" y="114" width="57.333333333333336" height="30" rx="3"/>
+<text class="ts acc" x="726.6666666666666" y="135" text-anchor="middle" style="font-size:15px">1</text>
+<rect class="bx acc" x="757.3333333333334" y="114" width="57.333333333333336" height="30" rx="3"/>
+<text class="ts acc" x="786" y="135" text-anchor="middle" style="font-size:15px">1</text>
+<rect class="bx acc" x="816.6666666666667" y="114" width="57.333333333333336" height="30" rx="3"/>
+<text class="ts acc" x="845.3333333333334" y="135" text-anchor="middle" style="font-size:15px">1</text>
+<rect class="bx" x="520" y="147" width="57.333333333333336" height="30" rx="3"/>
+<text class="ts" x="548.6666666666666" y="168" text-anchor="middle" style="font-size:15px">C</text>
+<rect class="bx acc" x="579.3333333333334" y="147" width="57.333333333333336" height="30" rx="3"/>
+<text class="ts acc" x="608" y="168" text-anchor="middle" style="font-size:15px">1</text>
+<rect class="bx" x="638.6666666666666" y="147" width="57.333333333333336" height="30" rx="3"/>
+<text class="ts" x="667.3333333333333" y="168" text-anchor="middle" style="font-size:15px">0</text>
+<rect class="bx acc" x="698" y="147" width="57.333333333333336" height="30" rx="3"/>
+<text class="ts acc" x="726.6666666666666" y="168" text-anchor="middle" style="font-size:15px">1</text>
+<rect class="bx acc" x="757.3333333333334" y="147" width="57.333333333333336" height="30" rx="3"/>
+<text class="ts acc" x="786" y="168" text-anchor="middle" style="font-size:15px">1</text>
+<rect class="bx" x="816.6666666666667" y="147" width="57.333333333333336" height="30" rx="3"/>
+<text class="ts" x="845.3333333333334" y="168" text-anchor="middle" style="font-size:15px">0</text>
+<rect class="bx" x="520" y="180" width="57.333333333333336" height="30" rx="3"/>
+<text class="ts" x="548.6666666666666" y="201" text-anchor="middle" style="font-size:15px">D</text>
+<rect class="bx" x="579.3333333333334" y="180" width="57.333333333333336" height="30" rx="3"/>
+<text class="ts" x="608" y="201" text-anchor="middle" style="font-size:15px">0</text>
+<rect class="bx" x="638.6666666666666" y="180" width="57.333333333333336" height="30" rx="3"/>
+<text class="ts" x="667.3333333333333" y="201" text-anchor="middle" style="font-size:15px">0</text>
+<rect class="bx acc" x="698" y="180" width="57.333333333333336" height="30" rx="3"/>
+<text class="ts acc" x="726.6666666666666" y="201" text-anchor="middle" style="font-size:15px">1</text>
+<rect class="bx" x="757.3333333333334" y="180" width="57.333333333333336" height="30" rx="3"/>
+<text class="ts" x="786" y="201" text-anchor="middle" style="font-size:15px">0</text>
+<rect class="bx" x="816.6666666666667" y="180" width="57.333333333333336" height="30" rx="3"/>
+<text class="ts" x="845.3333333333334" y="201" text-anchor="middle" style="font-size:15px">0</text>
+<rect class="bx" x="520" y="213" width="57.333333333333336" height="30" rx="3"/>
+<text class="ts" x="548.6666666666666" y="234" text-anchor="middle" style="font-size:15px">E</text>
+<rect class="bx" x="579.3333333333334" y="213" width="57.333333333333336" height="30" rx="3"/>
+<text class="ts" x="608" y="234" text-anchor="middle" style="font-size:15px">0</text>
+<rect class="bx" x="638.6666666666666" y="213" width="57.333333333333336" height="30" rx="3"/>
+<text class="ts" x="667.3333333333333" y="234" text-anchor="middle" style="font-size:15px">0</text>
+<rect class="bx" x="698" y="213" width="57.333333333333336" height="30" rx="3"/>
+<text class="ts" x="726.6666666666666" y="234" text-anchor="middle" style="font-size:15px">0</text>
+<rect class="bx" x="757.3333333333334" y="213" width="57.333333333333336" height="30" rx="3"/>
+<text class="ts" x="786" y="234" text-anchor="middle" style="font-size:15px">0</text>
+<rect class="bx acc" x="816.6666666666667" y="213" width="57.333333333333336" height="30" rx="3"/>
+<text class="ts acc" x="845.3333333333334" y="234" text-anchor="middle" style="font-size:15px">1</text>
+<rect class="bx dark" x="520" y="268" width="356" height="118" rx="8"/>
+<text class="tt" x="698" y="296.3" text-anchor="middle" style="font-size:17px">Ý nghĩa</text>
+<text class="ts" x="698" y="324.03999999999996" text-anchor="middle" style="font-size:15.5px">1 = item có trong chuỗi đó</text>
+<text class="ts" x="698" y="344.80999999999995" text-anchor="middle" style="font-size:15.5px">0 = không có</text>
+<text class="ts" x="698" y="365.5799999999999" text-anchor="middle" style="font-size:15.5px">Dùng để ĐẾM nhanh ứng viên dự đoán</text>
+<text class="hd" x="24" y="424">3. LOOKUP TABLE — TRỎ TỚI LÁ CỦA TỪNG CHUỖI</text>
+<rect class="bx" x="24" y="438" width="88" height="46" rx="5"/>
+<text class="ts acc" x="68" y="458" text-anchor="middle" style="font-size:15.5px">s1</text>
+<text class="ts" x="68" y="478" text-anchor="middle" style="font-size:15px">→ lá F</text>
+<rect class="bx" x="120" y="438" width="88" height="46" rx="5"/>
+<text class="ts acc" x="164" y="458" text-anchor="middle" style="font-size:15.5px">s2</text>
+<text class="ts" x="164" y="478" text-anchor="middle" style="font-size:15px">→ lá E</text>
+<rect class="bx" x="216" y="438" width="88" height="46" rx="5"/>
+<text class="ts acc" x="260" y="458" text-anchor="middle" style="font-size:15.5px">s3</text>
+<text class="ts" x="260" y="478" text-anchor="middle" style="font-size:15px">→ lá B</text>
+<rect class="bx" x="312" y="438" width="88" height="46" rx="5"/>
+<text class="ts acc" x="356" y="458" text-anchor="middle" style="font-size:15.5px">s4</text>
+<text class="ts" x="356" y="478" text-anchor="middle" style="font-size:15px">→ lá C</text>
+<rect class="bx gold" x="430" y="432" width="446" height="136" rx="8"/>
+<text class="tt" x="442" y="459.3" style="font-size:17px">Cách dự đoán chuỗi &lt;D, C&gt;</text>
+<text class="ts" x="442" y="487.03999999999996" style="font-size:15.5px">1. Tra Lookup Table → tìm lá của chuỗi</text>
+<text class="ts" x="442" y="507.80999999999995" style="font-size:15.5px">2. Đi ngược lên theo cha → lấy chuỗi cùng hậu tố</text>
+<text class="ts" x="442" y="528.5799999999999" style="font-size:15.5px">3. Tra Inverted Index → đếm ứng viên nối tiếp</text>
+<text class="ts" x="442" y="549.3499999999999" style="font-size:15.5px">4. Chọn ứng viên có điểm cao nhất</text>
 </svg>
     </div>
-    <figcaption>Jinja <b>không phải ngôn ngữ truy vấn</b> — nó là lớp sinh mã chạy trước khi câu lệnh tới database. Database không bao giờ thấy <code>{% for %}</code>; nó chỉ nhận chuỗi <b>union all</b> đã biên dịch xong. Điểm thi nằm ở chỗ: cùng một mẫu bảy dòng sinh ra tám dòng SQL, và khi danh sách tháng đổi từ 3 lên 12 thì <b>không phải sửa một dòng SQL nào</b> — đây chính là lý do dbt dùng Jinja làm lớp biến đổi.</figcaption>
+    <figcaption>Ba thành phần bổ trợ nhau: <b>Prediction Tree</b> nén dữ liệu, <b>Lookup Table</b> cho biết lá của mỗi chuỗi, <b>Inverted Index</b> cho biết item nào có mặt trong chuỗi nào. Kết hợp cả ba mới đếm nhanh được ứng viên dự đoán.</figcaption>
   </figure>
 
       <h5>Vai trò từng thành phần</h5>
@@ -3502,71 +3637,55 @@ hr{border:0;border-top:1px solid var(--line);margin:24px 0}
   <figure class="dg" data-zoom="read">
     <div class="figtools"><button type="button" data-figzoom="fit" aria-pressed="false">Vừa khung</button><button type="button" data-figzoom="read" aria-pressed="true">Chữ to</button><button type="button" data-figzoom="big" aria-pressed="false">Rất to</button><span class="hint">vuốt ngang nếu sơ đồ rộng hơn màn hình</span></div>
     <div class="scroll">
-<svg viewBox="0 0 900 723" width="900" height="723" role="img" aria-label="DAG của Airflow cho pipeline Medallion: ingest_bronze chạy trước, hai model silver chạy song song, rồi gold_dims và gold_facts, cuối cùng là dbt test và export parquet">
+<svg viewBox="0 0 900 494" width="900" height="494" role="img" aria-label="Đồ thị dùng cho ví dụ BFS và DFS, xuất phát từ A">
 <defs><marker id="mk9A9A9A" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#9A9A9A"/></marker></defs>
-<text class="hd" x="24" y="26">DAG — DIRECTED ACYCLIC GRAPH (CÓ HƯỚNG, KHÔNG CHU TRÌNH)</text>
-<text class="hd" x="34" y="58" style="font-size:15px">BẬC 1 — nạp thô</text>
-<text class="hd" x="252" y="58" style="font-size:15px">BẬC 2 — độc lập</text>
-<text class="hd" x="450" y="58" style="font-size:15px">BẬC 3 — chờ cả hai</text>
-<text class="hd" x="648" y="58" style="font-size:15px">BẬC 4 — cửa ra</text>
-<rect class="bx acc" x="34" y="119" width="176" height="64" rx="7"/>
-<text class="tt" x="122" y="147" text-anchor="middle" style="font-size:17.5px">ingest_bronze</text>
-<text class="ts" x="122" y="170" text-anchor="middle" style="font-size:15.5px">nạp dữ liệu thô</text>
-<rect class="bx" x="252" y="72" width="156" height="64" rx="7"/>
-<text class="tt" x="330" y="100" text-anchor="middle" style="font-size:17.5px">silver_a</text>
-<text class="ts" x="330" y="123" text-anchor="middle" style="font-size:15.5px">model nhánh 1</text>
-<rect class="bx" x="252" y="166" width="156" height="64" rx="7"/>
-<text class="tt" x="330" y="194" text-anchor="middle" style="font-size:17.5px">silver_b</text>
-<text class="ts" x="330" y="217" text-anchor="middle" style="font-size:15.5px">model nhánh 2</text>
-<rect class="bx" x="450" y="72" width="158" height="64" rx="7"/>
-<text class="tt" x="529" y="100" text-anchor="middle" style="font-size:17.5px">gold_dims</text>
-<text class="ts" x="529" y="123" text-anchor="middle" style="font-size:15.5px">bảng chiều</text>
-<rect class="bx" x="450" y="166" width="158" height="64" rx="7"/>
-<text class="tt" x="529" y="194" text-anchor="middle" style="font-size:17.5px">gold_facts</text>
-<text class="ts" x="529" y="217" text-anchor="middle" style="font-size:15.5px">bảng sự kiện</text>
-<rect class="bx gold" x="648" y="72" width="176" height="64" rx="7"/>
-<text class="tt" x="736" y="100" text-anchor="middle" style="font-size:17.5px">dbt test</text>
-<text class="ts" x="736" y="123" text-anchor="middle" style="font-size:15.5px">kiểm thử dữ liệu</text>
-<rect class="bx gold" x="648" y="166" width="176" height="64" rx="7"/>
-<text class="tt" x="736" y="194" text-anchor="middle" style="font-size:17.5px">export parquet</text>
-<text class="ts" x="736" y="217" text-anchor="middle" style="font-size:15.5px">xuất cho BI</text>
-<path class="ar" d="M 215 151 L 231 151 L 231 92 L 247 92" marker-end="url(#mk9A9A9A)"/>
-<path class="ar" d="M 215 151 L 231 151 L 231 186 L 247 186" marker-end="url(#mk9A9A9A)"/>
-<path class="ar" d="M 413 104 L 429 104 L 429 92 L 445 92" marker-end="url(#mk9A9A9A)"/>
-<path class="ar" d="M 413 198 L 429 198 L 429 186 L 445 186" marker-end="url(#mk9A9A9A)"/>
-<path class="ar" d="M 613 104 L 628 104 L 628 92 L 643 92" marker-end="url(#mk9A9A9A)"/>
-<path class="ar" d="M 613 198 L 628 198 L 628 186 L 643 186" marker-end="url(#mk9A9A9A)"/>
-<rect class="bx gold" x="24" y="264" width="852" height="69" rx="8"/>
-<text class="ts acc" x="37" y="291.72" style="font-size:16px">silver_a và silver_b cùng bậc → Airflow xếp chạy SONG SONG. gold_dims / gold_facts chỉ khởi động khi CẢ HAI</text>
-<text class="ts acc" x="37" y="313.16" style="font-size:16px">nhánh silver đã xong.</text>
-<text class="hd" x="24" y="373">VÌ SAO LÀ DAG CHỨ KHÔNG PHẢI DANH SÁCH TUYẾN TÍNH</text>
-<rect class="bx" x="24" y="389" width="272" height="142" rx="8"/>
-<text class="tt" x="160" y="417.75" text-anchor="middle" style="font-size:17.5px">Directed — có hướng</text>
-<text class="ts acc" x="160" y="446.17" text-anchor="middle" style="font-size:16px">Mũi tên chỉ một chiều: task con</text>
-<text class="ts acc" x="160" y="467.61" text-anchor="middle" style="font-size:16px">chạy sau task cha.</text>
-<text class="ts" x="160" y="489.05" text-anchor="middle" style="font-size:16px">Thứ tự xác định, không nhập</text>
-<text class="ts" x="160" y="510.49" text-anchor="middle" style="font-size:16px">nhằng.</text>
-<rect class="bx" x="314" y="389" width="272" height="142" rx="8"/>
-<text class="tt" x="450" y="417.75" text-anchor="middle" style="font-size:17.5px">Acyclic — không chu trình</text>
-<text class="ts acc" x="450" y="446.17" text-anchor="middle" style="font-size:16px">Không có vòng lặp ngược về task</text>
-<text class="ts acc" x="450" y="467.61" text-anchor="middle" style="font-size:16px">cũ.</text>
-<text class="ts" x="450" y="489.05" text-anchor="middle" style="font-size:16px">Pipeline không treo vì chờ chính</text>
-<text class="ts" x="450" y="510.49" text-anchor="middle" style="font-size:16px">nó.</text>
-<rect class="bx gold" x="604" y="389" width="272" height="142" rx="8"/>
-<text class="tt" x="740" y="417.75" text-anchor="middle" style="font-size:17.5px">Hệ quả: song song hoá</text>
-<text class="ts acc" x="740" y="446.17" text-anchor="middle" style="font-size:16px">Task độc lập được chạy đồng</text>
-<text class="ts acc" x="740" y="467.61" text-anchor="middle" style="font-size:16px">thời.</text>
-<text class="ts" x="740" y="489.05" text-anchor="middle" style="font-size:16px">Hai nhánh silver → gần nửa thời</text>
-<text class="ts" x="740" y="510.49" text-anchor="middle" style="font-size:16px">gian.</text>
-<rect class="bx dark" x="24" y="555" width="852" height="142" rx="8"/>
-<text class="tt" x="37" y="583.75" style="font-size:17.5px">NẾU NỐI TUYẾN TÍNH THÌ SAO?</text>
-<text class="ts" x="37" y="612.1700000000001" style="font-size:16px">in → silver_a → silver_b → gold_dims → gold_facts → test → export: nhánh silver thứ hai phải chờ nhánh đầu xong</text>
-<text class="ts" x="37" y="633.6100000000001" style="font-size:16px">dù hai nhánh không liên quan gì nhau.</text>
-<text class="ts acc" x="37" y="655.0500000000002" style="font-size:16px">DAG cho Airflow biết chính xác task nào đang chờ task nào, nhờ đó retry đúng task hỏng mà không chạy lại cả</text>
-<text class="ts acc" x="37" y="676.4900000000002" style="font-size:16px">pipeline.</text>
+<text class="hd" x="24" y="26">CÙNG MỘT ĐỒ THỊ — XUẤT PHÁT TỪ A</text>
+<path class="ar" d="M 152.75418494086887 98.05860065702821 L 103.7095029247213 160.79017067768206" marker-end="url(#mk9A9A9A)"/>
+<path class="ar" d="M 184.40588115197073 100.00980191995123 L 219.53613582631914 158.56022637719857" marker-end="url(#mk9A9A9A)"/>
+<path class="ar" d="M 194.59037467259571 89.39079808903726 L 343.8967146598906 170.69623075538598" marker-end="url(#mk9A9A9A)"/>
+<path class="ar" d="M 76.4328210764099 212.95807491528973 L 60.648204484102976 269.1907715253832" marker-end="url(#mk9A9A9A)"/>
+<path class="ar" d="M 101.58453951125608 207.7895380900347 L 155.90338341570734 275.09767075424605" marker-end="url(#mk9A9A9A)"/>
+<path class="ar" d="M 222.95909988068658 210.77771022669552 L 190.90388585064392 271.6826168837766" marker-end="url(#mk9A9A9A)"/>
+<path class="ar" d="M 345.62377540755205 195.39653001105958 L 82.14425667708338 289.26110855878903" marker-end="url(#mk9A9A9A)"/>
+<path class="ar" d="M 80 300 L 268 300" marker-end="url(#mk9A9A9A)"/>
+<path class="ar" d="M 204 300 L 268 300" marker-end="url(#mk9A9A9A)"/>
+<circle class="nd hi" cx="170" cy="76" r="28"/>
+<text class="mb" x="170" y="83" text-anchor="middle" style="font-size:20px">A</text>
+<circle class="nd" cx="84" cy="186" r="28"/>
+<text class="mb" x="84" y="193" text-anchor="middle" style="font-size:20px">B</text>
+<circle class="nd" cx="236" cy="186" r="28"/>
+<text class="mb" x="236" y="193" text-anchor="middle" style="font-size:20px">D</text>
+<circle class="nd" cx="372" cy="186" r="28"/>
+<text class="mb" x="372" y="193" text-anchor="middle" style="font-size:20px">G</text>
+<circle class="nd" cx="52" cy="300" r="28"/>
+<text class="mb" x="52" y="307" text-anchor="middle" style="font-size:20px">E</text>
+<circle class="nd" cx="176" cy="300" r="28"/>
+<text class="mb" x="176" y="307" text-anchor="middle" style="font-size:20px">F</text>
+<circle class="nd" cx="300" cy="300" r="28"/>
+<text class="mb" x="300" y="307" text-anchor="middle" style="font-size:20px">C</text>
+<text class="lbl" x="196" y="50" text-anchor="middle" style="font-size:14px">cấp 0</text>
+<text class="lbl" x="360" y="214" text-anchor="middle" style="font-size:14px">cấp 1</text>
+<text class="lbl" x="176" y="352" text-anchor="middle" style="font-size:14px">cấp 2</text>
+<rect class="bx dark" x="430" y="44" width="446" height="202" rx="8"/>
+<text class="tt" x="443" y="73.2" style="font-size:18px">BFS — Hàng đợi FIFO</text>
+<text class="ts" x="443" y="101.38000000000001" style="font-size:15.5px">Đưa A vào hàng đợi</text>
+<text class="ts" x="443" y="122.15" style="font-size:15.5px">Lấy A → đưa B, D, G vào</text>
+<text class="ts" x="443" y="142.92" style="font-size:15.5px">Lấy B → đưa E, F vào</text>
+<text class="ts" x="443" y="163.69" style="font-size:15.5px">Lấy D → F đã thăm, bỏ qua</text>
+<text class="ts" x="443" y="184.46" style="font-size:15.5px">Lấy G → E đã thăm, bỏ qua</text>
+<text class="ts" x="443" y="205.23000000000002" style="font-size:15.5px">Lấy E, F → đưa C vào → lấy C</text>
+<text class="ts acc" x="443" y="226.00000000000003" style="font-size:15.5px">Kết quả: A, B, D, G, E, F, C</text>
+<rect class="bx dark" x="430" y="262" width="446" height="160" rx="8"/>
+<text class="tt" x="443" y="291.2" style="font-size:18px">DFS — Ngăn xếp LIFO / đệ quy</text>
+<text class="ts" x="443" y="319.38" style="font-size:15.5px">Thăm A → B → chọn E</text>
+<text class="ts" x="443" y="340.15" style="font-size:15.5px">Từ E đi G → G hết đường, quay lui</text>
+<text class="ts" x="443" y="360.91999999999996" style="font-size:15.5px">Về B, còn F → thăm F</text>
+<text class="ts" x="443" y="381.68999999999994" style="font-size:15.5px">Từ F đi C → quay lui → D</text>
+<text class="ts acc" x="443" y="402.4599999999999" style="font-size:15.5px">Kết quả: A, B, E, G, F, C, D</text>
+<text class="ts" x="24" y="452" style="font-size:15px">Quy ước: khi có nhiều lựa chọn, duyệt theo thứ tự bảng chữ cái.</text>
 </svg>
     </div>
-    <figcaption>Airflow không tự nghĩ ra thứ tự chạy — nó <b>đọc DAG</b>. <b>Directed</b> cho biết chiều phụ thuộc, <b>Acyclic</b> bảo đảm không có vòng lặp treo hệ thống. Lợi ích thực tế nằm ở chỗ Airflow nhận ra <b>silver_a và silver_b độc lập</b> nên chạy song song, còn <b>gold chỉ khởi động khi cả hai nhánh đã xong</b> — đúng ngữ nghĩa Medallion: tầng vàng không bao giờ đọc dữ liệu bạc còn đang dở.</figcaption>
+    <figcaption>Hai thứ tự duyệt khác nhau trên <b>cùng một đồ thị</b>. BFS cho A → B → D → G (cả cấp 1) rồi mới xuống cấp 2; DFS đi ngay A → B → E → G rồi mới quay lui. <b>BFS dùng hàng đợi, DFS dùng ngăn xếp</b> — đó là khác biệt duy nhất về cơ chế.</figcaption>
   </figure>
 
   <!-- ---------------- Q33 BFS ---------------- -->
@@ -3677,106 +3796,45 @@ hr{border:0;border-top:1px solid var(--line);margin:24px 0}
   <figure class="dg" data-zoom="read">
     <div class="figtools"><button type="button" data-figzoom="fit" aria-pressed="false">Vừa khung</button><button type="button" data-figzoom="read" aria-pressed="true">Chữ to</button><button type="button" data-figzoom="big" aria-pressed="false">Rất to</button><span class="hint">vuốt ngang nếu sơ đồ rộng hơn màn hình</span></div>
     <div class="scroll">
-<svg viewBox="0 0 900 791" width="900" height="791" role="img" aria-label="Hai histogram của cùng dữ liệu lệch: Equal-width chia trục giá trị thành bốn khúc bằng nhau nên bin đầu chứa 62% bản ghi còn hai bin cuối gần rỗng; Equal-frequency chia sao cho mỗi bin đúng 25% bản ghi nên ba bin đầu rất hẹp">
-<text class="hd" x="24" y="26">DỮ LIỆU LỆCH — 90% KHÁCH HÀNG DỒN Ở HẠN MỨC THẤP, 10% RẢI ĐẾN RẤT CAO</text>
-<text class="ts" x="24" y="52" style="font-size:16px">Mỗi cột là một khoảng hạn mức tín dụng, chiều cao cột là số khách hàng trong khoảng đó. Cùng một dữ liệu, hai cách</text>
-<text class="ts" x="24" y="73.44" style="font-size:16px">chia bin cho hai kết quả rất khác nhau.</text>
-<text class="hd" x="24" y="138" style="font-size:15px">EQUAL-WIDTH — CHIA ĐỀU TRỤC GIÁ TRỊ</text>
-<text class="ts" x="24" y="160" style="font-size:15px">Bốn khúc cùng độ rộng → bin không đều số bản ghi</text>
-<rect class="bx acc" x="25.6" y="220.0" width="16.6" height="120.0" rx="1.5"/>
-<rect class="bx acc" x="45.4" y="272.5" width="16.6" height="67.5" rx="1.5"/>
-<rect class="bx acc" x="65.2" y="235.0" width="16.6" height="105.0" rx="1.5"/>
-<rect class="bx acc" x="85.0" y="257.5" width="16.6" height="82.5" rx="1.5"/>
-<rect class="bx acc" x="104.8" y="246.3" width="16.6" height="93.8" rx="1.5"/>
-<rect class="bx" x="124.6" y="246.3" width="16.6" height="93.8" rx="1.5"/>
-<rect class="bx" x="144.4" y="295.0" width="16.6" height="45.0" rx="1.5"/>
-<rect class="bx" x="164.2" y="302.5" width="16.6" height="37.5" rx="1.5"/>
-<rect class="bx" x="184.0" y="310.0" width="16.6" height="30.0" rx="1.5"/>
-<rect class="bx" x="203.8" y="317.5" width="16.6" height="22.5" rx="1.5"/>
-<rect class="bx" x="223.6" y="322.0" width="16.6" height="18.0" rx="1.5"/>
-<rect class="bx" x="243.4" y="326.5" width="16.6" height="13.5" rx="1.5"/>
-<rect class="bx" x="263.2" y="330.3" width="16.6" height="9.8" rx="1.5"/>
-<rect class="bx" x="283.0" y="333.3" width="16.6" height="6.8" rx="1.5"/>
-<rect class="bx" x="302.8" y="335.1" width="16.6" height="4.9" rx="1.5"/>
-<rect class="bx dim" x="322.6" y="336.6" width="16.6" height="3.4" rx="1.5"/>
-<rect class="bx dim" x="342.4" y="337.8" width="16.6" height="2.3" rx="1.5"/>
-<rect class="bx dim" x="362.2" y="338.4" width="16.6" height="1.6" rx="1.5"/>
-<rect class="bx dim" x="382.0" y="338.8" width="16.6" height="1.2" rx="1.5"/>
-<rect class="bx dim" x="401.8" y="339.1" width="16.6" height="0.9" rx="1.5"/>
-<path class="ar dash" d="M 123.0 212 L 123.0 340"/>
-<path class="ar dash" d="M 222.0 212 L 222.0 340"/>
-<path class="ar dash" d="M 321.0 212 L 321.0 340"/>
-<path class="ar" d="M 24 340 L 424 340"/>
-<rect class="bx acc" x="25.0" y="350" width="97.0" height="34" rx="4"/>
-<text class="ts acc" x="73.5" y="373" text-anchor="middle" style="font-size:15px">B1 · 61.7%</text>
-<rect class="bx dark" x="124.0" y="350" width="97.0" height="34" rx="4"/>
-<text class="ts" x="172.5" y="373" text-anchor="middle" style="font-size:15px">B2 · 30.1%</text>
-<rect class="bx dark" x="223.0" y="350" width="97.0" height="34" rx="4"/>
-<text class="ts" x="271.5" y="373" text-anchor="middle" style="font-size:15px">B3 · 7%</text>
-<rect class="bx dark" x="322.0" y="350" width="97.0" height="34" rx="4"/>
-<text class="ts" x="370.5" y="373" text-anchor="middle" style="font-size:15px">B4 · 1.2%</text>
-<text class="lbl" x="24" y="404" style="font-size:14px">hạn mức thấp</text>
-<text class="lbl" x="424" y="404" text-anchor="end" style="font-size:14px">cao →</text>
-<text class="hd" x="480" y="138" style="font-size:15px">EQUAL-FREQUENCY — CHIA ĐỀU BẢN GHI</text>
-<text class="ts" x="480" y="160" style="font-size:15px">Mỗi bin đúng 25% → bin rộng hẹp rất khác nhau</text>
-<rect class="bx acc" x="481.6" y="220.0" width="16.6" height="120.0" rx="1.5"/>
-<rect class="bx acc" x="501.4" y="272.5" width="16.6" height="67.5" rx="1.5"/>
-<rect class="bx" x="521.2" y="235.0" width="16.6" height="105.0" rx="1.5"/>
-<rect class="bx" x="541.0" y="257.5" width="16.6" height="82.5" rx="1.5"/>
-<rect class="bx" x="560.8" y="246.3" width="16.6" height="93.8" rx="1.5"/>
-<rect class="bx" x="580.6" y="246.3" width="16.6" height="93.8" rx="1.5"/>
-<rect class="bx dim" x="600.4" y="295.0" width="16.6" height="45.0" rx="1.5"/>
-<rect class="bx dim" x="620.2" y="302.5" width="16.6" height="37.5" rx="1.5"/>
-<rect class="bx dim" x="640.0" y="310.0" width="16.6" height="30.0" rx="1.5"/>
-<rect class="bx dim" x="659.8" y="317.5" width="16.6" height="22.5" rx="1.5"/>
-<rect class="bx dim" x="679.6" y="322.0" width="16.6" height="18.0" rx="1.5"/>
-<rect class="bx dim" x="699.4" y="326.5" width="16.6" height="13.5" rx="1.5"/>
-<rect class="bx dim" x="719.2" y="330.3" width="16.6" height="9.8" rx="1.5"/>
-<rect class="bx dim" x="739.0" y="333.3" width="16.6" height="6.8" rx="1.5"/>
-<rect class="bx dim" x="758.8" y="335.1" width="16.6" height="4.9" rx="1.5"/>
-<rect class="bx dim" x="778.6" y="336.6" width="16.6" height="3.4" rx="1.5"/>
-<rect class="bx dim" x="798.4" y="337.8" width="16.6" height="2.3" rx="1.5"/>
-<rect class="bx dim" x="818.2" y="338.4" width="16.6" height="1.6" rx="1.5"/>
-<rect class="bx dim" x="838.0" y="338.8" width="16.6" height="1.2" rx="1.5"/>
-<rect class="bx dim" x="857.8" y="339.1" width="16.6" height="0.9" rx="1.5"/>
-<path class="ar dash" d="M 519.6 212 L 519.6 340"/>
-<path class="ar dash" d="M 559.2 212 L 559.2 340"/>
-<path class="ar dash" d="M 598.8 212 L 598.8 340"/>
-<path class="ar" d="M 480 340 L 880 340"/>
-<rect class="bx acc" x="481.0" y="350" width="37.6" height="34" rx="4"/>
-<text class="ts acc" x="499.8" y="373" text-anchor="middle" style="font-size:15px">B1</text>
-<rect class="bx dark" x="520.6" y="350" width="37.6" height="34" rx="4"/>
-<text class="ts" x="539.4" y="373" text-anchor="middle" style="font-size:15px">B2</text>
-<rect class="bx dark" x="560.2" y="350" width="37.6" height="34" rx="4"/>
-<text class="ts" x="579" y="373" text-anchor="middle" style="font-size:15px">B3</text>
-<rect class="bx dark" x="599.8" y="350" width="275.2" height="34" rx="4"/>
-<text class="ts" x="737.4" y="373" text-anchor="middle" style="font-size:15px">B4</text>
-<text class="lbl" x="480" y="404" style="font-size:14px">hạn mức thấp</text>
-<text class="lbl" x="880" y="404" text-anchor="end" style="font-size:14px">cao →</text>
-<rect class="bx red" x="24" y="434" width="416" height="185" rx="8"/>
-<text class="tt" x="232" y="462.75" text-anchor="middle" style="font-size:17.5px">Equal-width — bin rỗng hoặc quá đông</text>
-<text class="ts acc" x="232" y="491.17" text-anchor="middle" style="font-size:16px">B1 nuốt 61.7% số khách, còn B3 và B4 chỉ có 7% và</text>
-<text class="ts acc" x="232" y="512.61" text-anchor="middle" style="font-size:16px">1.2%.</text>
-<text class="ts" x="232" y="534.0500000000001" text-anchor="middle" style="font-size:16px">Ranh giới chia theo trục giá trị nên khúc nào cũng</text>
-<text class="ts" x="232" y="555.4900000000001" text-anchor="middle" style="font-size:16px">rộng bằng nhau, bất kể chứa bao nhiêu bản ghi.</text>
-<text class="ts" x="232" y="576.9300000000002" text-anchor="middle" style="font-size:16px">Hệ quả: bin gần rỗng thì thống kê vô nghĩa, bin quá</text>
-<text class="ts" x="232" y="598.3700000000002" text-anchor="middle" style="font-size:16px">đông thì không phân biệt được khách.</text>
-<rect class="bx gold" x="460" y="434" width="416" height="185" rx="8"/>
-<text class="tt" x="668" y="462.75" text-anchor="middle" style="font-size:17.5px">Equal-frequency — bin đều số bản ghi</text>
-<text class="ts acc" x="668" y="491.17" text-anchor="middle" style="font-size:16px">Mỗi bin đúng 25% số bản ghi nên bin nào cũng đủ dữ</text>
-<text class="ts acc" x="668" y="512.61" text-anchor="middle" style="font-size:16px">liệu để tính.</text>
-<text class="ts" x="668" y="534.0500000000001" text-anchor="middle" style="font-size:16px">B1–B3 rất hẹp vì dữ liệu dồn ở hạn mức thấp; B4 trải</text>
-<text class="ts" x="668" y="555.4900000000001" text-anchor="middle" style="font-size:16px">rộng vì thưa người.</text>
-<text class="ts" x="668" y="576.9300000000002" text-anchor="middle" style="font-size:16px">Hệ quả: mọi bin đều so sánh được — lựa chọn đúng cho</text>
-<text class="ts" x="668" y="598.3700000000002" text-anchor="middle" style="font-size:16px">dữ liệu lệch.</text>
-<rect class="bx dark" x="24" y="645" width="852" height="120" rx="8"/>
-<text class="tt" x="37" y="673.75" style="font-size:17.5px">CÂU CHỐT ĐỂ NHỚ</text>
-<text class="ts" x="37" y="702.1700000000001" style="font-size:16px">Equal-width hỏi "chia TRỤC GIÁ TRỊ cho đều". Equal-frequency hỏi "chia SỐ BẢN GHI cho đều".</text>
-<text class="ts acc" x="37" y="723.6100000000001" style="font-size:16px">Dữ liệu lệch → chọn Equal-frequency. Dữ liệu gần chuẩn và cần ranh giới dễ giải thích (0–10, 10–20 triệu) →</text>
-<text class="ts acc" x="37" y="745.0500000000002" style="font-size:16px">Equal-width.</text>
+<svg viewBox="0 0 900 393" width="900" height="393" role="img" aria-label="Bốn mô hình dữ liệu trong kho dữ liệu hiện đại và Federated Querying">
+<defs><marker id="mkC1121F" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#C1121F"/></marker></defs>
+<text class="hd" x="24" y="26">POLYGLOT PERSISTENCE — MỘT KHO, NHIỀU MÔ HÌNH</text>
+<rect class="bx" x="24" y="44" width="202" height="137" rx="8"/>
+<text class="tt" x="125" y="73.2" text-anchor="middle" style="font-size:18px">Quan hệ</text>
+<text class="ts" x="125" y="100.92" text-anchor="middle" style="font-size:15px">Bảng, cột, khoá ngoại</text>
+<text class="ts" x="125" y="121.02" text-anchor="middle" style="font-size:15px">Star Schema, SQL</text>
+<text class="ts acc" x="125" y="141.12" text-anchor="middle" style="font-size:15px">→ câu 12–14</text>
+<rect class="bx" x="240" y="44" width="202" height="137" rx="8"/>
+<text class="tt" x="341" y="73.2" text-anchor="middle" style="font-size:18px">Đồ thị</text>
+<text class="ts" x="341" y="100.92" text-anchor="middle" style="font-size:15px">Node + Edge hạng nhất</text>
+<text class="ts" x="341" y="121.02" text-anchor="middle" style="font-size:15px">BFS / DFS, Knowledge</text>
+<text class="ts" x="341" y="141.12" text-anchor="middle" style="font-size:15px">Graph</text>
+<text class="ts acc" x="341" y="161.22" text-anchor="middle" style="font-size:15px">→ câu 33, 34, 39</text>
+<rect class="bx" x="456" y="44" width="202" height="137" rx="8"/>
+<text class="tt" x="557" y="73.2" text-anchor="middle" style="font-size:18px">Vector</text>
+<text class="ts" x="557" y="100.92" text-anchor="middle" style="font-size:15px">Embedding số chiều cao</text>
+<text class="ts" x="557" y="121.02" text-anchor="middle" style="font-size:15px">HNSW · IVF ·</text>
+<text class="ts" x="557" y="141.12" text-anchor="middle" style="font-size:15px">Quantization</text>
+<text class="ts acc" x="557" y="161.22" text-anchor="middle" style="font-size:15px">→ câu 36</text>
+<rect class="bx" x="672" y="44" width="202" height="137" rx="8"/>
+<text class="tt" x="773" y="73.2" text-anchor="middle" style="font-size:18px">Blockchain</text>
+<text class="ts" x="773" y="100.92" text-anchor="middle" style="font-size:15px">On-chain dạng byte / hex</text>
+<text class="ts" x="773" y="121.02" text-anchor="middle" style="font-size:15px">Immutable, Merkle Tree</text>
+<text class="ts acc" x="773" y="141.12" text-anchor="middle" style="font-size:15px">→ câu 35</text>
+<path class="ar hl" d="M 125 185 L 125 209" marker-end="url(#mkC1121F)"/>
+<path class="ar hl" d="M 341 185 L 341 209" marker-end="url(#mkC1121F)"/>
+<path class="ar hl" d="M 557 185 L 557 209" marker-end="url(#mkC1121F)"/>
+<path class="ar hl" d="M 773 185 L 773 209" marker-end="url(#mkC1121F)"/>
+<rect class="bx acc" x="24" y="213" width="852" height="164" rx="8"/>
+<text class="tt" x="38" y="244.1" style="font-size:19px">Federated Querying — Zero-Copy Architecture</text>
+<text class="ts" x="38" y="272.71999999999997" style="font-size:15.5px">Một câu SQL duy nhất lấy và liên kết dữ liệu từ nhiều nền tảng (SQL + Graph + Blockchain) mà KHÔNG di chuyển dữ</text>
+<text class="ts" x="38" y="293.48999999999995" style="font-size:15.5px">liệu thô.</text>
+<text class="ts" x="38" y="314.25999999999993" style="font-size:15.5px">Thay vì gom dữ liệu về một chỗ (ETL truyền thống tốn tài nguyên), hệ thống giữ dữ liệu tại nguồn và chỉ lấy kết quả</text>
+<text class="ts" x="38" y="335.0299999999999" style="font-size:15.5px">khi cần.</text>
+<text class="ts" x="38" y="355.7999999999999" style="font-size:15.5px">Bộ dịch truy vấn chuyển SQL thành ngôn ngữ đích: Cypher cho Graph, RPC cho Blockchain.</text>
 </svg>
     </div>
-    <figcaption>Với dữ liệu lệch, <b>Equal-width</b> tạo ra bin rỗng hoặc quá đông nên gần như vô dụng cho phân tích: một bin nuốt 61.7% khách hàng, hai bin cuối chỉ còn 7% và 1.2%. <b>Equal-frequency</b> chia sao cho mỗi bin đúng <b>25% số bản ghi</b>, nên mọi bin đều đủ dữ liệu — đổi lại ranh giới không tròn số và ba bin đầu nén rất hẹp. Câu hỏi thi thường gài đúng chỗ này: <b>tiêu chí chia là số bản ghi hay độ rộng giá trị</b>.</figcaption>
+    <figcaption>Bốn mô hình dữ liệu được liên kết bằng <b>federated querying</b>. Câu 35 hỏi dữ liệu thô trên Blockchain ở dạng nào — đó là <b>byte/hex</b>, không phải bảng. Câu 39 hỏi truy vấn nhiều cấp — đó là <b>Multi-level Mining</b> trên nhánh quan hệ/đồ thị với concept hierarchy.</figcaption>
   </figure>
 
   <!-- ---------------- Q35 ---------------- -->
@@ -3834,90 +3892,65 @@ hr{border:0;border-top:1px solid var(--line);margin:24px 0}
       <figure class="dg" data-zoom="read">
     <div class="figtools"><button type="button" data-figzoom="fit" aria-pressed="false">Vừa khung</button><button type="button" data-figzoom="read" aria-pressed="true">Chữ to</button><button type="button" data-figzoom="big" aria-pressed="false">Rất to</button><span class="hint">vuốt ngang nếu sơ đồ rộng hơn màn hình</span></div>
     <div class="scroll">
-<svg viewBox="0 0 900 954" width="900" height="954" role="img" aria-label="Rời rạc hoá biến số dư liên tục thành bốn nhãn Standard, Silver, Gold, Diamond và phân cấp khái niệm từ chi nhánh Quận 1 lên TP.HCM, Miền Nam, Việt Nam">
-<rect class="zone" x="24" y="434" width="852.1" height="352" rx="10"/>
-<defs><marker id="mkC1121F" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#C1121F"/></marker></defs>
-<text class="hd" x="24" y="26">PHẦN 1 — RỜI RẠC HOÁ: TỪ SỐ LIÊN TỤC SANG NHÃN</text>
-<rect class="bx dark" x="24" y="44" width="304.5771081276379" height="36" rx="3"/>
-<text class="lbl" x="176.28855406381896" y="67" text-anchor="middle" style="font-size:15px">Số dư (triệu đồng) — liên tục</text>
-<rect class="bx dark" x="331.5771081276379" y="44" width="177.01262087434333" height="36" rx="3"/>
-<text class="lbl" x="420.08341856480956" y="67" text-anchor="middle" style="font-size:15px">Khoảng giá trị</text>
-<rect class="bx dark" x="511.58972900198125" y="44" width="153.56326659984063" height="36" rx="3"/>
-<text class="lbl" x="588.3713623019016" y="67" text-anchor="middle" style="font-size:15px">Nhãn rời rạc</text>
-<rect class="bx dark" x="668.1529956018219" y="44" width="204.84700439817803" height="36" rx="3"/>
-<text class="lbl" x="770.5764978009109" y="67" text-anchor="middle" style="font-size:15px">Ý nghĩa</text>
-<rect class="bx" x="24" y="83" width="304.5771081276379" height="36" rx="3"/>
-<text class="m" x="176.28855406381896" y="106" text-anchor="middle" style="font-size:15px">1,2 · 8,5</text>
-<rect class="bx" x="331.5771081276379" y="83" width="177.01262087434333" height="36" rx="3"/>
-<text class="m" x="420.08341856480956" y="106" text-anchor="middle" style="font-size:15px">&lt; 10</text>
-<rect class="bx acc" x="511.58972900198125" y="83" width="153.56326659984063" height="36" rx="3"/>
-<text class="ts acc" x="588.3713623019016" y="106" text-anchor="middle" style="font-size:15.5px">Standard</text>
-<rect class="bx" x="668.1529956018219" y="83" width="204.84700439817803" height="36" rx="3"/>
-<text class="ts" x="770.5764978009109" y="106" text-anchor="middle" style="font-size:15.5px">khách phổ thông</text>
-<rect class="bx" x="24" y="122" width="304.5771081276379" height="36" rx="3"/>
-<text class="m" x="176.28855406381896" y="145" text-anchor="middle" style="font-size:15px">25 · 48</text>
-<rect class="bx" x="331.5771081276379" y="122" width="177.01262087434333" height="36" rx="3"/>
-<text class="m" x="420.08341856480956" y="145" text-anchor="middle" style="font-size:15px">10 – 50</text>
-<rect class="bx acc" x="511.58972900198125" y="122" width="153.56326659984063" height="36" rx="3"/>
-<text class="ts acc" x="588.3713623019016" y="145" text-anchor="middle" style="font-size:15.5px">Silver</text>
-<rect class="bx" x="668.1529956018219" y="122" width="204.84700439817803" height="36" rx="3"/>
-<text class="ts" x="770.5764978009109" y="145" text-anchor="middle" style="font-size:15.5px">khách thân thiết</text>
-<rect class="bx" x="24" y="161" width="304.5771081276379" height="36" rx="3"/>
-<text class="m" x="176.28855406381896" y="184" text-anchor="middle" style="font-size:15px">92 · 140</text>
-<rect class="bx" x="331.5771081276379" y="161" width="177.01262087434333" height="36" rx="3"/>
-<text class="m" x="420.08341856480956" y="184" text-anchor="middle" style="font-size:15px">50 – 200</text>
-<rect class="bx acc" x="511.58972900198125" y="161" width="153.56326659984063" height="36" rx="3"/>
-<text class="ts acc" x="588.3713623019016" y="184" text-anchor="middle" style="font-size:15.5px">Gold</text>
-<rect class="bx" x="668.1529956018219" y="161" width="204.84700439817803" height="36" rx="3"/>
-<text class="ts" x="770.5764978009109" y="184" text-anchor="middle" style="font-size:15.5px">khách cao cấp</text>
-<rect class="bx" x="24" y="200" width="304.5771081276379" height="36" rx="3"/>
-<text class="m" x="176.28855406381896" y="223" text-anchor="middle" style="font-size:15px">380 · 1.050</text>
-<rect class="bx" x="331.5771081276379" y="200" width="177.01262087434333" height="36" rx="3"/>
-<text class="m" x="420.08341856480956" y="223" text-anchor="middle" style="font-size:15px">≥ 200</text>
-<rect class="bx acc" x="511.58972900198125" y="200" width="153.56326659984063" height="36" rx="3"/>
-<text class="ts acc" x="588.3713623019016" y="223" text-anchor="middle" style="font-size:15.5px">Diamond</text>
-<rect class="bx" x="668.1529956018219" y="200" width="204.84700439817803" height="36" rx="3"/>
-<text class="ts" x="770.5764978009109" y="223" text-anchor="middle" style="font-size:15.5px">khách VIP</text>
-<rect class="bx dark" x="24" y="256" width="852" height="120" rx="8"/>
-<text class="tt" x="37" y="284.75" style="font-size:17.5px">VÌ SAO PHẢI RỜI RẠC HOÁ</text>
-<text class="ts" x="37" y="313.17" style="font-size:16px">Số dư là biến liên tục gần như không trùng nhau — mỗi khách một giá trị riêng. Đổi thành 4 nhãn thì:</text>
-<text class="ts acc" x="37" y="334.61" style="font-size:16px">Giảm số giá trị phân biệt → thuật toán chạy nhanh hơn, luật kết hợp và cây quyết định mới dùng được.</text>
-<text class="ts" x="37" y="356.05" style="font-size:16px">Mỗi nhãn là một khái niệm đọc hiểu được: báo cáo nói "Gold chiếm 12%" thay vì liệt kê từng số dư.</text>
-<text class="hd" x="24" y="418">PHẦN 2 — PHÂN CẤP KHÁI NIỆM (CONCEPT HIERARCHY): CÀNG LÊN CÀNG TỔNG QUÁT</text>
-<rect class="bx" x="28" y="724" width="196" height="40" rx="6"/>
-<text class="ts" x="126" y="750" text-anchor="middle" font-weight="700" style="font-size:15.5px">Chi nhánh Quận 1</text>
-<rect class="bx" x="232" y="724" width="196" height="40" rx="6"/>
-<text class="ts" x="330" y="750" text-anchor="middle" font-weight="700" style="font-size:15.5px">Chi nhánh Quận 7</text>
-<rect class="bx" x="562" y="724" width="196" height="40" rx="6"/>
-<text class="ts" x="660" y="750" text-anchor="middle" font-weight="700" style="font-size:15.5px">Chi nhánh Hải Châu</text>
-<rect class="bx acc" x="58" y="648" width="340" height="40" rx="6"/>
-<text class="ts" x="228" y="674" text-anchor="middle" font-weight="700" style="font-size:15.5px">TP. Hồ Chí Minh</text>
-<rect class="bx acc" x="490" y="648" width="340" height="40" rx="6"/>
-<text class="ts" x="660" y="674" text-anchor="middle" font-weight="700" style="font-size:15.5px">Đà Nẵng</text>
-<rect class="bx" x="58" y="572" width="340" height="40" rx="6"/>
-<text class="ts" x="228" y="598" text-anchor="middle" font-weight="700" style="font-size:15.5px">Miền Nam</text>
-<rect class="bx" x="490" y="572" width="340" height="40" rx="6"/>
-<text class="ts" x="660" y="598" text-anchor="middle" font-weight="700" style="font-size:15.5px">Miền Trung</text>
-<rect class="bx gold" x="274" y="496" width="340" height="40" rx="6"/>
-<text class="ts" x="444" y="522" text-anchor="middle" font-weight="700" style="font-size:17.5px">VIỆT NAM</text>
-<path class="ar hl" d="M 126 719 L 126 706 L 228 706 L 228 693" marker-end="url(#mkC1121F)"/>
-<path class="ar hl" d="M 330 719 L 330 706 L 228 706 L 228 693" marker-end="url(#mkC1121F)"/>
-<path class="ar hl" d="M 660 719 L 660 706 L 660 706 L 660 693" marker-end="url(#mkC1121F)"/>
-<path class="ar hl" d="M 228 643 L 228 630 L 228 630 L 228 617" marker-end="url(#mkC1121F)"/>
-<path class="ar hl" d="M 660 643 L 660 630 L 660 630 L 660 617" marker-end="url(#mkC1121F)"/>
-<path class="ar hl" d="M 228 567 L 228 554 L 444 554 L 444 541" marker-end="url(#mkC1121F)"/>
-<path class="ar hl" d="M 660 567 L 660 554 L 444 554 L 444 541" marker-end="url(#mkC1121F)"/>
-<text class="hd" x="40" y="458"> </text>
-<text class="hd" x="40" y="460" style="font-size:15px">BỐN CẤP — MỖI BƯỚC LÊN LÀ MỘT BƯỚC TỔNG QUÁT HOÁ</text>
-<text class="lbl" x="876" y="460" text-anchor="end" style="font-size:14px">đi lên = tổng quát hoá · đi xuống = chi tiết hoá</text>
-<rect class="bx dark" x="24" y="808" width="852" height="120" rx="8"/>
-<text class="tt" x="37" y="836.75" style="font-size:17.5px">PHÂN CẤP ĐỂ LÀM GÌ</text>
-<text class="ts acc" x="37" y="865.1700000000001" style="font-size:16px">Cuộn lên: gộp số liệu chi tiết thành con số tổng hợp (doanh thu Quận 1 → TP.HCM → Miền Nam → cả nước).</text>
-<text class="ts" x="37" y="886.6100000000001" style="font-size:16px">Cuộn xuống: từ một con số tổng hợp, khoan sâu vào đơn vị chi tiết để tìm nguyên nhân.</text>
-<text class="ts" x="37" y="908.0500000000002" style="font-size:16px">Đây chính là cơ chế drill-down / roll-up trong OLAP — và cũng là nghĩa "đa cấp" ở câu 39.</text>
+<svg viewBox="0 0 900 470" width="900" height="470" role="img" aria-label="IVFFLAT: IVF phân cụm không gian vector, FLAT lưu vector gốc">
+<text class="hd" x="24" y="26">IVF — CHIA KHÔNG GIAN THÀNH CỤM</text>
+<text class="hd" x="496" y="26">FLAT &amp; BA GIẢI PHÁP ANN</text>
+<rect class="bx dark" x="24" y="44" width="448" height="336" rx="9"/>
+<path class="ar dash" d="M 173 44 L 173 380"/>
+<path class="ar dash" d="M 323 44 L 323 380"/>
+<path class="ar dash" d="M 24 212 L 472 212"/>
+<circle cx="74" cy="100" r="4" fill="#C1121F"/>
+<circle cx="120" cy="94" r="4" fill="#C1121F"/>
+<circle cx="90" cy="156" r="4" fill="#C1121F"/>
+<circle cx="134" cy="148" r="4" fill="#C1121F"/>
+<circle cx="62" cy="140" r="4" fill="#C1121F"/>
+<circle cx="224" cy="92" r="4" fill="#C1121F"/>
+<circle cx="276" cy="100" r="4" fill="#C1121F"/>
+<circle cx="236" cy="154" r="4" fill="#C1121F"/>
+<circle cx="282" cy="148" r="4" fill="#C1121F"/>
+<circle cx="374" cy="90" r="4" fill="#C1121F"/>
+<circle cx="428" cy="98" r="4" fill="#C1121F"/>
+<circle cx="390" cy="152" r="4" fill="#C1121F"/>
+<circle cx="76" cy="266" r="4" fill="#C1121F"/>
+<circle cx="134" cy="272" r="4" fill="#C1121F"/>
+<circle cx="112" cy="330" r="4" fill="#C1121F"/>
+<circle cx="68" cy="318" r="4" fill="#C1121F"/>
+<circle cx="224" cy="264" r="4" fill="#C1121F"/>
+<circle cx="286" cy="270" r="4" fill="#C1121F"/>
+<circle cx="256" cy="330" r="4" fill="#C1121F"/>
+<circle cx="376" cy="332" r="4" fill="#C1121F"/>
+<circle cx="434" cy="324" r="4" fill="#C1121F"/>
+<circle class="nd hi" cx="98" cy="128" r="13"/>
+<text class="ts acc" x="98" y="106" text-anchor="middle" style="font-size:15px">C1</text>
+<circle class="nd hi" cx="248" cy="128" r="13"/>
+<text class="ts acc" x="248" y="106" text-anchor="middle" style="font-size:15px">C2</text>
+<circle class="nd hi" cx="398" cy="128" r="13"/>
+<text class="ts acc" x="398" y="106" text-anchor="middle" style="font-size:15px">C3</text>
+<circle class="nd hi" cx="98" cy="296" r="13"/>
+<text class="ts acc" x="98" y="274" text-anchor="middle" style="font-size:15px">C4</text>
+<circle class="nd hi" cx="248" cy="296" r="13"/>
+<text class="ts acc" x="248" y="274" text-anchor="middle" style="font-size:15px">C5</text>
+<circle class="nd hi" cx="398" cy="296" r="13"/>
+<text class="ts acc" x="398" y="274" text-anchor="middle" style="font-size:15px">C6</text>
+<circle cx="270" cy="194" r="7" fill="#B07010"/>
+<text class="ts warn" x="286" y="200" style="font-size:15px">query</text>
+<text class="ts" x="24" y="408" style="font-size:14.5px">So sánh query với các centroid → chọn 1–2 cụm gần nhất</text>
+<text class="ts" x="24" y="430" style="font-size:14.5px">→ chỉ quét vector trong cụm đó</text>
+<rect class="bx dark" x="496" y="44" width="380" height="140" rx="8"/>
+<text class="tt" x="509" y="73.2" style="font-size:18px">FLAT — lưu vector gốc</text>
+<text class="ts" x="509" y="101.38000000000001" style="font-size:15.5px">Vector được lưu NGUYÊN BẢN, không lượng tử hoá</text>
+<text class="ts" x="509" y="122.15" style="font-size:15.5px">→ độ chính xác CAO NHẤT</text>
+<text class="ts acc" x="509" y="142.92" style="font-size:15.5px">nhưng tốn RAM nhất.</text>
+<text class="ts" x="509" y="163.69" style="font-size:15.5px">Muốn tiết kiệm RAM thì dùng Quantization (PQ).</text>
+<rect class="bx acc" x="496" y="222" width="380" height="140" rx="8"/>
+<text class="tt" x="509" y="251.2" style="font-size:18px">Ba giải pháp ANN</text>
+<text class="ts" x="509" y="279.38" style="font-size:15.5px">HNSW — đồ thị phân cấp, nhảy vùng láng giềng</text>
+<text class="ts" x="509" y="300.15" style="font-size:15.5px">IVF — phân cụm Voronoi, thu hẹp phạm vi</text>
+<text class="ts" x="509" y="320.91999999999996" style="font-size:15.5px">Quantization (PQ) — nén vector vào RAM</text>
+<text class="ts acc" x="509" y="341.68999999999994" style="font-size:15.5px">IVFFLAT = IVF (thu hẹp) + FLAT (chính xác)</text>
 </svg>
     </div>
-    <figcaption><b>Rời rạc hoá</b> biến số liên tục thành nhãn: số dư 8,5 triệu và 25 triệu vốn là hai con số khác nhau, sau khi chia khoảng thì cùng thuộc một nhóm đọc hiểu được. <b>Phân cấp khái niệm</b> đi xa hơn một bước: tổ chức các giá trị thành tầng bậc từ <b>chi nhánh Quận 1 → TP.HCM → Miền Nam → Việt Nam</b>. Cả hai đều nhằm <b>giảm số giá trị phân biệt</b> để thuật toán khai phá chạy được và kết quả diễn giải được — đó là lý do câu 24 và câu 39 thường được hỏi cùng nhau.</figcaption>
+    <figcaption><b>IVF</b> trả lời "tìm ở đâu cho nhanh?" — chỉ quét vài cụm thay vì toàn bộ. <b>FLAT</b> trả lời "lưu thế nào?" — nguyên bản, chính xác, tốn RAM. Ghép lại thành IVFFLAT.</figcaption>
   </figure>
 
       <h5>Tách tên ra để nhớ</h5>
@@ -4024,75 +4057,77 @@ hr{border:0;border-top:1px solid var(--line);margin:24px 0}
       <figure class="dg" data-zoom="read">
     <div class="figtools"><button type="button" data-figzoom="fit" aria-pressed="false">Vừa khung</button><button type="button" data-figzoom="read" aria-pressed="true">Chữ to</button><button type="button" data-figzoom="big" aria-pressed="false">Rất to</button><span class="hint">vuốt ngang nếu sơ đồ rộng hơn màn hình</span></div>
     <div class="scroll">
-<svg viewBox="0 0 900 742" width="900" height="742" role="img" aria-label="PCA tìm trục PC1 có phương sai lớn nhất để chiếu dữ liệu hai chiều xuống một chiều, kèm ví dụ rút gọn 1.000 mã cổ phiếu thành 10 thành phần chính cho mô hình VaR">
-<defs><marker id="mk9A9A9A" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#9A9A9A"/></marker></defs>
-<text class="hd" x="24" y="26">PCA KHÔNG CHỌN CỘT — NÓ TẠO TRỤC MỚI</text>
-<path class="ar dash" d="M 78 378 L 78 128"/>
-<path class="ar dash" d="M 78 378 L 398 378"/>
-<path class="ar dash" d="M 184.66666666666669 378 L 184.66666666666669 128"/>
-<path class="ar dash" d="M 78 294.6666666666667 L 398 294.6666666666667"/>
-<path class="ar dash" d="M 291.33333333333337 378 L 291.33333333333337 128"/>
-<path class="ar dash" d="M 78 211.33333333333334 L 398 211.33333333333334"/>
-<path class="ar dash" d="M 398 378 L 398 128"/>
-<path class="ar dash" d="M 78 128 L 398 128"/>
-<path class="ar" d="M 78 378 L 414 378" marker-end="url(#mk9A9A9A)"/>
-<path class="ar" d="M 78 378 L 78 114" marker-end="url(#mk9A9A9A)"/>
-<text class="m" x="406" y="402" text-anchor="middle" style="font-size:16px">x₁</text>
-<text class="m" x="60" y="124" text-anchor="middle" style="font-size:16px">x₂</text>
-<circle cx="122.8" cy="338.0" r="4.6" fill="#C1121F" opacity="0.85"/>
-<circle cx="154.8" cy="323.0" r="4.6" fill="#C1121F" opacity="0.85"/>
-<circle cx="183.6" cy="300.5" r="4.6" fill="#C1121F" opacity="0.85"/>
-<circle cx="209.2" cy="283.0" r="4.6" fill="#C1121F" opacity="0.85"/>
-<circle cx="238.0" cy="260.5" r="4.6" fill="#C1121F" opacity="0.85"/>
-<circle cx="263.6" cy="240.5" r="4.6" fill="#C1121F" opacity="0.85"/>
-<circle cx="292.4" cy="220.5" r="4.6" fill="#C1121F" opacity="0.85"/>
-<circle cx="318.0" cy="203.0" r="4.6" fill="#C1121F" opacity="0.85"/>
-<circle cx="346.8" cy="178.0" r="4.6" fill="#C1121F" opacity="0.85"/>
-<circle cx="372.4" cy="158.0" r="4.6" fill="#C1121F" opacity="0.85"/>
-<circle cx="167.6" cy="293.0" r="4.6" fill="#C1121F" opacity="0.85"/>
-<circle cx="225.2" cy="278.0" r="4.6" fill="#C1121F" opacity="0.85"/>
-<circle cx="276.4" cy="208.0" r="4.6" fill="#C1121F" opacity="0.85"/>
-<circle cx="305.2" cy="228.0" r="4.6" fill="#C1121F" opacity="0.85"/>
-<circle cx="199.6" cy="318.0" r="4.6" fill="#C1121F" opacity="0.85"/>
-<circle cx="334.0" cy="198.0" r="4.6" fill="#C1121F" opacity="0.85"/>
-<path class="ar hl" d="M 90.8 370.5 L 391.6 135.5" stroke-width="2.6"/>
-<text class="ts acc" x="387.6" y="161.5" text-anchor="end" style="font-size:15.5px">PC1 — giữ lại</text>
-<path class="ar" stroke-dasharray="6 4" stroke="#B07010" stroke-width="1.8" fill="none" d="M 246 349 L 358 237"/>
-<text class="ts warn" x="246" y="371" style="font-size:15px">PC2 — bỏ được</text>
-<text class="lbl" x="66" y="402" style="font-size:14px">0</text>
-<rect class="bx" x="24" y="424" width="408" height="142" rx="8"/>
-<text class="tt" x="37" y="452.75" style="font-size:17.5px">Đọc hình thế nào</text>
-<text class="ts acc" x="37" y="481.17" style="font-size:16px">PC1 là hướng dữ liệu trải dài nhất — chiếu mọi điểm</text>
-<text class="ts acc" x="37" y="502.61" style="font-size:16px">lên PC1 thì mất ít thông tin nhất.</text>
-<text class="ts" x="37" y="524.05" style="font-size:16px">PC2 vuông góc với PC1 nên chỉ hứng phần phương</text>
-<text class="ts" x="37" y="545.49" style="font-size:16px">sai rất nhỏ → bỏ được, số chiều từ 2 xuống 1.</text>
-<text class="hd" x="452" y="26">VÍ DỤ TRONG SLIDE — RỦI RO DANH MỤC</text>
-<rect class="bx dark" x="452" y="44" width="424" height="120" rx="8"/>
-<text class="tt" x="664" y="72.75" text-anchor="middle" style="font-size:17.5px">Bài toán</text>
-<text class="ts" x="664" y="101.17" text-anchor="middle" style="font-size:16px">Danh mục 1.000 mã cổ phiếu → 1.000 biến số.</text>
-<text class="ts" x="664" y="122.61" text-anchor="middle" style="font-size:16px">Mô hình VaR phải mô phỏng quá nhiều chiều nên chạy</text>
-<text class="ts" x="664" y="144.05" text-anchor="middle" style="font-size:16px">rất chậm.</text>
-<rect class="bx acc" x="452" y="178" width="424" height="120" rx="8"/>
-<text class="tt" x="664" y="206.75" text-anchor="middle" style="font-size:17.5px">PCA làm gì</text>
-<text class="ts acc" x="664" y="235.17" text-anchor="middle" style="font-size:16px">1.000 biến → 10 thành phần chính.</text>
-<text class="ts" x="664" y="256.61" text-anchor="middle" style="font-size:16px">10 thành phần này đại diện cho các yếu tố vĩ mô</text>
-<text class="ts" x="664" y="278.05" text-anchor="middle" style="font-size:16px">chung (lãi suất, tỷ giá, chỉ số thị trường).</text>
-<rect class="bx" x="452" y="312" width="424" height="99" rx="8"/>
-<text class="tt" x="664" y="340.75" text-anchor="middle" style="font-size:17.5px">Kết hợp Sampling phân tầng</text>
-<text class="ts" x="664" y="369.17" text-anchor="middle" style="font-size:16px">Chọn các kịch bản tiêu biểu thay vì mô phỏng mọi tổ</text>
-<text class="ts" x="664" y="390.61" text-anchor="middle" style="font-size:16px">hợp — giảm tiếp số tình huống phải tính.</text>
-<rect class="bx gold" x="452" y="425" width="424" height="99" rx="8"/>
-<text class="tt" x="664" y="453.75" text-anchor="middle" style="font-size:17.5px">Kết quả</text>
-<text class="ts acc" x="664" y="482.17" text-anchor="middle" style="font-size:16px">Mô hình VaR chạy nhanh hơn khoảng 100 lần mà vẫn</text>
-<text class="ts acc" x="664" y="503.61" text-anchor="middle" style="font-size:16px">đảm bảo độ tin cậy cao.</text>
-<rect class="bx dark" x="24" y="596" width="852" height="120" rx="8"/>
-<text class="tt" x="37" y="624.75" style="font-size:17.5px">PCA KHÁC FEATURE SELECTION Ở CHỖ NÀO — CÂU HỎI HAY BỊ GÀI</text>
-<text class="ts" x="37" y="653.1700000000001" style="font-size:16px">Feature Selection: bỏ hẳn một số cột, giữ nguyên nghĩa từng cột còn lại (chọn 10 trong 1.000 mã).</text>
-<text class="ts acc" x="37" y="674.6100000000001" style="font-size:16px">PCA: tạo 10 TRỤC MỚI, mỗi trục là tổ hợp tuyến tính của cả 1.000 cột — không trục nào ứng với một mã cụ thể.</text>
-<text class="ts" x="37" y="696.0500000000002" style="font-size:16px">Đánh đổi: PCA giữ được nhiều thông tin hơn nhưng mất khả năng diễn giải trực tiếp ("thành phần 1" là gì?).</text>
+<svg viewBox="0 0 900 400" width="900" height="400" role="img" aria-label="So sánh Row-Level Security lọc theo dòng và Column-Level Masking che theo cột">
+<text class="hd" x="24" y="26">CÙNG MỘT BẢNG — HAI CÁCH BẢO VỆ</text>
+<text class="ts" x="24" y="48" style="font-size:15px">RLS giấu cả DÒNG · CLM giấu một phần CỘT</text>
+<text class="hd" x="24" y="84">RLS — LỌC THEO DÒNG</text>
+<rect class="bx dark" x="24" y="96" width="93" height="30" rx="3"/>
+<text class="ts" x="70.5" y="117" text-anchor="middle" style="font-size:14px">khach_hang</text>
+<rect class="bx dark" x="120" y="96" width="59" height="30" rx="3"/>
+<text class="ts" x="149.5" y="117" text-anchor="middle" style="font-size:14px">vung</text>
+<rect class="bx dark" x="182" y="96" width="93" height="30" rx="3"/>
+<text class="ts" x="228.5" y="117" text-anchor="middle" style="font-size:14px">doanh_thu</text>
+<rect class="bx" x="24" y="130" width="93" height="30" rx="3"/>
+<text class="ts" x="70.5" y="151" text-anchor="middle" style="font-size:15px">KH 001</text>
+<rect class="bx" x="120" y="130" width="59" height="30" rx="3"/>
+<text class="ts" x="149.5" y="151" text-anchor="middle" style="font-size:15px">A</text>
+<rect class="bx" x="182" y="130" width="93" height="30" rx="3"/>
+<text class="ts" x="228.5" y="151" text-anchor="middle" style="font-size:15px">1.200</text>
+<rect class="bx" x="24" y="164" width="93" height="30" rx="3"/>
+<text class="ts" x="70.5" y="185" text-anchor="middle" style="font-size:15px">KH 002</text>
+<rect class="bx" x="120" y="164" width="59" height="30" rx="3"/>
+<text class="ts" x="149.5" y="185" text-anchor="middle" style="font-size:15px">A</text>
+<rect class="bx" x="182" y="164" width="93" height="30" rx="3"/>
+<text class="ts" x="228.5" y="185" text-anchor="middle" style="font-size:15px">980</text>
+<rect class="bx dim" x="24" y="198" width="93" height="30" rx="3"/>
+<text class="ts" x="70.5" y="219" text-anchor="middle" fill="#BDBDBD" style="font-size:15px">KH 003</text>
+<rect class="bx dim" x="120" y="198" width="59" height="30" rx="3"/>
+<text class="ts" x="149.5" y="219" text-anchor="middle" fill="#BDBDBD" style="font-size:15px">B</text>
+<rect class="bx dim" x="182" y="198" width="93" height="30" rx="3"/>
+<text class="ts" x="228.5" y="219" text-anchor="middle" fill="#BDBDBD" style="font-size:15px">2.400</text>
+<text class="ts" x="300" y="130" style="font-size:15px">Nhân viên vùng A</text>
+<text class="ts acc" x="300" y="152" style="font-size:15px">chỉ thấy 2 dòng</text>
+<text class="ts" x="300" y="174" style="font-size:15px">vùng A;</text>
+<text class="ts" x="300" y="196" style="font-size:15px">không thấy dòng</text>
+<text class="ts acc" x="300" y="218" style="font-size:15px">vùng B</text>
+<text class="hd" x="510" y="84">CLM — CHE THEO CỘT</text>
+<rect class="bx dark" x="510" y="96" width="93" height="30" rx="3"/>
+<text class="ts" x="556.5" y="117" text-anchor="middle" style="font-size:14px">khach_hang</text>
+<rect class="bx dark" x="606" y="96" width="127" height="30" rx="3"/>
+<text class="ts" x="669.5" y="117" text-anchor="middle" style="font-size:14px">so_dien_thoai</text>
+<rect class="bx dark" x="736" y="96" width="59" height="30" rx="3"/>
+<text class="ts" x="765.5" y="117" text-anchor="middle" style="font-size:14px">vung</text>
+<rect class="bx" x="510" y="130" width="93" height="30" rx="3"/>
+<text class="ts" x="556.5" y="151" text-anchor="middle" style="font-size:15px">KH 001</text>
+<rect class="bx red" x="606" y="130" width="127" height="30" rx="3"/>
+<text class="m" x="669.5" y="151" text-anchor="middle" fill="#C1121F" style="font-size:15px">091xxxx888</text>
+<rect class="bx" x="736" y="130" width="59" height="30" rx="3"/>
+<text class="ts" x="765.5" y="151" text-anchor="middle" style="font-size:15px">A</text>
+<rect class="bx" x="510" y="164" width="93" height="30" rx="3"/>
+<text class="ts" x="556.5" y="185" text-anchor="middle" style="font-size:15px">KH 002</text>
+<rect class="bx red" x="606" y="164" width="127" height="30" rx="3"/>
+<text class="m" x="669.5" y="185" text-anchor="middle" fill="#C1121F" style="font-size:15px">098xxxx123</text>
+<rect class="bx" x="736" y="164" width="59" height="30" rx="3"/>
+<text class="ts" x="765.5" y="185" text-anchor="middle" style="font-size:15px">A</text>
+<rect class="bx" x="510" y="198" width="93" height="30" rx="3"/>
+<text class="ts" x="556.5" y="219" text-anchor="middle" style="font-size:15px">KH 003</text>
+<rect class="bx red" x="606" y="198" width="127" height="30" rx="3"/>
+<text class="m" x="669.5" y="219" text-anchor="middle" fill="#C1121F" style="font-size:15px">091xxxx456</text>
+<rect class="bx" x="736" y="198" width="59" height="30" rx="3"/>
+<text class="ts" x="765.5" y="219" text-anchor="middle" style="font-size:15px">B</text>
+<text class="ts" x="818" y="130" style="font-size:15px">Vẫn thấy</text>
+<text class="ts" x="818" y="152" style="font-size:15px">đủ 3 dòng,</text>
+<text class="ts" x="818" y="174" style="font-size:15px">chỉ che</text>
+<text class="ts acc" x="818" y="196" style="font-size:15px">một cột</text>
+<rect class="bx acc" x="24" y="254" width="852" height="142" rx="8"/>
+<text class="tt" x="38" y="284.2" style="font-size:18px">Điểm chung và điểm khác</text>
+<text class="ts" x="38" y="312.38" style="font-size:15.5px">Chung: cấu trúc bảng KHÔNG đổi — không thêm/xoá cột, không đổi kiểu dữ liệu.</text>
+<text class="ts" x="38" y="333.15" style="font-size:15.5px">RLS — giấu cả DÒNG: nhân viên vùng A chỉ thấy khách vùng A.</text>
+<text class="ts" x="38" y="353.91999999999996" style="font-size:15.5px">CLM — giấu một phần CỘT: vẫn thấy đủ dòng nhưng số điện thoại bị che thành 091xxxx888.</text>
+<text class="ts acc" x="38" y="374.68999999999994" style="font-size:15.5px">Hai cơ chế BỔ SUNG nhau và thường dùng cùng lúc.</text>
 </svg>
     </div>
-    <figcaption>PCA không đi tìm cột quan trọng nhất — nó <b>tạo trục mới</b> là tổ hợp tuyến tính của các cột cũ, sao cho phương sai trên trục đó lớn nhất. Chiếu 16 điểm hai chiều xuống PC1 thì gần như không mất gì, vì dữ liệu vốn đã trải dài theo hướng đó; bỏ PC2 chỉ mất phần biến thiên rất nhỏ. Đây chính là điểm khác <b>Feature Selection</b> — và là lý do câu 25 hay hỏi "PCA có chọn cột không?".</figcaption>
+    <figcaption><b>RLS</b> giấu cả <i>dòng</i>: nhân viên vùng A chỉ thấy khách vùng A. <b>CLM</b> giấu một phần <i>cột</i>: vẫn thấy đủ dòng nhưng số điện thoại bị che. Hai cơ chế <b>bổ sung</b> nhau và thường dùng cùng lúc.</figcaption>
   </figure>
 
       <h5>Vì sao dùng CLM thay vì xoá cột</h5>
