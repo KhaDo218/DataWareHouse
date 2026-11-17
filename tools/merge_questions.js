@@ -34,6 +34,7 @@ const files = fs.readdirSync(BANK_DIR).filter((f) => f.endsWith(".js")).sort((a,
     if (m) return parseInt(m[1], 10);
     if (f === "questions_bo2.js") return 100;
     if (f === "questions_moi.js") return 250;
+    if (f === "questions_chandoan.js") return 300;
     return 200;
   };
   return rank(a) - rank(b) || a.localeCompare(b);
@@ -61,10 +62,11 @@ const errors = [];
 for (const f of files) {
   const arr = require(path.join(BANK_DIR, f));
   if (!Array.isArray(arr)) { errors.push(`${f}: không export ra mảng`); continue; }
-  const needShuffle = f === "questions_bo2.js" || f === "questions_bosung.js";
+  const needShuffle = f === "questions_bo2.js" || f === "questions_bosung.js" || f === "questions_chandoan.js";
   const source = /^questions_c\d+\.js$/.test(f) ? "bo1"
     : f === "questions_bo2.js" ? "bo2"
     : f === "questions_moi.js" ? "moi"
+    : f === "questions_chandoan.js" ? "chandoan"
     : "bosung";
   console.log(`${f}: ${arr.length} câu`);
   all = all.concat(arr.map((q) => ({ ...(needShuffle ? shuffleOptions(q) : q), source })));
@@ -138,6 +140,8 @@ all.forEach((q, i) => {
     if (q.type === "multiple" && q.correct.length < 2) errors.push(`${tag} multiple nhưng chỉ có ${q.correct.length} đáp án`);
   }
   if (q.explanation !== undefined && typeof q.explanation !== "string") errors.push(`${tag} explanation phải là chuỗi`);
+  // cờ trọng tâm (bộ 40 câu chẩn đoán)
+  if (q.focus !== undefined && typeof q.focus !== "boolean") errors.push(`${tag} focus phải là boolean`);
   // Không cho phép emoji/icon trong nội dung
   const text = [q.question, ...(q.options || []), q.explanation || ""].join(" ");
   if (/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}\u{2B50}\u{FE0F}]/u.test(text)) errors.push(`${tag} chứa emoji/icon`);

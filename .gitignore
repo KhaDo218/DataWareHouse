@@ -8,3 +8,6 @@ Thumbs.db
 /*.pdf
 *.pdf
 !slides/*.pdf
+
+# Đầu ra tự sinh của tools/verify-answers.js
+tools/answer-check.txt

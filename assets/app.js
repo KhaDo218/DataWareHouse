@@ -201,6 +201,7 @@
     meta.append(el("span", "tag", "Chương " + q.chapter));
     meta.append(el("span", "tag d" + q.difficulty, DIFF[q.difficulty]));
     if (q.type === "multiple") meta.append(el("span", "tag multi", "Nhiều đáp án"));
+    if (q.focus) meta.append(el("span", "tag focus", "★ Trọng tâm"));
     card.append(meta);
 
     const text = el("p", "q-text");
@@ -350,7 +351,9 @@
 
   // ---------------------------------------------------------------- luyện tập
   const chSel = $("#f-chapter");
+  const N_FOCUS = QUESTIONS.filter((q) => q.focus).length;
   chSel.append(new Option("Tất cả chương (" + QUESTIONS.length + " câu)", "all"));
+  if (N_FOCUS) chSel.append(new Option("★ Bộ chẩn đoán — trọng tâm (" + N_FOCUS + " câu)", "focus"));
   Object.keys(CHAPTER_NAMES).forEach((ch) => {
     const n = QUESTIONS.filter((q) => String(q.chapter) === ch).length;
     if (n) chSel.append(new Option("Chương " + ch + ": " + CHAPTER_NAMES[ch] + " (" + n + ")", ch));
@@ -364,7 +367,7 @@
     const ch = chSel.value, d = $("#f-diff").value, st = $("#f-status").value;
     const kw = normalize($("#f-search").value.trim());
     return QUESTIONS.filter((q) =>
-      (ch === "all" || String(q.chapter) === ch) &&
+      (ch === "all" || (ch === "focus" ? !!q.focus : String(q.chapter) === ch)) &&
       (d === "all" || String(q.difficulty) === d) &&
       (st === "all" || (st === "todo" && !isDone(q.id)) ||
         (st === "wrong" && isDone(q.id) && !isRight(q.id)) || (st === "right" && isRight(q.id))) &&
@@ -447,23 +450,320 @@
   $("#exam-all-ch").onclick = () => $$("input", examChBox).forEach((c) => (c.checked = true));
   $("#exam-none-ch").onclick = () => $$("input", examChBox).forEach((c) => (c.checked = false));
 
+  // ------------------------------------------------------- trọng số chương
+  // Mỗi chương có một trọng số 0..10. Số câu của mỗi chương được quy đổi
+  // theo tỉ lệ trọng số, dùng phương pháp phần dư lớn nhất (largest remainder)
+  // để tổng số câu luôn đúng bằng "Số câu" người dùng đặt.
+  const W_KEY = "nkdl_exam_weights_v1";
+  const W_MAX = 10;
+
+  // Trọng số mặc định: 40 câu chẩn đoán có 8 câu tính toán nên ch.1,2,4,5,9 nặng hơn
+  const PRESETS = {
+    chandoan: {
+      name: "40 câu chẩn đoán",
+      note: "tỉ lệ đề thật",
+      w: { 1: 3, 2: 2, 3: 2, 4: 4, 5: 4, 6: 1, 7: 1, 8: 1, 9: 2, 10: 1 }
+    },
+    deu: {
+      name: "Chia đều",
+      note: "mỗi chương bằng nhau",
+      w: { 1: 1, 2: 1, 3: 1, 4: 1, 5: 1, 6: 1, 7: 1, 8: 1, 9: 1, 10: 1 }
+    },
+    toan: {
+      name: "Nặng bài tập",
+      note: "ch.4 & ch.5 trọng tâm",
+      w: { 1: 1, 2: 1, 3: 1, 4: 5, 5: 5, 6: 2, 7: 1, 8: 1, 9: 1, 10: 1 }
+    },
+    ly_thuyet: {
+      name: "Nặng lý thuyết",
+      note: "kiến trúc & mô hình",
+      w: { 1: 4, 2: 4, 3: 3, 4: 1, 5: 1, 6: 2, 7: 2, 8: 2, 9: 2, 10: 1 }
+    },
+    yeu: {
+      name: "Chương còn yếu",
+      note: "tự tính từ câu đã sai",
+      w: null   // sinh động
+    }
+  };
+
+  const chaptersWithQ = Object.keys(CHAPTER_NAMES).filter(
+    (ch) => QUESTIONS.some((q) => String(q.chapter) === ch)
+  );
+
+  let weights = {};
+  function blankWeights() {
+    const w = {};
+    chaptersWithQ.forEach((ch) => (w[ch] = PRESETS.chandoan.w[ch] !== undefined ? PRESETS.chandoan.w[ch] : 1));
+    return w;
+  }
+  function loadWeights() {
+    try {
+      const raw = localStorage.getItem(W_KEY);
+      if (raw) {
+        const p = JSON.parse(raw);
+        if (p && typeof p === "object" && p.w && typeof p.w === "object") {
+          const w = blankWeights();
+          chaptersWithQ.forEach((ch) => {
+            const v = p.w[ch];
+            if (typeof v === "number" && v >= 0 && v <= W_MAX) w[ch] = Math.round(v);
+          });
+          weights = w;
+          if (p.preset) currentPreset = p.preset;
+          if (typeof p.focus === "boolean") focusBoost = p.focus;
+          return;
+        }
+      }
+    } catch (e) { /* bỏ qua */ }
+    weights = blankWeights();
+  }
+  function saveWeights() {
+    try {
+      localStorage.setItem(W_KEY, JSON.stringify({ w: weights, preset: currentPreset, focus: focusBoost }));
+    } catch (e) { /* bỏ qua */ }
+  }
+  let currentPreset = "chandoan";
+  let focusBoost = false;
+  loadWeights();
+
+  // câu trọng tâm = có focus:true (bộ 40 câu chẩn đoán)
+  const FOCUS_IDS = new Set(QUESTIONS.filter((q) => q.focus).map((q) => q.id));
+
+  // "Chương còn yếu": trọng số tỉ lệ nghịch với tỉ lệ đúng đã làm
+  function weakPresetWeights() {
+    const w = {};
+    chaptersWithQ.forEach((ch) => {
+      const qs = QUESTIONS.filter((q) => String(q.chapter) === ch);
+      const done = qs.filter((q) => isDone(q.id));
+      if (!done.length) { w[ch] = 3; return; }               // chưa làm → ưu tiên vừa
+      const right = done.filter((q) => isRight(q.id)).length;
+      const rate = right / done.length;                      // 0..1
+      // rate thấp → trọng số cao; rate = 1 → 1; rate = 0 → 6
+      w[ch] = Math.max(1, Math.min(W_MAX, Math.round(1 + (1 - rate) * 5)));
+    });
+    return w;
+  }
+
+  // Chia n câu cho các chương theo trọng số (largest remainder method)
+  function allocate(n, chs) {
+    const total = chs.reduce((s, ch) => s + (weights[ch] || 0), 0);
+    const out = {};
+    if (total <= 0) return out;
+    const exact = {}, floor = {};
+    let used = 0;
+    chs.forEach((ch) => {
+      exact[ch] = (n * (weights[ch] || 0)) / total;
+      floor[ch] = Math.floor(exact[ch]);
+      used += floor[ch];
+    });
+    // số câu tối đa có thể lấy của từng chương (so sánh bằng chuỗi để không lệch kiểu)
+    const cap = {};
+    chs.forEach((ch) => {
+      cap[ch] = QUESTIONS.filter((q) => String(q.chapter) === String(ch)).length;
+    });
+
+    let left = n - used;
+    // chia phần dư cho chương có phần lẻ lớn nhất; nếu bằng nhau thì ưu tiên trọng số cao
+    const order = chs.slice().sort((a, b) => {
+      const ra = exact[a] - floor[a], rb = exact[b] - floor[b];
+      if (Math.abs(rb - ra) > 1e-9) return rb - ra;
+      return (weights[b] || 0) - (weights[a] || 0);
+    });
+    let guard = 0;
+    while (left > 0 && order.length && guard < order.length * (n + 4)) {
+      const ch = order[guard % order.length];
+      if (floor[ch] < cap[ch]) { floor[ch]++; left--; }
+      guard++;
+    }
+    chs.forEach((ch) => (out[ch] = floor[ch]));
+    return out;
+  }
+
+  const wlist = $("#wlist");
+  const presetRow = $("#preset-row");
+  const wsum = $("#wsum");
+
+  function renderPresets() {
+    presetRow.innerHTML = "";
+    Object.keys(PRESETS).forEach((key) => {
+      const P = PRESETS[key];
+      const b = el("button", "preset-btn");
+      b.type = "button";
+      b.dataset.preset = key;
+      b.innerHTML = "";
+      b.append(el("span", "", P.name), el("small", "", P.note));
+      b.setAttribute("aria-pressed", currentPreset === key ? "true" : "false");
+      b.addEventListener("click", () => {
+        currentPreset = key;
+        weights = key === "yeu" ? weakPresetWeights() : Object.assign({}, PRESETS[key].w);
+        chaptersWithQ.forEach((ch) => { if (weights[ch] === undefined) weights[ch] = 1; });
+        saveWeights();
+        renderPresets();
+        renderWeights();
+      });
+      presetRow.append(b);
+    });
+  }
+
+  function renderWeights() {
+    wlist.innerHTML = "";
+    chaptersWithQ.forEach((ch) => {
+      const nQ = QUESTIONS.filter((q) => String(q.chapter) === ch).length;
+      const row = el("div", "wrow");
+      row.dataset.ch = ch;
+
+      const nm = el("div", "wname");
+      nm.innerHTML = "<b>Chương " + ch + ".</b> " + CHAPTER_NAMES[ch];
+      nm.append(el("span", "wcnt", nQ + " câu"));
+      row.append(nm);
+
+      const rng = document.createElement("input");
+      rng.type = "range";
+      rng.min = "0"; rng.max = String(W_MAX); rng.step = "1";
+      rng.value = String(weights[ch] || 0);
+      rng.setAttribute("aria-label", "Trọng số chương " + ch);
+      rng.addEventListener("input", () => {
+        weights[ch] = +rng.value;
+        currentPreset = null;
+        saveWeights();
+        renderPresets();
+        updateWeightSummary();
+        row.classList.toggle("zero", weights[ch] === 0);
+        const v = $(".wval", row);
+        if (v) v.innerHTML = weights[ch] + "<small>trọng số</small>";
+      });
+      row.append(rng);
+
+      const val = el("div", "wval");
+      val.innerHTML = (weights[ch] || 0) + "<small>trọng số</small>";
+      row.append(val);
+
+      row.classList.toggle("zero", (weights[ch] || 0) === 0);
+      wlist.append(row);
+    });
+    updateWeightSummary();
+  }
+
+  function updateWeightSummary() {
+    if (!wsum) return;
+    const active = chaptersWithQ.filter((ch) => (weights[ch] || 0) > 0);
+    let n = parseInt($("#exam-count").value, 10);
+    if (!(n > 0)) n = 40;
+
+    const totalW = active.reduce((s, ch) => s + weights[ch], 0);
+    const focusActive = $("#w-focus") && $("#w-focus").checked;
+
+    wsum.innerHTML = "";
+    if (!active.length) {
+      wsum.append(el("span", "warnmsg", "Tất cả trọng số đang bằng 0 — hãy tăng ít nhất một chương."));
+      return;
+    }
+
+    const alloc = allocate(n, active);
+    const parts = [];
+    active.forEach((ch) => {
+      if (alloc[ch] > 0) parts.push("ch." + ch + ": <b>" + alloc[ch] + "</b>");
+    });
+
+    const sumQ = active.reduce((s, ch) => s + (alloc[ch] || 0), 0);
+    const line = el("span");
+    line.innerHTML = "Tổng trọng số <b>" + totalW + "</b> · " + n + " câu chia theo tỉ lệ: " + parts.join(" · ");
+    wsum.append(line);
+
+    if (sumQ !== n) {
+      const w = el("span", "warnmsg");
+      w.textContent = "Chỉ chia được " + sumQ + "/" + n + " câu vì các chương được chọn không đủ câu hỏi.";
+      wsum.append(w);
+    }
+
+    if (focusActive) {
+      const nFocus = QUESTIONS.filter((q) => q.focus && active.includes(String(q.chapter))).length;
+      const s = el("span");
+      s.innerHTML = "Ưu tiên trọng tâm: <b>" + nFocus + "</b> câu chẩn đoán sẽ được lấy trước.";
+      wsum.append(s);
+    }
+  }
+
+  const wFocusCb = $("#w-focus");
+  if (wFocusCb) {
+    wFocusCb.checked = focusBoost;
+    const fn = $("#w-focus-note");
+    if (fn) fn.textContent = "(" + FOCUS_IDS.size + " câu có nhãn trọng tâm)";
+    wFocusCb.addEventListener("change", () => {
+      focusBoost = wFocusCb.checked;
+      saveWeights();
+      updateWeightSummary();
+    });
+  }
+  $("#exam-count").addEventListener("input", updateWeightSummary);
+
+  renderPresets();
+  renderWeights();
+
   let examCards = [], examQs = [], timer = null, secondsLeft = 0, examMinutes = 0;
 
   $("#start-exam-btn").addEventListener("click", () => {
     const chs = $$("input:checked", examChBox).map((c) => +c.value);
     const d = $("#exam-diff").value;
-    const pool = QUESTIONS.filter((q) => chs.includes(q.chapter) && (d === "all" || String(q.difficulty) === d));
-    if (!pool.length) { alert("Hãy chọn ít nhất một chương có câu hỏi."); return; }
+    if (!chs.length) { alert("Hãy chọn ít nhất một chương có câu hỏi."); return; }
+
     let n = parseInt($("#exam-count").value, 10);
     if (!(n > 0)) n = 40;
-    n = Math.min(n, pool.length);
     examMinutes = parseInt($("#exam-minutes").value, 10);
     if (!(examMinutes > 0)) examMinutes = 45;
 
-    const picked = shuffle(pool).slice(0, n);
+    // ---- lọc pool theo chương + độ khó ----
+    const inScope = (q) => {
+      if (!chs.includes(q.chapter)) return false;
+      if (d !== "all" && String(q.difficulty) !== d) return false;
+      return true;
+    };
+    const poolAll = QUESTIONS.filter(inScope);
+    if (!poolAll.length) { alert("Không có câu hỏi nào khớp bộ lọc. Hãy nới độ khó hoặc chọn thêm chương."); return; }
+    n = Math.min(n, poolAll.length);
+
+    // ---- chia số câu theo trọng số ----
+    // chỉ xét các chương được tick VÀ có trọng số > 0 và có câu trong pool
+    const chsActive = chs.filter(
+      (ch) => (weights[ch] || 0) > 0 && poolAll.some((q) => q.chapter === ch)
+    );
+    let picked = [];
+
+    if (chsActive.length && chsActive.reduce((s, ch) => s + weights[ch], 0) > 0) {
+      const alloc = allocate(n, chsActive);
+      chsActive.forEach((ch) => {
+        const chPool = poolAll.filter((q) => q.chapter === ch);
+        const want = alloc[ch] || 0;
+        if (!want) return;
+        // Trong mỗi chương: nếu bật ưu tiên trọng tâm thì lấy câu có focus:true trước,
+        // nhưng KHÔNG vượt quá số câu đã chia -> tỉ lệ trọng số được giữ nguyên.
+        let ordered;
+        if (focusBoost) {
+          const f = shuffle(chPool.filter((q) => q.focus));
+          const o = shuffle(chPool.filter((q) => !q.focus));
+          ordered = f.concat(o);
+        } else {
+          ordered = shuffle(chPool);
+        }
+        picked = picked.concat(ordered.slice(0, Math.min(want, chPool.length)));
+      });
+    }
+
+    // bù nếu thiếu (chương không đủ câu, hoặc mọi trọng số đều 0)
+    if (picked.length < n) {
+      const have = new Set(picked.map((q) => q.id));
+      let rest = shuffle(poolAll.filter((q) => !have.has(q.id)));
+      if (focusBoost) {
+        const f = rest.filter((q) => q.focus);
+        const o = rest.filter((q) => !q.focus);
+        rest = f.concat(o);
+      }
+      picked = picked.concat(rest.slice(0, n - picked.length));
+    }
+    picked = picked.slice(0, n);
+
     examQs = $("#exam-order").value === "chapter"
       ? picked.slice().sort((a, b) => a.chapter - b.chapter)
-      : picked;
+      : shuffle(picked);
 
     const box = $("#exam-list");
     box.innerHTML = "";

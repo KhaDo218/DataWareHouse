@@ -167,7 +167,7 @@
       <section id="exam-view" class="view">
         <div id="exam-setup" class="card">
           <h3>Thiết lập bài thi</h3>
-          <p class="muted" style="margin-top:4px">Câu hỏi được chọn ngẫu nhiên, thứ tự đáp án được xáo. Kết quả và giải thích chỉ hiện sau khi nộp bài.</p>
+          <p class="muted" style="margin-top:4px">Câu hỏi được chọn theo <b>trọng số từng chương</b>, thứ tự đáp án được xáo. Kết quả và giải thích chỉ hiện sau khi nộp bài.</p>
           <div class="setup-grid">
             <label class="field"><span>Số câu</span><input type="number" id="exam-count" min="5" value="40"></label>
             <label class="field"><span>Thời gian (phút)</span><input type="number" id="exam-minutes" min="1" max="240" value="45"></label>
@@ -186,6 +186,28 @@
               </select>
             </label>
           </div>
+
+          <!-- ================= TRỌNG SỐ CHƯƠNG ================= -->
+          <div class="wsec">
+            <div class="wsec-head">
+              <div>
+                <h4 class="wsec-title">Trọng số từng chương</h4>
+                <p class="muted wsec-sub">Kéo thanh trượt để đặt tỉ lệ câu hỏi mỗi chương. Số câu thực tế được quy đổi từ tổng trọng số về đúng "Số câu" ở trên.</p>
+              </div>
+            </div>
+
+            <div class="preset-row" id="preset-row"></div>
+
+            <div class="wlist" id="wlist"></div>
+
+            <div class="wsum" id="wsum"></div>
+
+            <div class="wtools">
+              <label class="check"><input type="checkbox" id="w-focus"> Ưu tiên câu trọng tâm (bộ 40 câu chẩn đoán)</label>
+              <span class="muted" id="w-focus-note"></span>
+            </div>
+          </div>
+
           <div class="chapter-picks" id="exam-chapters"></div>
           <div class="btn-row" style="justify-content:flex-end; margin-top:14px">
             <button class="btn ghost small" id="exam-all-ch" type="button">Chọn tất cả</button>
@@ -240,16 +262,35 @@
             <div class="doc-ic">HTML</div>
             <div class="doc-body">
               <h4>Giải chi tiết bộ câu hỏi chẩn đoán kiến thức</h4>
-              <p class="muted">Giải đủ 41 câu, sơ đồ kiến trúc SVG, bảng tính từng bước, câu hỏi biến thể, bảng công thức và thuật ngữ Anh&ndash;Việt. Một file HTML tự chứa, mở offline được.</p>
+              <p class="muted">Giải đủ 41 câu, sơ đồ kiến trúc SVG, bảng tính từng bước, câu hỏi biến thể, bảng công thức và thuật ngữ Anh&ndash;Việt. Bổ sung phần trả lời 5 thắc mắc mở rộng và 17 sơ đồ vẽ lại với chữ lớn, đọc được trên điện thoại. Một file HTML tự chứa, mở offline được.</p>
               <div class="doc-meta">
                 <span class="tag">41 câu giải chi tiết</span>
-                <span class="tag">16 sơ đồ SVG</span>
+                <span class="tag">17 sơ đồ SVG</span>
+                <span class="tag">Chữ to · có nút phóng</span>
                 <span class="tag">Bảng công thức</span>
               </div>
               <div class="btn-row doc-actions">
                 <a class="btn primary small" id="doc-preview" href="giai-cau-hoi-chan-doan.html" target="_blank" rel="noopener">Mở xem</a>
                 <a class="btn ghost small" id="doc-download" href="giai-cau-hoi-chan-doan.html" download="giai-cau-hoi-chan-doan.html">Tải về máy (.html)</a>
                 <span class="muted" id="doc-status"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="doc-row" style="margin-top:20px; padding-top:20px; border-top:1px solid var(--line)">
+            <div class="doc-ic doc-ic-ex">BT</div>
+            <div class="doc-body">
+              <h4>Bài tập tính toán &mdash; từ dễ đến khó</h4>
+              <p class="muted">Bộ bài tập trắc nghiệm <b>chỉ gồm tính toán</b>, không có lý thuyết: Entropy, Information Gain, Min-Max, Z-Score, Decimal Scaling, binning, SMA, Apriori, Support/Confidence/Lift/Leverage, FP-Growth, PageRank, CPT, BFS/DFS, micro-partition, chi phí cloud, OLAP cube và ML metrics. Mỗi câu có <b>lời giải từng bước</b>, đáp án chốt và ghi chú bẫy.</p>
+              <div class="doc-meta">
+                <span class="tag on-tag">148 câu</span>
+                <span class="tag">4 mức độ</span>
+                <span class="tag">20 chủ đề</span>
+                <span class="tag">Lời giải từng bước</span>
+              </div>
+              <div class="btn-row doc-actions">
+                <a class="btn primary small" href="bai-tap-tinh-toan.html" target="_blank" rel="noopener">Mở xem</a>
+                <a class="btn ghost small" href="bai-tap-tinh-toan.html" download="bai-tap-tinh-toan.html">Tải về máy (.html)</a>
               </div>
             </div>
           </div>
