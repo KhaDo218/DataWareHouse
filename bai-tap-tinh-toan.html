@@ -163,6 +163,8 @@ li{margin:6px 0}
   color:var(--mut);margin-bottom:8px;display:block}
 .dg-wrap svg{display:block;width:100%;max-width:440px;height:auto;margin:0 auto}
 .dg-wrap svg text{font-family:var(--sans)}
+/* sơ đồ cây chia nhánh (Information Gain): rộng hơn để chữ không bị bóp */
+.dg-wrap svg.dgi{max-width:760px}
 .dbx{fill:#FFFFFF;stroke:#C4C4C4;stroke-width:1.2}
 .dbx.acc{fill:#FDF1F1;stroke:var(--acc);stroke-width:1.7}
 .dbx.hi{fill:#FCE8E9;stroke:var(--acc);stroke-width:1.7}
@@ -186,10 +188,16 @@ li{margin:6px 0}
 .dts.mute{fill:#8A8A8A}
 .dhd{fill:var(--acc);font-size:11.5px;font-weight:700;letter-spacing:.06em}
 .dmb{font-family:var(--mono);fill:#0B0B0B;font-weight:700}
+.dg-wrap .dg-hint{display:none;font-family:var(--mono);font-size:10.5px;color:var(--mut);
+  margin:4px 0 0;letter-spacing:.02em;text-align:center}
 
 @media (max-width:640px){
   .dg-wrap{padding:10px 8px 6px}
   .dg-wrap svg{max-width:100%}
+  /* cây chia nhánh Information Gain: giữ cỡ chữ đọc được → cho vuốt ngang */
+  .dg-wrap.dg-wide{overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:4px}
+  .dg-wrap.dg-wide svg{max-width:none;width:700px;margin:0}
+  .dg-wrap.dg-wide .dg-hint{display:block}
 }
 
 .pager{display:flex;flex-wrap:wrap;gap:7px;justify-content:center;margin:22px 0 8px}
@@ -470,11 +478,19 @@ footer{margin-top:34px;padding-top:20px;border-top:1px solid var(--line);color:v
 
     // sơ đồ SVG (nếu câu này có)
     if (typeof EX_DIAGRAMS !== "undefined" && EX_DIAGRAMS[q.id]) {
-      var dw = document.createElement("div"); dw.className = "dg-wrap";
+      var dgSvg = EX_DIAGRAMS[q.id];
+      var wide = dgSvg.indexOf('class="dgi"') >= 0;
+      var dw = document.createElement("div");
+      dw.className = "dg-wrap" + (wide ? " dg-wide" : "");
       var dc = document.createElement("span"); dc.className = "dg-cap";
       dc.textContent = "Sơ đồ minh hoạ";
       dw.appendChild(dc);
-      dw.insertAdjacentHTML("beforeend", EX_DIAGRAMS[q.id]);
+      dw.insertAdjacentHTML("beforeend", dgSvg);
+      if (wide) {
+        var dh = document.createElement("span"); dh.className = "dg-hint";
+        dh.textContent = "← vuốt ngang để xem đủ sơ đồ →";
+        dw.appendChild(dh);
+      }
       b.appendChild(dw);
     }
 
