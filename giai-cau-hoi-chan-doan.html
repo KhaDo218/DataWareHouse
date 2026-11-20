@@ -3391,7 +3391,7 @@ hr{border:0;border-top:1px solid var(--line);margin:24px 0}
 <section id="nha-g">
   <p class="ov">Nhóm F · Câu 32, 33</p>
   <h2>CPT — Compact Prediction Tree</h2>
-  <p class="lead">CPT dùng để <b>dự đoán phần tử tiếp theo của một chuỗi</b> (ví dụ: khách vừa xem A rồi B, sắp xem gì?). Thuật toán nén toàn bộ chuỗi lịch sử vào một cấu trúc cây gọn, rồi đếm <b>phần tử nào thường xuất hiện ngay sau chuỗi cần dự đoán</b>.</p>
+  <p class="lead">CPT dùng để <b>dự đoán phần tử tiếp theo của một chuỗi</b> (ví dụ: khách vừa xem A rồi B, sắp xem gì?). Thuật toán nén toàn bộ chuỗi lịch sử vào một cấu trúc cây gọn, rồi tìm các chuỗi <b>chứa đủ</b> các phần tử của chuỗi cần dự đoán và đếm <b>mọi phần tử nằm trong phần đuôi còn lại</b>.</p>
 
   <div class="def">
     <span class="t">Ba câu hỏi CPT trả lời</span>
@@ -3546,7 +3546,7 @@ hr{border:0;border-top:1px solid var(--line);margin:24px 0}
         <thead><tr><th>Thành phần</th><th>Chức năng</th><th>Trả lời câu hỏi</th></tr></thead>
         <tbody>
           <tr><td><b>Prediction Tree</b></td><td>Nén toàn bộ chuỗi thành cây <b>tiền tố chung</b></td><td>Dữ liệu lịch sử trông như thế nào?</td></tr>
-          <tr><td><b>Inverted Index</b></td><td>Bảng nhị phân item × chuỗi: <b>item nào có trong chuỗi nào</b></td><td>Cần đếm item X → chỉ xét các chuỗi có X</td></tr>
+          <tr><td><b>Inverted Index</b></td><td>Bảng nhị phân item × chuỗi: <b>item nào có trong chuỗi nào</b></td><td>Chuỗi nào <b>chứa đủ</b> mọi phần tử cần dự đoán? (giao các dòng — không quan tâm thứ tự)</td></tr>
           <tr><td><b>Lookup Table</b></td><td>Ánh xạ <b>chuỗi → lá tương ứng</b></td><td>Chuỗi này kết thúc ở node nào?</td></tr>
         </tbody>
       </table>
@@ -3560,26 +3560,27 @@ hr{border:0;border-top:1px solid var(--line);margin:24px 0}
   <div class="qz">
     <div class="qh"><span class="no">CÂU 32</span><div class="qt">Phần tử có điểm dự đoán cao nhất khi dự đoán chuỗi &lt;D, C&gt; là phần tử nào?</div></div>
     <div class="qb">
-      <div class="ansline"><b>Đáp án.</b> <span class="kq">B</span> — với điểm dự đoán 2/3 ≈ 0,667 (E chỉ 1/3 ≈ 0,333).</div>
+      <div class="ansline"><b>Đáp án.</b> <span class="kq">B</span> — với điểm dự đoán 2/3 ≈ 0,667 (E và F chỉ 1/3 ≈ 0,333).</div>
 
       <div class="def">
         <span class="t">Nguyên tắc dự đoán của CPT</span>
-        <p>Khi cần dự đoán phần tử tiếp theo của chuỗi hậu tố, CPT:</p>
-        <p><b>(1)</b> Tìm mọi <b>nhánh/chuỗi</b> trong cây có chứa <b>chuỗi hậu tố</b> cần dự đoán (không nhất thiết ở cuối).<br>
-        <b>(2)</b> Với mỗi nhánh, liệt kê mọi phần tử <b>nằm sau</b> hậu tố đó → ứng viên.<br>
-        <b>(3)</b> Đếm số nhánh chứa mỗi ứng viên; ứng viên có <b>số lần xuất hiện lớn nhất</b> là dự đoán.</p>
-        <p class="small"><b>Chú ý của slide:</b> "Mẫu số trong các phép tính ước lượng phần tử chính là <b>số nhánh chứa chuỗi hậu tố</b>" — tức không chia cho tổng số nhánh, mà chia cho <b>số nhánh có chứa hậu tố</b>.</p>
+        <p>Khi cần dự đoán phần tử tiếp theo của chuỗi truy vấn s, CPT:</p>
+        <p><b>(1)</b> Lấy <b>hậu tố</b> P_y(s) của s. Ở đây s = &lt;D, C&gt; nên P_y(s) = {D, C}.<br>
+        <b>(2)</b> Tìm mọi <b>nhánh/chuỗi</b> trong cây <b>chứa đủ tất cả phần tử</b> của P_y(s) — <b>theo bất kỳ thứ tự nào</b>.<br>
+        <b>(3)</b> Với mỗi nhánh, <b>mệnh đề kết quả</b> = toàn bộ phần <b>đuôi còn lại</b> sau khi đã gặp đủ các phần tử đó (không chỉ phần tử liền sau).<br>
+        <b>(4)</b> Đếm số nhánh mà mệnh đề kết quả <b>chứa</b> mỗi ứng viên; ứng viên có <b>số nhánh nhiều nhất</b> là dự đoán.</p>
+        <p class="small"><b>Chú ý của slide:</b> "Mẫu số trong các phép tính ước lượng phần tử chính là <b>số nhánh chứa chuỗi hậu tố</b>" — tức không chia cho tổng số nhánh, mà chia cho <b>số nhánh có chứa hậu tố</b>. Ở câu này mẫu số = 3 nhánh (s1, s2, s3); s4 tuy chứa đủ {D, C} nhưng C nằm cuối nên không sinh được mệnh đề kết quả nào, và vì vậy cả 3 ứng viên đều KHÔNG có mặt ở s4 — nên dù lấy 3 hay 4 thì thứ hạng vẫn không đổi.</p>
       </div>
 
       <h5>Dữ liệu chuỗi trong cây</h5>
       <div class="tw">
       <table class="compact">
-        <thead><tr><th>Chuỗi</th><th>Nội dung</th><th>Có chứa &lt;D, C&gt;?</th><th>Phần tử đứng sau C</th></tr></thead>
+        <thead><tr><th>Chuỗi</th><th>Nội dung</th><th>Chứa đủ {D, C}?</th><th>Mệnh đề kết quả</th></tr></thead>
         <tbody>
-          <tr><td class="mono">s1</td><td class="mono">A, B, C, D, F</td><td>✗ (D đứng sau C)</td><td>—</td></tr>
+          <tr class="res"><td class="mono">s1</td><td class="mono">A, B, C, D, F</td><td>✓ (có C và D)</td><td><b>F</b></td></tr>
           <tr class="res"><td class="mono">s2</td><td class="mono">D, C, B, E</td><td>✓</td><td><b>B</b>, E</td></tr>
           <tr class="res"><td class="mono">s3</td><td class="mono">E, A, D, C, B</td><td>✓</td><td><b>B</b></td></tr>
-          <tr class="res"><td class="mono">s4</td><td class="mono">E, G, A, D, B, C</td><td>✓</td><td>không có gì sau C</td></tr>
+          <tr><td class="mono">s4</td><td class="mono">E, G, A, D, B, C</td><td>✓ nhưng C nằm <b>cuối</b></td><td>rỗng (không sinh ứng viên)</td></tr>
         </tbody>
       </table>
       </div>
@@ -3591,21 +3592,22 @@ hr{border:0;border-top:1px solid var(--line);margin:24px 0}
           <tbody>
             <tr class="res"><td class="mono"><b>B</b></td><td class="mono">s2, s3</td><td class="n">2</td><td class="n">2/3 ≈ 0,667</td></tr>
             <tr><td class="mono">E</td><td class="mono">s2</td><td class="n">1</td><td class="n">1/3 ≈ 0,333</td></tr>
-            <tr class="tot"><td>Mẫu số</td><td class="mono">số nhánh chứa &lt;D,C&gt; = 3 (s2, s3, s4)</td><td class="n">3</td><td class="n">1,0</td></tr>
+            <tr><td class="mono">F</td><td class="mono">s1</td><td class="n">1</td><td class="n">1/3 ≈ 0,333</td></tr>
+            <tr class="tot"><td>Mẫu số</td><td class="mono">số nhánh có mệnh đề kết quả = 3 (s1, s2, s3)</td><td class="n">3</td><td class="n">1,0</td></tr>
           </tbody>
         </table>
       </div>
 
       <div class="memo">
-        <h4>Hai điểm dễ sai</h4>
+        <h4>Ba điểm dễ sai</h4>
         <ul>
-          <li><b>s1 bị loại</b> vì chuỗi là A, B, C, <b>D</b>, F — <code>D</code> đứng <b>sau</b> <code>C</code>, không phải cặp &lt;D, C&gt;. Hậu tố phải đúng <b>thứ tự</b>.</li>
-          <li><b>s4 có chứa &lt;D,C&gt; nhưng không sinh ứng viên nào</b>, vì C là phần tử <b>cuối chuỗi</b>. Tuy vậy s4 <b>vẫn nằm ở mẫu số</b> (3 nhánh), vì mẫu số là "số nhánh chứa chuỗi hậu tố", không phải "số nhánh có phần tử sau".</li>
+          <li><b>Đừng loại s1.</b> Trước đây có thể nghĩ "s1 = A, B, C, <b>D</b>, F nên D đứng sau C, không phải cặp &lt;D, C&gt;". Điều này <b>không đúng với CPT</b>: thuật toán khớp <b>không phân biệt thứ tự</b>, chuỗi chỉ cần <b>chứa đủ</b> cả D và C (slide: "chứa tất cả phần tử nằm trong P_y(s) theo bất kỳ thứ tự nào"). Vì vậy s1 hợp lệ và sinh ra ứng viên <b>F</b>.</li>
+          <li><b>Đừng bỏ sót F.</b> F tuy chỉ 1/3 nhưng <b>vẫn là một phương án</b> ngang E — nếu đề có phương án F thì phải loại nó bằng điểm số, không phải bằng cách bỏ qua.</li>
+          <li><b>s4 không sinh ứng viên</b> vì C là phần tử <b>cuối chuỗi</b>. Nếu lấy mẫu số = 4 thì B = 2/4 và E = F = 1/4 — tỉ lệ khác nhưng <b>thứ hạng vẫn y nguyên</b>, nên đáp án B không đổi. Chú ý trong slide ghi mẫu số là <b>số nhánh chứa hậu tố</b>; cách trình bày dưới đây dùng 3 để bám sát chú ý đó.</li>
         </ul>
-        <p>Nếu lấy mẫu số là 2 (chỉ s2, s3) thì B = 2/2 = 1,0 và E = 1/2 = 0,5 — <b>sai</b>. Chú ý trong slide đã ghi rõ mẫu số là <b>số nhánh chứa hậu tố</b>, tức 3.</p>
       </div>
 
-      <div class="say"><span>Cách trình bày</span><p>"Chuỗi hậu tố cần dự đoán là &lt;D, C&gt;. Ba nhánh chứa nó là s2 (D,C,B,E), s3 (E,A,D,C,B) và s4 (E,G,A,D,B,C). Sau hậu tố, ứng viên là B — xuất hiện ở s2 và s3, tức <b>2 lần</b> — và E — chỉ 1 lần ở s2. Mẫu số là 3 nhánh chứa hậu tố, nên B có điểm <b>2/3</b> và E có <b>1/3</b>. Vậy dự đoán là <b>B</b>."</p></div>
+      <div class="say"><span>Cách trình bày</span><p>"Chuỗi truy vấn là &lt;D, C&gt;. CPT khớp <b>không phân biệt thứ tự</b>, nên nhánh nào chứa đủ cả D và C là hợp lệ: s1 (A,B,C,D,F → đuôi <b>F</b>), s2 (D,C,B,E → đuôi <b>B, E</b>), s3 (E,A,D,C,B → đuôi <b>B</b>), còn s4 (E,G,A,D,B,C) có C ở cuối nên không còn phần tử nào phía sau. Đếm số nhánh mà phần đuôi chứa từng ứng viên: <b>B</b> có ở s2 và s3 → <b>2 nhánh</b>; E chỉ ở s2 → 1; F chỉ ở s1 → 1. Mẫu số là 3 nhánh, nên B có điểm <b>2/3</b>, E và F cùng <b>1/3</b>. Vậy dự đoán là <b>B</b>."</p></div>
     </div>
   </div>
 </section>
@@ -4318,9 +4320,9 @@ hr{border:0;border-top:1px solid var(--line);margin:24px 0}
       </tr>
       <tr>
         <td><b>Điểm CPT</b></td>
-        <td class="mono">score(e) = số nhánh chứa e / số nhánh chứa hậu tố</td>
+        <td class="mono">score(e) = số nhánh mà MỆNH ĐỀ KẾT QUẢ chứa e<br>/ số nhánh sinh được mệnh đề kết quả</td>
         <td class="mono">32</td>
-        <td>Lấy mẫu số là tổng số chuỗi thay vì số nhánh chứa hậu tố</td>
+        <td>① Lấy mẫu số là tổng số chuỗi. ② Khớp <b>có</b> thứ tự (CPT khớp <b>không</b> phân biệt thứ tự!). ③ Chỉ lấy phần tử liền sau thay vì <b>cả phần đuôi</b></td>
       </tr>
     </tbody>
     </table>
@@ -4347,8 +4349,7 @@ hr{border:0;border-top:1px solid var(--line);margin:24px 0}
       <tr><td>Leverage {c}→{d,e}</td><td class="n">0,0469</td><td>Câu 28a</td></tr>
       <tr><td>PR₁(Page 2)</td><td class="n">1,2125</td><td>Câu 31a</td></tr>
       <tr><td>PR₁(Page 1)</td><td class="n">0,3625</td><td>Câu 31b</td></tr>
-      <tr><td>CPT: B sau &lt;D,C&gt;</td><td class="n">2/3 = 0,667</td><td>Câu 32</td></tr>
-    </tbody>
+      <tr><td>CPT: B sau &lt;D,C&gt;</td><td class="n">2/3 = 0,667</td><td>Câu 32</td></tr>    </tbody>
   </table>
   </div>
 </section>
@@ -4447,16 +4448,18 @@ hr{border:0;border-top:1px solid var(--line);margin:24px 0}
       </div>
     </details>
     <details>
-      <summary>CPT: nếu dự đoán chuỗi &lt;A, D&gt; thì phần tử nào?</summary>
+      <summary>CPT: nếu dự đoán chuỗi &lt;A, D&gt; thì phần tử nào? (chính là ví dụ trong slide)</summary>
       <div class="ans">
-        <p>Xét các chuỗi chứa cặp &lt;A, D&gt; theo đúng thứ tự:</p>
+        <p>CPT khớp <b>không phân biệt thứ tự</b>: nhánh nào <b>chứa đủ cả A và D</b> là hợp lệ; <b>mệnh đề kết quả</b> là <b>toàn bộ phần đuôi</b> sau khi đã gặp đủ hai phần tử đó.</p>
         <ul>
-          <li>s1 = A, B, C, D, F → có A nhưng D đứng sau C, <b>không</b> tạo cặp &lt;A,D&gt; liền nhau theo thứ tự AD? Thực tế A đứng trước D nên <b>có</b> chứa &lt;A,D&gt;; sau D là <b>F</b>.</li>
-          <li>s3 = E, A, D, C, B → có &lt;A,D&gt;; sau D là <b>C</b>.</li>
-          <li>s4 = E, G, A, D, B, C → có &lt;A,D&gt;; sau D là <b>B, C</b>.</li>
+          <li>s1 = A, B, C, D, F → chứa đủ A, D → đuôi = <b>F</b></li>
+          <li>s2 = D, C, B, E → thiếu A → <b>không</b> có mệnh đề kết quả (không vào mẫu số)</li>
+          <li>s3 = E, A, D, C, B → chứa đủ → đuôi = <b>C, B</b></li>
+          <li>s4 = E, G, A, D, B, C → chứa đủ → đuôi = <b>B, C</b></li>
         </ul>
-        <p>Đếm: F = 1 (s1) · C = 2 (s3, s4) · B = 1 (s4)</p>
-        <p>Mẫu số = 3 nhánh chứa &lt;A,D&gt; → C = 2/3 ≈ <b>0,667</b> là cao nhất → dự đoán <b>C</b>.</p>
+        <p>Đếm số nhánh mà phần đuôi <b>chứa</b> từng ứng viên: <b>C</b> = 2 (s3, s4) · <b>B</b> = 2 (s3, s4) · <b>F</b> = 1 (s1)</p>
+        <p>Mẫu số = 3 nhánh có mệnh đề kết quả → <b>C = B = 2/3 ≈ 0,667</b>, F = 1/3 ≈ 0,333.</p>
+        <p><b>C và B hoà nhau</b> — slide kết luận: <i>"phần tử kế tiếp của chuỗi s = &lt;A, D&gt; khả dĩ là B hoặc C (với điểm cao nhất trong Count Table là 0,667)"</i>. Nếu buộc chọn một thì phải nêu rõ đó là quy ước phụ, không phải kết quả duy nhất của thuật toán.</p>
       </div>
     </details>
   </div>
@@ -4834,14 +4837,14 @@ hr{border:0;border-top:1px solid var(--line);margin:24px 0}
       <tr>
         <td class="qid">5</td>
         <td>Câu 32 — lấy mẫu số là <b>tổng số chuỗi (4)</b></td>
-        <td>Ra 2/4 = 0,5 và 1/4 = 0,25 — sai</td>
-        <td>Mẫu số = số nhánh <b>chứa hậu tố</b> = 3</td>
+        <td>Ra 2/4 = 0,5 và 1/4 = 0,25</td>
+        <td>Mẫu số = số nhánh <b>sinh được mệnh đề kết quả</b> = 3. (Lấy 4 thì <b>thứ hạng không đổi</b>, B vẫn thắng — nhưng không đúng chú ý của slide)</td>
       </tr>
       <tr>
         <td class="qid">6</td>
-        <td>Câu 32 — tính cả <b>s1</b> là chuỗi chứa &lt;D,C&gt;</td>
-        <td>s1 = A,B,C,<b>D</b>,F → D đứng <b>sau</b> C, không phải cặp &lt;D,C&gt;</td>
-        <td>Hậu tố phải đúng <b>thứ tự</b>, không chỉ "có mặt cả hai"</td>
+        <td>Câu 32 — <b>loại s1</b> vì cho rằng "D đứng sau C"</td>
+        <td>s1 = A,B,C,<b>D</b>,F vẫn chứa đủ cả D và C → s1 hợp lệ và sinh ứng viên <b>F</b></td>
+        <td>CPT khớp <b>KHÔNG phân biệt thứ tự</b> ("chứa tất cả phần tử … theo bất kỳ thứ tự nào"). Đừng bỏ sót ứng viên F</td>
       </tr>
       <tr>
         <td class="qid">7</td>
